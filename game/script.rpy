@@ -8,14 +8,15 @@ define s = Character(_("Sučan"), color="#0303fe")
 define a = Character(_("Adrian"), color="#094611")
 define d = Character(_("Dante"), color="#000000")
 
+transform half_size:
+    zoom .5
+
 # The game starts here.
 
 label start:
 
-
-    scene bg letistenara
+    scene bg letistenara at half_size
     with fade
-
 
     "Vítej ve hře cesta po Japonsku"
     "Tvým cílem hry je užít si dovolenou a procestovat velkou část Japonska, nezabít Mimoně, užít si i nějakou romanci a nasbírat co nejméně Gaijin pointů (GP)."
@@ -46,12 +47,13 @@ label neridic:
         "Ale můžeš si vybrat kde budeš sedět"
         "Za řidičem":
             jump zaridicem
-        "Ve prostřed":
+        "Vprostřed":
             jump veprostred
         "Za spolujezdcem":
             jump zaspolujezdcem
 label zaridicem:
     "Vybrala sis místo za řidičem takže vedle tebe si do středu sedá Adrian a za spolujezdce Mimoň."
+    show a smile at right
     "Auto je opravdu krásný, ale vážně malý sporťák. Takže i přes tvou snahu se spíše lepit na dveře než na Adriana."
 
 label veprostred:
