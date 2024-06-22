@@ -28,8 +28,10 @@ label vyberauta:
     scene bg vyzvednutiauta
     with fade
     "Absolvovali jste dlouhý a náročný let do Japonska a máte si vyzvednout auto, které vám bude dělat společnost další 3 týdny. "
+    show s neutral at left, half_size
     "A ejhle první problém, auto zařizoval Sučan - fanda do aut. Máte sporťák… "
     "Pro pět lidí s kufry, je to docela stísněný prostor."
+    hide s neutral
     menu:
         "Jseš řidička? Pokud ano, jseš ochotná následující 3 týdny strávit za volantem spolu se Sučanem? Mysli na to, že v Japonsku se jezdí vlevo."
         "Ano, budu řídit":
@@ -54,10 +56,42 @@ label neridic:
 label zaridicem:
     "Vybrala sis místo za řidičem takže vedle tebe si do středu sedá Adrian a za spolujezdce Mimoň."
     show a smile at right
-    "Auto je opravdu krásný, ale vážně malý sporťák. Takže i přes tvou snahu se spíše lepit na dveře než na Adriana."
-
+    "Auto je opravdu krásný, ale vážně malý sporťák. Takže i přes tvou urputnou snahu se spíše lepit na dveře, než na Adriana, se ramenem a nohou Adriana dotýkáš."
+    menu:
+        "Otočí se na tebe a mile se usměje. Opětuješ úsměv nebo se raději podíváš z okna?"
+        "Opětuji úsměv":
+            jump Adrianvaute
+        "Stočím pohled ven z okýnka":
+            jump Adrivauteodmitnuti
 label veprostred:
+    "Přesunuli jste se do hotelu v Tokiu"
+    jump tokio1
 label zaspolujezdcem:
+    "Přesunuli jste se do hotelu v Tokiu"
+    jump tokio1
+label Adrianvaute:
+    a "Nevadilo by ti kdybych se k tobě víc přitulil?"
+    "pohodí hlavou směrem k Mimoňovi a teprve teď sis všiml/a, že ho Mimoň dosti utiskuje."
+    "Je rozvalený přes celou sedačku ramenem evidentně až bolestivě opřený o Adriana."
+    "Spí a nohy má rocapené tak, že Adrian svou pravou nohu má položenou na prostředním vystouplém sloupku. Což je značně nepohodlná pozice. "
+    "Pokusíš se ještě malinko uskromnit, ale vážně už není kam se odsunout."
+    #potřebuji do textu dostat jméno hráče
+    a "XX, posloucháš mě? Vadilo by ti kdybych se opřel za tebe narovnal si trošku záda a ty by ses opřela o mě?"
+    menu:
+        "Chvíli nad tím přemýšlíš."
+        "Vadilo, odsekneš":
+            jump Adrivauteodmitnuti
+        "Nevadilo":
+            "Pak se chytíš za sedadlo před tebou a pošoupneš se tak aby se mohl za tebe opřít. "
+            "Opře se o sedadlo za tebou a ruku protáhne za tebe."
+            "Chytí tě jemně za rameno a stáhne tě na sebe. Ucítíš jemné mravenčení v břiše. Usměje se na tebe"
+            a "Děkuji"
+            "Cesta najednou rychle uteče a už se hledá hotel, kde máte dnešní noc spát."
+            jump tokio1
+label Adrivauteodmitnuti:
+    "Zbytek cesty usilovně koukáš z okýnka a Adrian nepromluví"
+    "Přesunuli jste se do hotelu v Tokiu"
+    jump tokio1    
 label tokio1:
 
     scene bg mapatokio
