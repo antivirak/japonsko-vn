@@ -3,30 +3,37 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
-
+define m = Character(_("Mimoň"), color="#fe0303")
+define s = Character(_("Sučan"), color="#0303fe")
+define a = Character(_("Adrian"), color="#094611")
+define d = Character(_("Dante"), color="#000000")
 
 # The game starts here.
 
 label start:
 
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
 
-    scene bg room
+    scene bg letistenara
+    with fade
 
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
 
-    show eileen happy
+    "Vítej ve hře cesta po Japonsku"
+    "Tvým cílem hry je užít si dovolenou a procestovat velkou část Japonska, nezabít Mimoně, užít si i nějakou romanci a nasbírat co nejméně Gaijin pointů (GP)."
+    "Jste parta, která se po internetu domluvil/a, že vyrazíte na 3 týdny na dovolenou do Japonska. Mezi sebou se moc neznáte. Kromě online nákupu letenek jsi se s některými účastníky nikdy neviděla. Jen ty a tvůj kámoš z dětství. A další 3 naprosto cizí lidé."
+    # Tady mi udělejte výběr postavy
 
-    # These display lines of dialogue.
+label vyberauta:
 
-    e "You've created a new Ren'Py game."
+    scene bg vyzvednutiauta
+    with fade
+    "Absolvovali jste dlouhý a náročný let do Japonska a máte si vyzvednout auto, které vám bude dělat společnost další 3 týdny. "
+    "A ejhle první problém, auto zařizoval Sučan - fanda do aut. Máte sporťák… "
+    "Pro pět lidí s kufry, je to docela stísněný prostor."
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+label tokio1:
+
+    scene bg mapatokio
+    with fade
 
     # This ends the game.
 
