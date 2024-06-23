@@ -33,14 +33,19 @@ label start:
         "Kluk":
             $ gender = 'm'
     $ name = renpy.input("Jak se jmenuješ?").strip()
+    $ name_5p = name[:-1] + "o" if gender == "f" else name
     scene bg black
     show s neutral at left
     "Tohle je kluk s přezdívkou Sučan."
-    "Právě on je tvůj kamarád z dětství, s cestováním má nejvíce zkušeností."
+    if gender == 'f':
+        "Právě on je tvůj kamarád z dětství."
+    "S cestováním má nejvíce zkušeností."
     "Je to hlavní řidič a také zařizoval hotely, protože má na bookingu členské slevy"
     hide s neutral
     show a neutral at right
     "Tohle je Adrian. Podle společných online schůzek působí klidně a mile."
+    if gender == 'm':
+        "Právě on je tvůj kamarád z dětství."
     "Před odjezdem absolvoval jazykový kurz, takže umí, alespoň základy japonštiny."
     hide a neutral
     if gender == 'f':
@@ -168,7 +173,7 @@ label Adrianvaute:
     "Je rozvalený přes celou sedačku ramenem evidentně až bolestivě opřený o Adriana."
     "Spí a nohy má rocapené tak, že Adrian svou pravou nohu má položenou na prostředním vystouplém sloupku. Což je značně nepohodlná pozice. "
     "Pokusíš se ještě malinko uskromnit, ale vážně už není kam se odsunout."
-    a "[name], posloucháš mě? Vadilo by ti, kdybych se opřel za tebe, narovnal si trošku záda a ty by ses opřela o mě?"
+    a "[name_5p], posloucháš mě? Vadilo by ti, kdybych se opřel za tebe, narovnal si trošku záda a ty by ses opřela o mě?"
     menu:
         "Chvíli nad tím přemýšlíš."
         "Vadilo, odsekneš":
