@@ -19,6 +19,7 @@ label start:
 
     scene bg letistenara at half_size
     with fade
+    play music "StockTune-Neon Pulse Of Japan_1719152100.mp3"
 
     "Vítej ve hře cesta po Japonsku"
     "Tvým cílem hry je užít si dovolenou a procestovat velkou část Japonska, nezabít Mimoně, užít si i nějakou romanci a nasbírat co nejméně Gaijin pointů (GP)."
@@ -40,7 +41,7 @@ label start:
     if gender == 'f':
         "Právě on je tvůj kamarád z dětství."
     "S cestováním má nejvíce zkušeností."
-    "Je to hlavní řidič a také zařizoval hotely, protože má na bookingu členské slevy"
+    "Je to hlavní řidič a také zařizoval hotely, protože má na bookingu členské slevy."
     hide s neutral
     show a neutral at right
     "Tohle je Adrian. Podle společných online schůzek působí klidně a mile."
@@ -61,7 +62,7 @@ label start:
     "Během online, schůzek se v podstatě nevyjadřoval"
     "Poprvé, co jste zjistili, že by mohl být nějaký problém, bylo den před odletem..."
     "Domluvili jste se, že se všichni sejdete u Sučana na bytě dáte si večeři a pak vyrazíte společně na letiště."
-    "Ale den před odletem přišla zpráva od Mimoně, kdo ho vyzvedne autem, že s kufrem sockou nejede."
+    "Ale den před odletem přišla zpráva od Mimoně, kdo ho vyzvedne autem, že s kufrem 'sockou' nejede."
     "Nakonec se to vyřešilo tak, že ho přivezla sestra."
     "Další scénu ztropil, když zjistil, že v letadle bude muset sedět sám (letenky, jste si koupili bez místenky)."
     "Takže už jen za těch pár společných hodin, všichni tušíte, že to bude náročné."
@@ -231,12 +232,15 @@ label tokio1:
             "Najednou však zvedne oči od mobilu."
             d "Je tu strašný teplo."
             "Jemně se usměje."
+            d "Chceš?"
+            "podává ti lahev s vychlazenou vodou"
+            d "koupil jsem ji támhle v automatu"
             "Ale než stihneš odpovědět, vidíš, jak se vrací Sučan a Adrian."
-            hide a neutral
+            hide d neutral
             jump problemubytovani
 
         "Zůstanu čekat sama.":
-            hide a neutral
+            hide d neutral
             hide m neutral
             "Čekání, strávíš opřená o přední kapotu auta."
             "Naštestí nečekáš dlouho během pár minut vidíš, jak se vrací Sučan a Adrian."
@@ -255,7 +259,11 @@ label problemubytovani:
 
 
 
-    # This ends the game.
+label titulky:
     show bg black
     "konec, nebo se něco pokazilo :D"
+    "Tvůrci hry Cerman Jaroslav, Lokajová Eliška a Sedláček Martin"
+    "Na příběhu se taktéž podíleli Drahota Matěj a Suchan Tomáš"
+    "Obrázky jsou originální fotografie z Japonska"
+    "Postavy byly vygenerovány pomocí AI a následně upraveny"
     return
