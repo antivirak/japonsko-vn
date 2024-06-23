@@ -5,9 +5,9 @@
 
 define m = Character(_("Mimoň"), color="#fe0303")
 define s = Character(_("Sučan"), color="#0303fe")
-define a = Character(_("Adrian"), color="#094611")
-define d = Character(_("Dante"), color="#000000")
-define h = Character(_("Hana"), color="#000000")
+define a = Character(_("Adrian"), color="#03e221")
+define d = Character(_("Dante"), color="#545454")
+define h = Character(_("Hana"), color="#545454")
 define j = Character('[name]', color="#f4f803")
 
 transform half_size:
