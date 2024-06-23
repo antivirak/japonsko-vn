@@ -86,6 +86,7 @@ label vyberauta:
     "Pro pět lidí s kufry je to docela stísněný prostor."
     hide s neutral
     menu:
+        # TODO parametrize for gender
         "Jseš řidička? Pokud ano, jseš ochotná následující 3 týdny strávit za volantem spolu se Sučanem? Mysli na to, že v Japonsku se jezdí vlevo."
         "Ano, budu řídit":
             jump ridicka
@@ -104,7 +105,7 @@ label ridicka:
             jump tokio1
         "Chci":
             "Cestu z letiště do hotelu řídíš ty. Sučan vypadá spokojeně, že mu parťáka děláš právě ty."
-            s "Dávej si pozor, na obě strany, je to jiné, když člověk normálně řídí na druhé straně."
+            s "Dávej si pozor na obě strany, je to jiné, když člověk normálně řídí na druhé straně."
             "Vyjedete a samozřejmě, hned při prvním odbočovaní, pouštíš místo blinkrů stěrače."
             $ j.gaijin_points += 1
             "Získáváš 1 GP"
@@ -147,7 +148,7 @@ label vprostred:
     show a neutral at left
     show m neutral at right
     "Za řidiče se posadil Adrian a za spolujezdce Mimoň."
-    "Auto je opravdu krásný, ale vážně malý sporťák. Takže se na tebe z obou stran tlačí oba urostlí spolujezdci."
+    "Auto je opravdu krásný, ale vážně malý sporťák. Takže se na tebe z obou stran tlačí oba urostlí spolujezdci."
     "Cítíš, jak se Mimoň rozcapil na celé sedadlo a ramenem ti drtí to tvé. Tvou pravou nohu ti vytlačil od sebe, takže ji máš v dost nepříjemné pozici uprostřed na vyvýšené části podlahy."
     "A takto rozvalený Mimoň spokojeně usnul, opřený o okénko s otevřenou pusou. "
     a "Můžeš si dát i tu druhou nohu ke mně."
@@ -204,7 +205,7 @@ label Adrianvaute:
         "Nevadilo.":
             "Pak se chytíš za sedadlo před tebou a pošoupneš se tak, aby se mohl za tebe opřít. "
             "Opře se o sedadlo za tebou a ruku protáhne za tebe."
-            "Chytí tě jemně za rameno a stáhne tě na sebe. Ucítíš jemné mravenčení v břiše. Usměje se na tebe."
+            "Chytí tě jemně za rameno a stáhne tě na sebe. Ucítíš jemné mravenčení v břiše. Usměje se na tebe"
             a "Děkuji."
             "Získáváš dva LP u Adriana. Cesta najednou rychle uteče."
             # 2 LP Adrian
@@ -243,7 +244,7 @@ label tokio1:
         "Půjdu do auta k mimoňovi.":
             hide d neutral
             m "Co tu chceš? Vypadni!"
-            "Nemáš náladu se s ním dohadovat, takže získáváš jeden HP a vylézáš z auta."
+            "Nemáš náladu se s ním dohadovat, takže získáváš jeden HP a vylézáš z auta."
             hide m neutral
             "Získáváš jeden HP u Mimoně"
             $ j.add_hate_points_for_person(m, 1)
@@ -276,6 +277,107 @@ label tokio1:
             "Naštestí nečekáš dlouho a během pár minut vidíš, jak se vrací Sučan a Adrian."
             jump problemubytovani
 
+
+# TODO move to separate file
+init python:
+
+    class Item:
+        def __init__(self, name):
+            self.name = name 
+
+    def use_item(i):
+        pass  # for now, this is a function just for testing purposes
+
+# default adrian = Item(a.name)
+# default mimon = Item(m.name)
+# default sucan = Item(s.name)
+# default dante = Item(d.name) if j.gender == 'f' else Item(h.name)
+# default ja = Item(j.name)
+# default inventory = [adrian, mimon, sucan, dante, ja]
+# default inventory = [a.name, mimon, sucan, dante, ja]
+# default inventory = {0: 'a', 1: 'b', 2: '', 3: '', 4: ''}
+
+screen inventory_table(inventory, opt_xpos=300, opt_ypos=200, btnTexts=None):
+    zorder 50
+    $ btnTexts = inventory if btnTexts is None else btnTexts
+    $ y_size = 50
+    $ box_spacing = 10
+
+    vbox:
+        label "Trojlůžák"
+        xpos opt_xpos  ypos opt_ypos
+        spacing box_spacing
+        # for i in range(5):
+        for count, i in enumerate(inventory[:3], start=1):
+            # text i  # inventory[i]
+            # textbutton i:
+            #     action [Show("dropdown_menu", selectedOption=i, btnTexts=inventory)]
+            $ ypos_adjusted = opt_ypos + y_size * count + (count - 1) * box_spacing
+            $ btnTexts = btnTexts.copy()
+            textbutton '':
+                xsize 200 ysize y_size
+                # xpos opt_xpos  ypos opt_ypos
+                action [Show("dropdown_options", btnTexts=btnTexts, opt_xpos=opt_xpos, opt_ypos=ypos_adjusted)]
+                idle_background  "gui/button/idle_background.png"
+                hover_background  "gui/button/hover_background.png"
+
+    vbox:
+        label "Dvojlůžák"
+        # xalign .5
+        # yalign .5
+        xpos opt_xpos + 200  ypos opt_ypos
+        spacing box_spacing
+        # for i in range(4, 5):
+        for count, i in enumerate(inventory[3:], start=1):
+            $ ypos_adjusted = opt_ypos + y_size * count + (count - 1) * box_spacing
+            $ btnTexts = btnTexts.copy()
+            textbutton '':
+                xsize 200 ysize y_size
+                # xpos opt_xpos  ypos opt_ypos
+                action [Show("dropdown_options", btnTexts=btnTexts, opt_xpos=opt_xpos + 200, opt_ypos=ypos_adjusted)]
+                idle_background  "gui/button/choice_idle_background.png"
+                hover_background  "gui/button/choice_hover_background.png"
+
+
+screen dropdown_menu(selectedOption="", opt_xpos=300, opt_ypos=200, btnTexts=None):
+    zorder 50
+    $ btnTexts = [""] if btnTexts is None else btnTexts
+
+    textbutton selectedOption:
+        xsize 200 ysize 50
+        xpos opt_xpos  ypos opt_ypos
+        action [Show("dropdown_options", btnTexts=btnTexts, opt_xpos=opt_xpos, opt_ypos=opt_ypos)]
+        idle_background  "gui/button/idle_background.png"
+        hover_background  "gui/button/hover_background.png"
+
+       
+screen dropdown_options(btnTexts, opt_xpos=0, opt_ypos=0):
+    zorder 51
+    modal True
+    $ yIndent = 20
+    $ ySpacing = 40
+
+    # frame: background "bg black"
+    fixed:
+        xpos opt_xpos  ypos opt_ypos + yIndent
+        $ listSize = len(btnTexts)
+        for i in range(listSize):
+            $ buttonOption = btnTexts[i]
+            textbutton btnTexts[i]:
+                xsize 200 ysize 50
+                action [Show(
+                    "dropdown_menu",
+                    selectedOption=buttonOption,
+                    btnTexts=btnTexts,
+                    opt_xpos=opt_xpos,
+                    opt_ypos=opt_ypos
+                ), Hide("dropdown_options")] 
+                idle_background  "gui/button/idle_background.png"
+                hover_background  "gui/button/hover_background.png"
+                ypos yIndent
+            $ yIndent += ySpacing
+
+
 label problemubytovani:
     show s neutral at left
     show a smile at right
@@ -296,9 +398,17 @@ label problemubytovani:
         yalign 1.0
     show d neutral at right
     "Pro lepší rozhodování tvé získané bodíky: [j.show_all_points()]"
+    "Vyber rozložení cestujících do pokojů."
+
+    scene bg black
+    $ b = d if j.gender == 'f' else h
+    $ inventory = [a.name, m.name, s.name, b.name, j.name]
+    # $ inventory = {0: a.name, 1: m.name, 2: s.name, 3: j.name, 4: ''}
+    show screen inventory_table(inventory)
+    # show screen dropdown_menu(selectedOption="Foo", btnTexts=["foo", "bar", "baz"])
 
     # Minihra rozdělení do pokojů
-    #pracovně sem hodím menu na ty pokoje, ať se to dá zkoušet
+    # pracovně sem hodím menu na ty pokoje, ať se to dá zkoušet
     hide m neutral
     hide a neutral
     hide d neutral
