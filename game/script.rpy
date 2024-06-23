@@ -80,7 +80,7 @@ label ridicka:
     "Protože, Sučan je zvyklý cestovat a nařízeno vlevo má hodně a zodpovědnost za auto jde za ním"
     "cestu z letiště do hotelu odřídí on"
     "Přesunuli jste se do Tokia"
-    hide s neutral 
+    hide s neutral
     jump tokio1
 label neridicka:
     "Oh, jsi předurčena mačkat se na zadních sedadlech."
@@ -169,7 +169,7 @@ label Adrianvaute:
 label Adrivauteodmitnuti:
     "Zbytek cesty usilovně koukáš z okýnka a Adrian nepromluví"
     "Přesunuli jste se do Tokia"
-    jump tokio1    
+    jump tokio1
 
 label tokio1:
 
@@ -220,7 +220,7 @@ label tokio1:
             "Čekání, strávíš opřená o přední kapotu auta."
             "Naštestí, nečekáš dlouho během pár minut vidíš jak se vrací Sučan a Adrian."
             jump problemubytovani
-            
+
 label problemubytovani:
     show s neutral at left
     show a smile at right
@@ -235,6 +235,6 @@ label problemubytovani:
 
 
     # This ends the game.
-    show bg black 
+    show bg black
     "konec, nebo se něco pokazilo :D"
     return
