@@ -17,6 +17,14 @@ transform half_size:
 
 label start:
 
+    # Declare hate, love and gaijin point character instance attributes
+    $ m.hp = 0
+    $ s.lp = 0
+    $ a.lp = 0
+    $ d.lp = 0
+    $ h.lp = 0
+    $ j.gp = 0
+
     scene bg letistenara at half_size
     with fade
     play music "StockTune-Neon Pulse Of Japan_1719152100.mp3"
@@ -160,6 +168,8 @@ label vprostred:
             "Zbytek cesty se nic neděje a rychle uteče."
             "Získáváš LP u Adriana a jeden HP za Mimoně."
             # 1 LP Adrian, 1 HP Mimoň
+            $ m.hp += 1
+            "aktualni hp: [m.hp]"
             "Přesunuli jste se do Tokia."
             jump tokio1
 
