@@ -5,9 +5,9 @@
 
 define m = Character(_("Mimoň"), color="#fe0303")
 define s = Character(_("Sučan"), color="#0303fe")
-define a = Character(_("Adrian"), color="#094611")
-define d = Character(_("Dante"), color="#000000")
-define h = Character(_("Hana"), color="#000000")
+define a = Character(_("Adrian"), color="#03e221")
+define d = Character(_("Dante"), color="#545454")
+define h = Character(_("Hana"), color="#545454")
 define j = Character('[name]', color="#f4f803")
 
 transform half_size:
@@ -17,8 +17,17 @@ transform half_size:
 
 label start:
 
+    # Declare hate, love and gaijin point character instance attributes
+    $ m.hp = 0
+    $ s.lp = 0
+    $ a.lp = 0
+    $ d.lp = 0
+    $ h.lp = 0
+    $ j.gp = 0
+
     scene bg letistenara at half_size
     with fade
+    play music "StockTune-Neon Pulse Of Japan_1719152100.mp3"
 
     "Vítej ve hře cesta po Japonsku"
     "Tvým cílem hry je užít si dovolenou a procestovat velkou část Japonska, nezabít Mimoně, užít si i nějakou romanci a nasbírat co nejméně Gaijin pointů (GP)."
@@ -33,14 +42,19 @@ label start:
         "Kluk":
             $ gender = 'm'
     $ name = renpy.input("Jak se jmenuješ?").strip()
+    $ name_5p = name[:-1] + "o" if gender == "f" else name
     scene bg black
     show s neutral at left
     "Tohle je kluk s přezdívkou Sučan."
-    "Právě on je tvůj kamarád z dětství, s cestováním má nejvíce zkušeností."
-    "Je to hlavní řidič a také zařizoval hotely, protože má na bookingu členské slevy"
+    if gender == 'f':
+        "Právě on je tvůj kamarád z dětství."
+    "S cestováním má nejvíce zkušeností."
+    "Je to hlavní řidič a také zařizoval hotely, protože má na bookingu členské slevy."
     hide s neutral
     show a neutral at right
     "Tohle je Adrian. Podle společných online schůzek působí klidně a mile."
+    if gender == 'm':
+        "Právě on je tvůj kamarád z dětství."
     "Před odjezdem absolvoval jazykový kurz, takže umí, alespoň základy japonštiny."
     hide a neutral
     if gender == 'f':
@@ -49,6 +63,11 @@ label start:
         "Ale většina jeho připomínek, byla konstruktivní, jeho hlas na tebe působí velmi uklidňujícím dojmem."
         hide d neutral
     else:
+        show h neutral at left
+        "Tohle je Hana, zná se se Sučanem."
+        "Je to studentka chemické školy, se zájmem o anime a Japonsko"
+        "Větší část cesty byla tichá."
+        hide h neutral
         pass
         # TODO add woman character
     show m neutral at right
@@ -56,7 +75,7 @@ label start:
     "Během online, schůzek se v podstatě nevyjadřoval"
     "Poprvé, co jste zjistili, že by mohl být nějaký problém, bylo den před odletem..."
     "Domluvili jste se, že se všichni sejdete u Sučana na bytě dáte si večeři a pak vyrazíte společně na letiště."
-    "Ale den před odletem přišla zpráva od Mimoně, kdo ho vyzvedne autem, že s kufrem sockou nejede."
+    "Ale den před odletem přišla zpráva od Mimoně, kdo ho vyzvedne autem, že s kufrem 'sockou' nejede."
     "Nakonec se to vyřešilo tak, že ho přivezla sestra."
     "Další scénu ztropil, když zjistil, že v letadle bude muset sedět sám (letenky, jste si koupili bez místenky)."
     "Takže už jen za těch pár společných hodin, všichni tušíte, že to bude náročné."
@@ -71,6 +90,9 @@ label start:
             yalign 1.0
         "Takže tohle je tvůj harém pro následující tři týdny."
     else:
+        show h neutral:
+            xalign 0.7
+            yalign 1.0
         # TODO show woman char
         "Takže tohle jsou tví spolucestující pro následující tři týdny."
 
@@ -146,6 +168,8 @@ label vprostred:
             "Zbytek cesty se nic neděje a rychle uteče."
             "Získáváš LP u Adriana a jeden HP za Mimoně."
             # 1 LP Adrian, 1 HP Mimoň
+            $ m.hp += 1
+            "aktualni hp: [m.hp]"
             "Přesunuli jste se do Tokia."
             jump tokio1
 
@@ -168,7 +192,7 @@ label Adrianvaute:
     "Je rozvalený přes celou sedačku ramenem evidentně až bolestivě opřený o Adriana."
     "Spí a nohy má rocapené tak, že Adrian svou pravou nohu má položenou na prostředním vystouplém sloupku. Což je značně nepohodlná pozice. "
     "Pokusíš se ještě malinko uskromnit, ale vážně už není kam se odsunout."
-    a "[name], posloucháš mě? Vadilo by ti, kdybych se opřel za tebe, narovnal si trošku záda a ty by ses opřela o mě?"
+    a "[name_5p], posloucháš mě? Vadilo by ti, kdybych se opřel za tebe, narovnal si trošku záda a ty by ses opřela o mě?"
     menu:
         "Chvíli nad tím přemýšlíš."
         "Vadilo, odsekneš":
@@ -197,10 +221,10 @@ label tokio1:
 
     scene bg hoteltokio
     with fade
-    "Zaparkovali jste vnitrobloku hotelu"
+    "Zaparkovali jste vnitrobloku hotelu."
     show s neutral at left
     show a smile at right
-    "Napřed do hotelu půjde Sučan s Adrianem, protože Sučan zařizoval ubytovaní a Adrian umí základy v Japonštině"
+    "Napřed do hotelu půjde Sučan s Adrianem, protože Sučan zařizoval ubytovaní a Adrian umí základy v Japonštině."
     hide s neutral
     hide a smile
     show d neutral at left
@@ -213,7 +237,7 @@ label tokio1:
         "Půjdu do auta k mimoňovi.":
             hide d neutral
             m "Co tu chceš? Vypadni!"
-            "Nemáš náladu se s ním dohadovat, takže získáváš jeden HP a vylézáš z auta"
+            "Nemáš náladu se s ním dohadovat, takže získáváš jeden HP a vylézáš z auta."
             hide m neutral
             "Zbytek čekání, strávíš opřená o přední kapotu auta."
             "Naštěstí, nečekáš dlouho a vidíš, jak se vrací Sučan a Adrian."
@@ -226,12 +250,15 @@ label tokio1:
             "Najednou však zvedne oči od mobilu."
             d "Je tu strašný teplo."
             "Jemně se usměje."
+            d "Chceš?"
+            "Podává ti lahev s vychlazenou vodou."
+            d "Koupil jsem ji támhle v automatu."
             "Ale než stihneš odpovědět, vidíš, jak se vrací Sučan a Adrian."
-            hide a neutral
+            hide d neutral
             jump problemubytovani
 
         "Zůstanu čekat sama.":
-            hide a neutral
+            hide d neutral
             hide m neutral
             "Čekání, strávíš opřená o přední kapotu auta."
             "Naštestí nečekáš dlouho během pár minut vidíš, jak se vrací Sučan a Adrian."
@@ -242,7 +269,7 @@ label problemubytovani:
     show a smile at right
     "Všimneš si, že Sučan se tváří pobaveně, zatímmco Adrian smutně."
     s "Víte, jak jsem řešil, že tenhle hotel někdo hacknul?"
-    "říká velmi pobaveným tónem"
+    "říká velmi pobaveným tónem."
     s "Tak to má dohru, nejen, že jsem kvůli tomu musel zablokovat a obstarat si novou kreditku..."
     s "...ale ještě mají nějaký zmatek v systému, takže místo tří pokojů máme jen dva."
     a "Takže se musíme rozdělit do jednoho dvojlůžáku a jednoho trojlůžáku."
@@ -250,7 +277,11 @@ label problemubytovani:
 
 
 
-    # This ends the game.
+label titulky:
     show bg black
     "konec, nebo se něco pokazilo :D"
+    "Tvůrci hry Cerman Jaroslav, Lokajová Eliška a Sedláček Martin"
+    "Na příběhu se taktéž podíleli Drahota Matěj a Suchan Tomáš"
+    "Obrázky jsou originální fotografie z Japonska"
+    "Postavy byly vygenerovány pomocí AI a následně upraveny"
     return
