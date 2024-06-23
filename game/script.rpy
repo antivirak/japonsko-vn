@@ -55,6 +55,11 @@ label start:
         "Ale většina jeho připomínek, byla konstruktivní, jeho hlas na tebe působí velmi uklidňujícím dojmem."
         hide d neutral
     else:
+        show h neutral at left
+        "Tohle je Hana, zná se se Sučanem."
+        "Je to studentka chemické školy, se zájmem o anime a Japonsko"
+        "Větší část cesty byla tichá."
+        hide h neutral
         pass
         # TODO add woman character
     show m neutral at right
@@ -77,6 +82,9 @@ label start:
             yalign 1.0
         "Takže tohle je tvůj harém pro následující tři týdny."
     else:
+        show h neutral:
+            xalign 0.7
+            yalign 1.0
         # TODO show woman char
         "Takže tohle jsou tví spolucestující pro následující tři týdny."
 
