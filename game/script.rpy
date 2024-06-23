@@ -7,6 +7,8 @@ define m = Character(_("Mimoň"), color="#fe0303")
 define s = Character(_("Sučan"), color="#0303fe")
 define a = Character(_("Adrian"), color="#094611")
 define d = Character(_("Dante"), color="#000000")
+define h = Character(_("Hana"), color="#000000")
+define j = Character('[name]', color="#f4f803")
 
 transform half_size:
     zoom .5
@@ -23,7 +25,14 @@ label start:
     "Jste parta, která se po internetu domluvila, že vyrazíte na 3 týdny na dovolenou do Japonska."
     "Mezi sebou se moc neznáte. Kromě online nákupu letenek jsi se s některými účastníky nikdy neviděl/a."
     "S tebou do toho šel tvůj kámoš z dětství. A další 3 naprosto cizí lidé."
-    # Tady mi udělejte výběr postavy
+
+    menu:
+        "Vyber si, zda budeš hrát za holku nebo kluka. Svým výběrem rozhodneš, který z účastníků je tvůj kamarád z dětství."
+        "Dívka":
+            $ gender = 'f'
+        "Kluk":
+            $ gender = 'm'
+    $ name = renpy.input("Jak se jmenuješ?").strip()
     scene bg black
     show s neutral at left
     "Tohle je kluk s přezdívkou Sučan."
@@ -34,10 +43,14 @@ label start:
     "Tohle je Adrian. Podle společných online schůzek působí klidně a mile."
     "Před odjezdem absolvoval jazykový kurz, takže umí, alespoň základy japonštiny."
     hide a neutral
-    show d neutral at left
-    "Tenhle kluk se jmenuje Dante. Během online schůzek toho moc nenamluvil."
-    "Ale většina jeho připomínek, byla konstruktivní, jeho hlas na tebe působí velmi uklidňujícím dojmem."
-    hide d neutral
+    if gender == 'f':
+        show d neutral at left
+        "Tenhle kluk se jmenuje Dante. Během online schůzek toho moc nenamluvil."
+        "Ale většina jeho připomínek, byla konstruktivní, jeho hlas na tebe působí velmi uklidňujícím dojmem."
+        hide d neutral
+    else:
+        pass
+        # TODO add woman character
     show m neutral at right
     "Tak tohle je Mimoň, vůbec netušíte, jak se stalo, že s vámi odletěl."
     "Během online, schůzek se v podstatě nevyjadřoval"
@@ -52,10 +65,14 @@ label start:
     show s neutral:
         xalign 0.3
         yalign 1.0
-    show d neutral:
-        xalign 0.7
-        yalign 1.0
-    "Takže tohle je tvůj harém pro následující tři týdny."
+    if gender == 'f':
+        show d neutral:
+            xalign 0.7
+            yalign 1.0
+        "Takže tohle je tvůj harém pro následující tři týdny."
+    else:
+        # TODO show woman char
+        "Takže tohle jsou tví spolucestující pro následující tři týdny."
 
 
 label vyberauta:
@@ -151,8 +168,7 @@ label Adrianvaute:
     "Je rozvalený přes celou sedačku ramenem evidentně až bolestivě opřený o Adriana."
     "Spí a nohy má rocapené tak, že Adrian svou pravou nohu má položenou na prostředním vystouplém sloupku. Což je značně nepohodlná pozice. "
     "Pokusíš se ještě malinko uskromnit, ale vážně už není kam se odsunout."
-    # potřebuji do textu dostat jméno hráče
-    a "XX, posloucháš mě? Vadilo by ti, kdybych se opřel za tebe, narovnal si trošku záda a ty by ses opřela o mě?"
+    a "[name], posloucháš mě? Vadilo by ti, kdybych se opřel za tebe, narovnal si trošku záda a ty by ses opřela o mě?"
     menu:
         "Chvíli nad tím přemýšlíš."
         "Vadilo, odsekneš":
