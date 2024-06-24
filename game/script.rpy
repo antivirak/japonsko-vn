@@ -34,7 +34,7 @@ label start:
         "Kluk":
             $ j.gender = 'm'
     $ j.name = renpy.input("Jak se jmenuješ?").strip()
-    $ j.name_5p = j.name[:-1] + "o" if j.gender == "f" else name
+    $ j.name_5p = j.name[:-1] + "o" if j.gender == "f" else j.name
     scene bg black
     show s neutral at left
     "Tohle je kluk s přezdívkou Sučan."
