@@ -315,7 +315,7 @@ label problemubytovani:
 
 
 label titulky:
-    show bg black
+    scene bg black
     "konec, nebo se něco pokazilo :D"
     "Tvůrci hry Cerman Jaroslav, Lokajová Eliška a Sedláček Martin"
     "Na příběhu se taktéž podíleli Drahota Matěj a Suchan Tomáš"
