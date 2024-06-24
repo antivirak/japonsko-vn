@@ -3,12 +3,12 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define m = Character(_("Mimoň"), color="#fe0303")
-define s = Character(_("Sučan"), color="#0303fe")
-define a = Character(_("Adrian"), color="#03e221")
-define d = Character(_("Dante"), color="#545454")
-define h = Character(_("Hana"), color="#545454")
-define j = Character('[name]', color="#f4f803")
+define m = Person(Character(_("Mimoň"), color="#fe0303"), gender = "m")
+define s = Person(Character(_("Sučan"), color="#0303fe"), gender = "m")
+define a = Person(Character(_("Adrian"), color="#03e221"), gender = "m")
+define d = Person(Character(_("Dante"), color="#545454"), gender = "m")
+define h = Person(Character(_("Hana"), color="#545454"), gender = "f")
+define j = Person(Character('[name]', color="#f4f803"), gender = None)
 
 transform half_size:
     zoom .5
@@ -16,14 +16,6 @@ transform half_size:
 # The game starts here.
 
 label start:
-
-    # Declare hate, love and gaijin point character instance attributes
-    $ m.hp = 0
-    $ s.lp = 0
-    $ a.lp = 0
-    $ d.lp = 0
-    $ h.lp = 0
-    $ j.gp = 0
 
     scene bg letistenara at half_size
     with fade
@@ -38,26 +30,26 @@ label start:
     menu:
         "Vyber si, zda budeš hrát za holku nebo kluka. Svým výběrem rozhodneš, který z účastníků bude tvůj kamarád z dětství."
         "Dívka":
-            $ gender = 'f'
+            $ j.gender = 'f'
         "Kluk":
-            $ gender = 'm'
-    $ name = renpy.input("Jak se jmenuješ?").strip()
-    $ name_5p = name[:-1] + "o" if gender == "f" else name
+            $ j.gender = 'm'
+    $ j.name = renpy.input("Jak se jmenuješ?").strip()
+    $ j.name_5p = j.name[:-1] + "o" if j.gender == "f" else name
     scene bg black
     show s neutral at left
     "Tohle je kluk s přezdívkou Sučan."
-    if gender == 'f':
+    if j.gender == 'f':
         "Právě on je tvůj kamarád z dětství."
     "S cestováním má nejvíce zkušeností."
     "Je to hlavní řidič a také zařizoval hotely, protože má na bookingu členské slevy."
     hide s neutral
     show a neutral at right
     "Tohle je Adrian. Podle společných online schůzek působí klidně a mile."
-    if gender == 'm':
+    if j.gender == 'm':
         "Právě on je tvůj kamarád z dětství."
     "Před odjezdem absolvoval jazykový kurz, takže umí alespoň základy japonštiny."
     hide a neutral
-    if gender == 'f':
+    if j.gender == 'f':
         show d neutral at left
         "Tenhle kluk se jmenuje Dante. Během online schůzek toho moc nenamluvil."
         "Ale většina jeho připomínek, byla konstruktivní, jeho hlas na tebe působí velmi uklidňujícím dojmem."
@@ -84,7 +76,7 @@ label start:
     show s neutral:
         xalign 0.3
         yalign 1.0
-    if gender == 'f':
+    if j.gender == 'f':
         show d neutral:
             xalign 0.7
             yalign 1.0
@@ -149,7 +141,7 @@ label vprostred:
     "Auto je opravdu krásný, ale vážně malý sporťák. Takže se na tebe z obou stran tlačí oba urostlí spolujezdci."
     "Cítíš, jak se Mimoň rozcapil na celé sedadlo a ramenem ti drtí to tvé. Tvou pravou nohu ti vytlačil od sebe, takže ji máš v dost nepříjemné pozici uprostřed na vyvýšené části podlahy."
     "A takto rozvalený Mimoň spokojeně usnul, opřený o okénko s otevřenou pusou. "
-    a "Můžeš si dát i tu druhou nohu ke mně."
+    a.char "Můžeš si dát i tu druhou nohu ke mně."
     "šeptá vedle tebe Adrian. Teprve teď si uvědomíš, že vlastně vedle tebe sedí i on."
     "Ačkoliv je lépe stavěný než Mimoň, neutlačuje tě svou přítomností, a když se po jeho slovech na něj otočíš, vidíš, že sám nesedí vůbec komfortně."
     menu:
@@ -159,17 +151,18 @@ label vprostred:
             "Usnula jsi a probouzíš se až v Tokiu"
             jump tokio1
         "Rozhodneš se nabídku přijmout":
-            a "Je to hulvát, měla sis sednout místo mě"
+            a.char "Je to hulvát, měla sis sednout místo mě"
             "Jemně se na tebe usměje a odhodí ti vlasy z tváře"
-            a "Máš krásný oči"
+            a.char "Máš krásný oči"
             "Poté se odmlčí a podívá se z okénka."
             "Citíš, jak se ti do tváře hrne krev a ty se začínáš červenat."
             "Sklopíš zrak a vytáhneš sluchátka a mobil."
             "Zbytek cesty se nic neděje a rychle uteče."
             "Získáváš LP u Adriana a jeden HP za Mimoně."
             # 1 LP Adrian, 1 HP Mimoň
-            $ m.hp += 1
-            "aktualni hp: [m.hp]"
+            $ j.add_love_points_for_person(a, 1)
+            $ j.add_hate_points_for_person(m, 1)
+            "aktualni hp: [j.get_hate_points_table()]"
             "Přesunuli jste se do Tokia."
             jump tokio1
 
@@ -184,15 +177,16 @@ label zaspolujezdcem:
     "Když už podle navigace vjíždíte do Tokia, velmi si oddychneš."
     "Získáváš dva HP pro Mimoně."
     # 2 HP Mimoň
+    $ j.add_hate_points_for_person(m, 2)
     jump tokio1
 
 label Adrianvaute:
-    a "Nevadilo by ti, kdybych se k tobě víc přitulil?"
+    a.char "Nevadilo by ti, kdybych se k tobě víc přitulil?"
     "Pohodí hlavou směrem k Mimoňovi a teprve teď sis všimla, že ho Mimoň dosti utiskuje."
     "Je rozvalený přes celou sedačku a ramenem evidentně až bolestivě opřený o Adriana."
     "Spí a nohy má rozcapené tak, že Adrian svou pravou nohu má položenou na prostředním vystouplém sloupku. Což je značně nepohodlná pozice. "
     "Pokusíš se ještě malinko uskromnit, ale vážně už není kam se odsunout."
-    a "[name_5p], posloucháš mě? Vadilo by ti, kdybych se opřel za tebe, narovnal si trošku záda a ty by ses opřela o mě?"
+    a.char "[j.name_5p], posloucháš mě? Vadilo by ti, kdybych se opřel za tebe, narovnal si trošku záda a ty by ses opřela o mě?"
     menu:
         "Chvíli nad tím přemýšlíš."
         "Vadilo, odsekneš.":
@@ -201,9 +195,10 @@ label Adrianvaute:
             "Pak se chytíš za sedadlo před tebou a pošoupneš se tak, aby se mohl za tebe opřít. "
             "Opře se o sedadlo za tebou a ruku protáhne za tebe."
             "Chytí tě jemně za rameno a stáhne tě na sebe. Ucítíš jemné mravenčení v břiše. Usměje se na tebe."
-            a "Děkuji."
+            a.char "Děkuji."
             "Získáváš dva LP u Adriana. Cesta najednou rychle uteče."
             # 2 LP Adrian
+            $ j.add_love_points_for_person(a, 2)
             jump tokio1
 
 label Adrivauteodmitnuti:
@@ -236,7 +231,7 @@ label tokio1:
         "Půjdeš si sednout k Mimoňovi, k Dantemu nebo počkáš bez interakce?"
         "Půjdu do auta k mimoňovi.":
             hide d neutral
-            m "Co tu chceš? Vypadni!"
+            m.char "Co tu chceš? Vypadni!"
             "Nemáš náladu se s ním dohadovat, takže získáváš jeden HP a vylézáš z auta."
             hide m neutral
             "Zbytek čekání strávíš opřená o přední kapotu auta."
@@ -245,14 +240,14 @@ label tokio1:
 
         "Půjdu k Dantemu.":
             hide m neutral
-            d "..."
+            d.char "..."
             "Vypadá to, že je opravdu zabraný do četby."
             "Najednou však zvedne oči od mobilu."
-            d "Je tu strašný teplo."
+            d.char "Je tu strašný teplo."
             "Jemně se usměje."
-            d "Chceš?"
+            d.char "Chceš?"
             "Podává ti lahev s vychlazenou vodou."
-            d "Koupil jsem ji támhle v automatu."
+            d.char "Koupil jsem ji támhle v automatu."
             "Ale než stihneš odpovědět, vidíš, jak se vrací Sučan a Adrian."
             hide d neutral
             jump problemubytovani
@@ -268,11 +263,11 @@ label problemubytovani:
     show s neutral at left
     show a smile at right
     "Všimneš si, že Sučan se tváří pobaveně, zatímmco Adrian smutně."
-    s "Víte, jak jsem řešil, že tenhle hotel někdo hacknul?"
+    s.char "Víte, jak jsem řešil, že tenhle hotel někdo hacknul?"
     "říká velmi pobaveným tónem."
-    s "Tak to má dohru, nejen, že jsem kvůli tomu musel před odjezdem zablokovat a obstarat si novou kreditku..."
-    s "...ale ještě mají nějaký zmatek v systému, takže místo tří pokojů máme jen dva."
-    a "Takže se musíme rozdělit do jednoho dvojlůžáku a jednoho trojlůžáku."
+    s.char "Tak to má dohru, nejen, že jsem kvůli tomu musel před odjezdem zablokovat a obstarat si novou kreditku..."
+    s.char "...ale ještě mají nějaký zmatek v systému, takže místo tří pokojů máme jen dva."
+    a.char "Takže se musíme rozdělit do jednoho dvojlůžáku a jednoho trojlůžáku."
     # Minihra rozdělení do pokojů
 
 
