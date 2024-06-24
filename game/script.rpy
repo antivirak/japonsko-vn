@@ -29,14 +29,14 @@ label start:
     with fade
     play music "StockTune-Neon Pulse Of Japan_1719152100.mp3"
 
-    "Vítej ve hře cesta po Japonsku"
+    "Vítej ve hře Cesta po Japonsku"
     "Tvým cílem hry je užít si dovolenou a procestovat velkou část Japonska, nezabít Mimoně, užít si i nějakou romanci a nasbírat co nejméně Gaijin pointů (GP)."
     "Jste parta, která se po internetu domluvila, že vyrazíte na 3 týdny na dovolenou do Japonska."
     "Mezi sebou se moc neznáte. Kromě online nákupu letenek jsi se s některými účastníky nikdy neviděl/a."
     "S tebou do toho šel tvůj kámoš z dětství. A další 3 naprosto cizí lidé."
 
     menu:
-        "Vyber si, zda budeš hrát za holku nebo kluka. Svým výběrem rozhodneš, který z účastníků je tvůj kamarád z dětství."
+        "Vyber si, zda budeš hrát za holku nebo kluka. Svým výběrem rozhodneš, který z účastníků bude tvůj kamarád z dětství."
         "Dívka":
             $ gender = 'f'
         "Kluk":
@@ -55,7 +55,7 @@ label start:
     "Tohle je Adrian. Podle společných online schůzek působí klidně a mile."
     if gender == 'm':
         "Právě on je tvůj kamarád z dětství."
-    "Před odjezdem absolvoval jazykový kurz, takže umí, alespoň základy japonštiny."
+    "Před odjezdem absolvoval jazykový kurz, takže umí alespoň základy japonštiny."
     hide a neutral
     if gender == 'f':
         show d neutral at left
@@ -66,19 +66,19 @@ label start:
         show h neutral at left
         "Tohle je Hana, zná se se Sučanem."
         "Je to studentka chemické školy, se zájmem o anime a Japonsko"
-        "Větší část cesty byla tichá."
+        "Větší část cesty byla potichu."
         hide h neutral
         pass
         # TODO add woman character
     show m neutral at right
     "Tak tohle je Mimoň, vůbec netušíte, jak se stalo, že s vámi odletěl."
-    "Během online, schůzek se v podstatě nevyjadřoval"
+    "Během online schůzek se v podstatě nevyjadřoval."
     "Poprvé, co jste zjistili, že by mohl být nějaký problém, bylo den před odletem..."
-    "Domluvili jste se, že se všichni sejdete u Sučana na bytě dáte si večeři a pak vyrazíte společně na letiště."
-    "Ale den před odletem přišla zpráva od Mimoně, kdo ho vyzvedne autem, že s kufrem 'sockou' nejede."
+    "Domluvili jste se, že se všichni sejdete u Sučana na bytě, dáte si večeři a pak vyrazíte společně na letiště."
+    "Ale den před odletem přišla zpráva od Mimoně, který se ptal, kdo ho vyzvedne autem, že s kufrem 'sockou' rozhodně nepojede."
     "Nakonec se to vyřešilo tak, že ho přivezla sestra."
     "Další scénu ztropil, když zjistil, že v letadle bude muset sedět sám (letenky, jste si koupili bez místenky)."
-    "Takže už jen za těch pár společných hodin, všichni tušíte, že to bude náročné."
+    "Takže už jen po těch pár společných hodinách máte všichni neblahé tušení, že to bude s Mimoněm asi hodně náročné..."
     show m neutral at right
     show a neutral at left
     show s neutral:
@@ -104,7 +104,7 @@ label vyberauta:
     "Absolvovali jste dlouhý a náročný let do Japonska a máte si vyzvednout auto, které vám bude dělat společnost další 3 týdny. "
     show s neutral at left
     "A ejhle první problém, auto zařizoval Sučan – fanda do aut. Máte sporťák... "
-    "Pro pět lidí s kufry, je to docela stísněný prostor."
+    "Pro pět lidí s kufry je to docela stísněný prostor."
     hide s neutral
     menu:
         "Jseš řidička? Pokud ano, jseš ochotná následující 3 týdny strávit za volantem spolu se Sučanem? Mysli na to, že v Japonsku se jezdí vlevo."
@@ -114,20 +114,20 @@ label vyberauta:
             jump neridicka
 
 label ridicka:
-    "Díky tomu že jsi řidička máš výsostné právo spolu s druhým řidičem – Sučanem sedět na místě řidiče spolujezdce a nemusíš se tlačit vzadu."
+    "Díky tomu, že jsi řidička, tak máš výsostné právo spolu s druhým řidičem – Sučanem sedět na místě řidiče a spolujezdce a nemusíš se tlačit vzadu."
     show s neutral at left
-    "Protože, Sučan je zvyklý cestovat a nařízeno vlevo má hodně a zodpovědnost za auto jde za ním"
-    "cestu z letiště do hotelu odřídí on"
-    "Přesunuli jste se do Tokia"
+    "Protože Sučan je zvyklý cestovat a nařízeno na levé straně má hodně a zodpovědnost za auto jde za ním"
+    ", tak cestu z letiště na hotel odřídí on."
+    "Přesunuli jste se do Tokia."
     hide s neutral
     jump tokio1
 label neridicka:
     "Oh, jsi předurčena mačkat se na zadních sedadlech."
     menu:
-        "Ale můžeš si vybrat kde budeš sedět"
+        "Ale můžeš si vybrat kde budeš sedět."
         "Za řidičem":
             jump zaridicem
-        "Vprostřed":
+        "Ve prostřed":
             jump vprostred
         "Za spolujezdcem":
             jump zaspolujezdcem
@@ -147,13 +147,13 @@ label vprostred:
     show m neutral at right
     "Za řidiče se posadil Adrian a za spolujezdce Mimoň."
     "Auto je opravdu krásný, ale vážně malý sporťák. Takže se na tebe z obou stran tlačí oba urostlí spolujezdci."
-    "Cítíš, jak se Mimoň rozcapil na celé sedadlo ramenem ti drtí tvé, tvou pravou nohu ti vytlačil od sebe, takže ji máš v dost nepříjemné pozici uprostřed na vyvýšené části podlahy."
-    "A takto rozvalený Mimoň spokojeně usnul, opřený o okýnko s otevřenou pusou. "
+    "Cítíš, jak se Mimoň rozcapil na celé sedadlo a ramenem ti drtí to tvé. Tvou pravou nohu ti vytlačil od sebe, takže ji máš v dost nepříjemné pozici uprostřed na vyvýšené části podlahy."
+    "A takto rozvalený Mimoň spokojeně usnul, opřený o okénko s otevřenou pusou. "
     a "Můžeš si dát i tu druhou nohu ke mně."
     "šeptá vedle tebe Adrian. Teprve teď si uvědomíš, že vlastně vedle tebe sedí i on."
     "Ačkoliv je lépe stavěný než Mimoň, neutlačuje tě svou přítomností, a když se po jeho slovech na něj otočíš, vidíš, že sám nesedí vůbec komfortně."
     menu:
-        "Chceš s Adrianem nějak interagovat, nebo raději ho budeš ignorovat?"
+        "Chceš s Adrianem nějak interagovat, nebo ho raději budeš ignorovat?"
         "Budu ho ignorovat.":
             "Nasadila sis sluchátka a snažíš se také usnout, na Adriana se raději ani nepodíváš."
             "Usnula jsi a probouzíš se až v Tokiu"
@@ -162,7 +162,7 @@ label vprostred:
             a "Je to hulvát, měla sis sednout místo mě"
             "Jemně se na tebe usměje a odhodí ti vlasy z tváře"
             a "Máš krásný oči"
-            "Poté se odmlčí a podívá se z okýnka."
+            "Poté se odmlčí a podívá se z okénka."
             "Citíš, jak se ti do tváře hrne krev a ty se začínáš červenat."
             "Sklopíš zrak a vytáhneš sluchátka a mobil."
             "Zbytek cesty se nic neděje a rychle uteče."
@@ -174,41 +174,41 @@ label vprostred:
             jump tokio1
 
 label zaspolujezdcem:
-    "Vybrala sis to snad to nejhorší místo, co jsi mohla. Za řidiče se posadil Adrian a do středu vedle tebe Mimoň."
+    "Vybrala sis snad to nejhorší místo, co jsi mohla. Za řidiče se posadil Adrian a do středu vedle tebe Mimoň."
     show m neutral
     "Auto je opravdu krásný, ale vážně malý sporťák. Takže se na tebe tlačí Mimoň."
-    "Cítíš, jak se Mimoň rozcapil na celé sedadlo ramenem ti drtí tvé, a svou pravou nohu si narval k tobě, takže si musela své nohy nalepit ke dveřím. "
+    "Cítíš, jak se Mimoň rozcapil na celé sedadlo  a ramenem ti drtí to tvé. Svou pravou nohu si narval k tobě, takže si musela své nohy nalepit ke dveřím. "
     "A Mimoň usnul s hlavou zakloněnou a opřenou o sedačky."
-    "Pokusíš se ho odstrčit, ze začátku lehce pak i velkou silou, ale Mimoň spí tvrdě"
-    "Vyndáš si sluchátka a celou cestu koukáš z okýnka"
-    "Když už podle navigace vjíždíte do Tokia, velmi si oddychneš"
-    "Získáváš dva HP pro Mimoně"
+    "Pokusíš se ho odstrčit, ze začátku lehce pak i velkou silou, ale Mimoň spí tvrdě."
+    "Vyndáš si sluchátka a celou cestu koukáš z okénka"
+    "Když už podle navigace vjíždíte do Tokia, velmi si oddychneš."
+    "Získáváš dva HP pro Mimoně."
     # 2 HP Mimoň
     jump tokio1
 
 label Adrianvaute:
     a "Nevadilo by ti, kdybych se k tobě víc přitulil?"
     "Pohodí hlavou směrem k Mimoňovi a teprve teď sis všimla, že ho Mimoň dosti utiskuje."
-    "Je rozvalený přes celou sedačku ramenem evidentně až bolestivě opřený o Adriana."
-    "Spí a nohy má rocapené tak, že Adrian svou pravou nohu má položenou na prostředním vystouplém sloupku. Což je značně nepohodlná pozice. "
+    "Je rozvalený přes celou sedačku a ramenem evidentně až bolestivě opřený o Adriana."
+    "Spí a nohy má rozcapené tak, že Adrian svou pravou nohu má položenou na prostředním vystouplém sloupku. Což je značně nepohodlná pozice. "
     "Pokusíš se ještě malinko uskromnit, ale vážně už není kam se odsunout."
     a "[name_5p], posloucháš mě? Vadilo by ti, kdybych se opřel za tebe, narovnal si trošku záda a ty by ses opřela o mě?"
     menu:
         "Chvíli nad tím přemýšlíš."
-        "Vadilo, odsekneš":
+        "Vadilo, odsekneš.":
             jump Adrivauteodmitnuti
-        "Nevadilo":
-            "Pak se chytíš za sedadlo před tebou a pošoupneš se tak aby se mohl za tebe opřít. "
+        "Nevadilo.":
+            "Pak se chytíš za sedadlo před tebou a pošoupneš se tak, aby se mohl za tebe opřít. "
             "Opře se o sedadlo za tebou a ruku protáhne za tebe."
-            "Chytí tě jemně za rameno a stáhne tě na sebe. Ucítíš jemné mravenčení v břiše. Usměje se na tebe"
-            a "Děkuji"
+            "Chytí tě jemně za rameno a stáhne tě na sebe. Ucítíš jemné mravenčení v břiše. Usměje se na tebe."
+            a "Děkuji."
             "Získáváš dva LP u Adriana. Cesta najednou rychle uteče."
             # 2 LP Adrian
             jump tokio1
 
 label Adrivauteodmitnuti:
-    "Zbytek cesty usilovně koukáš z okýnka a Adrian nepromluví"
-    "Přesunuli jste se do Tokia"
+    "Zbytek cesty usilovně koukáš z okýnka a Adrian nepromluví."
+    "Přesunuli jste se do Tokia."
     jump tokio1
 
 label tokio1:
@@ -224,14 +224,14 @@ label tokio1:
     "Zaparkovali jste vnitrobloku hotelu."
     show s neutral at left
     show a smile at right
-    "Napřed do hotelu půjde Sučan s Adrianem, protože Sučan zařizoval ubytovaní a Adrian umí základy v Japonštině."
+    "Napřed do hotelu půjde Sučan s Adrianem, protože Sučan zařizoval ubytovaní a Adrian umí základy Japonštiny."
     hide s neutral
     hide a smile
     show d neutral at left
     show m neutral at right
     "Zůstala jsi sama na parkovišti s Dantem a Mimoňem."
     "Dante si sedl na obrubník a evidentně si něco čte na mobilu."
-    "Mimoň zůstal v autě má nasazená sluchátka a tváří se znechuceně."
+    "Mimoň zůstal v autě, má nasazená sluchátka a tváří se znechuceně."
     menu:
         "Půjdeš si sednout k Mimoňovi, k Dantemu nebo počkáš bez interakce?"
         "Půjdu do auta k mimoňovi.":
@@ -239,8 +239,8 @@ label tokio1:
             m "Co tu chceš? Vypadni!"
             "Nemáš náladu se s ním dohadovat, takže získáváš jeden HP a vylézáš z auta."
             hide m neutral
-            "Zbytek čekání, strávíš opřená o přední kapotu auta."
-            "Naštěstí, nečekáš dlouho a vidíš, jak se vrací Sučan a Adrian."
+            "Zbytek čekání strávíš opřená o přední kapotu auta."
+            "Naštěstí nečekáš dlouho a vidíš, jak se vrací Sučan a Adrian."
             jump problemubytovani
 
         "Půjdu k Dantemu.":
@@ -260,8 +260,8 @@ label tokio1:
         "Zůstanu čekat sama.":
             hide d neutral
             hide m neutral
-            "Čekání, strávíš opřená o přední kapotu auta."
-            "Naštestí nečekáš dlouho během pár minut vidíš, jak se vrací Sučan a Adrian."
+            "Čekání strávíš opřená o přední kapotu auta."
+            "Naštestí nečekáš dlouho a během pár minut vidíš, jak se vrací Sučan a Adrian."
             jump problemubytovani
 
 label problemubytovani:
@@ -270,7 +270,7 @@ label problemubytovani:
     "Všimneš si, že Sučan se tváří pobaveně, zatímmco Adrian smutně."
     s "Víte, jak jsem řešil, že tenhle hotel někdo hacknul?"
     "říká velmi pobaveným tónem."
-    s "Tak to má dohru, nejen, že jsem kvůli tomu musel zablokovat a obstarat si novou kreditku..."
+    s "Tak to má dohru, nejen, že jsem kvůli tomu musel před odjezdem zablokovat a obstarat si novou kreditku..."
     s "...ale ještě mají nějaký zmatek v systému, takže místo tří pokojů máme jen dva."
     a "Takže se musíme rozdělit do jednoho dvojlůžáku a jednoho trojlůžáku."
     # Minihra rozdělení do pokojů
