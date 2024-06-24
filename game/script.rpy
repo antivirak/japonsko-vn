@@ -3,12 +3,12 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define m = Character(_("Mimoň"), color="#fe0303")
-define s = Character(_("Sučan"), color="#0303fe")
-define a = Character(_("Adrian"), color="#03e221")
-define d = Character(_("Dante"), color="#545454")
-define h = Character(_("Hana"), color="#545454")
-define j = Character('[name]', color="#f4f803")
+define m = Person(name = "Mimoň", color = "#fe0303", gender = "m")
+define s = Person(name ="Sučan", color = "#0303fe", gender = "m")
+define a = Person(name ="Adrian", color = "#03e221", gender = "m")
+define d = Person(name ="Dante", color = "#545454", gender = "m")
+define h = Person(name ="Hana", color = "#545454", gender = "f")
+define j = Person(name ='[name]', color = "#f4f803", gender = None)
 
 transform half_size:
     zoom .5
@@ -16,14 +16,6 @@ transform half_size:
 # The game starts here.
 
 label start:
-
-    # Declare hate, love and gaijin point character instance attributes
-    $ m.hp = 0
-    $ s.lp = 0
-    $ a.lp = 0
-    $ d.lp = 0
-    $ h.lp = 0
-    $ j.gp = 0
 
     scene bg letistenara at half_size
     with fade
@@ -38,26 +30,26 @@ label start:
     menu:
         "Vyber si, zda budeš hrát za holku nebo kluka. Svým výběrem rozhodneš, který z účastníků bude tvůj kamarád z dětství."
         "Dívka":
-            $ gender = 'f'
+            $ j.gender = 'f'
         "Kluk":
-            $ gender = 'm'
-    $ name = renpy.input("Jak se jmenuješ?").strip()
-    $ name_5p = name[:-1] + "o" if gender == "f" else name
+            $ j.gender = 'm'
+    $ j.name = renpy.input("Jak se jmenuješ?").strip()
+    $ j.name_5p = j.name[:-1] + "o" if j.gender == "f" else j.name
     scene bg black
     show s neutral at left
     "Tohle je kluk s přezdívkou Sučan."
-    if gender == 'f':
+    if j.gender == 'f':
         "Právě on je tvůj kamarád z dětství."
     "S cestováním má nejvíce zkušeností."
     "Je to hlavní řidič a také zařizoval hotely, protože má na bookingu členské slevy."
     hide s neutral
     show a neutral at right
     "Tohle je Adrian. Podle společných online schůzek působí klidně a mile."
-    if gender == 'm':
+    if j.gender == 'm':
         "Právě on je tvůj kamarád z dětství."
     "Před odjezdem absolvoval jazykový kurz, takže umí alespoň základy japonštiny."
     hide a neutral
-    if gender == 'f':
+    if j.gender == 'f':
         show d neutral at left
         "Tenhle kluk se jmenuje Dante. Během online schůzek toho moc nenamluvil."
         "Ale většina jeho připomínek, byla konstruktivní, jeho hlas na tebe působí velmi uklidňujícím dojmem."
@@ -84,7 +76,7 @@ label start:
     show s neutral:
         xalign 0.3
         yalign 1.0
-    if gender == 'f':
+    if j.gender == 'f':
         show d neutral:
             xalign 0.7
             yalign 1.0
@@ -168,8 +160,9 @@ label vprostred:
             "Zbytek cesty se nic neděje a rychle uteče."
             "Získáváš LP u Adriana a jeden HP za Mimoně."
             # 1 LP Adrian, 1 HP Mimoň
-            $ m.hp += 1
-            "aktualni hp: [m.hp]"
+            $ j.add_love_points_for_person(a, 1)
+            $ j.add_hate_points_for_person(m, 1)
+            "aktualni hp: [j.get_hate_points_table()]"
             "Přesunuli jste se do Tokia."
             jump tokio1
 
@@ -184,6 +177,7 @@ label zaspolujezdcem:
     "Když už podle navigace vjíždíte do Tokia, velmi si oddychneš."
     "Získáváš dva HP pro Mimoně."
     # 2 HP Mimoň
+    $ j.add_hate_points_for_person(m, 2)
     jump tokio1
 
 label Adrianvaute:
@@ -192,7 +186,7 @@ label Adrianvaute:
     "Je rozvalený přes celou sedačku a ramenem evidentně až bolestivě opřený o Adriana."
     "Spí a nohy má rozcapené tak, že Adrian svou pravou nohu má položenou na prostředním vystouplém sloupku. Což je značně nepohodlná pozice. "
     "Pokusíš se ještě malinko uskromnit, ale vážně už není kam se odsunout."
-    a "[name_5p], posloucháš mě? Vadilo by ti, kdybych se opřel za tebe, narovnal si trošku záda a ty by ses opřela o mě?"
+    a "[j.name_5p], posloucháš mě? Vadilo by ti, kdybych se opřel za tebe, narovnal si trošku záda a ty by ses opřela o mě?"
     menu:
         "Chvíli nad tím přemýšlíš."
         "Vadilo, odsekneš.":
@@ -204,6 +198,7 @@ label Adrianvaute:
             a "Děkuji."
             "Získáváš dva LP u Adriana. Cesta najednou rychle uteče."
             # 2 LP Adrian
+            $ j.add_love_points_for_person(a, 2)
             jump tokio1
 
 label Adrivauteodmitnuti:
