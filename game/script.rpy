@@ -80,7 +80,7 @@ label start:
         show d neutral:
             xalign 0.7
             yalign 1.0
-        "Takže tohle je tvůj harém pro následující tři týdny."
+        "Takže tohle je tvůj 'harém' pro následující tři týdny."
     else:
         show h neutral:
             xalign 0.7
@@ -108,11 +108,33 @@ label vyberauta:
 label ridicka:
     "Díky tomu, že jsi řidička, tak máš výsostné právo spolu s druhým řidičem – Sučanem sedět na místě řidiče a spolujezdce a nemusíš se tlačit vzadu."
     show s neutral at left
-    "Protože Sučan je zvyklý cestovat a nařízeno na levé straně má hodně a zodpovědnost za auto jde za ním"
-    ", tak cestu z letiště na hotel odřídí on."
-    "Přesunuli jste se do Tokia."
-    hide s neutral
-    jump tokio1
+    menu:
+        "Chceš řídit hned první cestu?"
+        "Nechci":
+            "Protože Sučan je zvyklý cestovat a nařízeno vlevo má hodně a zodpovědnost za auto jde za ním."
+            "Přesunuli jste se do Tokia"
+            hide s neutral
+            jump tokio1
+        "Chci":
+            "Cestu z letiště do hotelu řídíš ty. Sučan vypadá spokojeně, že mu parťáka děláš právě ty."
+            s "Dávej si pozor, na obě strany, je to jiné, když člověk normálně řídí na druhé straně."
+            "Vyjedete a samozřejmě, hned při prvním odbočovaní, pouštíš místo blinkrů stěrače."
+            $ j.gp += 1
+            "Získáváš 1 GP"
+            "Aktualní HP pro Mimoně: [m.hp]; aktualní LP u Adriana: [a.lp]; aktualní LP u Sučana: [s.lp];
+            aktualní LP u Danteho: [d.lp] a Gaijin pointy GP: [j.gp]"
+            s "V klidu to se mi ze začátku také stávalo."
+            "Usměje se na tebe a položí ti ruku na stehno."
+            s "Buď v klidu, je to automat a umí to pak spoustu věcí, to tě naučím, teď se soustřeď na rychlost..."
+            s "...je tu nižší, než v Evropě."
+            "Ještě párkrát se ti místo blinkrů podaří pustit stěrače, a někdy nebezpečně blízko vezmeš kraj cesty,"
+            "ale úspešně jste dorazili do Tokia."
+            $ s.lp += 1
+            "Aktualní HP pro Mimoně: [m.hp]; aktualní LP u Adriana: [a.lp]; aktualní LP u Sučana: [s.lp];
+            aktualní LP u Danteho: [d.lp] a Gaijin pointy GP: [j.gp]"
+            hide s neutral
+            jump tokio1
+
 label neridicka:
     "Oh, jsi předurčena mačkat se na zadních sedadlech."
     menu:
@@ -162,7 +184,7 @@ label vprostred:
             # 1 LP Adrian, 1 HP Mimoň
             $ j.add_love_points_for_person(a, 1)
             $ j.add_hate_points_for_person(m, 1)
-            "aktualni hp: [j.get_hate_points_table()]"
+            "aktuální hp: [j.get_hate_points_table()], aktuální lp: [j.get_love_points_table()], aktuální gp: [j.gp]"
             "Přesunuli jste se do Tokia."
             jump tokio1
 
@@ -177,7 +199,7 @@ label zaspolujezdcem:
     "Když už podle navigace vjíždíte do Tokia, velmi si oddychneš."
     "Získáváš dva HP pro Mimoně."
     # 2 HP Mimoň
-    $ j.add_hate_points_for_person(m, 2)
+    $ j.add_hate_points_for_person(m, 2)  # TODO wrapper method
     jump tokio1
 
 label Adrianvaute:
@@ -198,7 +220,7 @@ label Adrianvaute:
             a "Děkuji."
             "Získáváš dva LP u Adriana. Cesta najednou rychle uteče."
             # 2 LP Adrian
-            $ j.add_love_points_for_person(a, 2)
+            $ j.add_love_points_for_person(a, 2)  # TODO
             jump tokio1
 
 label Adrivauteodmitnuti:
@@ -234,8 +256,11 @@ label tokio1:
             m "Co tu chceš? Vypadni!"
             "Nemáš náladu se s ním dohadovat, takže získáváš jeden HP a vylézáš z auta."
             hide m neutral
-            "Zbytek čekání strávíš opřená o přední kapotu auta."
-            "Naštěstí nečekáš dlouho a vidíš, jak se vrací Sučan a Adrian."
+            "Získáváš jeden HP u Mimoně"
+            $ j.add_hate_points_for_person(m, 1)
+            # TODO print table
+            "Zbytek čekání, strávíš opřená o přední kapotu auta."
+            "Naštěstí, nečekáš dlouho a vidíš, jak se vrací Sučan a Adrian."
             jump problemubytovani
 
         "Půjdu k Dantemu.":
@@ -249,6 +274,10 @@ label tokio1:
             "Podává ti lahev s vychlazenou vodou."
             d "Koupil jsem ji támhle v automatu."
             "Ale než stihneš odpovědět, vidíš, jak se vrací Sučan a Adrian."
+            "Získáváš jeden LP u Danteho"
+            $ d.lp += 1
+            "Aktualní HP pro Mimoně: [m.hp]; aktualní LP u Adriana: [a.lp]; aktualní LP u Sučana: [s.lp];
+            aktualní LP u Danteho: [d.lp] a Gaijin pointy GP: [j.gp]"
             hide d neutral
             jump problemubytovani
 
@@ -268,6 +297,19 @@ label problemubytovani:
     s "Tak to má dohru, nejen, že jsem kvůli tomu musel před odjezdem zablokovat a obstarat si novou kreditku..."
     s "...ale ještě mají nějaký zmatek v systému, takže místo tří pokojů máme jen dva."
     a "Takže se musíme rozdělit do jednoho dvojlůžáku a jednoho trojlůžáku."
+    hide s neutral
+    hide a neutral
+    show m neutral at left
+    show a neutral: 
+        xalign 0.3
+        yalign 1.0
+    show s neutral:
+        xalign 0.6
+        yalign 1.0
+    show d neutral at right
+    "Pro lepší rozhodování tvé získané bodíky: aktualní HP pro Mimoně: [m.hp]; aktualní LP u Adriana: [a.lp];
+    aktualní LP u Sučana: [s.lp]; aktualní LP u Danteho: [d.lp] a Gaijin pointy GP: [j.gp]"
+
     # Minihra rozdělení do pokojů
 
 
