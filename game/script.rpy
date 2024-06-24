@@ -3,12 +3,12 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define m = Person(name = "Mimoň", color = "#fe0303", gender = "m")
-define s = Person(name ="Sučan", color = "#0303fe", gender = "m")
-define a = Person(name ="Adrian", color = "#03e221", gender = "m")
-define d = Person(name ="Dante", color = "#545454", gender = "m")
-define h = Person(name ="Hana", color = "#545454", gender = "f")
-define j = Person(name ='[name]', color = "#f4f803", gender = None)
+define m = Person(name="Mimoň", color="#fe0303", gender="m")
+define s = Person(name="Sučan", color="#0303fe", gender="m")
+define a = Person(name="Adrian", color="#03e221", gender="m")
+define d = Person(name="Dante", color="#545454", gender="m")
+define h = Person(name="Hana", color="#545454", gender="f")
+define j = Person(name='[name]', color="#f4f803", gender=None)
 
 transform half_size:
     zoom .5
@@ -17,7 +17,7 @@ transform half_size:
 
 label start:
 
-    scene bg letistenara at half_size
+    scene bg letistenara
     with fade
     play music "StockTune-Neon Pulse Of Japan_1719152100.mp3"
 
@@ -60,8 +60,6 @@ label start:
         "Je to studentka chemické školy, se zájmem o anime a Japonsko"
         "Větší část cesty byla potichu."
         hide h neutral
-        pass
-        # TODO add woman character
     show m neutral at right
     "Tak tohle je Mimoň, vůbec netušíte, jak se stalo, že s vámi odletěl."
     "Během online schůzek se v podstatě nevyjadřoval."
@@ -85,7 +83,6 @@ label start:
         show h neutral:
             xalign 0.7
             yalign 1.0
-        # TODO show woman char
         "Takže tohle jsou tví spolucestující pro následující tři týdny."
 
 
@@ -119,19 +116,17 @@ label ridicka:
             "Cestu z letiště do hotelu řídíš ty. Sučan vypadá spokojeně, že mu parťáka děláš právě ty."
             s "Dávej si pozor, na obě strany, je to jiné, když člověk normálně řídí na druhé straně."
             "Vyjedete a samozřejmě, hned při prvním odbočovaní, pouštíš místo blinkrů stěrače."
-            $ j.gp += 1
+            $ j.gaijin_points += 1
             "Získáváš 1 GP"
-            "Aktualní HP pro Mimoně: [m.hp]; aktualní LP u Adriana: [a.lp]; aktualní LP u Sučana: [s.lp];
-            aktualní LP u Danteho: [d.lp] a Gaijin pointy GP: [j.gp]"
+            "[j.show_all_points()]"
             s "V klidu to se mi ze začátku také stávalo."
             "Usměje se na tebe a položí ti ruku na stehno."
             s "Buď v klidu, je to automat a umí to pak spoustu věcí, to tě naučím, teď se soustřeď na rychlost..."
             s "...je tu nižší, než v Evropě."
             "Ještě párkrát se ti místo blinkrů podaří pustit stěrače, a někdy nebezpečně blízko vezmeš kraj cesty,"
             "ale úspešně jste dorazili do Tokia."
-            $ s.lp += 1
-            "Aktualní HP pro Mimoně: [m.hp]; aktualní LP u Adriana: [a.lp]; aktualní LP u Sučana: [s.lp];
-            aktualní LP u Danteho: [d.lp] a Gaijin pointy GP: [j.gp]"
+            $ j.add_love_points_for_person(s, 1)
+            "[j.show_all_points()]"
             hide s neutral
             jump tokio1
 
@@ -184,7 +179,7 @@ label vprostred:
             # 1 LP Adrian, 1 HP Mimoň
             $ j.add_love_points_for_person(a, 1)
             $ j.add_hate_points_for_person(m, 1)
-            "aktuální hp: [j.get_hate_points_table()], aktuální lp: [j.get_love_points_table()], aktuální gp: [j.gp]"
+            "[j.show_all_points()]"
             "Přesunuli jste se do Tokia."
             jump tokio1
 
@@ -199,7 +194,8 @@ label zaspolujezdcem:
     "Když už podle navigace vjíždíte do Tokia, velmi si oddychneš."
     "Získáváš dva HP pro Mimoně."
     # 2 HP Mimoň
-    $ j.add_hate_points_for_person(m, 2)  # TODO wrapper method
+    $ j.add_hate_points_for_person(m, 2)
+    "[j.show_all_points()]"
     jump tokio1
 
 label Adrianvaute:
@@ -220,7 +216,8 @@ label Adrianvaute:
             a "Děkuji."
             "Získáváš dva LP u Adriana. Cesta najednou rychle uteče."
             # 2 LP Adrian
-            $ j.add_love_points_for_person(a, 2)  # TODO
+            $ j.add_love_points_for_person(a, 2)
+            "[j.show_all_points()]"
             jump tokio1
 
 label Adrivauteodmitnuti:
@@ -258,7 +255,7 @@ label tokio1:
             hide m neutral
             "Získáváš jeden HP u Mimoně"
             $ j.add_hate_points_for_person(m, 1)
-            # TODO print table
+            "[j.show_all_points()]"
             "Zbytek čekání, strávíš opřená o přední kapotu auta."
             "Naštěstí, nečekáš dlouho a vidíš, jak se vrací Sučan a Adrian."
             jump problemubytovani
@@ -275,9 +272,8 @@ label tokio1:
             d "Koupil jsem ji támhle v automatu."
             "Ale než stihneš odpovědět, vidíš, jak se vrací Sučan a Adrian."
             "Získáváš jeden LP u Danteho"
-            $ d.lp += 1
-            "Aktualní HP pro Mimoně: [m.hp]; aktualní LP u Adriana: [a.lp]; aktualní LP u Sučana: [s.lp];
-            aktualní LP u Danteho: [d.lp] a Gaijin pointy GP: [j.gp]"
+            $ j.add_love_points_for_person(d, 1)
+            "[j.show_all_points()]"
             hide d neutral
             jump problemubytovani
 
@@ -307,8 +303,7 @@ label problemubytovani:
         xalign 0.6
         yalign 1.0
     show d neutral at right
-    "Pro lepší rozhodování tvé získané bodíky: aktualní HP pro Mimoně: [m.hp]; aktualní LP u Adriana: [a.lp];
-    aktualní LP u Sučana: [s.lp]; aktualní LP u Danteho: [d.lp] a Gaijin pointy GP: [j.gp]"
+    "Pro lepší rozhodování tvé získané bodíky: [j.show_all_points()]"
 
     # Minihra rozdělení do pokojů
 
