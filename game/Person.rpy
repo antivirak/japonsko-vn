@@ -17,7 +17,7 @@ init python:
             self.love_points[person.name] += value
 
         def add_hate_points_for_person(self, person: Person, value: int) -> None:
-            if person.name not in self.love_points:
+            if person.name not in self.hate_points:
                 self.hate_points[person.name] = 0
             self.hate_points[person.name] += value
 
