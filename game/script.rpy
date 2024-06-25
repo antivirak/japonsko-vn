@@ -306,6 +306,12 @@ label problemubytovani:
     "Pro lepší rozhodování tvé získané bodíky: [j.show_all_points()]"
 
     # Minihra rozdělení do pokojů
+    #pracovně sem hodím menu na ty pokoje, ať se to dá zkoušet
+    hide m neutral
+    hide a neutral
+    hide d neutral
+    hide m neutral
+    jump tokio1_hotel_part1
 
 
 
