@@ -348,7 +348,7 @@ label ignorpanel2:
         a "Díky"
         hide a smile
         "Řekne Adrian, vezme si věci a přesune se do koupelny."
-        "Ty si uklidíš věci, z papírového obalu na vstupní kartu, vyčteš heslo k wifi a napíšeš domů".
+        "Ty si uklidíš věci, z papírového obalu na vstupní kartu, vyčteš heslo k wifi a napíšeš domů."
         "Natáhneš se do postele."
         "Potom otevřeš 'socky' a začteš se do toho, ce se zatím děje doma."
         "Asi za deset minut vyleze Adrian."
@@ -469,7 +469,7 @@ label ignorpanel2:
         a "Děkuji!"
         hide a neztral
         "Řekne, vezme si věci a přesune se do koupelny."
-        "Ty si uklidíš věci, z papírového obalu na vstupní kartu, vyčteš heslo k wifi a napíšeš domů".
+        "Ty si uklidíš věci, z papírového obalu na vstupní kartu, vyčteš heslo k wifi a napíšeš domů."
         "Natáhneš se do postele."
         "Potom otevřeš 'socky' a začteš se do toho, ce se zatím děje doma."
         "Asi za deset minut vyleze Adrian."
