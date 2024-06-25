@@ -1,15 +1,5 @@
 ﻿# The script of the game goes in this file.
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-
-define m = Person(name="Mimoň", color="#fe0303", gender="m")
-define s = Person(name="Sučan", color="#0303fe", gender="m")
-define a = Person(name="Adrian", color="#03e221", gender="m")
-define d = Person(name="Dante", color="#545454", gender="m")
-define h = Person(name="Hana", color="#545454", gender="f")
-define j = Person(name='[name]', color="#f4f803", gender=None)
-
 transform half_size:
     zoom .5
 
@@ -140,6 +130,7 @@ label neridicka:
             jump vprostred
         "Za spolujezdcem":
             jump zaspolujezdcem
+
 label zaridicem:
     "Vybrala sis místo za řidičem, takže vedle tebe si do středu sedá Adrian a za spolujezdce Mimoň."
     show a smile at right
@@ -150,6 +141,7 @@ label zaridicem:
             jump Adrianvaute
         "Stočím pohled ven z okýnka":
             jump Adrivauteodmitnuti
+
 label vprostred:
     "Vybrala sis snad to nejhorší místo, co si mohla."
     show a neutral at left
@@ -310,9 +302,8 @@ label problemubytovani:
     hide m neutral
     hide a neutral
     hide d neutral
-    hide m neutral
+    hide s neutral
     jump tokio1_hotel_part1
-
 
 
 label titulky:
