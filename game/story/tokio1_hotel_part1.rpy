@@ -339,7 +339,7 @@ label ignorpanel2:
         "Po cestování, které si v posledních 24 hodinách absolvoval['a' if j.gender == 'f' else ''],"
         "je pořádná sprcha právě to, co nejvíce potřebuješ."
         "Po pár minutách užívání si horké koupele, usoudíš, že je čas vylézt a pustit do koupelny i Adriana."
-        "Vlezeš ven, usušíš se a trochu si vyfénuješ vlasy."
+        "Vylezeš ven, usušíš se a trochu si vyfénuješ vlasy."
         # TODO v jiných větvích jsi popisovala vybavení hotelových koupelen
         "Oblékneš se do přineseného oblečení."
         "Zkontroluješ, že po tobě v koupelně nezůstal žádný bordel a odemkneš koupelnu."
@@ -349,7 +349,7 @@ label ignorpanel2:
         a "Díky,"
         hide a smile
         "řekne Adrian, vezme si věci a přesune se do koupelny."
-        "Ty si uklidíš věci, z papírového obalu na vstupní kartu vyčteš heslo k wifi a napíšeš domů."
+        "Ty si uklidíš věci; z papírového obalu na vstupní kartu vyčteš heslo k wifi a napíšeš domů."
         "Natáhneš se do postele."
         "Potom otevřeš 'socky' a začteš se do toho, co se zatím děje doma."
         "Asi za deset minut vyleze Adrian."
