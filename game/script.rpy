@@ -378,6 +378,74 @@ screen dropdown_options(btnTexts, opt_xpos=0, opt_ypos=0):
             $ yIndent += ySpacing
 
 
+
+init python:
+    class Dropdown:
+        def __init__(self, dropdown_list):
+            self.dropdown_list = dropdown_list
+            self.expanded = False
+            self.selected_item = next((item for item in dropdown_list if item.selected == True), dropdown_list[0])
+
+    class DropdownItem:
+        def __init__(self, value, name, action=None, selected=False):
+            self.value = value
+            self.name = name
+            self.action = action
+            self.selected = selected
+
+
+screen dropdown(dropdown_var):
+    $ dropdown = getattr(store, dropdown_var)
+    $ dropdown_list = dropdown.dropdown_list
+    $ selected_item = dropdown.selected_item
+
+    frame:
+        xfill True
+        xmaximum 200
+
+        vbox:
+            frame:
+                xfill True
+                ysize 80  # TODO adjust
+
+                hbox:
+                    textbutton selected_item.name:
+                        xsize 200 ysize 50
+                        action SetVariable(dropdown_var + '.expanded', not dropdown.expanded)
+                        xfill True
+
+                    frame:
+                        background None
+                        padding (0, 0)
+                        xpos -15
+                        yalign 0.5
+
+                        # add Transform(
+                        #     # change to your arrow:
+                        #     im.Scale('image_1.jpg', 10, 10),
+                        #     rotate = 180 if dropdown.expanded else 0,
+                        #     yalign = 0.5,
+                        # )
+
+            if dropdown.expanded:
+                frame:
+                    # xfill True
+
+                    vbox:
+                        for item in dropdown_list:
+                            $ actions = [
+                                SetVariable(dropdown_var + '.selected_item', item),
+                                SetVariable(dropdown_var + '.expanded', False),
+                            ]
+
+                            if item.action:
+                                $ actions.append(item.action)
+
+                            textbutton item.name:
+                                xsize 200 ysize 50
+                                action actions
+
+
 label problemubytovani:
     show s neutral at left
     show a smile at right
@@ -404,7 +472,17 @@ label problemubytovani:
     $ b = d if j.gender == 'f' else h
     $ inventory = [a.name, m.name, s.name, b.name, j.name]
     # $ inventory = {0: a.name, 1: m.name, 2: s.name, 3: j.name, 4: ''}
-    show screen inventory_table(inventory)
+    # show screen inventory_table(inventory)
+    $ dropdown_1 = Dropdown([
+        # Attributes: value (item id), name (textbutton), action(Jump and etc.) selected (is selected item by default)
+        DropdownItem('item_1', 'Item 1'),
+        DropdownItem('item_2', 'Item 2'),  # , Jump('test')
+        DropdownItem('item_3', 'Item 3', selected=True),
+        DropdownItem('item_4', 'Item 4'),
+    ])
+
+    # In attr use your variable name
+    call screen dropdown('dropdown_1')
     # show screen dropdown_menu(selectedOption="Foo", btnTexts=["foo", "bar", "baz"])
 
     # Minihra rozdělení do pokojů
