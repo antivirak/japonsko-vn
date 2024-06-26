@@ -1,4 +1,5 @@
 label tokio1_hotel_part1:
+
     menu:
         #pracovně sem hodím menu na ty pokoje, ať se to dá zkoušet
         "S kým budeš na pokoji?"
@@ -6,6 +7,8 @@ label tokio1_hotel_part1:
             jump hracka_Sucan
         "Dvojlůžák s Mimoněm":
             jump hrac_ka_Mimon
+        "Dvojlůžák s Adrianem":
+            jump hracka_Adrian
 
     "Po rozdělení jste se rozhodli dojít na pokoje odnést si věci sraz máte v 18 h na recepci, půjdete společně na večeři."
 
@@ -188,7 +191,7 @@ label ignorpanel:
     "Konečně se probereš z úžasu, rychle zavřeš pusu, a začneš se červenat."
     j "No taky si byl plošší!"
     "Snažíš se tuhle trapnou situaci zahrát do outu."
-    show scantily clad
+    show s scantily clad
     s "Cože jsem byl?"
     "Šáhne po polštáři a hodí ho po tobě."
     hide scantily clad
@@ -272,4 +275,210 @@ label ignorpanel2:
     $ j.add_hate_points_for_person(m, 3)
     "[j.show_all_points()]"
     jump recepce
+
+
+    label hracka_Adrian:
+        "Vybrala sis pro následující dvě noci strávit společný čas s Adrianem."
+        "Vzali jste si kufry z auta a výtahem se necháte vyvést do šestého patra."
+        show a neutral at right
+        a "Můžu ti pomoct s kufrem?"
+        hide a neutral
+        menu:
+            "Necháš si pomoct s kufrem? Nebo nemáš o interakci s Adrianem zájem?"
+            "Nechat si pomoct s kufrem.":
+                jump adrian_hotel_pomoc
+            "Ne, chci být silná, nezávislá žena.":
+                jump adrian_hotel_feministka
+    label adrian_hotel_pomoc:
+        "Adrian ti vezme kufr a zamíříte chodbou k pokoji číslo 607."
+        "Odemkne pomocí karty, otevře dveře a pustí tě dovnitř."
+        scene bg dvojluzakmanp
+        "V pokoji je pouze manželská postel."
+        j "..."
+        show a neutral
+        a "Jestli se mnou nechceš spát v posteli, tak já klidně budu spát na zemi."
+        hide a neutral
+        j "Neblázni, přece nebudeš spát na zemi."
+        j "Ta postel je dost velká pro oba, ale jestli nechceš spát se mnou, tak mezi sebe můžeme naskládat kufr a tašky."
+        show a smile
+        a "To z mé strany není potřeba."
+        a "Jen tě nechci omezovat."
+        hide a smile
+        j "Mě neomezuješ, na které straně chceš spát?"
+        show a neutral
+        a "Mně je to jedno, vyber si ty."
+        hide a neutral
+        "Tak si vybereš pravou stranu postele. A začneš si vybalovat věci."
+        show a neutral
+        a "Běž do koupelny první, já počkám. Můžu jít klidně i pryč jestli chceš?"
+        hide a neutral
+        j "No, jasně, že chci... hezky se sbal a odleť tak na 20 minut? Například do Evropy."
+        "Všimneš si, jak zesmutněl a snad na tím i přemýšlí?"
+        j "Normálně tu zůstaň, určitě je v koupelně klíč. A i kdyby ne, tak přece víš, že tam budu."
+        "Usměješ se na něj a mrkneš."
+        "Popadneš věci a přesuneš se do koupelny."
+        scene bg koupelna
+        "Teď máš čas prohlédnout si koupelnu."
+        "První, co tě zaujme, je typický japonský záchod s panelem na zdi."
+        menu:
+            "Mobil s překladačem sis nechal['a' if j.gender == 'f' else ''] v pokoji."
+            "Panel budeš ignorovat":
+                jump ignorpanel3
+            "Pomačkáš náhodně všechny čudlíky.":
+                "Pomačkal['a' if j.gender == 'f' else ''] jsi náhodně všechny čudlíky."
+                "A najednou začne cákat voda ze záchodu ven!"
+                $ j.gaijin_points += 1
+                "Získáváš jeden GP!"
+                "[j.show_all_points()]"
+                "Ještě něco pomačkáš a ono to přestane."
+                "Pohledem zhodnotíš počet ručníků a rozhodneš se, že se jeden dá použít jako hadr na podlahu"
+                "Vytřeš potopu, co jsi způsobila."
+                jump ignorpanel3
+    label ignorpanel3:
+        "Rychle se svlékneš a zapadneš do vany."
+        "Po cestování, které si v posledních 24 hodinách absolvoval['a' if j.gender == 'f' else ''],"
+        "je pořádná sprcha právě to, co nejvíce potřebuješ."
+        "Po pár minutách užívání si horké koupele, usoudíš, že je čas vylézt a pustit do koupelny i Adriana."
+        "Vylezeš ven, usušíš se a trochu si vyfénuješ vlasy."
+        # TODO v jiných větvích jsi popisovala vybavení hotelových koupelen
+        "Oblékneš se do přineseného oblečení."
+        "Zkontroluješ, že po tobě v koupelně nezůstal žádný bordel a odemkneš koupelnu."
+        j "Volno!"
+        "Napůl křikneš, a jdeš si uklidit věci do kufru."
+        show a smile
+        a "Díky,"
+        hide a smile
+        "řekne Adrian, vezme si věci a přesune se do koupelny."
+        "Ty si uklidíš věci; z papírového obalu na vstupní kartu vyčteš heslo k wifi a napíšeš domů."
+        "Natáhneš se do postele."
+        "Potom otevřeš 'socky' a začteš se do toho, co se zatím děje doma."
+        "Asi za deset minut vyleze Adrian."
+        "Mlčky vstoupí do místnosti a jde s věcmi ke své tašce."
+        show a neutral  # možná změna oblečení
+        a "Máme ještě skoro hodinu do srazu."
+        hide a neutral
+        j "To je super. Ale začínám mít hlad."
+        show a neutral
+        a "Nic k jídlu nemám, ale všiml jsem si u vstupních dveří vody. Chceš ji přinést?"
+        hide a neutral
+        j "To by bylo skvělé."
+        "Odloží věci a dojde ti pro vodu."
+        j "Děkuji."
+        "Poděkuješ a usměješ se."
+        "Natáhne se vedle tebe do postele."
+        "Zvedne se na loktech."
+        show a neutral  # možná nějaká postelovější pozice
+        a "Myslíš, že bych tě mohl poprosit o podání mobilu?"
+        a "Nechal jsem ho položený u tebe na nočním stolku."
+        a "Tam totiž byla zásuvka."
+        hide a neutral 
+        j "No jasně!"
+        "Usměješ se a sáhneš po mobilu. A podáš mu ho."
+        "Akorát u toho zavadíš svojí rukou o jeho."
+        show a neutral 
+        a "Děkuji."
+        hide a neutral
+        "Vezme si mobil a zadívá se do něj."
+        j "Odkud se vlastně znáš s Dantem?"
+        show a neutral
+        a "Ze školy, máme stejný gympl."
+        a "Ty se znáš ze Sučanem odkud?"
+        hide a neutral
+        j "Měli kousek od nás chalupu, takže rodinný známý."
+        j "Strávili jsme spolu spoustu dovolených, je něco jako brácha."
+        show a neutral
+        a "Aha, tak proč si nechtěla jít na pokoj s ním?"
+        hide a neutral
+        j "A víš, že vlastně ani nevím? Možná z rozmaru. Možná jsem chtěla strávit nějaký čas s tebou."
+        j "Vadilo by ti to?"
+        show a neutral 
+        a "Ne... Ne, rozhodně ne."
+        a "Ale nebojíš se?"
+        hide a neutral
+        j "A čeho?"
+        show a neutral
+        a "No být sama s cizím klukem na pokoji, být tu teď se mnou?"
+        hide a neutral
+        j "Ne."
+        "Docela si užíváš, jak je Adrian z tebe v rozpacích."
+        "A dostaneš 'geniální' nápad."
+        "Jak tak ležíte vedle sebe, tak se překulíš a obkročmo si na něj klekneš někam do půli stehen."
+        j "A nebojíš se ty být s cizí holkou na pokoji? Nebojíš se tu být se mnou?"
+        show a confuse
+        a "..."
+        hide a confuse
+        j "Promiň, to jsem asi přehnala."
+        "Opřeš se pravou rukou o postel, abys z něho mohla slézt."
+        show a confuse
+        a "Počkej!"
+        "Řekne a a chytí tě za levou ruku. Abys z něj nemohla slézt."
+        a "Přece neuděláš něco takového a hned mi zase neutečeš."
+        a "Zůstaň takhle chvíli."
+        "Ruku ti zase pustí."
+        a "A řekni mi, proč zrovna já? A ne Dante?"
+        show a confuse
+        j "Protože se mi líbíš a jsi milý."
+        "Odpovíš a využiješ toho, že ti ruku pustil a slezeš z něho."
+        j "Myslím, že se půjdu trošku upravit a měli bychom vyrazit na večeři."
+        show a neutral
+        a "Jo to máš pravdu."
+        hide a neutral
+        "Dojdeš si upravit vlasy do koupelny a lehce se nalíčit. A už slyšíš, jak se Adrian balí."
+        "Dojdeš si vzít tašku a vyrazíte společně na recepci."
+        jump recepce
+
+    label adrian_hotel_feministka:
+        j "Nene, já si ho vezmu sama"
+        "Adrian jde tedy napřed."
+        "Odemkne pomocí karty, otevře dveře a pustí tě dovnitř."
+        scene bg dvojluzaksepare
+        "Pokoj je dvojlůžkový a postele jsou naštěstí odděleny nočním stolkem."
+        show a neutral
+        a "Vyber si postel a klidně běž první do sprchy."
+        hide a neutral
+        j "Jo, díky."
+        "Vybereš si jednu postel, popadneš věci a přesuneš se do koupelny."
+        scene bg koupelna
+        "Teď máš čas prohlédnout si koupelnu."
+        "První, co tě zaujme, je typický japonský záchod s panelem na zdi."
+        menu:
+            "Mobil s překladačem sis nechal['a' if j.gender == 'f' else ''] v pokoji."
+            "Panel budeš ignorovat":
+                jump ignorpanel4
+            "Pomačkáš náhodně všechny čudlíky.":
+                "Pomačkal['a' if j.gender == 'f' else ''] jsi náhodně všechny čudlíky."
+                "A najednou začne cákat voda ze záchodu ven!"
+                $ j.gaijin_points += 1
+                "Získáváš jeden GP!"
+                "[j.show_all_points()]"
+                "Ještě něco pomačkáš a ono to přestane."
+                "Pohledem zhodnotíš počet ručníků a rozhodneš se, že se jeden dá použít jako hadr na podlahu."
+                "Vytřeš potopu, co jsi způsobila."
+                jump ignorpanel4
+    label ignorpanel4:
+        # TODO the same text, parametrize
+        "Rychle se svlékneš a zapadneš do vany."
+        "Po cestování, které si v posledních 24 hodinách absolvovala,"
+        "je pořádná sprcha právě to, co nejvíce potřebuješ."
+        "Po pár minutách užívání horké koupele usoudíš, že je čas vylézt a pustit do koupelny i Adriana."
+        "Vylezeš ven, usušíš se a trochu si vyfénuješ vlasy."
+        "Oblékneš se do přineseného oblečení."
+        "Zkontroluješ, že po tobě v koupelně nezůstal žádný bordel a odemkneš koupelnu."
+        j "Volno!"
+        "Napůl křikneš a jdeš si uklidit věci do kufru."
+        show a neutral
+        a "Děkuji!"
+        hide a neztral
+        "Řekne, vezme si věci a přesune se do koupelny."
+        "Ty si uklidíš věci, z papírového obalu na vstupní kartu vyčteš heslo k wifi a napíšeš domů."
+        "Natáhneš se do postele."
+        "Potom otevřeš 'socky' a začteš se do toho, co se zatím děje doma."
+        "Asi za deset minut vyleze Adrian."
+        "Mlčky vstoupí do místnosti a jde s věcmi ke své tašce."
+        "Natáhne se do postele a kouká do mobilu."
+        "Takhle strávíte čas do večeře."
+        "Chviličku před odchodem se zastavíš v koupelně upravit."
+        "Pak se sbalíte a vyrazíte na recepci."
+        jump recepce
+
 # jump titulky
