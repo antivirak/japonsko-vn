@@ -1,4 +1,4 @@
-init python:
+python early:
 
     from __future__ import annotations  # from typing import Self for python > 3.10
 
@@ -10,6 +10,11 @@ init python:
             self.gaijin_points = 0
             self.love_points = {}
             self.hate_points = {}
+
+        def __eq__(self, other: Person) -> bool:
+            if isinstance(other, Person):
+                return (self.__dict__ == other.__dict__)
+            return False
 
         def add_love_points_for_person(self, person: Person, value: int) -> None:
             if person.name not in self.love_points:
