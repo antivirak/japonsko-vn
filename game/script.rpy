@@ -280,47 +280,72 @@ label tokio1:
 
 # TODO move to separate file
 init python:
-    from typing import Callable, Optional
+    from typing import Callable, Hashable, Optional
 
 
     class DropdownItem:
-        def __init__(self, value: str, action: Optional[Callable] = None, selected: bool = False):
+        def __init__(self, value: str, action: Optional[Callable] = None, selected: bool = False) -> None:
             self.value = value
             self.action = action
             self.selected = selected
 
-        def __eq__(self, other):
-            return self.value == other.value
-
-        def __hash__(self):
-            return hash(self.value)
-
 
     class Dropdown:
-        def __init__(self, dropdown_list: list[DropdownItem]):
+        def __init__(self, dropdown_list: list[DropdownItem]) -> None:
             self.dropdown_list = dropdown_list
             self.expanded = False
             self.selected_item = object()  # next((item for item in dropdown_list if item.selected == True), next(iter(dropdown_list)))
             self.selected_item.value = ''
             self.ignore = {''}
 
-        def rm_item(self, item):
+        def rm_item(self, item: Hashable) -> None:
             self.ignore.add(item)
 
-        def add_item(self, item):
+        def add_item(self, item: Hashable) -> None:
             if item in self.ignore:
                 self.ignore.remove(item)
 
 
-screen dropdown(*dropdown_vars):
-    # TODO add reset button and jump
+    def action_if_all_selected(dropdowns: list[str], action: Callable) -> None:
+        if all(len(dropdown.ignore) == 4 for dropdown in dropdowns):
+            action()
+
+
+    def resolve_room_selection(dropdowns: list[str]) -> tuple[str, list[str]]:
+        idx = dropdowns.index(j.name)
+        assert idx > -1, f"Name {j.name} not found in dropdowns {dropdowns}"
+        trojluzak = idx < 3
+        return (
+            "Trojlůžák" if trojluzak else "Dvojlůžák",
+            dropdowns[:3] if trojluzak else dropdowns[3:],
+        )
+
+
+screen dropdown(*dropdown_vars, rows_per_col=3, labels=('Trojlůžák', 'Dvojlůžák')):
+    $ len_dropdown_vars = len(dropdown_vars)
+    $ action = Jump('tokio1_hotel_part1')
+    textbutton "Pokračovat":
+        xsize 200 ysize 50
+        xalign .95 yalign .95
+        action Function(action_if_all_selected, [getattr(store, dropdown_var) for dropdown_var in dropdown_vars], action)
+    textbutton "Reset":
+        xsize 200 ysize 50
+        xalign .85 yalign .95
+        action Jump('problemubytovani_action')
     for count, dropdown_var in enumerate(dropdown_vars):
-        $ y_pos = .5 - (.3 * (count / 3 - count // 3))  # modulo operator does not work here
-        $ x_pos = 300 if count < 3 else 800
-        $ dropdown = getattr(store, dropdown_var)  # No idea, where store is defined
+        $ int_div_count_rows = count // rows_per_col
+        $ fraction = count / rows_per_col - int_div_count_rows
+        $ y_pos = .5 - (.3 * fraction)
+        $ x_pos = 300 + 500 * (int_div_count_rows)
+        $ dropdown = getattr(store, dropdown_var)  # store is some renpy global namespace
         $ selected_item = dropdown.selected_item
-        $ label = "Trojlůžák" if count < 3 else "Dvojlůžák"
-        $ label = "" if count not in [2, 4] else label
+        $ label = labels[int_div_count_rows]
+        # Assign labels only to first dropdown in each column (headers).
+        # Note that we are adding them from bottom row.
+        $ label = label if count in [
+            *[rows_per_col * _count - 1 for _count in range(len_dropdown_vars)],
+            len_dropdown_vars - 1,
+        ] else ""
         $ spacing = 10
 
         # frame:
@@ -336,7 +361,7 @@ screen dropdown(*dropdown_vars):
                 # xfill True
                 # hbox:
                 if not dropdown.expanded:
-                    ysize 80  # TODO adjust
+                    ysize 80
                     textbutton selected_item.value:
                         xsize 200 ysize 50
                         action SetVariable(f'{dropdown_var}.expanded', not dropdown.expanded)
@@ -410,19 +435,19 @@ label problemubytovani:
     "Pro lepší rozhodování tvé získané bodíky: [j.show_all_points()]"
     "Vyber rozložení cestujících do pokojů."
 
-    scene bg black
+    scene bg black  # TODO do we want some room background here?
     $ b = d if j.gender == 'f' else h
-    $ inventory = [a.name, m.name, s.name, b.name, j.name]
-    # $ inventory = {0: a.name, 1: m.name, 2: s.name, 3: j.name, 4: ''}
-    # show screen inventory_table(inventory)
-    $ dropdown_0 = [Dropdown([
+    $ char_names = [a.name, m.name, s.name, b.name, j.name]  # TODO colors
+
+label problemubytovani_action:
+    $ dropdowns = [Dropdown([
         DropdownItem(chars[0], selected=selected[0]),
         DropdownItem(chars[1], selected=selected[1]),  # , Jump('test')
         DropdownItem(chars[2], selected=selected[2]),
         DropdownItem(chars[3], selected=selected[3]),
         DropdownItem(chars[4], selected=selected[4]),
     ]) for chars, selected in zip(
-        [inventory] * 5, [
+        [char_names] * 5, [
             [True, False, False, False, False],
             [False, True, False, False, False],
             [False, False, True, False, False],
@@ -430,20 +455,10 @@ label problemubytovani:
             [False, False, False, False, True],
         ]
     )]
-    $ dropdown_1, dropdown_2, dropdown_3, dropdown_4, dropdown_5 = dropdown_0
+    $ dropdown_1, dropdown_2, dropdown_3, dropdown_4, dropdown_5 = dropdowns
 
     # In attr use your variable name
-    # call screen dropdown('dropdown_1')
     call screen dropdown('dropdown_1', 'dropdown_2', 'dropdown_3', 'dropdown_4', 'dropdown_5')
-    # show screen dropdown_menu(selectedOption="Foo", btnTexts=["foo", "bar", "baz"])
-
-    # Minihra rozdělení do pokojů
-    # pracovně sem hodím menu na ty pokoje, ať se to dá zkoušet
-    hide m neutral
-    hide a neutral
-    hide d neutral
-    hide s neutral
-    jump tokio1_hotel_part1
 
 
 label titulky:
