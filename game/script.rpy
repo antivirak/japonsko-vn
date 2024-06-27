@@ -280,168 +280,110 @@ label tokio1:
 
 # TODO move to separate file
 init python:
+    from typing import Callable, Optional
 
-    class Item:
-        def __init__(self, name):
-            self.name = name 
-
-    def use_item(i):
-        pass  # for now, this is a function just for testing purposes
-
-# default adrian = Item(a.name)
-# default mimon = Item(m.name)
-# default sucan = Item(s.name)
-# default dante = Item(d.name) if j.gender == 'f' else Item(h.name)
-# default ja = Item(j.name)
-# default inventory = [adrian, mimon, sucan, dante, ja]
-# default inventory = [a.name, mimon, sucan, dante, ja]
-# default inventory = {0: 'a', 1: 'b', 2: '', 3: '', 4: ''}
-
-screen inventory_table(inventory, opt_xpos=300, opt_ypos=200, btnTexts=None):
-    zorder 50
-    $ btnTexts = inventory if btnTexts is None else btnTexts
-    $ y_size = 50
-    $ box_spacing = 10
-
-    vbox:
-        label "Trojlůžák"
-        xpos opt_xpos  ypos opt_ypos
-        spacing box_spacing
-        # for i in range(5):
-        for count, i in enumerate(inventory[:3], start=1):
-            # text i  # inventory[i]
-            # textbutton i:
-            #     action [Show("dropdown_menu", selectedOption=i, btnTexts=inventory)]
-            $ ypos_adjusted = opt_ypos + y_size * count + (count - 1) * box_spacing
-            $ btnTexts = btnTexts.copy()
-            textbutton '':
-                xsize 200 ysize y_size
-                # xpos opt_xpos  ypos opt_ypos
-                action [Show("dropdown_options", btnTexts=btnTexts, opt_xpos=opt_xpos, opt_ypos=ypos_adjusted)]
-                idle_background  "gui/button/idle_background.png"
-                hover_background  "gui/button/hover_background.png"
-
-    vbox:
-        label "Dvojlůžák"
-        # xalign .5
-        # yalign .5
-        xpos opt_xpos + 200  ypos opt_ypos
-        spacing box_spacing
-        # for i in range(4, 5):
-        for count, i in enumerate(inventory[3:], start=1):
-            $ ypos_adjusted = opt_ypos + y_size * count + (count - 1) * box_spacing
-            $ btnTexts = btnTexts.copy()
-            textbutton '':
-                xsize 200 ysize y_size
-                # xpos opt_xpos  ypos opt_ypos
-                action [Show("dropdown_options", btnTexts=btnTexts, opt_xpos=opt_xpos + 200, opt_ypos=ypos_adjusted)]
-                idle_background  "gui/button/choice_idle_background.png"
-                hover_background  "gui/button/choice_hover_background.png"
-
-
-screen dropdown_menu(selectedOption="", opt_xpos=300, opt_ypos=200, btnTexts=None):
-    zorder 50
-    $ btnTexts = [""] if btnTexts is None else btnTexts
-
-    textbutton selectedOption:
-        xsize 200 ysize 50
-        xpos opt_xpos  ypos opt_ypos
-        action [Show("dropdown_options", btnTexts=btnTexts, opt_xpos=opt_xpos, opt_ypos=opt_ypos)]
-        idle_background  "gui/button/idle_background.png"
-        hover_background  "gui/button/hover_background.png"
-
-       
-screen dropdown_options(btnTexts, opt_xpos=0, opt_ypos=0):
-    zorder 51
-    modal True
-    $ yIndent = 20
-    $ ySpacing = 40
-
-    # frame: background "bg black"
-    fixed:
-        xpos opt_xpos  ypos opt_ypos + yIndent
-        $ listSize = len(btnTexts)
-        for i in range(listSize):
-            $ buttonOption = btnTexts[i]
-            textbutton btnTexts[i]:
-                xsize 200 ysize 50
-                action [Show(
-                    "dropdown_menu",
-                    selectedOption=buttonOption,
-                    btnTexts=btnTexts,
-                    opt_xpos=opt_xpos,
-                    opt_ypos=opt_ypos
-                ), Hide("dropdown_options")] 
-                idle_background  "gui/button/idle_background.png"
-                hover_background  "gui/button/hover_background.png"
-                ypos yIndent
-            $ yIndent += ySpacing
-
-
-
-init python:
-    class Dropdown:
-        def __init__(self, dropdown_list):
-            self.dropdown_list = dropdown_list
-            self.expanded = False
-            self.selected_item = next((item for item in dropdown_list if item.selected == True), dropdown_list[0])
 
     class DropdownItem:
-        def __init__(self, value, name, action=None, selected=False):
+        def __init__(self, value: str, action: Optional[Callable] = None, selected: bool = False):
             self.value = value
-            self.name = name
             self.action = action
             self.selected = selected
 
+        def __eq__(self, other):
+            return self.value == other.value
 
-screen dropdown(dropdown_var):
-    $ dropdown = getattr(store, dropdown_var)
-    $ dropdown_list = dropdown.dropdown_list
-    $ selected_item = dropdown.selected_item
+        def __hash__(self):
+            return hash(self.value)
 
-    frame:
-        xfill True
-        xmaximum 200
+
+    class Dropdown:
+        def __init__(self, dropdown_list: list[DropdownItem]):
+            self.dropdown_list = dropdown_list
+            self.expanded = False
+            self.selected_item = object()  # next((item for item in dropdown_list if item.selected == True), next(iter(dropdown_list)))
+            self.selected_item.value = ''
+            self.ignore = {''}
+
+        def rm_item(self, item):
+            self.ignore.add(item)
+
+        def add_item(self, item):
+            if item in self.ignore:
+                self.ignore.remove(item)
+
+
+screen dropdown(*dropdown_vars):
+    # TODO add reset button and jump
+    for count, dropdown_var in enumerate(dropdown_vars):
+        $ y_pos = .5 - (.3 * (count / 3 - count // 3))  # modulo operator does not work here
+        $ x_pos = 300 if count < 3 else 800
+        $ dropdown = getattr(store, dropdown_var)  # No idea, where store is defined
+        $ selected_item = dropdown.selected_item
+        $ label = "Trojlůžák" if count < 3 else "Dvojlůžák"
+        $ label = "" if count not in [2, 4] else label
+        $ spacing = 10
+
+        # frame:
+        #     xfill True
+        #     xmaximum 200
 
         vbox:
+            label label
+            yalign y_pos
+            xpos x_pos
+            spacing spacing
             frame:
-                xfill True
-                ysize 80  # TODO adjust
-
-                hbox:
-                    textbutton selected_item.name:
+                # xfill True
+                # hbox:
+                if not dropdown.expanded:
+                    ysize 80  # TODO adjust
+                    textbutton selected_item.value:
                         xsize 200 ysize 50
-                        action SetVariable(dropdown_var + '.expanded', not dropdown.expanded)
-                        xfill True
+                        action SetVariable(f'{dropdown_var}.expanded', not dropdown.expanded)
+                        # xfill True
+                else:
+                    ysize 0
+                    null width 0 height 0 
 
-                    frame:
-                        background None
-                        padding (0, 0)
-                        xpos -15
-                        yalign 0.5
+                    # frame:
+                    #     background None
+                    #     padding (0, 0)
 
-                        # add Transform(
-                        #     # change to your arrow:
-                        #     im.Scale('image_1.jpg', 10, 10),
-                        #     rotate = 180 if dropdown.expanded else 0,
-                        #     yalign = 0.5,
-                        # )
+                    #     add Transform(
+                    #         # change to your arrow:
+                    #         im.Scale('image_1.jpg', 10, 10),
+                    #         rotate = 180 if dropdown.expanded else 0,
+                    #         yalign = 0.5,
+                    #     )
 
             if dropdown.expanded:
                 frame:
                     # xfill True
-
+                    # yalign y_pos
+                    ypos 50 + (30 - spacing * count % 3)
+    
                     vbox:
-                        for item in dropdown_list:
+                        for item in dropdown.dropdown_list:
+                            if item.value in dropdown.ignore:
+                                continue
                             $ actions = [
-                                SetVariable(dropdown_var + '.selected_item', item),
-                                SetVariable(dropdown_var + '.expanded', False),
+                                SetVariable(f'{dropdown_var}.selected_item', item),
+                                SetVariable(f'{dropdown_var}.expanded', False),
                             ]
+                            for var in dropdown_vars:
+                                if var == dropdown_var:
+                                    continue
+                                $ current_dropdown = getattr(store, var)
+                                $ actions.extend([
+                                    Function(current_dropdown.rm_item, item.value),
+                                    Function(current_dropdown.add_item, dropdown.selected_item.value)
+                                    if dropdown.selected_item.value != item.value else NullAction(),
+                                ])
 
-                            if item.action:
+                            if item.action:  # not used now
                                 $ actions.append(item.action)
 
-                            textbutton item.name:
+                            textbutton item.value:
                                 xsize 200 ysize 50
                                 action actions
 
@@ -473,16 +415,26 @@ label problemubytovani:
     $ inventory = [a.name, m.name, s.name, b.name, j.name]
     # $ inventory = {0: a.name, 1: m.name, 2: s.name, 3: j.name, 4: ''}
     # show screen inventory_table(inventory)
-    $ dropdown_1 = Dropdown([
-        # Attributes: value (item id), name (textbutton), action(Jump and etc.) selected (is selected item by default)
-        DropdownItem('item_1', 'Item 1'),
-        DropdownItem('item_2', 'Item 2'),  # , Jump('test')
-        DropdownItem('item_3', 'Item 3', selected=True),
-        DropdownItem('item_4', 'Item 4'),
-    ])
+    $ dropdown_0 = [Dropdown([
+        DropdownItem(chars[0], selected=selected[0]),
+        DropdownItem(chars[1], selected=selected[1]),  # , Jump('test')
+        DropdownItem(chars[2], selected=selected[2]),
+        DropdownItem(chars[3], selected=selected[3]),
+        DropdownItem(chars[4], selected=selected[4]),
+    ]) for chars, selected in zip(
+        [inventory] * 5, [
+            [True, False, False, False, False],
+            [False, True, False, False, False],
+            [False, False, True, False, False],
+            [False, False, False, True, False],
+            [False, False, False, False, True],
+        ]
+    )]
+    $ dropdown_1, dropdown_2, dropdown_3, dropdown_4, dropdown_5 = dropdown_0
 
     # In attr use your variable name
-    call screen dropdown('dropdown_1')
+    # call screen dropdown('dropdown_1')
+    call screen dropdown('dropdown_1', 'dropdown_2', 'dropdown_3', 'dropdown_4', 'dropdown_5')
     # show screen dropdown_menu(selectedOption="Foo", btnTexts=["foo", "bar", "baz"])
 
     # Minihra rozdělení do pokojů
