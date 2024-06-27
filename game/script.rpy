@@ -86,6 +86,7 @@ label vyberauta:
     "Pro pět lidí s kufry je to docela stísněný prostor."
     hide s neutral
     menu:
+        # TODO parametrize for gender
         "Jseš řidička? Pokud ano, jseš ochotná následující 3 týdny strávit za volantem spolu se Sučanem? Mysli na to, že v Japonsku se jezdí vlevo."
         "Ano, budu řídit":
             jump ridicka
@@ -104,7 +105,7 @@ label ridicka:
             jump tokio1
         "Chci":
             "Cestu z letiště do hotelu řídíš ty. Sučan vypadá spokojeně, že mu parťáka děláš právě ty."
-            s "Dávej si pozor, na obě strany, je to jiné, když člověk normálně řídí na druhé straně."
+            s "Dávej si pozor na obě strany, je to jiné, když člověk normálně řídí na druhé straně."
             "Vyjedete a samozřejmě, hned při prvním odbočovaní, pouštíš místo blinkrů stěrače."
             $ j.gaijin_points += 1
             "Získáváš 1 GP"
@@ -147,7 +148,7 @@ label vprostred:
     show a neutral at left
     show m neutral at right
     "Za řidiče se posadil Adrian a za spolujezdce Mimoň."
-    "Auto je opravdu krásný, ale vážně malý sporťák. Takže se na tebe z obou stran tlačí oba urostlí spolujezdci."
+    "Auto je opravdu krásný, ale vážně malý sporťák. Takže se na tebe z obou stran tlačí oba urostlí spolujezdci."
     "Cítíš, jak se Mimoň rozcapil na celé sedadlo a ramenem ti drtí to tvé. Tvou pravou nohu ti vytlačil od sebe, takže ji máš v dost nepříjemné pozici uprostřed na vyvýšené části podlahy."
     "A takto rozvalený Mimoň spokojeně usnul, opřený o okénko s otevřenou pusou. "
     a "Můžeš si dát i tu druhou nohu ke mně."
@@ -204,7 +205,7 @@ label Adrianvaute:
         "Nevadilo.":
             "Pak se chytíš za sedadlo před tebou a pošoupneš se tak, aby se mohl za tebe opřít. "
             "Opře se o sedadlo za tebou a ruku protáhne za tebe."
-            "Chytí tě jemně za rameno a stáhne tě na sebe. Ucítíš jemné mravenčení v břiše. Usměje se na tebe."
+            "Chytí tě jemně za rameno a stáhne tě na sebe. Ucítíš jemné mravenčení v břiše. Usměje se na tebe"
             a "Děkuji."
             "Získáváš dva LP u Adriana. Cesta najednou rychle uteče."
             # 2 LP Adrian
@@ -215,7 +216,6 @@ label Adrianvaute:
 label Adrivauteodmitnuti:
     "Zbytek cesty usilovně koukáš z okýnka a Adrian nepromluví."
     "Přesunuli jste se do Tokia."
-    jump tokio1
 
 label tokio1:
 
@@ -243,7 +243,7 @@ label tokio1:
         "Půjdu do auta k mimoňovi.":
             hide d neutral
             m "Co tu chceš? Vypadni!"
-            "Nemáš náladu se s ním dohadovat, takže získáváš jeden HP a vylézáš z auta."
+            "Nemáš náladu se s ním dohadovat, takže získáváš jeden HP a vylézáš z auta."
             hide m neutral
             "Získáváš jeden HP u Mimoně"
             $ j.add_hate_points_for_person(m, 1)
@@ -274,7 +274,6 @@ label tokio1:
             hide m neutral
             "Čekání strávíš opřená o přední kapotu auta."
             "Naštestí nečekáš dlouho a během pár minut vidíš, jak se vrací Sučan a Adrian."
-            jump problemubytovani
 
 label problemubytovani:
     show s neutral at left
@@ -296,14 +295,32 @@ label problemubytovani:
         yalign 1.0
     show d neutral at right
     "Pro lepší rozhodování tvé získané bodíky: [j.show_all_points()]"
+    "Vyber rozložení cestujících do pokojů."
 
-    # Minihra rozdělení do pokojů
-    #pracovně sem hodím menu na ty pokoje, ať se to dá zkoušet
-    hide m neutral
-    hide a neutral
-    hide d neutral
-    hide s neutral
-    jump tokio1_hotel_part1
+    scene bg black  # TODO do we want some room background here?
+    $ b = d if j.gender == 'f' else h
+    $ chars = [a, m, s, b, j]
+    $ char_names = [char.name for char in chars]
+    $ color_map = {char.name: char.color for char in chars}
+
+label problemubytovani_action:
+    $ dropdowns = [Dropdown([
+        DropdownItem(chars[0], selected=selected[0]),
+        DropdownItem(chars[1], selected=selected[1]),  # , Jump('test')
+        DropdownItem(chars[2], selected=selected[2]),
+        DropdownItem(chars[3], selected=selected[3]),
+        DropdownItem(chars[4], selected=selected[4]),
+    ], color_map) for chars, selected in zip(
+        [char_names] * 5, [
+            [True, False, False, False, False],
+            [False, True, False, False, False],
+            [False, False, True, False, False],
+            [False, False, False, True, False],
+            [False, False, False, False, True],
+        ]
+    )]
+
+    call screen dropdown(dropdowns)
 
 
 label titulky:

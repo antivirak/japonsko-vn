@@ -1,18 +1,26 @@
 label tokio1_hotel_part1:
+    scene bg hoteltokio
+    $ room, partners = resolve_room_selection([dropdown.selected_item.value for dropdown in dropdowns])
+    $ print(room, partners)
 
-    menu:
-        #pracovně sem hodím menu na ty pokoje, ať se to dá zkoušet
-        "S kým budeš na pokoji?"
-        "Dvojlůžák se Sučanem":
-            jump hracka_Sucan
-        "Dvojlůžák s Mimoněm":
-            jump hrac_ka_Mimon
-        "Dvojlůžák s Adrianem":
-            jump hracka_Adrian
-        "Dvojlůžák s Dantem":
-            jump hracka_Dante
+    hide m neutral
+    hide a neutral
+    hide d neutral
+    hide s neutral
 
     "Po rozdělení jste se rozhodli dojít na pokoje odnést si věci. Sraz máte v 18 h na recepci a pak půjdete společně na večeři."
+
+    if room == "Dvojlůžák" and s.name in partners and j.gender == "f":
+        jump hracka_Sucan
+    if room == "Dvojlůžák" and m.name in partners:
+        jump hrac_ka_Mimon
+    if room == "Dvojlůžák" and a.name in partners and j.gender == "f":
+        jump hracka_Adrian
+    if room == "Dvojlůžák" and d.name in partners and j.gender == "f":
+        jump hracka_Dante
+    else:
+        "Tahle možnost není ještě implementována."
+        jump titulky
 
 label hracka_Sucan:
     show s neutral at left
@@ -196,7 +204,7 @@ label ignorpanel:
     show s scantily clad
     s "Cože jsem byl?"
     "Šáhne po polštáři a hodí ho po tobě."
-    hide scantily clad
+    hide s scantily clad
     j "Plochej!"
     "Zazubíš se na něj. A pak tě napadne, jak z této situace vybruslit."
     j "Šup, oblíkej se, ať na nás kluci nečekají. Já mám už taky docela hlad!"
