@@ -483,36 +483,36 @@ label ignorpanel2:
         "Pak se sbalíte a vyrazíte na recepci."
         jump recepce
     label hracka_Dante:
-        "Jako jediná holka, jsi měla možnost si vybrat s kým a kde budeš spát."
-        "Zvolila jsi k sobě do pokoje Danteho."
+        "Jako jediná holka jsi měla možnost si vybrat, s kým a kde budeš spát."
+        "Zvolila jsi k sobě do pokoje Danteho."
         "Jdete spolu do výtahu a vyjedete do šestého patra."
-        "Pustí tě, před sebe. Dojdete na konec chodby k pokoji 608."
-        "Celou dobu oba mlčíte a je mezi vámi, takové zváštní napětí."
+        "Pustí tě před sebe. Dojdete na konec chodby k pokoji 608."
+        "Celou dobu oba mlčíte a je mezi vámi takové zvláštní napětí."
         "Kartou odemkne dveře. A pustí tě do pokoje jako první."
         if j.love_points[d.name] > 0:
             scene bg dvojluzakmanp
-            "Vstoupíš do pokoje a vidíš, že se v pokoji nachází pouze manželská postel."
+            "Vstoupíš do pokoje a vidíš, že se v pokoji nachází pouze manželská postel."
             "Podíváš se rozpačitě na Danteho."
             show d neutral
             d "..."
             hide d neutral 
-            "Dante mlčí. Pravděpodobně čeká jak se zachováš."
+            "Dante mlčí. Pravděpodobně čeká, jak se zachováš."
             j "Aha, to jsem netušila, že kromě toho, že nám dali o pokoj méně, máme ještě manželské apartmá."
             j "Vezmu si pravou stranu, neva?"
             show d neutral
             d "Ne."
-            "Zaktoutí hlavou."
+            "Zakroutí hlavou."
             hide d neutral
-            "Zamíříš k posteli, začneš si vybalovat věci."
+            "Zamíříš k posteli a začneš si vybalovat věci."
             j "Asi bychom si měli ujasnit nějaký pravidla."
             show d neutral
             d "Dobře."
             hide d neutral
             j "Každý máme svou půlku postele. A budeš si držet aspoň deseticentimetrový rozestup."
             show d neutral
-            d "Dobře. Ale v tom případě, platí stejné pravidla i pro tebe."
+            d "Dobře. Ale v tom případě platí stejná pravidla i pro tebe."
             hide d neutral
-            j "Ok. A jestli ti to nevadí zamířím do sprchy jako první."
+            j "Ok. A jestli ti to nevadí, zamířím do sprchy jako první."
             show d neutral
             d "Běž."
             hide d neutral
@@ -533,19 +533,19 @@ label ignorpanel2:
                     "[j.show_all_points()]"
                     "Ještě něco pomačkáš a ono to přestane."
                     "Pohledem zhodnotíš počet ručníků a rozhodneš se, že se jeden dá použít jako hadr na podlahu."
-                    "Vytřeš potopu, co jsi způsobila."
+                    "Vytřeš potopu, co jsi způsobil['a' if j.gender == 'f' else '']."
                     jump ignorpanel5
         else:
             scene bg dvojluzak separe
-            "Vstoupíš do pokoje a to normální dvojlůžák postele jsou odděleny nočním stolkem."
+            "Vstoupíš do pokoje. Je to normální dvojlůžák, postele jsou odděleny nočním stolkem."
             show d neutral
             "..."
             hide d neutral
             "Dante mlčí, ale stojí za tebou a čeká."
-            "Rozhodneš si jednu postel vybrat a vyrazíš k ní, vybalíš si věci."
+            "Rozhodneš si jednu postel vybrat a vyrazíš k ní. Vybalíš si věci."
             j "Bude ti vadit, když se půjdu koupat jako první?"
             show d neutral
-            "Ne, běž."
+            d "Ne, běž."
             hide d neutral
             "Vezmeš si tedy věci a vyrazíš do koupelny."
             scene bg koupelna
@@ -564,71 +564,71 @@ label ignorpanel2:
                     "[j.show_all_points()]"
                     "Ještě něco pomačkáš a ono to přestane."
                     "Pohledem zhodnotíš počet ručníků a rozhodneš se, že se jeden dá použít jako hadr na podlahu."
-                    "Vytřeš potopu, co jsi způsobila."
+                    "Vytřeš potopu, co jsi způsobil['a' if j.gender == 'f' else '']."
                     jump ignorpanel6
     label ignorpanel5:
         # TODO the same text, parametrize
         "Rychle se svlékneš a zapadneš do vany."
-        "Po cestování, které si v posledních 24 hodinách absolvovala,"
+        "Po cestování, které si v posledních 24 hodinách absolvoval['a' if j.gender == 'f' else ''],"
         "je pořádná sprcha právě to, co nejvíce potřebuješ."
         "Po pár minutách užívání horké koupele usoudíš, že je čas vylézt a pustit do koupelny i Adriana."
         "Vylezeš ven, usušíš se a trochu si vyfénuješ vlasy."
-        "Chceš se obléknoout a zjistíš, že sis v tom spěchu vzala jen kalhotky a tričko."
-        "Podprsenka a kraťasy musely zůstat ležet na postely."
-        "Rozhodneš se, že to není tak zlý, že pustíš Danteho do koupelny a dooblíkneš se v pokoji."
-        "Zkontroluješ, že po tobě v koupelně nezůstal žádný bordel a odemkneš koupelnu."
+        "Chceš se obléknout a zjistíš, že sis v tom spěchu vzala jen kalhotky a tričko."
+        "Podprsenka a kraťasy musely zůstat ležet na posteli."
+        "Rozhodneš se, že to není tak zlé; že pustíš Danteho do koupelny a dooblíkneš se v pokoji."
+        "Zkontroluješ, že po tobě v koupelně nezůstal žádný bordel a odemkneš koupelnu."
         scene bg dvojluzakmanp
         show d reading
-        "Vylezeš do pokoje, Dante sedí u okna a čte si knihu."
+        "Vlezeš do pokoje. Dante sedí u okna a čte si knihu."
         hide d reading
         j "Máš tam volno."
         show d neutral
         d "Jo, díky"
         hide d neutral
-        "Odloží knihu a teprve teď se podívá tvým směrem."
+        "Odloží knihu, a teprve teď se podívá tvým směrem."
         "Cítíš, jak tě pohledem hodnotí."
-        "Zadržíš dech. Nejsi schopná promluvit. Jen cítíš jak se ti do hlavy hrne krev."
-        "Ale mlčí, zvedne se z postele si vezme věci a jde do koupelny."
-        "Při zaklapnutí zámku z tebe opadne nervozita. A konečně vydechneš."
-        "Byla ta situace strašně zvláštní."
+        "Zadržíš dech. Nejsi schopná promluvit. Jen cítíš, jak se ti do hlavy hrne krev."
+        "Ale mlčí, zvedne se, z postele si vezme věci a jde do koupelny."
+        "Při zaklapnutí zámku z tebe opadne nervozita. A konečně vydechneš."
+        "Ta situace byla strašně zvláštní."
         "Evidentně tě Dante silně přitahuje."
-        "Ale nevíš co si máš myslet o jeho reakci."
+        "Ale nevíš, co si máš myslet o jeho reakci."
         "Rozhodneš se ihned převléct, aby tě Dante nenačapal nahou."
-        "Poté s papírového obalu na kartu, opíšeš heslo na wifi a napíšeš domů."
+        "Poté z papírového obalu na kartu opíšeš heslo na wifi a napíšeš domů."
         "Lehneš si na postel a zkontroluješ 'socky'."
         show d black
-        "Dante asi za 10 minut vyjde z koupelny v kraťasech a černém tričku."
+        "Dante asi za 10 minut vyjde z koupelny v kraťasech a černém tričku."
         hide s black
-        "Oblečení, které měl před tím na sobě, má úhedně složené. V rukou."
-        "Odloží ho do výklenku vetsavěné skříně a jde si sednout k oknu."
+        "Oblečení, které měl před tím na sobě, má úhledně složené v rukou."
+        "Odloží ho do výklenku vestavěné skříně a jde si sednout k oknu."
         "Otevře knihu a zase začne číst."
-        "Nemůžeš se přinutit, přestat na něj koukat, lépe řečeno zírat."
+        "Nemůžeš se přinutit přestat na něj koukat; lépe řečeno zírat."
         "Dante po chvíli zvedne oči od knihy."
         show d reading
         d "Děje se něco?"
         hide d reading
-        "Jeho slova, tě konečně probudí. Zatřeseš hlavou."
+        "Jeho slova tě konečně probudí. Zatřeseš hlavou."
         j "Ne, nic."
         show d reading
-        d "Že na mě tak zíráš, něco není v pořádku?"
+        d "Že na mě tak zíráš, něco není v pořádku?"
         hide d reading
         j "Jen jsem se zamyslela, promiň."
-        "Kňukneš zatímco sklápíš zrak. Cítíš, že musíš být červená jako rajče."
-        "Rychle rozsvítíš mobil a děláš, že tam strašně něco musíš řešit."
+        "Kuňkneš, zatímco sklápíš zrak. Cítíš, že musíš být červená jako rajče."
+        "Rychle rozsvítíš mobil a děláš, že tam něco strašně naléhavě musíš řešit."  # TODO naléhavě ok?
         "A odmítáš zvednou zrak od mobilu."
         "..."
-        "Po nějaké době se odhodláš, zrak odlepit od mobilu."
+        "Po nějaké době se odhodláš odlepit zrak od mobilu."  # TODO přeformulovat, moc zraku v mobilu
         "A podívat se Danteho směrem."
-        "Zjistíš, že má podepřenou hlavu rukou a zavřené oči."
+        "Zjistíš, že má hlavu podepřenou rukou a zavřené oči."
         "Spí?"
         "Koukneš na čas a zjistíš, že máte být za půl hodiny dole na recepci."
-        "Opatrně a potichu vstaneš z postele šáhneš po kosmetické taštičce a jdeš se do koupelny upravit"
+        "Opatrně a potichu vstaneš z postele, šáhneš po kosmetické taštičce a jdeš se do koupelny upravit"
         scene bg koupelna
-        "Upravíš si vlasy a jemně se namaluješ. Sříkneš se trošku parfémem, a vylezeš ven z koupeny."
+        "Upravíš si vlasy a jemně se namaluješ. Stříkneš se trošku parfémem a vylezeš ven z koupeny."
         scene bg dvojluzakmanp
-        "Přendáš si důležité věci do tašky, co si planuješ vzít s sebou."
-        "Koukneš na mobil: za deset minut, máte být dole, rozhodneš se že Danteho půjdeš vzbudit."
-        "Dojdeš k němu, a tlumeným hlasem ho oslovíš"
+        "Přendáš si důležité věci do tašky, kterou si plánuješ vzít s sebou."
+        "Koukneš na mobil: za deset minut máte být dole. Rozhodneš se Danteho vzbudit."
+        "Dojdeš k němu a tlumeným hlasem ho oslovíš"
         j "Dante?"
         show d black
         d "..."
@@ -639,65 +639,56 @@ label ignorpanel2:
         d "..."
         hide d black
         j "Dante? Budeme muset jít."
-        "Řekneš nahlas a s důrazem."
+        "Řekneš nahlas a s důrazem."
         show d black
         d "..."
         hide d black
         j "Dante?"
-        "Zopakuješ po čtvré, a jemně se dotkneš jeho ramena."
+        "Zopakuješ po čtvré a jemně se dotkneš jeho ramena."
         "Dante otevře oči."
         show d black
         d "Neříkali jsme bez doteků? Myslím, že porušuješ pravidla. Už je čas na večeři?"
         hide d black
-        j "Že ty jsi to jenom hrál? Jo a je čas vyrazit na večeři."
+        j "Že ty jsi to jenom hrál? Jo, a je čas vyrazit na večeři."
         show d black 
-        d "Tak asi pojďme"
+        d "Tak asi pojďme."
         hide d black
-        "Vezmeš si věci a vyrazíte směr recepce."
-        "Těsně před tím, než se výtah zastaví a otevřou se dveře, se k tobě dante skloní a zašeptá ti do ucha."
+        "Vezmeš si věcí a vyrazíte směr recepce."
+        "Těsně před tím, než se výtah zastaví a otevřou se dveře, se k tobě Dante skloní a zašeptá ti do ucha."
         show d black
         d "Porušovat pravidla se nevyplácí."
         "Mrkne na tebe a narovná se."
         hide d black
-        "Cheš mu odpovědět, ale akorát se otevřou dveře od výtahu a jste na doslech ostatním."
+        "Chceš mu odpovědět, ale akorát se otevřou dveře od výtahu a jste na doslech ostatním."
         jump recepce
     label ignorpanel6:
         "Rychle se svlékneš a zapadneš do vany."
         "Po cestování, které si v posledních 24 hodinách absolvovala,"
         "je pořádná sprcha právě to, co nejvíce potřebuješ."
-        "Po pár minutách užívání horké koupele usoudíš, že je čas vylézt a pustit do koupelny i Adriana."
+        "Po pár minutách užívání horké koupele usoudíš, že je čas vylézt a pustit do koupelny i Adriana."  # TODO Adrian or Dante?
         "Vylezeš ven, usušíš se a trochu si vyfénuješ vlasy."
-        "Oblíkneš se."
+        "Oblékneš se."
         "Zkontroluješ, že po tobě v koupelně nezůstal žádný bordel a odemkneš koupelnu."
         scene bg dvojluzak separe
         j "Volno!"
         "Zahlásíš a jdeš si uklidit věci."
         show d neutral
-        d "Děkuji."
+        d "Děkuji,"
         hide d neutral
-        "poděkuje a vezmme si věci do koupelny."
-        "Zůstaka si v pokoji sama."
-        "Poté s papírového obalu na kartu, opíšeš heslo na wifi a napíšeš domů."
+        "poděkuje a vezme si věci do koupelny."
+        "Zůstala jsi v pokoji sama."
+        "Poté z papírového obalu na kartu opíšeš heslo na wifi a napíšeš domů."
         "Lehneš si na postel a zkontroluješ 'socky'."
         show d black
         "Dante asi za 10 minut vyjde z koupelny v kraťasech a černém tričku."
         hide s black
-        "Oblečení, které měl před tím na sobě, má úhedně složené. V rukou."
-        "Odloží ho do výklenku vetsavěné skříně a jde si sednout k oknu."
+        "Oblečení, které měl před tím na sobě, má úhledně složené v rukou."
+        "Odloží ho do výklenku vestavěné skříně a jde si sednout k oknu."
         "Otevře knihu a začne si číst."
         "Ty pokračuješ v prohlížení postů."
         "Pak si všimneš, že do domluveného srazu zbývá dvacet minut."
         "Vyhrabeš kosmetickou taštičku a dojdeš se do koupelny upravit."
-        "Pak si přebalíš důležité věci do tašky, co si chceš vzít s tebou."
+        "Pak si přebalíš důležité věci do tašky, co si chceš vzít s tebou."
         "A vyrazíte směr recepce."
         jump recepce
-
-
-
-
-
-
-
-
-
 
