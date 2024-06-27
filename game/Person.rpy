@@ -10,6 +10,7 @@ python early:
             self.gaijin_points = 0
             self.love_points = {}
             self.hate_points = {}
+            self.color = kwargs.get("color")
 
         def __eq__(self, other: Person) -> bool:
             if isinstance(other, Person):

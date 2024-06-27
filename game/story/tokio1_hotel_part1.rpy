@@ -204,7 +204,7 @@ label ignorpanel:
     show s scantily clad
     s "Cože jsem byl?"
     "Šáhne po polštáři a hodí ho po tobě."
-    hide scantily clad
+    hide s scantily clad
     j "Plochej!"
     "Zazubíš se na něj. A pak tě napadne, jak z této situace vybruslit."
     j "Šup, oblíkej se, ať na nás kluci nečekají. Já mám už taky docela hlad!"

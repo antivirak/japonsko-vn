@@ -299,7 +299,9 @@ label problemubytovani:
 
     scene bg black  # TODO do we want some room background here?
     $ b = d if j.gender == 'f' else h
-    $ char_names = [a.name, m.name, s.name, b.name, j.name]  # TODO colors
+    $ chars = [a, m, s, b, j]
+    $ char_names = [char.name for char in chars]
+    $ color_map = {char.name: char.color for char in chars}
 
 label problemubytovani_action:
     $ dropdowns = [Dropdown([
@@ -308,7 +310,7 @@ label problemubytovani_action:
         DropdownItem(chars[2], selected=selected[2]),
         DropdownItem(chars[3], selected=selected[3]),
         DropdownItem(chars[4], selected=selected[4]),
-    ]) for chars, selected in zip(
+    ], color_map) for chars, selected in zip(
         [char_names] * 5, [
             [True, False, False, False, False],
             [False, True, False, False, False],

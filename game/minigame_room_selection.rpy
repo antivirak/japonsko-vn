@@ -7,15 +7,18 @@
             self.value = value
             self.action = action
             self.selected = selected
+            self.color = None
 
 
     class Dropdown:
-        def __init__(self, dropdown_list: list[DropdownItem]) -> None:
+        def __init__(self, dropdown_list: list[DropdownItem], color_map: dict) -> None:
             self.dropdown_list = dropdown_list
             self.expanded = False
             self.selected_item = object()
             self.selected_item.value = ''
             self.ignore = {''}
+            self.color_map = color_map
+            set_button_styles(color_map)
 
         def rm_item(self, item: Hashable) -> None:
             self.ignore.add(item)
@@ -40,17 +43,24 @@
         )
 
 
+    def set_button_styles(color_map: dict) -> None:
+        for char, color in color_map.items():
+            style.button[char].color = color
+
+
 screen dropdown(*dropdown_vars, rows_per_col=3, labels=('Trojlůžák', 'Dvojlůžák')):
     $ len_dropdown_vars = len(dropdown_vars)
+    $ button_size = (200, 50)
     $ action = Jump('tokio1_hotel_part1')
     textbutton "Pokračovat":
-        xsize 200 ysize 50
+        xysize button_size
         xalign .95 yalign .95
         action Function(action_if_all_selected, [getattr(store, dropdown_var) for dropdown_var in dropdown_vars], action)
     textbutton "Reset":
-        xsize 200 ysize 50
+        xysize button_size
         xalign .85 yalign .95
         action Jump('problemubytovani_action')
+
     for count, dropdown_var in enumerate(dropdown_vars):
         $ int_div_count_rows = count // rows_per_col
         $ fraction = count / rows_per_col - int_div_count_rows
@@ -76,7 +86,8 @@ screen dropdown(*dropdown_vars, rows_per_col=3, labels=('Trojlůžák', 'Dvojlů
                 if not dropdown.expanded:
                     ysize 80
                     textbutton selected_item.value:
-                        xsize 200 ysize 50
+                        xysize button_size
+                        text_style style.button[selected_item.value]
                         action SetVariable(f'{dropdown_var}.expanded', not dropdown.expanded)
                 else:
                     ysize 0
@@ -108,5 +119,6 @@ screen dropdown(*dropdown_vars, rows_per_col=3, labels=('Trojlůžák', 'Dvojlů
                                 $ actions.append(item.action)
 
                             textbutton item.value:
-                                xsize 200 ysize 50
+                                xysize button_size
+                                text_style style.button[item.value]
                                 action actions
