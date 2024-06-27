@@ -7,7 +7,11 @@ python early:
             self.selected: list[str] = []
             self.options = list(enumerate(options))
             len_options = len(options)
-            if (actions is None) or (len(actions) < len_options):
+            assert (
+                actions is None or len(actions) == len_options,
+                "Actions must be undefined or have the same length as options."
+            )
+            if actions is None:
                 self.actions = [NullAction() for _ in range(len_options)]
             else:
                 self.actions = actions[:len_options]
