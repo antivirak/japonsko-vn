@@ -1,7 +1,7 @@
 ﻿# The script of the game goes in this file.
 
-transform half_size:
-    zoom .5
+transform size_1_3:
+    zoom 1.3
 
 # The game starts here.
 
