@@ -12,7 +12,7 @@ label tokio1_hotel_part1:
         "Dvojlůžák s Dantem":
             jump hracka_Dante
 
-    "Po rozdělení jste se rozhodli dojít na pokoje odnést si věci sraz máte v 18 h na recepci, půjdete společně na večeři."
+    "Po rozdělení jste se rozhodli dojít na pokoje odnést si věci. Sraz máte v 18 h na recepci a pak půjdete společně na večeři."
 
 label hracka_Sucan:
     show s neutral at left
@@ -81,11 +81,11 @@ label sucanvoutu:
 label posprse:
     "Dojdeš si pro věci a vyhodíš Sučana z koupelny."
     "Dopřeješ si vytouženou horkou sprchu, po 13 hodinách letu, 2 hodinách v autě a X hodinách čekání ať už na letištích nebo jinde."
-    "Po koupeli, si vyfénuješ vlasy a převlékneš se ještě v koupelně."
+    "Po koupeli si vyfénuješ vlasy a převlékneš se ještě v koupelně."
     scene bg dvojluzak separe
     "Pak pustíš Sučana do koupelny."
-    "A sama si vybalíš potřebné věci a uklidíš, věci z cesty."
-    "A pak je pomalu čas, jít dolů na recepci a na večeři"
+    "A sama si vybalíš potřebné věci a uklidíš věci z cesty."
+    "A pak je pomalu čas jít dolů na recepci a na večeři."
     jump recepce
 
 label sucansance:
@@ -430,7 +430,7 @@ label ignorpanel2:
         jump recepce
 
     label adrian_hotel_feministka:
-        j "Nene, já si ho vezmu sama"
+        j "Nene, já si ho vezmu sama."
         "Adrian jde tedy napřed."
         "Odemkne pomocí karty, otevře dveře a pustí tě dovnitř."
         scene bg dvojluzak separe
@@ -575,7 +575,7 @@ label ignorpanel2:
         "Vylezeš ven, usušíš se a trochu si vyfénuješ vlasy."
         "Chceš se obléknout a zjistíš, že sis v tom spěchu vzala jen kalhotky a tričko."
         "Podprsenka a kraťasy musely zůstat ležet na posteli."
-        "Rozhodneš se, že to není tak zlé; že pustíš Danteho do koupelny a dooblíkneš se v pokoji."
+        "Rozhodneš se, že to není tak zlé; že pustíš Danteho do koupelny a dooblékneš se v pokoji."
         "Zkontroluješ, že po tobě v koupelně nezůstal žádný bordel a odemkneš koupelnu."
         scene bg dvojluzakmanp
         show d reading
@@ -585,7 +585,7 @@ label ignorpanel2:
         show d neutral
         d "Jo, díky"
         hide d neutral
-        "Odloží knihu, a teprve teď se podívá tvým směrem."
+        "Odloží knihu a teprve teď se podívá tvým směrem."
         "Cítíš, jak tě pohledem hodnotí."
         "Zadržíš dech. Nejsi schopná promluvit. Jen cítíš, jak se ti do hlavy hrne krev."
         "Ale mlčí, zvedne se, z postele si vezme věci a jde do koupelny."
@@ -653,7 +653,7 @@ label ignorpanel2:
         show d black 
         d "Tak asi pojďme."
         hide d black
-        "Vezmeš si věcí a vyrazíte směr recepce."
+        "Vezmeš si věci a vyrazíte směr recepce."
         "Těsně před tím, než se výtah zastaví a otevřou se dveře, se k tobě Dante skloní a zašeptá ti do ucha."
         show d black
         d "Porušovat pravidla se nevyplácí."
@@ -688,7 +688,7 @@ label ignorpanel2:
         "Ty pokračuješ v prohlížení postů."
         "Pak si všimneš, že do domluveného srazu zbývá dvacet minut."
         "Vyhrabeš kosmetickou taštičku a dojdeš se do koupelny upravit."
-        "Pak si přebalíš důležité věci do tašky, co si chceš vzít s tebou."
+        "Pak si přebalíš důležité věci do tašky, kterou si chceš vzít s sebou."
         "A vyrazíte směr recepce."
         jump recepce
 
