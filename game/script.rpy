@@ -319,10 +319,8 @@ label problemubytovani_action:
             [False, False, False, False, True],
         ]
     )]
-    $ dropdown_1, dropdown_2, dropdown_3, dropdown_4, dropdown_5 = dropdowns
 
-    # In attr use your variable name
-    call screen dropdown('dropdown_1', 'dropdown_2', 'dropdown_3', 'dropdown_4', 'dropdown_5')
+    call screen dropdown(dropdowns)
 
 
 label titulky:
