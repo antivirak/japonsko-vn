@@ -294,7 +294,7 @@ init python:
         def __init__(self, dropdown_list: list[DropdownItem]) -> None:
             self.dropdown_list = dropdown_list
             self.expanded = False
-            self.selected_item = object()  # next((item for item in dropdown_list if item.selected == True), next(iter(dropdown_list)))
+            self.selected_item = object()
             self.selected_item.value = ''
             self.ignore = {''}
 
@@ -348,43 +348,23 @@ screen dropdown(*dropdown_vars, rows_per_col=3, labels=('Trojlůžák', 'Dvojlů
         ] else ""
         $ spacing = 10
 
-        # frame:
-        #     xfill True
-        #     xmaximum 200
-
         vbox:
             label label
             yalign y_pos
             xpos x_pos
             spacing spacing
             frame:
-                # xfill True
-                # hbox:
                 if not dropdown.expanded:
                     ysize 80
                     textbutton selected_item.value:
                         xsize 200 ysize 50
                         action SetVariable(f'{dropdown_var}.expanded', not dropdown.expanded)
-                        # xfill True
                 else:
                     ysize 0
                     null width 0 height 0 
 
-                    # frame:
-                    #     background None
-                    #     padding (0, 0)
-
-                    #     add Transform(
-                    #         # change to your arrow:
-                    #         im.Scale('image_1.jpg', 10, 10),
-                    #         rotate = 180 if dropdown.expanded else 0,
-                    #         yalign = 0.5,
-                    #     )
-
             if dropdown.expanded:
                 frame:
-                    # xfill True
-                    # yalign y_pos
                     ypos 50 + (30 - spacing * count % 3)
     
                     vbox:
