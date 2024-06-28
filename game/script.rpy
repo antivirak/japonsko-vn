@@ -1,10 +1,6 @@
 ﻿# The script of the game goes in this file.
 
-transform size_1_3:
-    zoom 1.3
-
 # The game starts here.
-
 label start:
     call akt1
     call problemubytovani
