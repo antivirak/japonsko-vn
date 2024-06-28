@@ -1,3 +1,27 @@
+label bathroom_common(mimon=False):
+    scene bg koupelna
+    "Konečně máš čas prohlédnout si koupelnu."
+    "První, co tě zaujme je typický japonský záchod s panelem na zdi."
+    menu:
+        "Mobil s překladačem sis nechal['a' if j.gender == 'f' else ''] v pokoji."
+        "Panel budeš ignorovat":
+            return
+        "Pomačkáš náhodně všechny čudlíky.":
+            "Pomačkala jsi náhodně všechny čudlíky."
+            "A najednou začne cákat voda ze záchodu ven!"
+            $ j.gaijin_points += 1
+            "Získáváš jeden GP!"
+            "[j.show_all_points()]"
+            "Ještě něco pomačkáš, a ono to přestane."
+            if mimon:
+                "Pohledem zhodnotíš počet ručníků a všimneš si, že na zemi je jeden původně bílý ručník..."
+                "...celý červený od Mimoňovy barvy na vlasy, tzn. už se dá použít jako hadr na podlahu."
+            else:
+                "Pohledem zhodnotíš počet ručníků a rozhodneš, že se jeden dá použít jako hadr na podlahu"
+            "Vytřeš potopu, co jsi způsobila."
+            return
+
+
 label tokio1_hotel_part1:
     scene bg hoteltokio
     $ room, partners = resolve_room_selection([dropdown.selected_item.value for dropdown in dropdowns])
@@ -144,23 +168,8 @@ label sucansance:
     s "Máme jen jednu kartu na vstup, nezapomeň."
     j "No, tak budeš muset chvíli počkat."
     "Slyšíš, jak Sučan odchází od dveří koupelny."
-    "Konečně máš čas prohlédnout si koupelnu."
 
-    menu:
-        "První, co tě zaujme, je typický japonský záchod s panelem na zdi."
-        "Mobil s překladačem sis nechala v pokoji."
-        "Panel budeš ignorovat":
-            jump ignorpanel
-        "Pomačkáš náhodně všechny čudlíky.":
-            "Pomačkala jsi náhodně všechny čudlíky,"
-            "a najednou začne cákat voda ze záchodu ven!"
-            $ j.gaijin_points += 1
-            "Získáváš jeden GP!"
-            "[j.show_all_points()]"
-            "Ještě něco pomačkáš a ono to přestane."
-            "Pohledem zhodnotíš počet ručníků a rozhodneš, že se jeden dá použít jako hadr na podlahu"
-            "Vytřeš potopu, co jsi způsobila."
-            jump ignorpanel  # TODO necessary?
+    call bathroom_common
 
 label ignorpanel:
     "Dáš si rychlou sprchu a usušíš si vlasy fénem. Ano, v Japonsku je fén základní výbava koupelny, stejně jako sprchový gel, šampón, kondicionér..."
@@ -253,23 +262,7 @@ label hrac_ka_Mimon:
     "Najednou se rozletí dveře koupelny."
     j "Hurá!"
     "Zaraduješ se, bereš věci a běžíš do koupelny."
-    "Konečně máš čas prohlídnout si koupelnu."
-    "První, co tě zaujme je typický japonský záchod s panelem na zdi."
-    menu:
-        "Mobil s překladačem sis nechal['a' if j.gender == 'f' else ''] v pokoji."
-        "Panel budeš ignorovat":
-            jump ignorpanel2
-        "Pomačkáš náhodně všechny čudlíky.":
-            "Pomačkala jsi náhodně všechny čudlíky."
-            "A najednou začne cákat voda ze záchodu ven!"
-            $ j.gaijin_points += 1
-            "Získáváš jeden GP!"
-            "[j.show_all_points()]"
-            "Ještě něco pomačkáš, a ono to přestane."
-            "Pohledem zhodnotíš počet ručníků a všimneš si, že na zemi je jeden původně bílý ručník..."
-            "...celý červený od Mimoňovy barvy na vlasy, tzn. už se dá použít jako hadr na podlahu."
-            "Vytřeš potopu, co jsi způsobila."
-            jump ignorpanel2  # TODO neccesary?
+    call bathroom_common(mimon=True)
 
 label ignorpanel2:
     "Dáš si rychlou sprchu, vlasy si ani nefénuješ, jen si je usušíš ručníkem."
@@ -327,23 +320,8 @@ label ignorpanel2:
         j "Normálně tu zůstaň, určitě je v koupelně klíč. A i kdyby ne, tak přece víš, že tam budu."
         "Usměješ se na něj a mrkneš."
         "Popadneš věci a přesuneš se do koupelny."
-        scene bg koupelna
-        "Teď máš čas prohlédnout si koupelnu."
-        "První, co tě zaujme, je typický japonský záchod s panelem na zdi."
-        menu:
-            "Mobil s překladačem sis nechal['a' if j.gender == 'f' else ''] v pokoji."
-            "Panel budeš ignorovat":
-                jump ignorpanel3
-            "Pomačkáš náhodně všechny čudlíky.":
-                "Pomačkal['a' if j.gender == 'f' else ''] jsi náhodně všechny čudlíky."
-                "A najednou začne cákat voda ze záchodu ven!"
-                $ j.gaijin_points += 1
-                "Získáváš jeden GP!"
-                "[j.show_all_points()]"
-                "Ještě něco pomačkáš a ono to přestane."
-                "Pohledem zhodnotíš počet ručníků a rozhodneš se, že se jeden dá použít jako hadr na podlahu"
-                "Vytřeš potopu, co jsi způsobila."
-                jump ignorpanel3
+        call bathroom_common
+
     label ignorpanel3:
         "Rychle se svlékneš a zapadneš do vany."
         "Po cestování, které si v posledních 24 hodinách absolvoval['a' if j.gender == 'f' else ''],"
@@ -448,23 +426,8 @@ label ignorpanel2:
         hide a neutral
         j "Jo, díky."
         "Vybereš si jednu postel, popadneš věci a přesuneš se do koupelny."
-        scene bg koupelna
-        "Teď máš čas prohlédnout si koupelnu."
-        "První, co tě zaujme, je typický japonský záchod s panelem na zdi."
-        menu:
-            "Mobil s překladačem sis nechal['a' if j.gender == 'f' else ''] v pokoji."
-            "Panel budeš ignorovat":
-                jump ignorpanel4
-            "Pomačkáš náhodně všechny čudlíky.":
-                "Pomačkal['a' if j.gender == 'f' else ''] jsi náhodně všechny čudlíky."
-                "A najednou začne cákat voda ze záchodu ven!"
-                $ j.gaijin_points += 1
-                "Získáváš jeden GP!"
-                "[j.show_all_points()]"
-                "Ještě něco pomačkáš a ono to přestane."
-                "Pohledem zhodnotíš počet ručníků a rozhodneš se, že se jeden dá použít jako hadr na podlahu."
-                "Vytřeš potopu, co jsi způsobila."
-                jump ignorpanel4
+        call bathroom_common
+
     label ignorpanel4:
         # TODO the same text, parametrize
         "Rychle se svlékneš a zapadneš do vany."
@@ -478,7 +441,7 @@ label ignorpanel2:
         "Napůl křikneš a jdeš si uklidit věci do kufru."
         show a neutral
         a "Děkuji!"
-        hide a neztral
+        hide a neutral
         "Řekne, vezme si věci a přesune se do koupelny."
         "Ty si uklidíš věci, z papírového obalu na vstupní kartu vyčteš heslo k wifi a napíšeš domů."
         "Natáhneš se do postele."
@@ -497,7 +460,7 @@ label ignorpanel2:
         "Pustí tě před sebe. Dojdete na konec chodby k pokoji 608."
         "Celou dobu oba mlčíte a je mezi vámi takové zvláštní napětí."
         "Kartou odemkne dveře. A pustí tě do pokoje jako první."
-        if j.love_points[d.name] > 0:
+        if j.love_points.get(d.name, 0) > 0:
             scene bg dvojluzakmanp
             "Vstoupíš do pokoje a vidíš, že se v pokoji nachází pouze manželská postel."
             "Podíváš se rozpačitě na Danteho."
@@ -525,24 +488,9 @@ label ignorpanel2:
             d "Běž."
             hide d neutral
             "Vezmeš si věci a vyrazíš do koupelny."
-            scene bg koupelna
             "Pro jistotu se zamkneš."
-            "Teď máš čas prohlédnout si koupelnu."
-            "První, co tě zaujme, je typický japonský záchod s panelem na zdi."
-            menu:
-                "Mobil s překladačem sis nechal['a' if j.gender == 'f' else ''] v pokoji."
-                "Panel budeš ignorovat":
-                    jump ignorpanel5
-                "Pomačkáš náhodně všechny čudlíky.":
-                    "Pomačkal['a' if j.gender == 'f' else ''] jsi náhodně všechny čudlíky."
-                    "A najednou začne cákat voda ze záchodu ven!"
-                    $ j.gaijin_points += 1
-                    "Získáváš jeden GP!"
-                    "[j.show_all_points()]"
-                    "Ještě něco pomačkáš a ono to přestane."
-                    "Pohledem zhodnotíš počet ručníků a rozhodneš se, že se jeden dá použít jako hadr na podlahu."
-                    "Vytřeš potopu, co jsi způsobil['a' if j.gender == 'f' else '']."
-                    jump ignorpanel5
+            call bathroom_common
+            jump ignorpanel5
         else:
             scene bg dvojluzak separe
             "Vstoupíš do pokoje. Je to normální dvojlůžák, postele jsou odděleny nočním stolkem."
@@ -556,24 +504,9 @@ label ignorpanel2:
             d "Ne, běž."
             hide d neutral
             "Vezmeš si tedy věci a vyrazíš do koupelny."
-            scene bg koupelna
             "Pro jistotu se zamkneš."
-            "Teď máš čas prohlédnout si koupelnu."
-            "První, co tě zaujme, je typický japonský záchod s panelem na zdi."
-            menu:
-                "Mobil s překladačem sis nechal['a' if j.gender == 'f' else ''] v pokoji."
-                "Panel budeš ignorovat":
-                    jump ignorpanel6
-                "Pomačkáš náhodně všechny čudlíky.":
-                    "Pomačkal['a' if j.gender == 'f' else ''] jsi náhodně všechny čudlíky."
-                    "A najednou začne cákat voda ze záchodu ven!"
-                    $ j.gaijin_points += 1
-                    "Získáváš jeden GP!"
-                    "[j.show_all_points()]"
-                    "Ještě něco pomačkáš a ono to přestane."
-                    "Pohledem zhodnotíš počet ručníků a rozhodneš se, že se jeden dá použít jako hadr na podlahu."
-                    "Vytřeš potopu, co jsi způsobil['a' if j.gender == 'f' else '']."
-                    jump ignorpanel6
+            call bathroom_common
+            jump ignorpanel6
     label ignorpanel5:
         # TODO the same text, parametrize
         "Rychle se svlékneš a zapadneš do vany."
