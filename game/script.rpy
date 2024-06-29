@@ -1,10 +1,6 @@
 ﻿# The script of the game goes in this file.
 
-transform half_size:
-    zoom .5
-
 # The game starts here.
-
 label start:
     call akt1
     call problemubytovani
