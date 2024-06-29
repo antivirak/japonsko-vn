@@ -90,8 +90,8 @@ label recepce:
         scene bg tokio1 venek noc
         "Nebyli jste na večeři dlouho, ale přesto se venku už setmělo."
         "Protože jste všichni značně unavený, rozhodnete se zastavit v nějakém kombini pro snídani a pak se vrátit na hotel"
-        "Po cetě jedna večerka je, tak do ní zajdete."
-        scene bg konbini
+        "Po cetě je 7eleven, tak do něj zajdete."
+        scene bg 7eleven
         "Koupíš si k snídani lívance plněné vanilkovým krémem, kávu a nějakou ochucenou vodu."
         "Přijdeš k prodavači, věci namarkuje rovnou ti je narovná do tašky."
         "Ukážeš kartu a on pokyne k přístroji s obrazovkou na pultu, zaplatíš a vyjdeš ven."
