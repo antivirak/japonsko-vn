@@ -22,6 +22,54 @@ label bathroom_common(mimon=False):
             return
 
 
+label problemubytovani:
+    show s neutral at left
+    show a smile at right
+    "Všimneš si, že Sučan se tváří pobaveně, zatímmco Adrian smutně."
+    s "Víte, jak jsem řešil, že tenhle hotel někdo hacknul?"
+    "říká velmi pobaveným tónem."
+    s "Tak to má dohru, nejen, že jsem kvůli tomu musel před odjezdem zablokovat a obstarat si novou kreditku..."
+    s "...ale ještě mají nějaký zmatek v systému, takže místo tří pokojů máme jen dva."
+    a "Takže se musíme rozdělit do jednoho dvojlůžáku a jednoho trojlůžáku."
+    hide s neutral
+    hide a neutral
+    show m neutral at left
+    show a neutral: 
+        xalign 0.3
+        yalign 1.0
+    show s neutral:
+        xalign 0.6
+        yalign 1.0
+    show d neutral at right
+    "Pro lepší rozhodování tvé získané bodíky: [j.show_all_points()]"
+    "Vyber rozložení cestujících do pokojů."
+
+    scene bg black  # TODO do we want some room background here?
+    $ b = d if j.gender == 'f' else h
+    $ chars = [a, m, s, b, j]
+    $ char_names = [char.name for char in chars]
+    $ color_map = {char.name: char.color for char in chars}
+
+label problemubytovani_action:
+    $ dropdowns = [Dropdown([
+        DropdownItem(chars[0], selected=selected[0]),
+        DropdownItem(chars[1], selected=selected[1]),  # , Jump('test')
+        DropdownItem(chars[2], selected=selected[2]),
+        DropdownItem(chars[3], selected=selected[3]),
+        DropdownItem(chars[4], selected=selected[4]),
+    ], color_map) for chars, selected in zip(
+        [char_names] * 5, [
+            [True, False, False, False, False],
+            [False, True, False, False, False],
+            [False, False, True, False, False],
+            [False, False, False, True, False],
+            [False, False, False, False, True],
+        ]
+    )]
+
+    call screen dropdown(dropdowns)
+
+
 label tokio1_hotel_part1:
     scene bg hoteltokio
     $ room, partners = resolve_room_selection([dropdown.selected_item.value for dropdown in dropdowns])
