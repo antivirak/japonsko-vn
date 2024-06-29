@@ -8,6 +8,7 @@ python early:
             super().__init__(**kwargs)
             self.name_2p = kwargs.get("name_2p")
             self.name_5p = kwargs.get("name_5p")
+            self.driver = False
             self.gender = gender
             self.gaijin_points = 0
             self.love_points = {}

@@ -21,7 +21,7 @@ label bathroom_common(your_mate, clothes=True):
         else:
             "Pohledem zhodnotíš počet ručníků a rozhodneš, že se jeden dá použít jako hadr na podlahu"
         "Vytřeš potopu, co jsi způsobila."
-    if your_mate == s:
+    if your_mate == s and not clothes:
         call bathroom_sucan
         return
     "Rychle se svlékneš a zapadneš do vany."

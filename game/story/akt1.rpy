@@ -16,7 +16,10 @@ label akt1:
         "Kluk":
             $ j.gender = 'm'
     $ j.name = renpy.input("Jak se jmenuješ?").strip()
-    $ j.name_5p = j.name[:-1] + "o" if j.gender == "f" else j.name
+    # while j.name.lower() in ["mimon", "sučan", "adrian", "dante", "hana"]:
+    #     j.name = renpy.input("Zvol si jiné jméno, takové už tu máme.").strip()
+    # TODO fix bug in room selection minigame when character name clashes with predefined names
+    $ j.name_5p = j.name[:-1] + "o" if j.gender == "f" else j.name  # TODO find if some rules can be applied to man
     scene bg black
     show s neutral at left
     "Tohle je kluk s přezdívkou Sučan."
@@ -81,6 +84,7 @@ label vyberauta:
         # TODO parametrize for gender
         "Jseš řidička? Pokud ano, jseš ochotná následující 3 týdny strávit za volantem spolu se Sučanem? Mysli na to, že v Japonsku se jezdí vlevo."
         "Ano, budu řídit":
+            j.driver = True
             jump ridicka
         "Ne, řídit nebudu":
             jump neridicka
@@ -232,7 +236,7 @@ label tokio1:
     "Mimoň zůstal v autě, má nasazená sluchátka a tváří se znechuceně."
     menu:
         "Půjdeš si sednout k Mimoňovi, k Dantemu nebo počkáš bez interakce?"
-        "Půjdu do auta k mimoňovi.":
+        "Půjdu do auta k Mimoňovi.":
             hide d neutral
             m "Co tu chceš? Vypadni!"
             "Nemáš náladu se s ním dohadovat, takže získáváš jeden HP a vylézáš z auta."
