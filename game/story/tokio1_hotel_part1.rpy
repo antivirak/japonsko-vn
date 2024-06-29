@@ -105,23 +105,30 @@ label problemubytovani_action:
 label tokio1_hotel_part1:
     scene bg hoteltokio
     $ room, partners = resolve_room_selection([dropdown.selected_item.value for dropdown in dropdowns])
-    $ print(room, partners)
+    $ chars = {char.name: char for char in (a, d, h, m, s)}
+    $ partners = [chars[partner_name] for partner_name in partners if partner_name != j.name]
 
     hide m neutral
     hide a neutral
     hide d neutral
     hide s neutral
 
+    $ print([partner.name for partner in partners])
     "Po rozdělení jste se rozhodli dojít na pokoje odnést si věci. Sraz máte v 18 h na recepci a pak půjdete společně na večeři."
-
-    if room == "Dvojlůžák" and s.name in partners and j.gender == "f":
+    if room == "Dvojlůžák" and s in partners and j.gender == "f":
         jump hracka_Sucan
-    if room == "Dvojlůžák" and m.name in partners:
+    if room == "Dvojlůžák" and m in partners:
         jump hrac_ka_Mimon
-    if room == "Dvojlůžák" and a.name in partners and j.gender == "f":
+    if room == "Dvojlůžák" and h in partners and j.gender == "m":
+        "Tome, klučičí linka stále není :P"
+        jump recepce
+    if room == "Dvojlůžák" and a in partners and j.gender == "f":
         jump hracka_Adrian
-    if room == "Dvojlůžák" and d.name in partners and j.gender == "f":
+    if room == "Dvojlůžák" and d in partners and j.gender == "f":
         jump hracka_Dante
+    if room == "Trojlůžák" and m in partners:
+        call hrac_ka_Mimon3p(partners)
+        jump recepce
     else:
         "Tahle možnost není ještě implementována."
         jump titulky
@@ -142,7 +149,7 @@ label hracka_Sucan:
         "Chceš to zahrát do outu, a nebo by sis se Sučanem možná chtěla něco začít?"
         "Zahrát do outu.":
             jump sucanvoutu
-        "Dát mu šanci":
+        "Dát mu šanci.":
             jump sucansance
 
 label sucanvoutu:
@@ -668,4 +675,71 @@ label ignorpanel2:
         "Pak si přebalíš důležité věci do tašky, kterou si chceš vzít s sebou."
         "A vyrazíte směr recepce."
         jump recepce
+label hrac_ka_Mimon3p(partners):
+    "Vybral['a' if j.gender == 'f' else ''] sis do pokoje [' a '.join(partner.name_4p for partner in partners)]."
+    "Takže na dvojlůžák zamířili XX a XY"# vypsat ty druhé dva
+    "Vyrážíte tedy společně na pokoj. Je to číslo 516 v pátém patře."
+    "Takže nahoru vyjíždíte výtahem."
+    show m neutral
+    m "Nechci být s vámi na pokoji!"
+    hide m neutral
+    j "To bude dobrý."
+    "Jdeš napřed a otevřeš pomocí karty dveře."
+    "Vstoupíte dovnitř."
+    scene bg dvojluzak separe
+    "Před vámi se otevře malý pokos se třemi postelemi a koupelnou."
+    $ partner_not_mimon = partners[not partners.index(m)]
+    "[partner_not_mimon.name] se zastaví."
+    # or $ partner_not_mimon = [partner for partner in partners if partner.name != "Mimoň"][0]
+    # show partner_not_mimon neutral
+    partner_not_mimon "Vyberte si první já počkám."
+    j "Díky."
+    show m neutral
+    m "..."
+    hide m neutral
+    j "Jakou chceš postel? Vyber si."
+    show m neutral
+    m "..."
+    hide m neutral
+    "Když se Mimoň k ničemu nemá rozejdeš se k posteli u okna."
+    "Už už, pokládáš batoh na postel, když přiběhne Mimoň a do té postele skočí."
+    "Rozhodneš se že se nebudeš rozčilovat"
+    j "Tak já si vezmu tu u zdi, když Mimoň má postel u okna."
+    "A jdeš si dát věci na postel u zdi, co nejdále od Mimoně."
+    "[partner_not_mimon.name] si jde tedy dát věci na postel uprostřed."
+    j "Bude někomu vadit, když se půjdu koupat první?"
+    show m neutral
+    m "..."
+    hide m neutral
+    #show partner_not_mimon neutral
+    partner_not_mimon "Nevadí, jen běž."
+    "Vezmeš si věci a zamíříš do koupelny."
+    "Pro jistotu se zamkneš."
+    call bathroom_common(partner_not_mimon)
+    scene bg dvojluzak separe
+    "Vidíš jak se [partner_not_mimon.name] balí a chce se rozejít do koupelny."
+    "Ale zničeho nic se zase Mimoň zvedne vezme si svoje věci a zajde do koupelny."
+    partner_not_mimon "Dobře? Tak já asi ještě počkám."
+    j "To bude ještě těžký, snad tam nebude dlouho."
+    "Natáhneš se na postel, z papírového obalu na vstupní kartu opíšeš heslo na wifi."
+    "Zkontroluješ 'socky'."
+    "Pak začneš být trošku nervózní, protože na šestou máte být na recepci kvůli večeři."
+    "Je po půl šesté a Mimoň už asi hodinu nevylezl z koupelny."
+    "Najednou se rozletí dveře koupelny."
+    partner_not_mimon "Hurá!"
+    "Vezme si věci a jde do koupelny."
+    "Ty si zatím zabalíš věci, co si chceš vzít s sebou."
+    "Během pár minut vyjde [partner_not_mimon.name], dá si věci na postel."
+    "Koukne na hodinky."
+    "Měli bychom vyrazit, za chvíli máme být na recepci."
+    show m neutral 
+    m "Nikam nejdu!"
+    hide m neutral
+    j "Tak nechoď, ale budeš mít hlad."
+    "Rozhodneš se, že s ním budeš jednat jak s dítětem."
+    j "Tak my půjdeme na večeři, necháme ti tu kartu na vstup. Kdyby si někam šel tak nám napiš."
+    j "Domluvíme se, kde si ji předáme."
+    "Položíš výraznamně kartu na stoleček a [partner_not_mimon.name_7p] vyrazíte směr recepce."
 
+
+    return

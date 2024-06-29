@@ -7,7 +7,11 @@ python early:
         def __init__(self, gender: str, **kwargs) -> None:
             super().__init__(**kwargs)
             self.name_2p = kwargs.get("name_2p")
+            self.name_3p = kwargs.get("name_3p")
+            self.name_4p = kwargs.get("name_4p")
             self.name_5p = kwargs.get("name_5p")
+            self.name_6p = kwargs.get("name_6p")
+            self.name_7p = kwargs.get("name_7p")
             self.driver = False
             self.gender = gender
             self.gaijin_points = 0
