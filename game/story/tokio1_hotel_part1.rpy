@@ -1,25 +1,57 @@
-label bathroom_common(mimon=False):
+label bathroom_common(your_mate, clothes=True):
     scene bg koupelna
     "Konečně máš čas prohlédnout si koupelnu."
     "První, co tě zaujme je typický japonský záchod s panelem na zdi."
     menu:
         "Mobil s překladačem sis nechal['a' if j.gender == 'f' else ''] v pokoji."
         "Panel budeš ignorovat":
-            return
+            $ ignore = True
         "Pomačkáš náhodně všechny čudlíky.":
-            "Pomačkala jsi náhodně všechny čudlíky."
-            "A najednou začne cákat voda ze záchodu ven!"
-            $ j.gaijin_points += 1
-            "Získáváš jeden GP!"
-            "[j.show_all_points()]"
-            "Ještě něco pomačkáš, a ono to přestane."
-            if mimon:
-                "Pohledem zhodnotíš počet ručníků a všimneš si, že na zemi je jeden původně bílý ručník..."
-                "...celý červený od Mimoňovy barvy na vlasy, tzn. už se dá použít jako hadr na podlahu."
-            else:
-                "Pohledem zhodnotíš počet ručníků a rozhodneš, že se jeden dá použít jako hadr na podlahu"
-            "Vytřeš potopu, co jsi způsobila."
-            return
+            $ ignore = False
+    if not ignore:
+        "Pomačkala jsi náhodně všechny čudlíky."
+        "A najednou začne cákat voda ze záchodu ven!"
+        $ j.gaijin_points += 1
+        "Získáváš jeden GP!"
+        "[j.show_all_points()]"
+        "Ještě něco pomačkáš, a ono to přestane."
+        if your_mate == m:
+            "Pohledem zhodnotíš počet ručníků a všimneš si, že na zemi je jeden původně bílý ručník..."
+            "...celý červený od Mimoňovy barvy na vlasy, tzn. už se dá použít jako hadr na podlahu."
+        else:
+            "Pohledem zhodnotíš počet ručníků a rozhodneš, že se jeden dá použít jako hadr na podlahu"
+        "Vytřeš potopu, co jsi způsobila."
+    if your_mate == s:
+        call bathroom_sucan
+        return
+    "Rychle se svlékneš a zapadneš do vany."
+    "Po cestování, které si v posledních 24 hodinách absolvoval['a' if j.gender == 'f' else ''],"
+    "je pořádná sprcha právě to, co nejvíce potřebuješ."
+    "Po pár minutách užívání si horké koupele, usoudíš, že je čas vylézt a pustit do koupelny i [your_mate.name_2p]."
+    "Vylezeš ven, usušíš se a trochu si vyfénuješ vlasy."
+    # TODO u Sučana jsi popisovala vybavení hotelových koupelen
+    if not clothes:
+        "Chceš se obléknout a zjistíš, že sis v tom spěchu vzala jen kalhotky a tričko."
+        "Podprsenka a kraťasy musely zůstat ležet na posteli."
+        "Rozhodneš se, že to není tak zlé; že pustíš [your_mate.name_2p] do koupelny a dooblékneš se v pokoji."
+        "Zkontroluješ, že po tobě v koupelně nezůstal žádný bordel a odemkneš koupelnu."
+        return
+    "Oblékneš se do přineseného oblečení."
+    "Zkontroluješ, že po tobě v koupelně nezůstal žádný bordel a odemkneš koupelnu."
+    j "Volno!"
+    "Napůl křikneš, a jdeš si uklidit věci do kufru."
+    return
+
+
+label bathroom_sucan:
+    "Dáš si rychlou sprchu a usušíš si vlasy fénem. Ano, v Japonsku je fén základní výbava koupelny, stejně jako sprchový gel, šampón, kondicionér..."
+    "...soustava ručníků, zubní kartáček, mini-pasta, hřeben, gumičky, holítka..."
+    "Po sprše se rozhodneš Sučana malinko provokovat."
+    "Takže i přes to, že sis s sebou vzala věci na převlečení,"
+    "si vezmeš na sebe jen spodní prádlo a ručník si uvážeš kolem sebe."
+    "Vezmeš svoje věci a odemkneš koupelnu."
+    j "Volno!"
+    return
 
 
 label problemubytovani:
@@ -217,16 +249,9 @@ label sucansance:
     j "No, tak budeš muset chvíli počkat."
     "Slyšíš, jak Sučan odchází od dveří koupelny."
 
-    call bathroom_common
+    call bathroom_common(s)
 
 label ignorpanel:
-    "Dáš si rychlou sprchu a usušíš si vlasy fénem. Ano, v Japonsku je fén základní výbava koupelny, stejně jako sprchový gel, šampón, kondicionér..."
-    "...soustava ručníků, zubní kartáček, mini-pasta, hřeben, gumičky, holítka..."
-    "Po sprše se rozhodneš Sučana malinko provokovat."
-    "Takže i přes to, že sis s sebou vzala věci na převlečení,"
-    "si vezmeš na sebe jen spodní prádlo a ručník si uvážeš kolem sebe."
-    "Vezmeš svoje věci a odemkneš koupelnu."
-    j "Volno!"
     scene bg dvojluzakmanp
     "Vycházíš ven s úsměvem. Zahneš doprava a objevíš se v místnůstce s postelí."
     show s neutral at left
@@ -310,7 +335,7 @@ label hrac_ka_Mimon:
     "Najednou se rozletí dveře koupelny."
     j "Hurá!"
     "Zaraduješ se, bereš věci a běžíš do koupelny."
-    call bathroom_common(mimon=True)
+    call bathroom_common(m)
 
 label ignorpanel2:
     "Dáš si rychlou sprchu, vlasy si ani nefénuješ, jen si je usušíš ručníkem."
@@ -368,19 +393,9 @@ label ignorpanel2:
         j "Normálně tu zůstaň, určitě je v koupelně klíč. A i kdyby ne, tak přece víš, že tam budu."
         "Usměješ se na něj a mrkneš."
         "Popadneš věci a přesuneš se do koupelny."
-        call bathroom_common
+        call bathroom_common(a)
 
     label ignorpanel3:
-        "Rychle se svlékneš a zapadneš do vany."
-        "Po cestování, které si v posledních 24 hodinách absolvoval['a' if j.gender == 'f' else ''],"
-        "je pořádná sprcha právě to, co nejvíce potřebuješ."
-        "Po pár minutách užívání si horké koupele, usoudíš, že je čas vylézt a pustit do koupelny i Adriana."
-        "Vylezeš ven, usušíš se a trochu si vyfénuješ vlasy."
-        # TODO v jiných větvích jsi popisovala vybavení hotelových koupelen
-        "Oblékneš se do přineseného oblečení."
-        "Zkontroluješ, že po tobě v koupelně nezůstal žádný bordel a odemkneš koupelnu."
-        j "Volno!"
-        "Napůl křikneš, a jdeš si uklidit věci do kufru."
         show a smile
         a "Díky,"
         hide a smile
@@ -474,19 +489,10 @@ label ignorpanel2:
         hide a neutral
         j "Jo, díky."
         "Vybereš si jednu postel, popadneš věci a přesuneš se do koupelny."
-        call bathroom_common
+        call bathroom_common(a)
 
     label ignorpanel4:
         # TODO the same text, parametrize
-        "Rychle se svlékneš a zapadneš do vany."
-        "Po cestování, které si v posledních 24 hodinách absolvovala,"
-        "je pořádná sprcha právě to, co nejvíce potřebuješ."
-        "Po pár minutách užívání horké koupele usoudíš, že je čas vylézt a pustit do koupelny i Adriana."
-        "Vylezeš ven, usušíš se a trochu si vyfénuješ vlasy."
-        "Oblékneš se do přineseného oblečení."
-        "Zkontroluješ, že po tobě v koupelně nezůstal žádný bordel a odemkneš koupelnu."
-        j "Volno!"
-        "Napůl křikneš a jdeš si uklidit věci do kufru."
         show a neutral
         a "Děkuji!"
         hide a neutral
@@ -537,7 +543,7 @@ label ignorpanel2:
             hide d neutral
             "Vezmeš si věci a vyrazíš do koupelny."
             "Pro jistotu se zamkneš."
-            call bathroom_common
+            call bathroom_common(d, clothes=False)
             jump ignorpanel5
         else:
             scene bg dvojluzak separe
@@ -553,19 +559,9 @@ label ignorpanel2:
             hide d neutral
             "Vezmeš si tedy věci a vyrazíš do koupelny."
             "Pro jistotu se zamkneš."
-            call bathroom_common
+            call bathroom_common(d)
             jump ignorpanel6
     label ignorpanel5:
-        # TODO the same text, parametrize
-        "Rychle se svlékneš a zapadneš do vany."
-        "Po cestování, které si v posledních 24 hodinách absolvoval['a' if j.gender == 'f' else ''],"
-        "je pořádná sprcha právě to, co nejvíce potřebuješ."
-        "Po pár minutách užívání horké koupele usoudíš, že je čas vylézt a pustit do koupelny i Adriana."
-        "Vylezeš ven, usušíš se a trochu si vyfénuješ vlasy."
-        "Chceš se obléknout a zjistíš, že sis v tom spěchu vzala jen kalhotky a tričko."
-        "Podprsenka a kraťasy musely zůstat ležet na posteli."
-        "Rozhodneš se, že to není tak zlé; že pustíš Danteho do koupelny a dooblékneš se v pokoji."
-        "Zkontroluješ, že po tobě v koupelně nezůstal žádný bordel a odemkneš koupelnu."
         scene bg dvojluzakmanp
         show d reading
         "Vlezeš do pokoje. Dante sedí u okna a čte si knihu."
@@ -651,16 +647,7 @@ label ignorpanel2:
         "Chceš mu odpovědět, ale akorát se otevřou dveře od výtahu a jste na doslech ostatním."
         jump recepce
     label ignorpanel6:
-        "Rychle se svlékneš a zapadneš do vany."
-        "Po cestování, které si v posledních 24 hodinách absolvovala,"
-        "je pořádná sprcha právě to, co nejvíce potřebuješ."
-        "Po pár minutách užívání horké koupele usoudíš, že je čas vylézt a pustit do koupelny i Adriana."  # TODO Adrian or Dante?
-        "Vylezeš ven, usušíš se a trochu si vyfénuješ vlasy."
-        "Oblékneš se."
-        "Zkontroluješ, že po tobě v koupelně nezůstal žádný bordel a odemkneš koupelnu."
         scene bg dvojluzak separe
-        j "Volno!"
-        "Zahlásíš a jdeš si uklidit věci."
         show d neutral
         d "Děkuji,"
         hide d neutral
