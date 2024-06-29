@@ -84,7 +84,7 @@ label vyberauta:
         # TODO parametrize for gender
         "Jseš řidička? Pokud ano, jseš ochotná následující 3 týdny strávit za volantem spolu se Sučanem? Mysli na to, že v Japonsku se jezdí vlevo."
         "Ano, budu řídit":
-            j.driver = True
+            $ j.driver = True
             jump ridicka
         "Ne, řídit nebudu":
             jump neridicka
@@ -128,8 +128,8 @@ label neridicka:
         "Za spolujezdcem":
             jump zaspolujezdcem
 
-label zaridicem:
-    "Vybrala sis místo za řidičem, takže vedle tebe si do středu sedá Adrian a za spolujezdce Mimoň."
+label zaspolujezdcem:
+    "Vybrala sis místo za spolujezdcem, takže vedle tebe si do středu sedá Adrian a za řidiče Mimoň."
     show a smile at right
     "Auto je opravdu krásný, ale vážně malý sporťák. Takže i přes tvou urputnou snahu se spíše lepit na dveře než na Adriana, se ramenem a nohou Adriana dotýkáš."
     menu:
@@ -172,8 +172,8 @@ label vprostred:
             "Přesunuli jste se do Tokia."
             jump tokio1
 
-label zaspolujezdcem:
-    "Vybrala sis snad to nejhorší místo, co jsi mohla. Za řidiče se posadil Adrian a do středu vedle tebe Mimoň."
+label zaridicem:
+    "Vybrala sis snad to nejhorší místo, co jsi mohla. Za spolujezdce se posadil Adrian a do středu vedle tebe Mimoň."
     show m neutral
     "Auto je opravdu krásný, ale vážně malý sporťák. Takže se na tebe tlačí Mimoň."
     "Cítíš, jak se Mimoň rozcapil na celé sedadlo  a ramenem ti drtí to tvé. Svou pravou nohu si narval k tobě, takže si musela své nohy nalepit ke dveřím. "
@@ -182,7 +182,6 @@ label zaspolujezdcem:
     "Vyndáš si sluchátka a celou cestu koukáš z okénka"
     "Když už podle navigace vjíždíte do Tokia, velmi si oddychneš."
     "Získáváš dva HP pro Mimoně."
-    # 2 HP Mimoň
     $ j.add_hate_points_for_person(m, 2)
     "[j.show_all_points()]"
     jump tokio1

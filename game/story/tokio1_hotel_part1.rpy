@@ -9,7 +9,7 @@ label bathroom_common(your_mate, clothes=True):
         "Pomačkáš náhodně všechny čudlíky.":
             $ ignore = False
     if not ignore:
-        "Pomačkala jsi náhodně všechny čudlíky."
+        "Pomačkal['a' if j.gender == 'f' else ''] jsi náhodně všechny čudlíky."
         "A najednou začne cákat voda ze záchodu ven!"
         $ j.gaijin_points += 1
         "Získáváš jeden GP!"
@@ -308,14 +308,15 @@ label hrac_ka_Mimon:
     m "Nikam nejdu!"
     hide m neutral
     j "Tak nemusíš jít na večeři, ale teď pojď na pokoj, máme jen jednu vstupní kartu."
-    "Došli jste na pokoj 306, odemkl['a' if j.gender == 'f' else ''] jsi kartou a oddychl['a' if j.gender == 'f' else ''] sis, když jsi zjistil['a' if j.gender == 'f' else ''], že jsou postele odděleny"
+    "Došli jste na pokoj 306, odemkl['a' if j.gender == 'f' else ''] jsi kartou a oddychl['a' if j.gender == 'f' else ''] sis, když jsi zjistil['a' if j.gender == 'f' else ''], že jsou postele odděleny."
     scene bg dvojluzak separe
-    j "jakou chceš postel?"
+    j "Jakou chceš postel?"
     show m neutral
     m "..."
     hide m neutral
     j "Jakou chceš postel? Vyber si."
     show m neutral
+
     m "..."
     hide m neutral
     "Ale nakonec se k jedné rozejde."
