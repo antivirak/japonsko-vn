@@ -132,6 +132,9 @@ label tokio1_hotel_part1:
     if room == "Trojlůžák" and d in partners and a in partners and j.gender == "f":
         call hracka_Adri_Dante
         jump recepce
+    if room == "Trojlůžák" and d in partners and s in partners and j.gender == "f":
+        call hracka_Sucan_Dante
+        jump recepce
     else:
         "Tahle možnost není ještě implementována."
         jump titulky
@@ -826,6 +829,7 @@ label hracka_Adri_Dante:
         "Rychle si nandáš kraťasy."
         show d reading
         "Jen se usměje a vypadá, že se věnuje knížce."
+        hide d reading
         "Zapojíš si mobil do zásuvky a z papírové kapsičky na vstupní kartu opíšeš heslo na wifi."
         "Natáhneš se do postele a napíšeš domů."
         "Zkontroluješ 'socky'."
@@ -882,7 +886,158 @@ label hracka_Adri_Dante:
         "Dante si u stolu čte knížku."
         "Dáš si věci do kufru."
         "Z papírového obalu na vstupní kartu opíšeš heslo na wifi a napíšeš domů."
-        " Natáhneš se na svojí postel a zkontroluješ 'socky'."
+        "Natáhneš se na svojí postel a zkontroluješ 'socky'."
+        "Kluci se mezitím vystřídají v koupelně."
+        "Chvíli před šestou se dojdeš do koupelny trošku upravit a nalíčit."
+        "Pak se sbalíš a na šestou všichni vyrazíte na recepci."
+    return
+label hracka_Sucan_Dante:
+    "Do pokoje jste se rozdělili ty, Sučan a Dante. Takže na dvojlůžák zamíří Mimoň s Adrianem."
+    "Vzali jste si kufry z auta a výtahem se necháte vyvést do šestého patra."
+    show s neutral
+    s "To už bude doba, co jsme spolu strávili noc na pokoji."
+    s "Jak je to dlouho, co jsme spolu byli na nějaké dovolené?"
+    hide s neutral
+    j "Tak 10 let?"
+    "Povídáte si, zatímco míříte chodbou k pokoji 506, kde strávíte dvě noci."
+    "Dante mlčí, z výtahu vyjde jako první. Dojde k příslušnému pokoji a odemkne pomocí karty."
+    scene bg dvojluzak separe
+    "Otevře dveře a nechá vás vstoupit první."
+    "V pokoji jsou tři oddělené postele dva noční stolky, jeden stoleček, vestavěnná stěna s televizí a koupelna."
+    show s neutral
+    s "Vyber si, kde chceš spát, my se přizpůsobíme."
+    hide s neutral
+    "Vybereš si tedy postel u okna."
+    "Sučan si dá věci na postel vedle tebe."
+    show s neutral
+    s "Pro jistotu."
+    "Mrkne na tebe."
+    hide s neutral
+    "Dante si vezme postel u zdi."
+    show s neutral
+    s "Klidně běž do koupelny první my počkáme."
+    hide s neutral
+    j "Díky."
+    "Řekneš a vezmeš si věci do koupelny."
+    "Pro jistotu se zamkneš."
+    scene bg koupelna
+    "Konečně máš čas prohlédnout si koupelnu."
+    "První, co tě zaujme je typický japonský záchod s panelem na zdi."
+    menu:
+        "Mobil s překladačem sis nechal['a' if j.gender == 'f' else ''] v pokoji."
+        "Panel budeš ignorovat":
+            $ ignore = True
+        "Pomačkáš náhodně všechny čudlíky.":
+            $ ignore = False
+    if not ignore:
+        "Pomačkala jsi náhodně všechny čudlíky."
+        "A najednou začne cákat voda ze záchodu ven!"
+        $ j.gaijin_points += 1
+        "Získáváš jeden GP!"
+        "[j.show_all_points()]"
+        "Ještě něco pomačkáš, a ono to přestane."
+        "Pohledem zhodnotíš počet ručníků a rozhodneš, že se jeden dá použít jako hadr na podlahu."
+        "Vytřeš potopu, co jsi způsobila."
+    "Rychle se svlékneš a zapadneš do vany."
+    "Po cestování, které si v posledních 24 hodinách absolvovala,"
+    "je pořádná sprcha právě to, co nejvíce potřebuješ."
+    "Po pár minutách užívání si horké koupele, usoudíš, že je čas vylézt a pustit do koupelny i Sučana s Dantem."
+    "Vylezeš ven, usušíš se a trochu si vyfénuješ vlasy."
+    if j.love_points.get(d.name, 0) > 0 and j.love_points.get(s.name, 0) > 0:
+        "Chceš se obléknout, ale zjistíš, že sis vzala jen kahotky a tričko."
+        j "Super, to to hezky začíná, dva pěkný kluci na pokoji a já se tu budu promenádovat v kalhotkách."
+        "Rozhodneš se, že si mokrý ručník, ale vázat kolem pasu nebudeš a že proběhneš jen tak."
+        "Zkontroluješ zda po tobě nezůstal moc velký bordel."
+        "Odemkneš a vylezeš ven."
+        scene bg dvojluzak separe
+        j "Volno!"
+        "Napůl křikneš."
+        s "Díky."
+        "Zdržíš se zavíráním dveří od koupelny. A mezitím se Sučan dostane do 'chodbičky' k tobě."
+        show s neutral
+        "..."
+        "Konsternovaně na tebe hledí."
+        hide s neutral
+        "Cítíš jak se ti krev hrne do obličeje."
+        "Po pár vteřinách se probere."
+        show s neutral 
+        "Takhle chceš jít do pokoje? Nemám ti přinést něco na převlečení?"
+        hide s neutral
+        j "Jsem snad malá holka? Běž se koupat."
+        "Řekneš a on se protáhne do koupelny."
+        "Jdeš tedy do pokoje. uklidit si věci a dooblíknout se."
+        show d reading
+        "Dante sedí u tvé postele u stolečku a čte si knížku."
+        hide d reading
+        "Rozejdeš se tedy ke svým věcem. Dante zvedne oči od knížky."
+        show d reading
+        "To jsem nečekal, že hned první den tě uvidím v kalhotkách."
+        hide d reading
+        j "Děláš jako by si nikdy žádnou holku v kalhotkách neviděl a navíc už se oblíkám."
+        "Rychle si nandáš kraťasy."
+        show d reading
+        "Jen se usměje a vypadá, že se věnuje knížce."
+        hide d reading
+        "Zapojíš si mobil do zásuvky a z papírové kapsičky na vstupní kartu opíšeš heslo na wifi."
+        "Natáhneš se do postele a napíšeš domů."
+        "Zkontroluješ 'socky'."
+        "Během chvíle vyjde z koupelny Sučan."
+        show a neutral
+        a "Dante, můžeš."
+        hide a neutral
+        "Řekne klidně a jde si ke svým věcem."
+        "Dante odloží knížku, dojde si k úhledně složené kupičce věcí a přesune se do koupelny."
+        "Zůstala si na pokoji sama s Sučanem."
+        show s neutral
+        s "Promiň, vím, že nejsi malá holka, ale vážně si myslíš, že je dobré popíhat polonahá na pokoji s cizímm klukem?"
+        hide s neutral
+        j "Tak za prvé nebyla jsem polonahá. Za druhé nejsi moje matka, aby si mi říkal co mám nosit a za třetí s tebou se mi nic nestane, ne?"
+        show s neutral
+        s "Hele já tu taky nemusím být pořád. Tak si říkám, jetli se nechceš víc přiobléct, když si tu s námi."
+        hide s neutral
+        j "No dobře"
+        "Vyndáš podprsenku natočíš se směrem k zataženému oknu, zády k Sučanovi. Sundáš si tričko, nandáš si podprsenku a oblíkneš si tričko."
+        j "Spokojený?"
+        show s neutral
+        s "Je ti jasné, že jsem také kluk. Tohle mi nemůžeš dělat."
+        hide s neutral
+        j "Vždyť jsem ti jen vyšla vstříc."
+        "Váš rozhovor přeruší přicházející Dante."
+        "Své stalé oblečení si nese úhledně složené."
+        show d black
+        d "Vyrušil jsem vás u něčeho?"
+        hide d black
+        show s neutral
+        s "Ne."
+        hide s neutral
+        show d black
+        "Dobře?"
+        hide d black
+        "Řekne nevěřícně."
+        "Koukneš na mobil, zjistíš, že za chvíli je čas na večeři."
+        "Vezměš si kosmetickou taštičku a zapluješ do koupelny."
+        scene bg koupelna
+        "Upravíš se a lehce se nalíčíš."
+        "Vylezeš ven."
+        scene bg dvojluzak separe
+        j "Asi je pomalu čas jít."
+        "Vlezeš do pokoje a oba divně zmlknou."
+        "Ale vypadá to, že se o něco dohadovali."
+        "Dojdeš si k posteli sbalit věci, co si chceš vzít s sebou, a jdeš čekat před pokoj."
+        "Kluci tě po chvíli následují. A vyrazíte směr recepce."
+    else:
+        "Oblíkneš se do přineseného oblečení."
+        "Zkontroluješ zda po tobě nezůstal moc velký bordel."
+        "Odemkneš a vylezeš ven."
+        scene bg dvojluzak separe
+        j "Volno!"
+        "Napůl křikneš."
+        s "Díky."
+        "Zavolá Sučan a potkáte se po cestě, kdy on míří do koupelny a ty do pokoje."
+        "Dante si u stolu čte knížku."
+        "Dáš si věci do kufru."
+        "Z papírového obalu na vstupní kartu opíšeš heslo na wifi a napíšeš domů."
+        "Natáhneš se na svojí postel a zkontroluješ 'socky'."
         "Kluci se mezitím vystřídají v koupelně."
         "Chvíli před šestou se dojdeš do koupelny trošku upravit a nalíčit."
         "Pak se sbalíš a na šestou všichni vyrazíte na recepci."
