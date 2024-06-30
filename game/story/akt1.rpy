@@ -3,8 +3,11 @@ label akt1:
     with fade
     play music "StockTune-Neon Pulse Of Japan_1719152100.mp3"
 
-    "Vítej ve hře Cesta po Japonsku"
-    "Tvým cílem hry je užít si dovolenou a procestovat velkou část Japonska, nezabít Mimoně, užít si i nějakou romanci a nasbírat co nejméně Gaijin pointů (GP)."
+    "Vítej ve hře {i}Cesta po Japonsku{/i}"
+    "Následující příběh je smyšlený a případné podobnosti s cestou autorů je čistě náhodná."
+    "Tvým cílem hry je užít si dovolenou a procestovat velkou část Japonska, nezabít Mimoně – získat málo hate pointů (HP),"
+    "užít si i nějakou romanci – získat nějaké love pointy (LP) a nasbírat, co nejméně gaijin pointů (GP)."
+    "Pokud hru chceš hrát pouze jako cestování po Japonsku, nezapomeň všechny romantické nabídky ignorovat."
     "Jste parta, která se po internetu domluvila, že vyrazíte na 3 týdny na dovolenou do Japonska."
     "Mezi sebou se moc neznáte. Kromě online nákupu letenek jsi se s některými účastníky nikdy neviděl/a."
     "S tebou do toho šel tvůj kámoš z dětství. A další 3 naprosto cizí lidé."
@@ -21,6 +24,14 @@ label akt1:
     # TODO fix bug in room selection minigame when character name clashes with predefined names
     $ j.name_5p = j.name[:-1] + "o" if j.gender == "f" else j.name  # TODO find if some rules can be applied to man
     scene bg black
+    if j.gender == 'f':
+        "Na podzim si ukončila velmi toxický vztah a hledala jsi nějakou cestu, jak co nejrychjeji zapomenout."
+        "V té době se ti ozval Sučan, že plánuje jet do Japonska, tak jestli se k němu nechceš přidat."
+        "V únoru jste už byla parta domluvená po internetu a koupili jste si letenky"
+        "S odletem v červenci."
+    if j.gender == 'm':
+        "Po Vánocích ti napsal tvůj kamarád z dětství, že shání někoho do party, na cestu do Japonska."
+        "Ani neviš jak se to stalo, ale v únoru už si měl letenku s červencovým odletem."
     show s neutral at left
     "Tohle je kluk s přezdívkou Sučan."
     if j.gender == 'f':
@@ -29,8 +40,10 @@ label akt1:
     "Je to hlavní řidič a také zařizoval hotely, protože má na bookingu členské slevy."
     hide s neutral
     show a neutral at right
-    "Tohle je Adrian. Podle společných online schůzek působí klidně a mile."
+    if j.gender == 'f':
+        "Tohle je Adrian. Podle společných online schůzek působí klidně a mile."
     if j.gender == 'm':
+        "Tohle je Adrian. Milý a tichý společník."
         "Právě on je tvůj kamarád z dětství."
     "Před odjezdem absolvoval jazykový kurz, takže umí alespoň základy japonštiny."
     hide a neutral
