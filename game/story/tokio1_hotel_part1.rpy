@@ -323,7 +323,7 @@ label ignorpanel:
     "[j.show_all_points()]"
     "Hodíš po něm polštářem zpět."
     "Oba se smějete, Sučan se oblékne. A vyrazíte dolů na recepci."
-    jump recepce  # TODO implement recepce
+    jump recepce
 
 label hrac_ka_Mimon:
     "Vybral['a' if j.gender == 'f' else ''] sis do pokoje Mimoně, asi aby se kluci nemuseli s Mimoněm štvát."

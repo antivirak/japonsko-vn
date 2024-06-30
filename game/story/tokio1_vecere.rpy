@@ -73,7 +73,8 @@ label vecere:
     "Když vidí váš překvapený výraz, vysype obsah asi tří misek na plotýnku."
     "A pomocí špachtlí před vámi vytvoří okonomijaki, které ještě ozdobí přelitím majonézy a posype tuňákovými vločkami umeboši."
     "Poté placku rozkrájí pomocí špachtlí na pět dílů."
-    "どぞ ('Do zo'). Řekne a odejde ke svému pultíku."  # TODO japanese
+    $ narrator("どぞ ('Do zo').", what_font="fonts/mikachan.ttf")
+    "Řekne a odejde ke svému pultíku."
     "Rozdělíte si okonomijaki mezi sebe."
     "Umyjete si ruce vlhčenými ručníčky, které jste dostali."
     "Naskládáte na gril maso, brambory a zeleninu."
@@ -82,7 +83,8 @@ label vecere:
     "Když dojíte okonomijaki, maso, brambory a zeleninu,"
     "číšník všechno odnese, otře gril a přinese ještě nudle se zeleninou a chobotnicí."
     "I toto jídlo před vámi připraví."
-    "どぞ ('Do zo'). Řekne a odejde ke svému pultíku."
+    $ narrator("どぞ ('Do zo').", what_font="fonts/mikachan.ttf")
+    "Řekne a odejde ke svému pultíku."
     "Když dojíte a dopijete, domluvíte se, že zaplatíte všechno najednou, a pak si to rozpočítáte."
     "Zaplatit jde Adrian."
     "Slyšíte asi 10 x arigató z obou stran; jak od čístníka, tak od Adriana."
