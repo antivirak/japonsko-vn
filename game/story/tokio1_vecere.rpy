@@ -59,64 +59,65 @@ label recepce:
             "[j.show_all_points()]"
             jump vecere
 
-    label vecere:
-        "Zujete se, boty vyskládáte na stranu a sednete si."
-        "Číšník vám donese jídelní lístky."
-        show menicko
-        "Samo sebou v japonštině a bez obrázků."
-        "Naštěstí se můžete spolehnout na překladače v mobilu."
-        "Chvíli vybíráte. Když máte vybráno, tak odložíte jídelní lístek."
-        hide menicko
-        "Přijde číšník a Adrian objedná."
-        "Chvíli konverzujete a už se vám nese jídlo."
-        "V syrovém stavu. Obsluha položí talíře a misky před vás a zapne 'gril' zapuštěný do stolu."
-        "Když vidí váš překvapený výraz, vysype obsah asi tří misek na plotýnku."
-        "A pomocí špachtlí před vámi vytvoří okonomijaki, které ještě ozdobí přelitím majonézy a posype tuňákovými vločkami umeboši."
-        "Poté placku rozkrájí pomocí špachtlí na pět dílů."
-        "どぞ ('Do zo'). Řekne a odejde ke svému pultíku."  # TODO japanese
-        "Rozdělíte si okonomijaki mezi sebe."
-        "Umyjete si ruce vlhčenými ručníčky, které jste dostali."
-        "Naskládáte na gril maso, brambory a zeleninu."
-        "Pomocí hůlek se pustíte do večeře."
-        "Mimoň jídlo spíše napichuje, než že by jedl hůlkami."
-        "Když dojíte okonomijaki, maso, brambory a zeleninu,"
-        "číšník všechno odnese, otře gril a přinese ještě nudle se zeleninou a chobotnicí."
-        "I toto jídlo před vámi připraví."
-        "どぞ ('Do zo'). Řekne a odejde ke svému pultíku."
-        "Když dojíte a dopijete, domluvíte se, že zaplatíte všechno najednou, a pak si to rozpočítáte."
-        "Zaplatit jde Adrian."
-        "Slyšíte asi 10 x arigató z obou stran; jak od čístníka, tak od Adriana."
-        "Sbalíte se obujete a vyjdete ven."
-        scene bg tokio1 venek noc
-        "Nebyli jste na večeři dlouho, ale přesto se venku už setmělo."
-        "Protože jste všichni značně unavení, rozhodnete se zastavit v nějakém kombini pro snídani na další den, a pak se vrátit na hotel"
-        "Po cestě je 7eleven, tak do něj zajdete."
-        scene bg 7eleven
-        "Koupíš si k snídani lívance plněné vanilkovým krémem, kávu a nějakou ochucenou vodu."
-        "Přijdeš k prodavači, ten věci namarkuje a rovnou ti je narovná do tašky."
-        "Ukážeš kartu a on pokyne k přístroji s obrazovkou na pultu. Zaplatíš a vyjdeš ven."
-        scene bg tokio1 venek noc
-        "Ostatním to trvá o něco déle."
-        "Nakonec se postupně objeví."
-        show s neutral at left
-        show d black at right
-        show a neutral:
-            xalign 0.3
-            yalign 1.0
-        show m neutral:
-            xalign 0.6
-            yalign 1.0
-        s "Máme všechno? Navrhuji, abychom se zítra sešli v osm ráno a vyrazili na poznávačku po Tokiu."
-        "Zatím, co řešíte zítřek, vyrazíte směr hotel."
-        m "Já nikam nechci a v osm stávat nebudu!"
-        d "Taky nemusíš, zůstaň na hotelu."
-        s "Takže, kdo chce, sraz ráno v osm na recepci. Jo, koukal jsem, že hotel má nějaké vlastní lázně."
-        s "Plánuju tak za hodinku jít. To bude..."
-        "Koukne na mobil na čas."
-        s "Tak v půl desáté. Tak kdo se chce přidat, může."
-        hide s neutral
-        hide d black
-        hide a neutral
-        hide m neutral
-        scene bg hoteltokio
-        "Dojdete na hotel a jdete do pokojů."
+label vecere:
+    "Zujete se, boty vyskládáte na stranu a sednete si."
+    "Číšník vám donese jídelní lístky."
+    show menicko
+    "Samo sebou v japonštině a bez obrázků."
+    "Naštěstí se můžete spolehnout na překladače v mobilu."
+    "Chvíli vybíráte. Když máte vybráno, tak odložíte jídelní lístek."
+    hide menicko
+    "Přijde číšník a Adrian objedná."
+    "Chvíli konverzujete a už se vám nese jídlo."
+    "V syrovém stavu. Obsluha položí talíře a misky před vás a zapne 'gril' zapuštěný do stolu."
+    "Když vidí váš překvapený výraz, vysype obsah asi tří misek na plotýnku."
+    "A pomocí špachtlí před vámi vytvoří okonomijaki, které ještě ozdobí přelitím majonézy a posype tuňákovými vločkami umeboši."
+    "Poté placku rozkrájí pomocí špachtlí na pět dílů."
+    "どぞ ('Do zo'). Řekne a odejde ke svému pultíku."  # TODO japanese
+    "Rozdělíte si okonomijaki mezi sebe."
+    "Umyjete si ruce vlhčenými ručníčky, které jste dostali."
+    "Naskládáte na gril maso, brambory a zeleninu."
+    "Pomocí hůlek se pustíte do večeře."
+    "Mimoň jídlo spíše napichuje, než že by jedl hůlkami."
+    "Když dojíte okonomijaki, maso, brambory a zeleninu,"
+    "číšník všechno odnese, otře gril a přinese ještě nudle se zeleninou a chobotnicí."
+    "I toto jídlo před vámi připraví."
+    "どぞ ('Do zo'). Řekne a odejde ke svému pultíku."
+    "Když dojíte a dopijete, domluvíte se, že zaplatíte všechno najednou, a pak si to rozpočítáte."
+    "Zaplatit jde Adrian."
+    "Slyšíte asi 10 x arigató z obou stran; jak od čístníka, tak od Adriana."
+    "Sbalíte se obujete a vyjdete ven."
+    scene bg tokio1 venek noc
+    "Nebyli jste na večeři dlouho, ale přesto se venku už setmělo."
+    "Protože jste všichni značně unavení, rozhodnete se zastavit v nějakém kombini pro snídani na další den, a pak se vrátit na hotel"
+    "Po cestě je 7eleven, tak do něj zajdete."
+    scene bg 7eleven
+    "Koupíš si k snídani lívance plněné vanilkovým krémem, kávu a nějakou ochucenou vodu."
+    "Přijdeš k prodavači, ten věci namarkuje a rovnou ti je narovná do tašky."
+    "Ukážeš kartu a on pokyne k přístroji s obrazovkou na pultu. Zaplatíš a vyjdeš ven."
+    scene bg tokio1 venek noc
+    "Ostatním to trvá o něco déle."
+    "Nakonec se postupně objeví."
+    show s neutral at left
+    show d black at right
+    show a neutral:
+        xalign 0.3
+        yalign 1.0
+    show m neutral:
+        xalign 0.6
+        yalign 1.0
+    s "Máme všechno? Navrhuji, abychom se zítra sešli v osm ráno a vyrazili na poznávačku po Tokiu."
+    "Zatím, co řešíte zítřek, vyrazíte směr hotel."
+    m "Já nikam nechci a v osm stávat nebudu!"
+    d "Taky nemusíš, zůstaň na hotelu."
+    s "Takže, kdo chce, sraz ráno v osm na recepci. Jo, koukal jsem, že hotel má nějaké vlastní lázně."
+    s "Plánuju tak za hodinku jít. To bude..."
+    "Koukne na mobil na čas."
+    s "Tak v půl desáté. Tak kdo se chce přidat, může."
+    hide s neutral
+    hide d black
+    hide a neutral
+    hide m neutral
+    scene bg hoteltokio
+    "Dojdete na hotel a jdete do pokojů."
+    return

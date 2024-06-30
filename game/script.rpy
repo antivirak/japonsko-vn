@@ -4,6 +4,7 @@
 label start:
     call akt1
     call problemubytovani
+    jump akt2  # TODO investigate why call jumps to titulky
 
 
 label titulky:
