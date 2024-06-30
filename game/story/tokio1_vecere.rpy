@@ -56,7 +56,7 @@ label recepce:
             "Jen tak tak stihnete Mimoně zastavit, aby v botách nešlápl na rohože – tatami."
             "Získáváš HP pro Mimoně."
             $ j.add_hate_points_for_person(m, 1)
-            "[show_all_points()]"
+            "[j.show_all_points()]"
             jump vecere
 
     label vecere:
