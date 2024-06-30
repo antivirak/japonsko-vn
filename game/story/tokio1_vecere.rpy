@@ -128,15 +128,15 @@ label vecere:
             "Samozřejmě jsou striktně rozděleny na ženské a mužské."
             scene bg onsen
             menu:
-                "Půjdeš do leva nebo do prava?"
+                "Půjdeš doleva nebo doprava?"
                 "Vlevo":
-                    "Správně si zvolila dámský onsen."
-                    "Osprchuješ se a vlezeš si do horké lázně. Máš štěstí nikdo jiný, zde není."
-                    "Po chvíli se rozhodneš že je čas jít spát."
+                    "Správně si zvolila dámský onsen. V místnosti před samotnou lázní se svlékneš donaha a své věci odložíš do jedné z proutěných krabic v regálu u stěny."
+                    "Osprchuješ se a vlezeš si do horké lázně. Máš štěstí, nikdo jiný zde není."
+                    "Po chvíli se rozhodneš, že je čas jít spát."
                 "Vpravo":
                     "Vlezla si do pánské sekce!"
-                    "Uchyláku!"
-                    "Hra zde končí"
+                    "Úchyláku!"
+                    "Hra zde končí."
                     jump titulky
         "Ne":
             "Dojdeš si vyčistit zuby, převlíkneš se do pyžama a jdeš spát."

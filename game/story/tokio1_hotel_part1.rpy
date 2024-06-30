@@ -423,7 +423,7 @@ label adrian_hotel_pomoc:
     j "Normálně tu zůstaň, určitě je v koupelně klíč. A i kdyby ne, tak přece víš, že tam budu."
     "Usměješ se na něj a mrkneš."
     "Popadneš věci a přesuneš se do koupelny."
-    call bathroom_common(a)
+    call bathroom_common([a])
 
 label ignorpanel3:
     show a smile
@@ -518,7 +518,7 @@ label adrian_hotel_feministka:
     hide a neutral
     j "Jo, díky."
     "Vybereš si jednu postel, popadneš věci a přesuneš se do koupelny."
-    call bathroom_common(a)
+    call bathroom_common([a])
 label ignorpanel4:
     # TODO the same text, parametrize
     show a neutral
@@ -571,7 +571,7 @@ label hracka_Dante:
         hide d neutral
         "Vezmeš si věci a vyrazíš do koupelny."
         "Pro jistotu se zamkneš."
-        call bathroom_common(d, clothes=False)
+        call bathroom_common([d], clothes=False)
         jump ignorpanel5
     else:
         scene bg dvojluzak separe
@@ -587,7 +587,7 @@ label hracka_Dante:
         hide d neutral
         "Vezmeš si tedy věci a vyrazíš do koupelny."
         "Pro jistotu se zamkneš."
-        call bathroom_common(d)
+        call bathroom_common([d])
         jump ignorpanel6
 label ignorpanel5:
     scene bg dvojluzakmanp
