@@ -1,4 +1,5 @@
-label bathroom_common(your_mate, clothes=True, clothes_trojluzak=True):
+label bathroom_common(your_mates, clothes=True):
+    $ len_mates = len(your_mates)
     scene bg koupelna
     "Konečně máš čas prohlédnout si koupelnu."
     "První, co tě zaujme je typický japonský záchod s panelem na zdi."
@@ -15,28 +16,31 @@ label bathroom_common(your_mate, clothes=True, clothes_trojluzak=True):
         "Získáváš jeden GP!"
         "[j.show_all_points()]"
         "Ještě něco pomačkáš, a ono to přestane."
-        if your_mate == m:
+        if len_mates == 1 and your_mates[0] == m:
             "Pohledem zhodnotíš počet ručníků a všimneš si, že na zemi je jeden původně bílý ručník..."
             "...celý červený od Mimoňovy barvy na vlasy, tzn. už se dá použít jako hadr na podlahu."
         else:
             "Pohledem zhodnotíš počet ručníků a rozhodneš, že se jeden dá použít jako hadr na podlahu"
         "Vytřeš potopu, co jsi způsobila."
-    if your_mate == s and not clothes:
+    if len_mates == 1 and your_mates[0] == s and not clothes:
         call bathroom_sucan
         return
     "Rychle se svlékneš a zapadneš do vany."
     "Po cestování, které si v posledních 24 hodinách absolvoval['a' if j.gender == 'f' else ''],"
     "je pořádná sprcha právě to, co nejvíce potřebuješ."
-    "Po pár minutách užívání si horké koupele, usoudíš, že je čas vylézt a pustit do koupelny i [your_mate.name_2p]."
+    if len_mates == 1:
+        "Po pár minutách užívání si horké koupele, usoudíš, že je čas vylézt a pustit do koupelny i [your_mates[0].name_2p]."
+    else:
+        "Po pár minutách užívání si horké koupele, usoudíš, že je čas vylézt a pustit do koupelny i [your_mates[0].name_2p] a [your_mates[1].name_2p]."
     "Vylezeš ven, usušíš se a trochu si vyfénuješ vlasy."
     # TODO u Sučana jsi popisovala vybavení hotelových koupelen
-    if not clothes:
+    if not clothes and len_mates == 1:
         "Chceš se obléknout a zjistíš, že sis v tom spěchu vzala jen kalhotky a tričko."
         "Podprsenka a kraťasy musely zůstat ležet na posteli."
-        "Rozhodneš se, že to není tak zlé; že pustíš [your_mate.name_2p] do koupelny a dooblékneš se v pokoji."
+        "Rozhodneš se, že to není tak zlé; že pustíš [your_mates[0].name_2p] do koupelny a dooblékneš se v pokoji."
         "Zkontroluješ, že po tobě v koupelně nezůstal žádný bordel a odemkneš koupelnu."
         return
-    if not clothes_trojluzak:
+    if not clothes:
         "Chceš se obléknout, ale zjistíš, že sis vzala jen kahotky a tričko."
         j "Super, to to hezky začíná, dva pěkný kluci na pokoji a já se tu budu promenádovat v kalhotkách."
         "Rozhodneš se, že si mokrý ručník, ale vázat kolem pasu nebudeš a že proběhneš jen tak."
@@ -44,6 +48,7 @@ label bathroom_common(your_mate, clothes=True, clothes_trojluzak=True):
         "Odemkneš a vylezeš ven."
         j "Volno!"
         "Napůl křikneš."
+        return
     "Oblékneš se do přineseného oblečení."
     "Zkontroluješ, že po tobě v koupelně nezůstal žádný bordel a odemkneš koupelnu."
     j "Volno!"
@@ -142,6 +147,9 @@ label tokio1_hotel_part1:
         jump recepce
     if room == "Trojlůžák" and d in partners and s in partners and j.gender == "f":
         call hracka_Sucan_Dante
+        jump recepce
+    if room == "Trojlůžák" and s in partners and a in partners and j.gender == "f":
+        call Hracka_Sucan_Adrian
         jump recepce
     else:
         "Tahle možnost není ještě implementována."
@@ -270,7 +278,7 @@ label sucansance:
     j "No, tak budeš muset chvíli počkat."
     "Slyšíš, jak Sučan odchází od dveří koupelny."
 
-    call bathroom_common(s)
+    call bathroom_common([s])
 
 label ignorpanel:
     scene bg dvojluzakmanp
@@ -357,7 +365,7 @@ label hrac_ka_Mimon:
     "Najednou se rozletí dveře koupelny."
     j "Hurá!"
     "Zaraduješ se, bereš věci a běžíš do koupelny."
-    call bathroom_common(m)
+    call bathroom_common([m])
 
 label ignorpanel2:
     "Dáš si rychlou sprchu, vlasy si ani nefénuješ, jen si je usušíš ručníkem."
@@ -415,7 +423,7 @@ label ignorpanel2:
         j "Normálně tu zůstaň, určitě je v koupelně klíč. A i kdyby ne, tak přece víš, že tam budu."
         "Usměješ se na něj a mrkneš."
         "Popadneš věci a přesuneš se do koupelny."
-        call bathroom_common(a)
+        call bathroom_common([a])
 
     label ignorpanel3:
         show a smile
@@ -511,7 +519,7 @@ label ignorpanel2:
         hide a neutral
         j "Jo, díky."
         "Vybereš si jednu postel, popadneš věci a přesuneš se do koupelny."
-        call bathroom_common(a)
+        call bathroom_common([a])
 
     label ignorpanel4:
         # TODO the same text, parametrize
@@ -565,7 +573,7 @@ label ignorpanel2:
             hide d neutral
             "Vezmeš si věci a vyrazíš do koupelny."
             "Pro jistotu se zamkneš."
-            call bathroom_common(d, clothes=False)
+            call bathroom_common([d], clothes=False)
             jump ignorpanel5
         else:
             scene bg dvojluzak separe
@@ -581,7 +589,7 @@ label ignorpanel2:
             hide d neutral
             "Vezmeš si tedy věci a vyrazíš do koupelny."
             "Pro jistotu se zamkneš."
-            call bathroom_common(d)
+            call bathroom_common([d])
             jump ignorpanel6
     label ignorpanel5:
         scene bg dvojluzakmanp
@@ -734,7 +742,7 @@ label hrac_ka_Mimon3p(partners):
     hide not_mimon_neutral
     "Vezmeš si věci a zamíříš do koupelny."
     "Pro jistotu se zamkneš."
-    call bathroom_common(partner_not_mimon)
+    call bathroom_common(partners)
     scene bg dvojluzak separe
     "Vidíš jak se [partner_not_mimon.name] balí a chce se rozejít do koupelny."
     "Ale z ničeho nic se zase Mimoň zvedne vezme si svoje věci a zajde do koupelny."
@@ -765,7 +773,7 @@ label hrac_ka_Mimon3p(partners):
     "Položíš významně kartu na stoleček a s [partner_not_mimon.name_7p] vyrazíte směr recepce."
     $ j.hate_points(m, 2)
     "Získáváš 2 HP pro Mimoně"
-    "[show_all_points()]"
+    "[j.show_all_points()]"
     return
 
 label hracka_Adri_Dante:
@@ -792,7 +800,7 @@ label hracka_Adri_Dante:
     "Řekneš a vezmeš si věci do koupelny."
     "Pro jistotu se zamkneš."
     $ clothes = not(j.love_points.get(d.name, 0) > 0 and j.love_points.get(a.name, 0) > 1)
-    call bathroom_common(a, clothes_trojluzak=clothes)
+    call bathroom_common(partners, clothes=clothes)
     scene bg dvojluzak separe
     a "Díky."
     if not clothes:
@@ -853,7 +861,7 @@ label hracka_Adri_Dante:
         "Dobře?"
         hide d black
         "Řekne nevěřícně."
-        "Koukneš na mobil, zjistíš, že za chvíli je čas na večeři."
+        "Koukneš na mobil a zjistíš, že za chvíli je čas na večeři."
         "Vezmeš si kosmetickou taštičku a podprsenku a zapluješ do koupelny."
         scene bg koupelna
         "Oblékneš si podprsenku, upravíš se a lehce se nalíčíš."
@@ -864,6 +872,10 @@ label hracka_Adri_Dante:
         "Ale vypadá to, že se o něco dohadovali."
         "Dojdeš si k posteli sbalit věci, co si chceš vzít s sebou, a jdeš čekat před pokoj."
         "Kluci tě po chvíli následují. A vyrazíte směr recepce."
+        "Získáváš u každého jeden LP."
+        $ j.add_love_points_for_person(a, 1)
+        $ j.add_love_points_for_person(d, 1)
+        "[j.show_all_points()]"
     else:
         "Zavolá Adrian a potkáte se po cestě, kdy on míří do koupelny a ty do pokoje."
         "Dante si u stolu čte knížku."
@@ -905,7 +917,7 @@ label hracka_Sucan_Dante:
     "řekneš a vezmeš si věci do koupelny."
     "Pro jistotu se zamkneš."
     $ clothes = not(j.love_points.get(d.name, 0) > 0 and j.love_points.get(s.name, 0) > 0)
-    call bathroom_common(a, clothes_trojluzak=clothes)
+    call bathroom_common(partners, clothes=clothes)
     scene bg dvojluzak separe
     s "Díky."
     if not clothes:
@@ -970,7 +982,7 @@ label hracka_Sucan_Dante:
         "Dobře?"
         hide d black
         "Řekne nevěřícně."
-        "Koukneš na mobil, zjistíš, že za chvíli je čas na večeři."
+        "Koukneš na mobil a zjistíš, že za chvíli je čas na večeři."
         "Vezmeš si kosmetickou taštičku a zapluješ do koupelny."
         scene bg koupelna
         "Upravíš se a lehce se nalíčíš."
@@ -981,6 +993,9 @@ label hracka_Sucan_Dante:
         "Ale vypadá to, že se o něco dohadovali."
         "Dojdeš si k posteli sbalit věci, co si chceš vzít s sebou, a jdeš čekat před pokoj."
         "Kluci tě po chvíli následují. A vyrazíte směr recepce."
+        $ j.add_love_points_for_person(s, 1)
+        $ j.add_love_points_for_person(d, 1)
+        "[j.show_all_points()]"
     else:
         "Zavolá Sučan a potkáte se po cestě, kdy on míří do koupelny a ty do pokoje."
         "Dante si u stolu čte knížku."
@@ -992,3 +1007,196 @@ label hracka_Sucan_Dante:
         "Pak se sbalíš a na šestou všichni vyrazíte na recepci."
     return
 
+label Hracka_Sucan_Adrian:
+    "Dante si vzal na dvojlůžák Mimoně. Takže ty, Sučan a Adrian jste spolu na trojlůžáku."
+    "Vyzvedli jste si kufry v autě." 
+    show a neutral
+    a "Chceš vzít kufr?"
+    hide a neutral 
+    "Už, už se chystáš říct, že ano. Když přijde Sučan a kufr ti vezme."
+    show s neutral
+    s "Jsme v osmém patře, tak pojďme k výtahu."
+    hide s neutral 
+    "Přesunete se do výtahu."
+    show s neutral 
+    s "Jak dlouho jsme nespali spolu na jednom pokoji?"
+    s "Tak 10 let?"
+    hide s neutral 
+    j "Nene, naposledy jsem u tebe spala, jak měla tvoje mamka taneční soutěž v Bratislavě."
+    show s neutral
+    s "Vidíš, na to jsem skoro zapomněl."
+    hide s neutral 
+    "Jak si tak povídáte, došli jste až ke dveřím do pokoje."
+    "Sučan otevře dveře kartou a pustí tě před sebe."
+    scene bg dvojluzak separe 
+    "Před vámi se otevře minichodbička zakončená pokojem se třemi postelemi, oddělenými dvěma nočními stolky. U okna se nachází stoleček. Naproti postelím je vestavěná skříň s televizí. V chodbičce za dveřmi je ještě vstup do koupelny."
+    show s neutral
+    s "Vyber si postel"
+    hide s neutral 
+    "Vybereš si postel u okna"
+    "Sučan ti tam přinese kufr a sám si zabere postel vedle tebe." 
+    show s neutral 
+    s "Pro jistotu,"
+    hide s neutral 
+    "mrkne na tebe."
+    "Adrian tiše zamíří k poslední volné posteli."
+    show s neutral
+    s "Běž do koupelny první, my počkáme."
+    hide s neutral
+    j "Díky."
+    "Šáhneš si do kufru pro věci a vyrazíš do koupelny, abys nezdržovala."
+    "Pro jistotu se zamkneš."
+    $ clothes = not(j.love_points.get(s.name, 0) > 0 or j.love_points.get(a.name, 0) > 0)
+    call bathroom_common(partners, clothes=clothes)
+    scene bg dvojluzak separe
+    s "Díky."
+    if not clothes and j.love_points.get(s.name, 0) > 0:
+        "Zdržíš se zavíráním dveří od koupelny. A mezitím se Sučan dostane do 'chodbičky' k tobě."
+        show s neutral
+        "..."
+        "Konsternovaně na tebe hledí."
+        hide s neutral
+        "Cítíš, jak se ti krev hrne do obličeje."
+        "Po pár vteřinách se probere."
+        show s neutral
+        "Takhle chceš jít do pokoje? Nemám ti přinést něco na převlečení?"
+        hide s neutral
+        j "Tak jo, přineseš mi kraťásky a podprsenku? Leží někde na posteli."
+        "Odejde na chvíli do pokoje a za chvíli se vrací s tvými věcmi."
+        j "Díky."
+        "Vezmeš si věci od něj a zapluješ ještě na chvíli do koupelny."
+        "Převlíkneš se a znovu vylezeš ven."
+        j "Lepší?"
+        show s neutral
+        s "Kdybychom tu byli sami, tak ne, ale za těhle okolností lepší."
+        hide s neutral
+        "S těmito slovy zaleze do koupelny."
+        "Přesuneš se tedy do pokoje, kde je Adrian."
+        "Ten leží na posteli a něco si čte na mobilu."
+        "Srovnáš si věci do kufru a dáš si nabíjet mobil. Z papírového obalu na kartu si opíšeš heslo na wifi."
+        "Natáhneš se do postele, napíšeš domů a zkontroluješ 'socky'."
+        "Během pár minut přijde Sučan z koupelny a mlčky se vymění s Adrianem."
+        "Sučan si uklízí věci a po chvíli tě osloví."
+        show s neutral
+        s "To oblečení sis zapomněla schválně?"
+        hide s neutral
+        j "Ne, nějak jsem ho v tom spěchu vysypala na postel. Nebo kde si ho našel?"
+        show s neutral
+        s "Jo, na posteli. No, tak ještěže jsem se šel koupat jako druhý já a ne Adrian."
+        hide s neutral
+        j "Jak to myslíš?"
+        show s neutral
+        "Tak, že by ses neměla vystavovat polonahá cizím klukům."
+        hide s neutral 
+        j "Tak s tebou jsem se pořádně pár let neviděla, jsi pro mě v podstatě taky cizí kluk."
+        "Váš rozhovor přeruší přicházející Adrian."
+        show a neutral
+        a "Vyrušil jsem vás u něčeho?"
+        hide a neutral
+        show s neutral
+        s "Ne."
+        hide s neutral
+        show a neutral
+        a "Dobře?"
+        hide a neutral
+        "Řekne nevěřícně."
+        "Koukneš na mobil a zjistíš, že za chvíli je čas na večeři."
+        "Vezmeš si kosmetickou taštičku a zapluješ do koupelny."
+        scene bg koupelna
+        "Upravíš se a lehce se nalíčíš."
+        "Vylezeš ven."
+        scene bg dvojluzak separe
+        j "Asi je pomalu čas jít."
+        "Vlezeš do pokoje a oba divně zmlknou."
+        "Ale vypadá to, že se o něco dohadovali."
+        "Dojdeš si k posteli sbalit věci, co si chceš vzít s sebou, a jdeš čekat před pokoj."
+        "Kluci tě po chvíli následují. A vyrazíte směr recepce."
+        "Získáváš jeden LP u Sučana"
+        $ j.add_love_points_for_person(s, 1)
+        "[j.show_all_points()]"
+    
+    elif not clothes and j.love_points.get(a.name, 0) > 1:
+        "Zdržíš se zavíráním dveří do koupelny. A mezitím se Sučan dostane do 'chodbičky' k tobě."
+        show s neutral
+        "..."
+        "Konsternovaně na tebe hledí."
+        hide s neutral
+        "Cítíš, jak se ti krev hrne do obličeje."
+        "Po pár vteřinách se probere."
+        show s neutral
+        "Takhle chceš jít do pokoje? Nemám ti přinést něco na převlečení?"
+        hide s neutral
+        j "Nejsem malá holka, běž se koupat."
+        "řekneš a on se protáhne do koupelny."
+        "Jdeš tedy do pokoje uklidit si věci a doobléknout se."
+        show a neutral
+        "Adrian leží na posteli a kouká do mobilu."
+        hide a neutral
+        "Rozejdeš se tedy ke svým věcem. Adrian zvedne oči od mobilu."
+        show a neutral
+        "..."
+        hide a neutral
+        j "Můžeš se prosím otočit? Potřebovala bych se převlíknout."
+        show a neutral
+        "Jo, promiň."
+        hide a neutral
+        "Vyndáš podprsenku natočíš se směrem k zataženému oknu, zády k Adrianovi. Sundáš si tričko, nandáš si podprsenku a oblíkneš si tričko."
+        "Zapojíš si mobil do zásuvky a z papírové kapsičky na vstupní kartu opíšeš heslo na wifi."
+        "Natáhneš se do postele a napíšeš domů."
+        "Zkontroluješ 'socky'."
+        "Během chvíle vyjde z koupelny Sučan."
+        show a neutral
+        a "Adriane, můžeš."
+        hide a neutral
+        "Řekne klidně a jde si ke svým věcem."
+        "Adrian odloží mobil a přesune se do koupelny."
+        "Zůstala jsi na pokoji sama se Sučanem."
+        show s neutral
+        s "Promiň, vím, že nejsi malá holka, ale vážně si myslíš, že je dobré pobíhat polonahá na pokoji s cizím klukem?"
+        hide s neutral
+        j "Tak za prvé, nebyla jsem polonahá. Za druhé, nejsi moje matka, aby si mi říkal, co mám nosit. A za třetí, s tebou se mi nic nestane, ne?"
+        show s neutral
+        s "Hele, já tu taky nemusím být pořád... Kdy sis oblíkla tu podprsenku?"
+        hide s neutral
+        j "Není to jedno? Jsem oblečená? Jsem."
+        j "Spokojený?"
+        show s neutral
+        s "Je ti jasné, že jsem také kluk? Teď na Adriana začínám dost žárlit..."
+        hide s neutral
+        j "Vždyť jsem ti jen vyšla vstříc. Oblíkla se."
+        "Váš rozhovor přeruší přicházející Adrian."
+        show a neutral
+        a "Vyrušil jsem vás u něčeho?"
+        hide a neutral
+        show s neutral
+        s "Ne."
+        hide s neutral
+        show a neutral
+        a "Dobře?"
+        hide a neutral
+        "Řekne nevěřícně."
+        "Koukneš na mobil a zjistíš, že za chvíli je čas na večeři."
+        "Vezmeš si kosmetickou taštičku a zapluješ do koupelny."
+        scene bg koupelna
+        "Upravíš se a lehce se nalíčíš."
+        "Vylezeš ven."
+        scene bg dvojluzak separe
+        j "Asi je pomalu čas jít."
+        "Vlezeš do pokoje a oba divně zmlknou."
+        "Ale vypadá to, že se o něco dohadovali."
+        "Dojdeš si k posteli sbalit věci, co si chceš vzít s sebou, a jdeš čekat před pokoj."
+        "Kluci tě po chvíli následují. A vyrazíte směr recepce."
+        "U každého s kluků získáváš jeden LP."
+        $ j.add_love_points_for_person(a, 1)
+        $ j.add_love_points_for_person(s, 1)
+        "[j.show_all_points()]"
+    else:
+        "Zavolá Sučan a potkáte se po cestě, kdy on míří do koupelny a ty do pokoje."
+        "Adrian si v posteli čte něco na mobilu."
+        "Dáš si věci do kufru."
+        "Z papírového obalu na vstupní kartu opíšeš heslo na wifi a napíšeš domů."
+        "Natáhneš se na svoji postel a zkontroluješ 'socky'."
+        "Kluci se mezitím vystřídají v koupelně."
+        "Chvíli před šestou se dojdeš do koupelny trošku upravit a nalíčit."
+        "Pak se sbalíš a na šestou všichni vyrazíte na recepci."
+    return
