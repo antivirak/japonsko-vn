@@ -707,7 +707,8 @@ label hrac_ka_Mimon3p(partners):
     $ partner_not_mimon = partners[not partners.index(m)]
     # or $ partner_not_mimon = [partner for partner in partners if partner.name != "Mimoň"][0]
     "[partner_not_mimon.name] se zastaví."
-    show expression f'{partner_not_mimon.name} neutral' as not_mimon_neutral
+    $ not_mimon_tag = partner_not_mimon.name[0].lower()
+    show expression f'{not_mimon_tag} neutral' as not_mimon_neutral
     partner_not_mimon "Vyberte si první, já počkám."
     hide not_mimon_neutral
     j "Díky."
@@ -728,7 +729,7 @@ label hrac_ka_Mimon3p(partners):
     show m neutral
     m "..."
     hide m neutral
-    show not_mimon_neutral
+    show expression f'{not_mimon_tag} neutral' as not_mimon_neutral
     partner_not_mimon "Nevadí, jen běž."
     hide not_mimon_neutral
     "Vezmeš si věci a zamíříš do koupelny."
@@ -737,7 +738,7 @@ label hrac_ka_Mimon3p(partners):
     scene bg dvojluzak separe
     "Vidíš jak se [partner_not_mimon.name] balí a chce se rozejít do koupelny."
     "Ale z ničeho nic se zase Mimoň zvedne vezme si svoje věci a zajde do koupelny."
-    show not_mimon_neutral
+    show expression f'{not_mimon_tag} neutral' as not_mimon_neutral
     partner_not_mimon "Dobře? Tak já asi ještě počkám."
     hide not_mimon_neutral
     j "To bude ještě těžký, snad tam nebude dlouho."
@@ -746,7 +747,7 @@ label hrac_ka_Mimon3p(partners):
     "Pak začneš být trošku nervózní, protože na šestou máte být na recepci kvůli večeři."
     "Je po půl šesté a Mimoň už asi hodinu nevylezl z koupelny."
     "Najednou se rozletí dveře koupelny."
-    show not_mimon_neutral
+    show expression f'{not_mimon_tag} neutral' as not_mimon_neutral
     partner_not_mimon "Hurá!"
     hide not_mimon_neutral
     "Vezme si věci a jde do koupelny."
