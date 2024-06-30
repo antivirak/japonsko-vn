@@ -2,14 +2,17 @@ label akt2:
     scene bg hoteltokio
     "Druhý den ráno se v osm potkáte na recepci. Mimoň má jako vždy asi 10 minut zpoždění."
     "Plán dne má na starosti Dante."
+    "Po městě se musíte pohybovat po spolu, protože internet má pouze Sučana a Adrian."
+    "Tak abyste si mohli dát vědět. Kdyby se něco dělo."
     scene bg tokio1 day1
     "Vyrazíte pěšky na metro, které je asi 10 minut od hotelu."
     scene bg 7eleven
     "Po cestě se stavíte v 7eleven pro něco k pití a nějakou svačinku."
     scene bg metro
-    "V metru jděte k automatům na lístky, kde si plánujete zřídit ‚suiku‘ nebo ‚pasmo‘."
-    "Podle informací na netu. Ale žádný automat, který by vydával karty jste nenašli."
-    "Jdete k informačnímu okénku, kam posíláte Adriana, jako nejvíce zběhlého v japonštině, ale u okénka se dozvídáte, že kvůli nedostatku čipů, lze tyto karty vyzvednout jen na vybraných vlakových nádražích."
+    "V metru jdete k automatům na lístky, kde si plánujete zřídit ‚suiku‘ nebo ‚pasmo‘, něco na styl české lítačky."
+    "Podle informací na netu se má sehnat v automatu v metru. Ale žádný automat, který by vydával karty jste nenašli."
+    "Jdete k informačnímu okénku. Kam posíláte Adriana, jako nejvíce zběhlého v japonštině."
+    "U okénka se dozvídáte, že kvůli nedostatku čipů, lze tyto karty vyzvednout jen na vybraných vlakových nádražích."
     "Ale náhradou vám nabídne prodavačka celodenní lístek na metro. Koupíte jej 5x."
     scene bg akimetro
     "První váš směr směřuje na Akihabaru, do jedné nejvíce barevné čtvrti Tokia."
