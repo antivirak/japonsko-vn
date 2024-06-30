@@ -19,10 +19,21 @@ label akt1:
         "Kluk":
             $ j.gender = 'm'
     $ j.name = renpy.input("Jak se jmenuješ?").strip()
-    # while j.name.lower() in ["mimon", "sučan", "adrian", "dante", "hana"]:
-    #     j.name = renpy.input("Zvol si jiné jméno, takové už tu máme.").strip()
+    while (
+        j.name.lower() in ["mimon", "sučan", "adrian", "dante", "hana", ""]
+        or len(j.name.split(" ")) > 1  # noqa W503
+    ):
+        $ j.name = renpy.input("Zvol si jiné jméno / jiný tvar zvoleného jména. Takové už tu máme. Jako jméno použij pouze jedno slovo.").strip()
     # TODO fix bug in room selection minigame when character name clashes with predefined names
-    $ j.name_5p = j.name[:-1] + "o" if j.gender == "f" else j.name  # TODO find if some rules can be applied to man
+    # Or add whitespace character before the custom name. Until then, forbid these names.
+    # $ j.name_5p = j.name[:-1] + "o" if j.gender == "f" else j.name
+    python:
+        from vokativ import vokativ
+
+
+        j.name_5p = vokativ(j.name, woman=j.gender == "f", last_name=False).capitalize()
+        print(j.name_5p)
+
     scene bg black
     if j.gender == 'f':
         "Na podzim jsi ukončila velmi toxický vztah a hledala jsi nějakou cestu, jak co nejrychleji zapomenout."
