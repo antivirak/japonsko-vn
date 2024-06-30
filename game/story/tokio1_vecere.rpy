@@ -120,4 +120,24 @@ label vecere:
     hide m neutral
     scene bg hoteltokio
     "Dojdete na hotel a jdete do pokojů."
+    scene bg hoteltokio
+    menu:
+        "Chceš jít do hotelového Onsenu?"
+        "Ano":
+            "Přijdeš na pokoj, odložíš si věci a vyrazíš do hotelových onsenů."
+            "Samozřejmě jsou striktně rozděleny na ženské a mužské."
+            scene bg onsen
+            menu:
+                "Půjdeš do leva nebo do prava?"
+                "Vlevo":
+                    "Správně si zvolila dámský onsen."
+                    "Osprchuješ se a vlezeš si do horké lázně. Máš štěstí nikdo jiný, zde není."
+                    "Po chvíli se rozhodneš že je čas jít spát."
+                "Vpravo":
+                    "Vlezla si do pánské sekce!"
+                    "Uchyláku!"
+                    "Hra zde končí"
+                    jump titulky
+        "Ne":
+            "Dojdeš si vyčistit zuby, převlíkneš se do pyžama a jdeš spát."
     return
