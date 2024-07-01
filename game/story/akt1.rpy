@@ -246,7 +246,7 @@ label tokio1:
 
     scene bg hoteltokio
     with fade
-    "Zaparkovali jste vnitrobloku hotelu."
+    "Zaparkovali jste ve vnitrobloku hotelu."
     show s neutral at left
     show a smile at right
     "Napřed do hotelu půjde Sučan s Adrianem, protože Sučan zařizoval ubytovaní a Adrian umí základy Japonštiny."
