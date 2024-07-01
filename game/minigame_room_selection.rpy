@@ -57,6 +57,12 @@
             style.button[char].color = color
 
 
+    def setattr_safe(obj, attr, val, dropdowns):
+        """Forbid the possibility to expand more than one dropdown at a time."""
+        if all(not current_dropdown.expanded for current_dropdown in dropdowns if current_dropdown != obj):
+            setattr(obj, attr, val)
+
+
 screen dropdown(dropdown_vars, rows_per_col=3, labels=('Trojlůžák', 'Dvojlůžák')):
     $ len_dropdown_vars = len(dropdown_vars)
     $ button_size = (200, 50)
@@ -96,13 +102,12 @@ screen dropdown(dropdown_vars, rows_per_col=3, labels=('Trojlůžák', 'Dvojlů�
                     textbutton selected_item.value:
                         xysize button_size
                         text_style style.button[selected_item.value]
-                        action Function(setattr, dropdown, 'expanded', not dropdown.expanded)
+                        action Function(setattr_safe, dropdown, 'expanded', not dropdown.expanded, dropdown_vars)
                 else:
                     ysize 0
                     null width 0 height 0 
 
             if dropdown.expanded:
-                $ print(dropdown.dropdown_list)
                 frame:
                     ypos 50 + (30 - spacing * count % 3)
                     vbox:

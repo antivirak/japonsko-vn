@@ -12,7 +12,7 @@ label bathroom_common(your_mates, clothes=True):
     if not ignore:
         "Pomačkal['a' if j.gender == 'f' else ''] jsi náhodně všechny čudlíky."
         "A najednou začne cákat voda ze záchodu ven!"
-        $ j.gaijin_points += 1
+        $ j.increment_gaijin_points(1)
         "Získáváš jeden GP!"
         "[j.show_all_points()]"
         "Ještě něco pomačkáš, a ono to přestane."
@@ -43,7 +43,7 @@ label bathroom_common(your_mates, clothes=True):
     if not clothes:
         "Chceš se obléknout, ale zjistíš, že sis vzala jen kahotky a tričko."
         j "Super, to to hezky začíná, dva pěkný kluci na pokoji a já se tu budu promenádovat v kalhotkách."
-        "Rozhodneš se, že si mokrý ručník, ale vázat kolem pasu nebudeš a že proběhneš jen tak."
+        "Rozhodneš se, že si mokrý ručník ale vázat kolem pasu nebudeš, a že proběhneš jen tak."
         "Zkontroluješ zda po tobě nezůstal moc velký bordel."
         "Odemkneš a vylezeš ven."
         j "Volno!"
@@ -211,7 +211,7 @@ label sucanvoutu:
             jump posprse
         "Podívám se":
             "Sučan přimáčkne bačkorou prkénko a něco navolí na displeji, vyjede bidetová tryska a vystříkne tvým směrem, jen tak tak uhneš!"
-            $ j.gaijin_points += 1
+            $ j.increment_gaijin_points(1)
             "Získáváš jeden GP!"
             "[j.show_all_points()]"
             j "Ty seš debil!"
@@ -769,7 +769,7 @@ label hrac_ka_Mimon3p(partners):
     j "Tak my půjdeme na večeři, necháme ti tu kartu na vstup. Kdyby si někam šel tak nám napiš."
     j "Domluvíme se, kde si ji předáme."
     "Položíš významně kartu na stoleček a s [partner_not_mimon.name_7p] vyrazíte směr recepce."
-    $ j.hate_points(m, 2)
+    $ j.add_hate_points_for_person(m, 2)
     "Získáváš 2 HP pro Mimoně"
     "[j.show_all_points()]"
     return
