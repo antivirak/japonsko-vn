@@ -47,7 +47,7 @@ label recepce:
         "Půjdete si sednout ke stolu rovnou.":
             "Vstoupila jsi v botách na tatami – bambusové rohože."
             "Získáváš dva GP"
-            $ j.gaijin_points += 2
+            $ j.increment_gaijin_points(2)
             "[j.show_all_points()]"
             jump vecere
         "Pořádně se rozhlédnete.":

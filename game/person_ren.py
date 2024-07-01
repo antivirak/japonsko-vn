@@ -28,12 +28,14 @@ class Person(ADVCharacter):
     def add_love_points_for_person(self, person: Person, value: int) -> None:
         if person.name not in self.love_points:
             self.love_points[person.name] = 0
-        self.love_points[person.name] += value
+        if not renpy.in_rollback():
+            self.love_points[person.name] += value
 
     def add_hate_points_for_person(self, person: Person, value: int) -> None:
         if person.name not in self.hate_points:
             self.hate_points[person.name] = 0
-        self.hate_points[person.name] += value
+        if not renpy.in_rollback():
+            self.hate_points[person.name] += value
 
     def get_hate_points_table(self) -> str:
         if not self.hate_points:
@@ -46,6 +48,10 @@ class Person(ADVCharacter):
             return "Nemáš žádné love points.."
         table_lines = [f"{name}: {points}" for name, points in self.love_points.items()]
         return "\n".join(table_lines)
+
+    def increment_gaijin_points(self, value: int) -> None:
+        if not renpy.in_rollback():
+            self.gaijin_points += value
 
     def show_all_points(self) -> str:
         return (

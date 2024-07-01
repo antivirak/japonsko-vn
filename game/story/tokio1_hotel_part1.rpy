@@ -12,7 +12,7 @@ label bathroom_common(your_mates, clothes=True):
     if not ignore:
         "Pomačkal['a' if j.gender == 'f' else ''] jsi náhodně všechny čudlíky."
         "A najednou začne cákat voda ze záchodu ven!"
-        $ j.gaijin_points += 1
+        $ j.increment_gaijin_points(1)
         "Získáváš jeden GP!"
         "[j.show_all_points()]"
         "Ještě něco pomačkáš, a ono to přestane."
@@ -211,7 +211,7 @@ label sucanvoutu:
             jump posprse
         "Podívám se":
             "Sučan přimáčkne bačkorou prkénko a něco navolí na displeji, vyjede bidetová tryska a vystříkne tvým směrem, jen tak tak uhneš!"
-            $ j.gaijin_points += 1
+            $ j.increment_gaijin_points(1)
             "Získáváš jeden GP!"
             "[j.show_all_points()]"
             j "Ty seš debil!"
