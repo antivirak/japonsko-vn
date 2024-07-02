@@ -1,5 +1,5 @@
 """renpy
-python early:
+init python:
 """
 from __future__ import annotations  # from typing import Self for python > 3.10
 

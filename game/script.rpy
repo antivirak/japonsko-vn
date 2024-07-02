@@ -2,7 +2,6 @@
 
 # The game starts here.
 label start:
-    $ persistent._clear()
     call akt1
     call problemubytovani
     jump akt2  # TODO investigate why call jumps to titulky
