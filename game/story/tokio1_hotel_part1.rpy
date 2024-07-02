@@ -278,11 +278,11 @@ label sucansance:
     j "No, tak budeš muset chvíli počkat."
     "Slyšíš, jak Sučan odchází od dveří koupelny."
 
-    call bathroom_common([s])
+    call bathroom_common([s], clothes=False)
 
 label ignorpanel:
     scene bg dvojluzakmanp
-    "Vycházíš ven s úsměvem. Zahneš doprava a objevíš se v místnůstce s postelí."
+    "Vycházíš ven s úsměvem. Zahneš doprava a objevíš se v místnůstce s postelí."
     show s neutral at left
     s "To mi děláš schválně?"
     hide s neutral
