@@ -127,7 +127,7 @@ label ridicka:
             "Cestu z letiště do hotelu řídíš ty. Sučan vypadá spokojeně, že mu parťáka děláš právě ty."
             s "Dávej si pozor na obě strany, je to jiné, když člověk normálně řídí na druhé straně."
             "Vyjedete a samozřejmě, hned při prvním odbočovaní, pouštíš místo blinkrů stěrače."
-            $ j.gaijin_points += 1
+            $ j.increment_gaijin_points(1)
             "Získáváš 1 GP"
             "[j.show_all_points()]"
             s "V klidu to se mi ze začátku také stávalo."
@@ -246,7 +246,7 @@ label tokio1:
 
     scene bg hoteltokio
     with fade
-    "Zaparkovali jste vnitrobloku hotelu."
+    "Zaparkovali jste ve vnitrobloku hotelu."
     show s neutral at left
     show a smile at right
     "Napřed do hotelu půjde Sučan s Adrianem, protože Sučan zařizoval ubytovaní a Adrian umí základy Japonštiny."
