@@ -35,6 +35,7 @@ label akt2:
     "Dorazíte k pobočce Ichiranu, ale je před vámi dlouhá fronta asi 15 lidí."
     "Avšak jeden z Japonců vám pro urychlení podává meníčko pro zakroužkování správného ramenu na míru."
     call ichiran_selection_minigame_main
+    scene bg ichiran2 # sehnat lepší ichiran
     "Po té co jste zakroužkovali, jak by váš Ichiran rámen měl vypadat, jste ještě chvíli čekali."
     "Než jste se dostali dovnitř budovy, u vstupu byl automat kam jste museli zadat jestli chcete jen rámen nebo například vajíčko navíc."
     "Když jste zaplatili. A posunuli se ještě ve frontě, všimli jste si, že do 'jídelny' vedou 4 vstupy."
@@ -42,9 +43,10 @@ label akt2:
     "Po chvíli přemýšlení dojdete k závěru, že zelená značí volno, červená obsazeno a oranžová úklid stolu."
     "Když se vás Japonec který usazuje ke stolům zeptá kolik vás je."
     show a neutral
-    "A Adrian hbitě odpoví 'Go'"
+    "Adrian hbitě odpoví"
+    a "Go"
     hide a neutral
-    "Tak se stašně zděsí, ale pomocí rukou nohou, japonštiny a angličtiny mu vysvětlíte, že je v pořádku, když budete sedět odděleně."
+    "Tak se strašně zděsí, ale pomocí rukou nohou, japonštiny a angličtiny mu vysvětlíte, že je v pořádku, když budete sedět odděleně."
     "Sice se mu tato informace nezamlouvá, ale po chvíli se mu podaří vás každého usadit do kóje."
     "Zde předáš svoje vyplněné meníčko a lísteček o zaplacení obsluze za okýnkem poděkují a zase stáhnou roletku."
     "A aby sis ukrátil['a' if j.gender == 'f' else ''] čekání na svůj rámen, tak si ho v minihře vytvoř."
@@ -54,7 +56,7 @@ label akt2:
     "Vylezeš před Ichiran kde už čekají Adrian, ['Dante' if j.gender == 'f' else 'Hana'], Sučan. Mimoň je stále ve vnitř."
     j "Mimoň, tu ještě není?"
     show a neutral
-    "Ne seděl vedle mě, myslím že ještě zápasí s hůlakama."
+    a "Ne seděl vedle mě, myslím že ještě zápasí s hůlakama."
     hide a neutral
     j "Aha."
     "Čekáte dalších dobrých deset minut, než konečně Mimoň vyleze."
@@ -63,30 +65,33 @@ label akt2:
     "V gamecentrum projdete celé přes ufocatchery, gachapony, rytmické hry a závodní automaty."
     "U rytmických her se zasekne Mimoň a přesvědčuje vás ať si s ním jdete někdo zahrát."
     # TODO rytmická minihra
+    scene bg zavodky
     "Sučan zapadne k závodním automatům a rozjíždí velký závod s místními japonci."
     "Asi pohodině se vám podaří Mimoně a Sučana oddut dostat."
     scene ueno1
-    "A vyrážíte do parčíku - památníuy bojovníků ve válce Ueno někdy označována jako válka Shogi-tai."
+    "A vyrážíte do parčíku - památníku bojovníků ve válce Ueno, někdy označováné jako válka Shogi-tai."
     scene ueno2
     # TODO zkontrolovat pravdivost
-    "Válka zde proběhla 15. května 1868."
+    "Bitva zde proběhla 15. května 1868."
     scene ueno3
     "V této válce proti sobě bojovali zastánci staré vlády tzv. Tokugawa, nazývající Shogi-tai,"
     scene ueno4
     "kteří čelili armádě nové vlády a tento boj prohráli."
     scene ueno5
     "Okisato Ogawa a jeho společníci, přežívší z Shogi-tai dostaly v roce 1874 povolení,"
-    scene ueno 6
+    scene ueno6
     "od nové vlády Meiji, aby postavili hrobku mrtvím vojákům."
-    scene ueno 7
+    scene ueno7
     "Od roku 2003 má památné místo nastarost Tokio."
     scene bentendo
-    "Parčíkem jste se dostali až k Benten-do svatiny, kterou nechal vystavět na začátku sedmnáctého století Mizunoya Katsutka."
+    "Parčíkem jste se dostali až k Benten-do svatině, kterou nechal vystavět na začátku sedmnáctého století Mizunoya Katsutka."
     scene bg metro
     "Dále jste se rozhodli navštívit císařské zahrady, takže se přiblížíte metrem."
     # TODO scene zahrady a park
     "Ale k zahradám přicházíte až v půl sedmé a zahrady mají otevřeno do šesti."
+    scene bg park
     "Zamířili jste ještě na chvíli do blízkého parčíku, ale už je v podstatě tma."
+    scene bg park2
     show d black
     d "Asi bychom se měli stavit někde na jídle."
     hide d black
@@ -99,7 +104,7 @@ label akt2:
     scene bg metro
     "Všichni souhlasíte, takže se přiblížíte k hotelu metrem."
     scene bg tokio1 venek noc
-    "Na ulici se zeptáte jednoho z japonců na doporuční suši, nebo nějaké jiné restaurace."
+    "Na ulici se zeptáte jednoho z japonců na doporučení suši restaurace, nebo nějaké jiné."
     "Nějakou vám doporučil, ale když jste k ní přišli, tak už zavírala. Protože už bylo půl deváté."
     "Po chvíli bloudění jste zjistili, že otevřenou restauraci už asi nenajdete."
     show d neutral
@@ -114,9 +119,9 @@ label akt2:
     show m neutral
     m "Ne! Já chci suši!"
     hide m neutral
-    scene 7eleven
-    "Vyhlídli jste si lavičky v nějakém nitrobloku kanceláří a v 7eleven jste si koupili každý svojí hotovku."
-    #TODO scene park jídlo
+    scene bg 7eleven
+    "Vyhlídli jste si lavičky v nějakém vnitrobloku kanceláří a v 7eleven jste si koupili každý svojí 'hotovku'."
+    scene bg vecereday2
     "Prodavači vám jí ohřáli, přibalili hůlky a ubrousky."
     "Po jídle jste sesbírali všechen odpad a vyrazili jste pěšky na hotel."
 
