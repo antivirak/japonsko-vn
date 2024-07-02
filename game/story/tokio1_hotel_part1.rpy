@@ -699,7 +699,7 @@ label hrac_ka_Mimon3p(partners):
     "Vybral['a' if j.gender == 'f' else ''] sis do pokoje [' a '.join(partner.name_4p for partner in partners)]."
     $ b = d if j.gender == 'f' else h
     $ chars = [a, m, s, b]
-    "Takže na dvojlůžák zamířili [' a '.join(char.name for char in chars if char not in (partner.name for partner in partners))]."
+    "Takže na dvojlůžák zamířili [' a '.join(char.name for char in chars if char.name not in (partner.name for partner in partners))]."
     "Vyrážíte tedy společně na pokoj. Je to číslo 516 v pátém patře."
     "Takže nahoru vyjíždíte výtahem."
     show m neutral
