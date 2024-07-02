@@ -278,11 +278,11 @@ label sucansance:
     j "No, tak budeš muset chvíli počkat."
     "Slyšíš, jak Sučan odchází od dveří koupelny."
 
-    call bathroom_common([s])
+    call bathroom_common([s], clothes=False)
 
 label ignorpanel:
     scene bg dvojluzakmanp
-    "Vycházíš ven s úsměvem. Zahneš doprava a objevíš se v místnůstce s postelí."
+    "Vycházíš ven s úsměvem. Zahneš doprava a objevíš se v místnůstce s postelí."
     show s neutral at left
     s "To mi děláš schválně?"
     hide s neutral
@@ -699,7 +699,7 @@ label hrac_ka_Mimon3p(partners):
     "Vybral['a' if j.gender == 'f' else ''] sis do pokoje [' a '.join(partner.name_4p for partner in partners)]."
     $ b = d if j.gender == 'f' else h
     $ chars = [a, m, s, b]
-    "Takže na dvojlůžák zamířili [' a '.join(char.name for char in chars if char not in (partner.name for partner in partners))]."
+    "Takže na dvojlůžák zamířili [' a '.join(char.name for char in chars if char.name not in (partner.name for partner in partners))]."
     "Vyrážíte tedy společně na pokoj. Je to číslo 516 v pátém patře."
     "Takže nahoru vyjíždíte výtahem."
     show m neutral

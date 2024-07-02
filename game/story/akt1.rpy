@@ -147,7 +147,7 @@ label neridicka:
         "Ale můžeš si vybrat kde budeš sedět."
         "Za řidičem":
             jump zaridicem
-        "Ve prostřed":
+        "Veprostřed":
             jump vprostred
         "Za spolujezdcem":
             jump zaspolujezdcem

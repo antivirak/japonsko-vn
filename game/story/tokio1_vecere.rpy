@@ -142,4 +142,3 @@ label vecere:
                     jump titulky
         "Ne":
             "Dojdeš si vyčistit zuby, převlíkneš se do pyžama a jdeš spát."
-    return
