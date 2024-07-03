@@ -47,7 +47,7 @@ label akt2:
     "Adrian hbitě odpoví"
     a "Go."
     hide a neutral
-    "Číšník se strašně zděsí, ale pomocí rukou nohou, japonštiny a angličtiny mu vysvětlíte, že je v pořádku, když budete sedět odděleně."
+    "Číšník se strašně zděsí, ale pomocí rukou, nohou, japonštiny a angličtiny mu vysvětlíte, že je v pořádku, když budete sedět odděleně."
     hide ichiran_led
     "Sice se mu tato informace nezamlouvá, ale po chvíli se mu podaří vás všechny usadit do kóje."
     "Obsluha za stěnou vytáhne roletku u vašich míst. Ty jí předáš svoje vyplněné meníčko a lísteček o zaplacení. Poděkují a zase stáhnou roletku."
@@ -63,7 +63,7 @@ label akt2:
     j "Aha."
     "Čekáte dalších dobrých deset minut, než konečně Mimoň vyleze."
     # TODO bg gamecentrum
-    "Když jste všichni pohromadě, vyrazíte do gamecetra."
+    "Když jste všichni pohromadě, vyrazíte do gamecentra."
     "Gamecentrum projdete celé přes ufocatchery, gachapony, rytmické hry a závodní automaty."
     "U rytmických her se zasekne Mimoň a přesvědčuje vás, ať si s ním jdete někdo zahrát."
     # TODO rytmická minihra
@@ -106,14 +106,14 @@ label akt2:
     scene bg metro
     "Všichni souhlasíte, takže se přiblížíte k hotelu metrem."
     scene bg tokio1 venek noc
-    "Na ulici se zeptáte jednoho z Japonců na doporučení suši restaurace, nebo nějaké jiné."
+    "Na ulici se zeptáte jednoho z Japonců na doporučení suši restaurace nebo nějaké jiné."
     "Nějakou vám doporučil, ale když jste k ní přišli, tak už zavírala. Protože už bylo půl deváté."
     "Po chvíli bloudění jste zjistili, že otevřenou restauraci už asi nenajdete."
     show d neutral
     d "Navrhuji si koupit nějaké hotové jídlo v 7eleven."
     hide d black
     show a neutral
-    a "Jsem za, jsem úplně mrtvej."
+    a "Jsem pro, jsem úplně mrtvej."
     hide a neutral
     show s neutral
     s "Já taky."
