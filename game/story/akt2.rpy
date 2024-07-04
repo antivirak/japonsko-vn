@@ -127,5 +127,4 @@ label akt2:
     "Prodavači vám ji ohřáli, přibalili ubrousky a dali na výběr mezi hůlkami a plastovým příborem."
     "Po jídle jste sesbírali všechen odpad a vyrazili jste pěšky na hotel."  # zmínit, že odpad jsme vyhodili až na hotelu?
 
-
-    jump titulky  # provizorně 
+    return
