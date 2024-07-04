@@ -1,7 +1,7 @@
 label akt3:
     scene bg hoteltokio
     "Druhý den ráno jste zase měli sraz na osmou hodinu u recepce."
-    "A i tentokrát se vedení ujal Dante"
+    "A i tentokrát se vedení ujal Dante."
     scene bg tokio1 day1
     "Stejně jako předchozí den jste vyrazili pěšky na metro."
     scene bg 7eleven
@@ -12,7 +12,7 @@ label akt3:
     "Senso-ji je starodávný budhistický chrám v Asakuse."
     "Jde o jednu z ikonických památek Tokia, kterou ročně navštíví přes 30 miliónů lidí."
     scene bg senso_ji1
-    "svatyně byla zničena během druhé světové války při bombovém útoku na Tokio."
+    "Svatyně byla zničena během druhé světové války při bombovém útoku na Tokio."
     scene bg senso_ji2
     "Svatyni začali rekonstruovat asi 6 let po útoku a pracovali na ní celých 7 let."
     "Svatyně je pro Japonce symbolem míru."
@@ -40,13 +40,13 @@ label akt3:
     d "Kupoval si jen masku, byl támhle za rohem."
     hide m mask
     hide d black
-    "Když jste zase všichni, oddechnete si, a jdete si koupit zmrzlinu,"
+    "Když jste zase všichni, oddechnete si a jdete si koupit zmrzlinu,"
     scene bg senso_jiicecream
     "kterou si musíte sníst v boční uličce. Protože v Japonsku je neslušné chodit s jídlem. A ani chůze se zmrzlinou není přijatelná."
     scene bg metro
-    "Pak jste se přesunuli na Šibuju, na jednu z co do počtu chodců, kteří ji denně používají největších křižovatek v Tokiu."
+    "Pak jste se přesunuli na Šibuju, na jednu z největších křižovatek v Tokiu, co do počtu chodců, kteří ji denně používají."
     scene bg sibuja
-    "A protože je čas oběda a Mimoň stále otravuje se suši, rozhodli jste se mu vyjít vstříc."
+    "A protože je čas obědu a Mimoň stále otravuje se suši, rozhodli jste se mu vyjít vstříc."
     "V obchodním centru jste našli suši restauraci."
     scene bg susirestaurace
     "Chvíli jste procházeli meníčko a nakonec jste se rozhodli, že si každý objednáte ochutnávkové menu."
@@ -55,6 +55,7 @@ label akt3:
     scene bg susi
     "Jde o Tokijské 'nigiri' suši. Na hromádce rýže je plátek syrové ryby."
     "Číšník postaví před vás tácy."
+    "Mimoň chvíli zkoumá svoji porci, zatímco vy se sborovým Itadakimas začínáte ochutnávat první kousky."  # TODO Mimoň si tam přines vlastní hůlky
     show m mask
     m "{\b} A jsem v prdeli, já nejím ryby! {\b}"
     hide m mask
