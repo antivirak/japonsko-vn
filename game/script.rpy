@@ -1,7 +1,7 @@
 ﻿# The script of the game goes in this file.
 
 # The game starts here.
-label start:
+label start_:
     call akt1
     call problemubytovani
     call akt2
@@ -9,7 +9,8 @@ label start:
 
 
 label titulky:
-    scene bg black
+    image black = "#000"
+    scene black
     "konec části co máme hotovou, nebo se něco pokazilo :D"
     "Tvůrci hry Cerman Jaroslav, Lokajová Eliška a Sedláček Martin"
     "Na příběhu se taktéž podíleli Drahota Matěj a Suchan Tomáš"

@@ -89,7 +89,8 @@ label problemubytovani:
     "Pro lepší rozhodování tvé získané bodíky: [j.show_all_points()]"
     "Vyber rozložení cestujících do pokojů."
 
-    scene bg black  # TODO do we want some room background here?
+    image black = "#000"
+    scene black  # TODO do we want some room background here?
     $ b = d if j.gender == 'f' else h
     $ chars = [a, m, s, b, j]
     $ char_names = [char.name for char in chars]

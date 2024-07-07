@@ -34,7 +34,8 @@ label akt1:
         j.name_5p = vokativ(j.name, woman=j.gender == "f", last_name=False).capitalize()
         print(j.name_5p)
 
-    scene bg black
+    image black = "#000"
+    scene black
     if j.gender == 'f':
         "Na podzim jsi ukončila velmi toxický vztah a hledala jsi nějakou cestu, jak co nejrychleji zapomenout."
         "V té době se ti ozval Sučan, že plánuje jet do Japonska, tak jestli se k němu nechceš přidat."

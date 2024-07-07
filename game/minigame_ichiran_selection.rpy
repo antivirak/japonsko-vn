@@ -157,7 +157,8 @@ label switch_context(rb_group):
 
 
 label ichiran_selection_minigame_main:
-    scene bg black
+    image black = "#000"
+    scene black
     show ichiran_order_sheet at size_1_3, top
     # TODO rewrite the below to init python block if you need to access the selected values outside of renpy script
     $ circle = "images/select_circle.png"
@@ -189,4 +190,4 @@ label ichiran_selection_minigame:
         else tbtn_instance.get_spiciness()
         for choice, tbtn_instance in zip(choices, tbtn) if tbtn_instance
     })
-    return  # TODO jump
+    return  # TODO jump if calling this label causes problems
