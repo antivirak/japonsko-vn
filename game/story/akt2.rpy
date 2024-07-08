@@ -1,4 +1,4 @@
-label akt2:
+label start:
     scene bg hoteltokio
     "Druhý den ráno se v osm potkáte na recepci. Mimoň má jako vždy asi 10 minut zpoždění."
     "Plán dne má na starosti Dante."
@@ -56,6 +56,7 @@ label akt2:
     "Poté, co jsi získal['a' if j.gender == 'f' else ''] svůj rámen, tak si jej rychle snědl['a' if j.gender == 'f' else ''],"
     "aby na tebe ostatní dlouho nečekali."
     "Vylezeš před Ichiran, kde už čekají Adrian, ['Dante' if j.gender == 'f' else 'Hana'] a Sučan. Mimoň je stále uvnitř."
+    $ j.name = 'bla'
     j "Mimoň tu ještě není?"
     show a neutral
     a "Ne, seděl vedle mě. Myslím, že ještě zápasí s hůlkama."
@@ -66,7 +67,14 @@ label akt2:
     "Když jste všichni pohromadě, vyrazíte do gamecentra."
     "Gamecentrum projdete celé přes ufocatchery, gachapony, rytmické hry a závodní automaty."
     "U rytmických her se zasekne Mimoň a přesvědčuje vás, ať si s ním jdete někdo zahrát."
-    # TODO rytmická minihra
+    menu:
+        "Chceš si s Mimoněm zahrát na bubínky?"
+        "Jasně!":
+            call rhytm_game_main
+            # TODO we can have a winner say if player has at least 90 % or something
+        "Nemám zájem.":
+            "Mimoň se na chvíli zamračí, ale pak se rozhodne, že si zahraje sám."
+
     scene bg zavodky
     "Sučan zapadne k závodním automatům a rozjíždí velký závod s místními Japonci."
     "Asi po hodině se vám podaří Mimoně a Sučana odtud dostat."

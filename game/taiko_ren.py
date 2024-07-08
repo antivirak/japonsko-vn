@@ -5,9 +5,8 @@ init python:
 import pygame
 from renpy import config
 from renpy.display.imagelike import Solid
-from renpy.display.transform import Transform
 
-CHANNEL_NAME = 'music'
+CHANNEL_NAME = 'music'  # renpy's default - volume from preferences
 
 
 class RhythmGameDisplayable(renpy.display.displayable.Displayable):
@@ -32,8 +31,6 @@ class RhythmGameDisplayable(renpy.display.displayable.Displayable):
         self.horizontal_bar_height = 8
 
         self.note_width = 50
-        # zoom in on the note when it is hittable  # TODO remove
-        self.zoom_scale = 2
 
         # time between the note travels through the screen
         self.note_offset = 3.0
@@ -68,16 +65,14 @@ class RhythmGameDisplayable(renpy.display.displayable.Displayable):
         # therefore good is btw/ hit and perfect
 
         # define the drawables
-        self.drum_bar_drawable = Solid('#fff', xsize=config.screen_width, ysize=self.horizontal_bar_height)
+        self.drum_bar_drawable = Solid(
+            '#fff', xsize=config.screen_width, ysize=self.horizontal_bar_height,
+        )
         self.vertical_bar_drawable = Solid('#fff', xsize=8, ysize=config.screen_height)
         # map drum_idx to the note drawable
         self.note_drawables = {
             0: Solid('#3310e2', xsize=self.note_width, ysize=self.note_width),
-            1: Solid('#ff0000', xsize=self.note_width, ysize=self.note_width),
-        }
-        self.note_drawables_large = {  # TODO remove
-            0: Transform(self.note_drawables[0], zoom=self.zoom_scale),
-            1: Transform(self.note_drawables[1], zoom=self.zoom_scale),
+            1: Solid('#f00', xsize=self.note_width, ysize=self.note_width),
         }
 
         # record all the drawables for self.visit
@@ -97,7 +92,7 @@ class RhythmGameDisplayable(renpy.display.displayable.Displayable):
         # start playing music
         renpy.music.queue([
             silence_start,
-            "audio/Japanese_Taiko_mp3_1710913652.mp3",
+            f"<to {self.onset_times[-1] + 2}>audio/Japanese_Taiko_mp3_1710913652.mp3",
         ], channel=self.channel_name, loop=False)
         self.has_game_started = True
 
@@ -145,7 +140,6 @@ class RhythmGameDisplayable(renpy.display.displayable.Displayable):
 
         # update self.active_notes_per_drum
         self.active_notes_per_drum = self.get_active_notes_per_drum(st)
-        curr_time = st - self.time_offset
 
         # render notes for each drum
         for drum_idx, note_timestamps in self.active_notes_per_drum.items():
@@ -154,19 +148,18 @@ class RhythmGameDisplayable(renpy.display.displayable.Displayable):
                 # render the notes that are active and haven't been hit
                 if self.onset_hits[onset] is not None:
                     continue
-                # zoom in on the note if it is within the hit threshold
-                # TODO remove
-                if abs(curr_time - onset) <= self.hit_threshold:
-                    note_drawable = self.note_drawables_large[drum_idx]
-                else:
-                    note_drawable = self.note_drawables[drum_idx]
+
+                note_drawable = self.note_drawables[drum_idx]
 
                 # compute where on the vertical axes the note is
                 # the vertical distance from the right that the note has already traveled
                 # is given by time * speed
                 note_distance_from_left = note_timestamp * self.note_speed
                 x_offset = config.screen_width - self.drum_bar_width + note_distance_from_left
-                render.place(note_drawable, x=x_offset, y=config.screen_height // 2 - self.note_width // 2)
+                render.place(
+                    note_drawable,
+                    x=x_offset, y=config.screen_height // 2 - self.note_width // 2,
+                )
 
         renpy.redraw(self, 0)
         return render
@@ -195,7 +188,7 @@ class RhythmGameDisplayable(renpy.display.displayable.Displayable):
         if ev.type == pygame.MOUSEBUTTONDOWN:
             drum_idx = self.button_map.get(ev.button)
         elif ev.type == pygame.KEYDOWN:
-            if not ev.key in self.keycode_to_drum_idx:
+            if ev.key not in self.keycode_to_drum_idx:
                 return
             drum_idx = self.keycode_to_drum_idx[ev.key]
         else:
@@ -228,7 +221,7 @@ class RhythmGameDisplayable(renpy.display.displayable.Displayable):
             # good
             if (
                 (-self.hit_threshold <= time_delta < self.perfect_threshold)
-                or (self.perfect_threshold < time_delta <= self.hit_threshold)
+                or (self.perfect_threshold < time_delta <= self.hit_threshold)  # noqa: W503
             ):
                 self.onset_hits[onset] = 'good'
                 self.score += self.SCORE_GOOD
@@ -263,7 +256,7 @@ class RhythmGameDisplayable(renpy.display.displayable.Displayable):
             if time_before_appearance < 0:  # already below the bottom of the screen
                 continue
             # should be on screen
-            elif time_before_appearance <= self.note_offset:
+            if time_before_appearance <= self.note_offset:
                 active_notes[drum_idx].append((onset, time_before_appearance))
             # there is still time before the next note should show
             # break out of the loop so we don't process subsequent notes that are even later

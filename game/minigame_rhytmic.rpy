@@ -10,6 +10,8 @@ screen rhythm_game(rhythm_game_displayable):
     key 'mousedown_3' action NullAction()
 
     add Solid("#000", xsize=.15 * config.screen_width, ysize=150, xalign=1, yalign=.5)
+    add Text('Y', xalign=0, yalign=.7, size=150, color='#f00')
+    add Text('X', xalign=.1, yalign=.7, size=150, color='#3310e2')
     add rhythm_game_displayable
 
     vbox:
@@ -38,9 +40,8 @@ screen rhythm_game(rhythm_game_displayable):
         timer .1 action Return(rhythm_game_displayable.score)
 
 
-# label rhytm_game_main:
-label start:
-    # TODO stop current music and then start again
+label rhytm_game_main:
+    stop music
     "Hraješ proti Mimoňovi v rytmické hře! Hraješ na bubínek."
     "Červené noty znamenají, že máš stisknout klávesu Y nebo levé tlačítko myši; modré noty znamenají, že máš stisknout klávesu X nebo pravé myšítko."
     "Klávesy se snaž stisknout až dojedou na levou stranu obrazovky. Hodně štěstí!"
@@ -61,3 +62,4 @@ label start:
     $ score = str(100 * new_score / rhythm_game_displayable.max_score)
     $ score = score[:min(5, len(score))]
     "Hra skončila! Tvoje skóre je: [new_score]; [score] procent."
+    play music "StockTune-Neon Pulse Of Japan_1719152100.mp3"

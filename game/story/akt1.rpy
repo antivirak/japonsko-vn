@@ -1,7 +1,6 @@
 label akt1:
     scene bg letistenara
     with fade
-    play music "StockTune-Neon Pulse Of Japan_1719152100.mp3"
 
     "Vítej ve hře {i}Cesta po Japonsku{/i}!"
     "Následující příběh je smyšlený a jakákoli podobnost se skutečnými osobami, živými či mrtvými, je čistě náhodná."

@@ -2,6 +2,7 @@
 
 # The game starts here.
 label start_:
+    play music "StockTune-Neon Pulse Of Japan_1719152100.mp3"
     call akt1
     call problemubytovani
     call akt2

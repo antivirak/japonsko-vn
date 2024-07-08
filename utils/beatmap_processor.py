@@ -1,33 +1,30 @@
 import os
 import csv
+import sys
 import zipfile
 
 
-def main():
-    # fname = '1297296 Demetori - Retrospective Kyoto ~ Japanese Beautiful Barrage.osz'
-    # fname = '2197010 Noeliart - Indigo Blue.osz'
-    # fname = '1293085 _namirin - Omajinai.osz'
-    fname = '919251 _namirin - Hitokoto no Kyori.osz'
-    fname = '705499 _namirin - closing eyes.osz'
-    fname = '1774306 nekodex - Little Drummer Girl.osz'
-    fname = '1203041 cYsmix - Dovregubben\'s Hall (Cut Ver.).osz'
-    fname = '1014707 IAHN - Transform (Original Mix).osz'
-    if os.path.exists(os.path.join('/Users/cerman/Downloads', fname)):
-        with zipfile.ZipFile(os.path.join('/Users/cerman/Downloads', fname), 'r') as z:
-            z.extractall(os.path.join('/Users/cerman/Downloads', os.path.splitext(fname)[0]))
-    files = os.listdir(os.path.join('/Users/cerman/Downloads', os.path.splitext(fname)[0]))
-    osu = [f for f in files if f.endswith('.osu')][0]
-    with open(os.path.join('/Users/cerman/Downloads', os.path.splitext(fname)[0], osu), 'r') as f:
+def main(fname):
+    base_name = os.path.splitext(fname)[0]
+    if os.path.exists(fname):
+        with zipfile.ZipFile(fname, 'r') as z:
+            z.extractall(base_name)
+    if not os.path.exists(base_name):
+        raise FileNotFoundError(f'Paths {fname} and {base_name} not found. Please provide one of them as an input.')
+
+    files = os.listdir(base_name)
+    osu = [f for f in files if f.endswith('.osu')][0]  # take only one in case of multiple difficulties
+    with open(os.path.join(base_name, osu), 'r') as f:
         lines = [line.strip() for line in f.readlines()]
 
-    lines = lines[lines.index('[TimingPoints]') + 1:]
-    offset_map = {}
-    for line in lines:
-        if not line:
-            break
-        # time / ms, beatLength, meter, sampleSet, sampleIndex, volume, uninherited, effects
-        id_, offset, *_ = line.split(',')
-        offset_map[id_] = offset
+    # lines = lines[lines.index('[TimingPoints]') + 1:]
+    # offset_map = {}
+    # for line in lines:
+    #     if not line:
+    #         break
+    #     # time / ms, beatLength, meter, sampleSet, sampleIndex, volume, uninherited, effects
+    #     offset, beat_len, *_ = line.split(',')
+    #     offset_map[offset] = beat_len
 
     lines = lines[lines.index('[HitObjects]') + 1:]
     with open('beatmap.tsv', 'w') as f:
@@ -35,13 +32,14 @@ def main():
         for line in lines:
             if not line:
                 break
+            # header:
             # x, y, time / ms, type, hitSound, objectParams, hitSample
             _, _, offset, _, key, *_ = line.split(',')
-            # offset = offset_map.get(id_)
-            # if offset:
-            #     writer.writerow((offset, 1 if key == '8' else 0))
             writer.writerow((int(offset) / 1000, 1 if key == '8' else 0))
 
 
 if __name__ == '__main__':
-    main()
+    main(
+        sys.argv[1] if len(sys.argv) > 1 and sys.argv[1]
+        else '1014707 IAHN - Transform (Original Mix).osz'
+    )
