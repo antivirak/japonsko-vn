@@ -1,4 +1,4 @@
-label start:
+label akt2:
     scene bg hoteltokio
     "Druhý den ráno se v osm potkáte na recepci. Mimoň má jako vždy asi 10 minut zpoždění."
     "Plán dne má na starosti Dante."
@@ -56,7 +56,6 @@ label start:
     "Poté, co jsi získal['a' if j.gender == 'f' else ''] svůj rámen, tak si jej rychle snědl['a' if j.gender == 'f' else ''],"
     "aby na tebe ostatní dlouho nečekali."
     "Vylezeš před Ichiran, kde už čekají Adrian, ['Dante' if j.gender == 'f' else 'Hana'] a Sučan. Mimoň je stále uvnitř."
-    $ j.name = 'bla'
     j "Mimoň tu ještě není?"
     show a neutral
     a "Ne, seděl vedle mě. Myslím, že ještě zápasí s hůlkama."

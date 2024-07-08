@@ -23,8 +23,8 @@ class RhythmGameDisplayable(renpy.display.displayable.Displayable):
         self.time_offset = None
         self.button_map = {1: 1, 3: 0}
         self.keycode_to_drum_idx = {
-            pygame.K_y: 1,
-            pygame.K_x: 0
+            pygame.K_x: 1,
+            pygame.K_c: 0
         }
 
         self.drum_bar_width = int(config.screen_width * 0.85)

@@ -1,4 +1,4 @@
-﻿# start minigame by "jump rhytm_game_main" from script
+﻿# start minigame by "jump / call rhytm_game_main" from script
 
 
 screen rhythm_game(rhythm_game_displayable):
@@ -10,8 +10,8 @@ screen rhythm_game(rhythm_game_displayable):
     key 'mousedown_3' action NullAction()
 
     add Solid("#000", xsize=.15 * config.screen_width, ysize=150, xalign=1, yalign=.5)
-    add Text('Y', xalign=0, yalign=.7, size=150, color='#f00')
-    add Text('X', xalign=.1, yalign=.7, size=150, color='#3310e2')
+    add Text('X', xalign=0, yalign=.7, size=150, color='#f00')
+    add Text('C', xalign=.1, yalign=.7, size=150, color='#3310e2')
     add rhythm_game_displayable
 
     vbox:
@@ -43,7 +43,7 @@ screen rhythm_game(rhythm_game_displayable):
 label rhytm_game_main:
     stop music
     "Hraješ proti Mimoňovi v rytmické hře! Hraješ na bubínek."
-    "Červené noty znamenají, že máš stisknout klávesu Y nebo levé tlačítko myši; modré noty znamenají, že máš stisknout klávesu X nebo pravé myšítko."
+    "Červené noty znamenají, že máš stisknout klávesu X nebo levé tlačítko myši; modré noty znamenají, že máš stisknout klávesu C nebo pravé myšítko."
     "Klávesy se snaž stisknout až dojedou na levou stranu obrazovky. Hodně štěstí!"
     image black = "#000"
     scene black
