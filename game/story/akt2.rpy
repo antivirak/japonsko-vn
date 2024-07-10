@@ -66,7 +66,14 @@ label akt2:
     "Když jste všichni pohromadě, vyrazíte do gamecentra."
     "Gamecentrum projdete celé přes ufocatchery, gachapony, rytmické hry a závodní automaty."
     "U rytmických her se zasekne Mimoň a přesvědčuje vás, ať si s ním jdete někdo zahrát."
-    # TODO rytmická minihra
+    menu:
+        "Chceš si s Mimoněm zahrát na bubínky?"
+        "Jasně!":
+            call rhytm_game_main
+            # TODO we can have a winner say if player has at least 90 % or something
+        "Nemám zájem.":
+            "Mimoň se na chvíli zamračí, ale pak se rozhodne, že si zahraje sám."
+
     scene bg zavodky
     "Sučan zapadne k závodním automatům a rozjíždí velký závod s místními Japonci."
     "Asi po hodině se vám podaří Mimoně a Sučana odtud dostat."
