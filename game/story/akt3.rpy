@@ -86,7 +86,16 @@ label akt3:
         menu: 
             "Půjdeš s Mimoněm do mekáče? Nebo s klukama na nagi rámen?"
             "Mekáč":
-
+                "Takže protože, Mimoň za žádnou cenu nemůže jít sám, a nebo prostě nemáš chuť na rybičkový rámen."
+                "Zůstal ti na ktrku Mimoň"
+                "Adrian ti ještě předá přenosnou wifi, abyste si pak mohli napsat, kde se sejdete a oddělí se odvás."
+                "Mimoň stále otravuje s Mekáčem."
+                "Bohužel ten co najdete, je strašně plný a navíc nemá samoobsužné objednávkové půltíky. A protože pospícháte, a vysvětlování v angličtině, co chcete je horor, jak pro vás, tak pro prodavače."
+                "Tak přemluvíš Mimoně, že půjdete do vedlejšího KFC, kde je méně lidí a je vidět, že má samoobjednávkový pult pro objednání v angličtině."
+                "Nakonec Mimoň i když neochotně souhlasí, objednávku udělate společně a ty zaplatíš."
+                "Když Mimoň dostane své hranolky a masové nugetky, tak přestane být tak protivný a je s ním i řeč."
+                "Po tom co dojíte, tak Mimoň chce do gamecentra, které jste po cestě potkali."
+                "Takže se přesunete do gamecentra a klukům napíšeš, že jste tam."
             "Rámen":
                 show m mask
                 m "Já ale nechci jít sám! Někdo se mnou musí jít!"
@@ -97,8 +106,66 @@ label akt3:
                 s "Tak já s tebou půjdu."
                 hide s neutral
                 "Sučan tedy odchází s naštvaným Mimoněm a vy vyrážíte na rámen."
+                "Takže jdeš s Adrianem a Dantem."
+                "Nejdříve vás Adrian na místo, kde měl rámen být, bohužel pobočka je zavřená."
+                "Ale nezoufáte během chvíle má Adrian náhradu."
                 "Adrian vás provede malými uličkami, až k takovým zapadlým dveřím."
                 "Vlezete dovnitř a po úzkém schodišti, smrdí to tam rybinou."
+                "U vstupu stojí objednávkový automat."
+                if j.love_points.get(a.name, 0) > 2:
+                    show a neutral
+                    "Adrian se na tebe usměje."
+                    a "Pomůžu ti."
+                    "Pomocí Adriana a mobilního překladače, si obejdnáš rámen podle své představy."
+                    "Zaplatíš a přesuneš se na 'bar', vyvýšený stůl oddělující místnost od koutu s kuchyní."   
+                else:
+                    "Pomocí překladače v mobilu si objedáš co chceš"        
+                if j.love_points.get(d.name, 0) > 2:
+                    "Adrian si sedne z jedné strany a Dante z druhé."
+                    show d black at left
+                    show a neutrar at right
+                    "Takže jsi obklopena oběma muži."
+                    "Předáš lísteček s objednávkou obsluze."
+                    "To samé udělají i Dante s Adrianem"
+                    "Začnete si spolu povídat, lépe řečeno konverzaci otevře Adrian."
+                    a "Tak já vám nevím, ale já jsem asi v prdeli já nejím rámen."
+                    "To vás všechny rozesměje a násdledná konverzace plyne sama od sebe."
+                    "Během toho dostanete rámen, se sborovým Arigantó, jej převezmete a pustíte se do jídla."
+                    "Na to jak zapadlý podnik a na první pohled pochybný to je, rámen je výborný."
+                else:  
+                    show a neutral at center
+                    show d black at right  
+                    "Adrian si sedne vedle tebe a Dante až vedle něj."
+                    "Adrian se na tebe moc mile usmívá."
+                    "Předáš lísteček s objednávkou obsluze."
+                    "To samé udělají i Dante s Adrianem"
+                    "Najednou Adrianovi zasvítí oči a zahlásí"
+                    a "Tak já vám nevím, ale já jsem asi v prdeli já nejím rámen."
+                    "To tě odrovná. A začneš se smát."
+                    j "Tak hlavně, že aspoň ty ryby jíš, když je to rybí rámen."
+                    a "No vlastně ne."
+                    "To už se směješ tak, že skoro brečíš, protože se snažíš, nesmát se nahlas, neb je to v Japonku neslušné."
+                "Během toho dostanete rámen, se sborovým Arigantó, jej převezmete a pustíte se do jídla."
+                "Na to jak zapadlý podnik a na první pohled pochybný to je, rámen je výborný."
+                "Dojíte, poděkujete a jdete hledat druhou část skupiny."
+                "Od Sučana jste dostali zprávu, že jsou v gamecentru."
+    "Když se všichni najdete v gamecentru. Mimoň hraje už asi pátou rytmickou hru. A odmítá odejít."
+    #TODO další kolo minihry
+    "Asi po hodině se vám podaří Mimoně přesvědčit, že už půjdete."
+    "V nižším patře si ještě projdete ufocatchery."
+    "Dante se u jednoho zastaví, hodí tam 100 yenů, pomačkal čudlíky a už 'jeřáb' svírá plyšáka s velkou hlavou."
+    "A plyšák kupodivu nespadl a dojel až k výdejní díře."
+    "Celý automat hraje a bliká."
+    "Dante vytahuje plyšáka s velkou hlavou."
+    show d plysak
+    d "Na vem si ho, já jsem si to chtěl jen zkusit."
+    d "Můžeš to brát jako pouťovou růži z papíru."
+    hide d plysak
+    "Gratulujeme získáváš plyšáka, budeš ho teď muset tahat 3 týdny s sebou :D"
+    "Po té jste vyrazili na Tokijskou Eiffelovu věž, Tokia tower, která měří 333 m, takže je o 13 m vyšší než její model Eiffelova věž."
+    "Dojeli jste na nejblizší zastávku metra a zbytek cesty došli. Jako všude jinde i zde se stojí dvě fronty, nejdříve fronta na nákup lístků a pak fronta na příslušný výtah."
+
+
                 
 
 
