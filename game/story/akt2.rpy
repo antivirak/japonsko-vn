@@ -84,8 +84,8 @@ label akt2:
     "od nové vlády Meidži, aby postavili hrobku mrtvým vojákům."
     scene ueno7
     "Od roku 2003 má památné místo na starost Tokio."
-    "Zatím co jdete po parčíkové magitrále, Adrian začne nahrávat video do svého bloku o Japonsku."
-    "Do naprostého ticha, které ruší jen zvuk cikád zahlásí."
+    "Zatímco jdete po parčíkové magistrále, Adrian začne nahrávat video do svého blogu o Japonsku."
+    "Do naprostého ticha, které ruší jen zvuk cikád, zahlásí."
     show a neutral
     a "Nemaj tady cikány, zato tu jsou cikády."
     hide a neutral
@@ -129,5 +129,5 @@ label akt2:
     "Vyhlídli jste si (na Japonských veřejných prostranstvích poměrně vzácné) lavičky v nějakém vnitrobloku kanceláří a v 7eleven jste si koupili každý svoji 'hotovku'."
     scene bg vecereday2
     "Prodavači vám ji ohřáli, přibalili ubrousky a dali na výběr mezi hůlkami a plastovým příborem."
-    "Po jídle jste sesbírali všechen odpad (Který se musel vyhodnit až na hotelu, venku nejsou koše) a vyrazili jste pěšky na hotel." 
+    "Po jídle jste sesbírali všechen odpad (který se musel vyhodit až na hotelu, venku nejsou koše) a vyrazili jste pěšky na hotel." 
     return

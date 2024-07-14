@@ -848,7 +848,7 @@ label hracka_Adri_Dante:
         hide a neutral
         j "Vždyť jsem oblečená..."
         "Váš rozhovor přeruší přicházející Dante."
-        "Své dosavdní oblečení si nese úhledně složené."
+        "Své dosavadní oblečení si nese úhledně složené."
         show d black
         d "Vyrušil jsem vás u něčeho?"
         hide d black
