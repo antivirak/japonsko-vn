@@ -162,8 +162,40 @@ label akt3:
     d "Můžeš to brát jako pouťovou růži z papíru."
     hide d plysak
     "Gratulujeme získáváš plyšáka, budeš ho teď muset tahat 3 týdny s sebou :D"
+    scene bg tokiotower
     "Po té jste vyrazili na Tokijskou Eiffelovu věž, Tokia tower, která měří 333 m, takže je o 13 m vyšší než její model Eiffelova věž."
     "Dojeli jste na nejblizší zastávku metra a zbytek cesty došli. Jako všude jinde i zde se stojí dvě fronty, nejdříve fronta na nákup lístků a pak fronta na příslušný výtah."
+    "Vyjedete nahoru a můžete si užívat výhled na noční Tokio."
+    "Tohle je poslední zastávka dnešního dne."
+    "Vyrazíte zpátky metrem do hotelu a po cestě se zastavíte ještě v 7eleven."
+    scene bg 7eleven
+    "Potřebujete si udělat nákup na zítřejší výstup na Fuji."
+    "Zatím co nakupujete tak si všimmnete, že si Mimoň plánuje koupit pouze půllitrovku koli."
+    "Přitom si musíte nakoupit jídlo a pití na celý den, na Fuji si jídlo nekoupíte."
+    j "Mimoňi, půllitrovka koli ti na výstup na Fuji stačit nebude, vem si aspoň dvojlitrovku vody k tomu."
+    j "A nějaké jídlo, tam asi nebude možnost si něco koupit."
+    j "Takže si musíš něco koupit, na snídani, oběd i večeři."
+    show m mask
+    m "Nechci! Nebudu. Nevím co si mám koupit! Kup to!"
+    hide m mask
+    "Tohle tě naštve."
+    j "Tak dost, já nejsem tvoje matka nebo sestra, abych se o tebe starala, jsi dospělý, dávám ti jen radu, zařiď se podle toho sám!"
+    "A jdeš si sama najít jídlo na další den a pití."
+    "S nákupem vyrazíte na hotel."
+    scene bg tokio venek noc
+    show s neutral
+    s "Tak výstup nahoru a dolů trvá asi 10 h, my tam pojedeme necelé dvě hodiny, jel bych tak abychom v osm byli na horním parkovišti Fuji."
+    s "Takže sraz v šest ráno na recepci."
+    s "Souhlas?"
+    hide s neutral
+    "Všichni souhlasíte až na..."
+    show m mask
+    m "Tak brzo vstávat nebudu! Nikam nejedu."
+    hide m mask
+    show d black
+    d "Tak s námi nejezdi, zaplať si tu hotel na 3 týdny, letenky máš. Nikdo tě nenutí s námi absolvovat 3 týdenní poznávací zájezd."
+
+
 
 
                 

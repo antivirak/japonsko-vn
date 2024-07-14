@@ -435,7 +435,7 @@ label ignorpanel3:
     "Potom otevřeš 'socky' a začteš se do toho, co se zatím děje doma."
     "Asi za deset minut vyleze Adrian."
     "Mlčky vstoupí do místnosti a jde s věcmi ke své tašce."
-    show a neutral  # možná změna oblečení
+    show a neutral  # TODO možná změna oblečení
     a "Máme ještě skoro hodinu do srazu."
     hide a neutral
     j "To je super. Ale začínám mít hlad."
@@ -848,7 +848,7 @@ label hracka_Adri_Dante:
         hide a neutral
         j "Vždyť jsem oblečená..."
         "Váš rozhovor přeruší přicházející Dante."
-        "Své stálé oblečení si nese úhledně složené."
+        "Své dosavdní oblečení si nese úhledně složené."
         show d black
         d "Vyrušil jsem vás u něčeho?"
         hide d black
@@ -1109,6 +1109,15 @@ label Hracka_Sucan_Adrian:
         "Ale vypadá to, že se o něco dohadovali."
         "Dojdeš si k posteli sbalit věci, co si chceš vzít s sebou, a jdeš čekat před pokoj."
         "Kluci tě po chvíli následují. A vyrazíte směr recepce."
+        show s neutral
+        s "Jak se řekne japonsky jdeme?"
+        hide s neutral
+        show a neutral
+        a "Ikimašó"
+        hide a neutral
+        show s neutral
+        s "Ikimašó"
+        hide s neutral
         "Získáváš jeden LP u Sučana"
         $ j.add_love_points_for_person(s, 1)
         "[j.show_all_points()]"
@@ -1184,6 +1193,15 @@ label Hracka_Sucan_Adrian:
         "Ale vypadá to, že se o něco dohadovali."
         "Dojdeš si k posteli sbalit věci, co si chceš vzít s sebou, a jdeš čekat před pokoj."
         "Kluci tě po chvíli následují. A vyrazíte směr recepce."
+        show s neutral
+        s "Jak se řekne japonsky jdeme?"
+        hide s neutral
+        show a neutral
+        a "Ikimašó"
+        hide a neutral
+        show s neutral
+        s "Ikimašó"
+        hide s neutral
         "U každého s kluků získáváš jeden LP."
         $ j.add_love_points_for_person(a, 1)
         $ j.add_love_points_for_person(s, 1)
@@ -1197,4 +1215,13 @@ label Hracka_Sucan_Adrian:
         "Kluci se mezitím vystřídají v koupelně."
         "Chvíli před šestou se dojdeš do koupelny trošku upravit a nalíčit."
         "Pak se sbalíš a na šestou všichni vyrazíte na recepci."
+        show s neutral
+        s "Jak se řekne japonsky jdeme?"
+        hide s neutral
+        show a neutral
+        a "Ikimašó"
+        hide a neutral
+        show s neutral
+        s "Ikimašó"
+        hide s neutral
     return
