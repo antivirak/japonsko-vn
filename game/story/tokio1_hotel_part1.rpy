@@ -433,6 +433,7 @@ label adrian_hotel_pomoc:
     call bathroom_common([a])
 
 label ignorpanel3:
+    scene bg dvojluzakmanp
     show a smile
     a "Díky,"
     hide a smile
@@ -492,12 +493,12 @@ label ignorpanel3:
     "A dostaneš 'geniální' nápad."
     "Jak tak ležíte vedle sebe, tak se překulíš a obkročmo si na něj klekneš někam do půli stehen."
     j "A nebojíš se ty být s cizí holkou na pokoji? Nebojíš se tu být se mnou?"
-    show a confuse
+    show a confuse at left
     a "..."
-    hide a confuse
+    hide a confuse 
     j "Promiň, to jsem asi přehnala."
     "Opřeš se pravou rukou o postel, abys z něho mohla slézt."
-    show a confuse
+    show a confuse at left
     a "Počkej!"
     "Řekne a a chytí tě za levou ruku. Abys z něj nemohla slézt."
     a "Přece neuděláš něco takového a hned mi zase neutečeš."
@@ -532,6 +533,7 @@ label adrian_hotel_feministka:
 
 label ignorpanel4:
     # TODO the same text, parametrize
+    scene bg dvojluzak separe
     show a neutral
     a "Děkuji!"
     hide a neutral
