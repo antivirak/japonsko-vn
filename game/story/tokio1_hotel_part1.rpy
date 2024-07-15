@@ -127,12 +127,13 @@ label tokio1_hotel_part1:
     hide d neutral
     hide s neutral
 
-    $ print([partner.name for partner in partners])
     "Po rozdělení jste se rozhodli dojít na pokoje odnést si věci. Sraz máte v 18 h na recepci a pak půjdete společně na večeři."
     if room == "Dvojlůžák" and s in partners and j.gender == "f":
         jump hracka_Sucan
     if room == "Dvojlůžák" and m in partners:
-        jump hrac_ka_Mimon
+        call hrac_ka_Mimon
+        call hracka_nolove  # TODO hrac
+        return
     if room == "Dvojlůžák" and h in partners and j.gender == "m":
         "Tome, vážně? Klučičí linka stále není :P"
         jump recepce
@@ -142,16 +143,15 @@ label tokio1_hotel_part1:
         jump hracka_Dante
     if room == "Trojlůžák" and m in partners:
         call hrac_ka_Mimon3p(partners)
-        jump recepce
+        call recepce
+        call hracka_nolove  # TODO hrac
+        return
     if room == "Trojlůžák" and d in partners and a in partners and j.gender == "f":
-        call hracka_Adri_Dante
-        jump recepce
+        jump hracka_Adri_Dante
     if room == "Trojlůžák" and d in partners and s in partners and j.gender == "f":
-        call hracka_Sucan_Dante
-        jump recepce
+        jump hracka_Sucan_Dante
     if room == "Trojlůžák" and s in partners and a in partners and j.gender == "f":
-        call Hracka_Sucan_Adrian
-        jump recepce
+        jump Hracka_Sucan_Adrian
     else:
         "Tahle možnost není ještě implementována."
         jump titulky
@@ -228,7 +228,9 @@ label posprse:
     "Pak pustíš Sučana do koupelny."
     "A sama si vybalíš potřebné věci a uklidíš věci z cesty."
     "A pak je pomalu čas jít dolů na recepci a na večeři."
-    jump recepce
+    call recepce
+    call hracka_nolove
+    return
 
 label sucansance:
     j "K tomu by si musel mít ještě prstýnek a kytku, víš? V dnešní době je zvykem se ptát nejdříve nastávající, a ne jejích rodičů!"
@@ -324,7 +326,9 @@ label ignorpanel:
     "[j.show_all_points()]"
     "Hodíš po něm polštářem zpět."
     "Oba se smějete, Sučan se oblékne. A vyrazíte dolů na recepci."
-    jump recepce
+    call recepce
+    call dvojluzak_hracka_Sucan2
+    return
 
 label hrac_ka_Mimon:
     "Vybral['a' if j.gender == 'f' else ''] sis do pokoje Mimoně, asi aby se kluci nemuseli s Mimoněm štvát."
@@ -381,7 +385,8 @@ label ignorpanel2:
     "Získáváš 3 HP u Mimoňě!"
     $ j.add_hate_points_for_person(m, 3)
     "[j.show_all_points()]"
-    jump recepce
+    call recepce
+    return
 
 
 label hracka_Adrian:
@@ -396,6 +401,7 @@ label hracka_Adrian:
             jump adrian_hotel_pomoc
         "Ne, chci být silná, nezávislá žena.":
             jump adrian_hotel_feministka
+
 label adrian_hotel_pomoc:
     "Adrian ti vezme kufr a zamíříte chodbou k pokoji číslo 607."
     "Odemkne pomocí karty, otevře dveře a pustí tě dovnitř."
@@ -436,7 +442,7 @@ label ignorpanel3:
     "Potom otevřeš 'socky' a začteš se do toho, co se zatím děje doma."
     "Asi za deset minut vyleze Adrian."
     "Mlčky vstoupí do místnosti a jde s věcmi ke své tašce."
-    show a neutral  # možná změna oblečení
+    show a neutral  # TODO možná změna oblečení
     a "Máme ještě skoro hodinu do srazu."
     hide a neutral
     j "To je super. Ale začínám mít hlad."
@@ -507,7 +513,10 @@ label ignorpanel3:
     hide a neutral
     "Dojdeš si upravit vlasy do koupelny a lehce se nalíčit. A už slyšíš, jak se Adrian balí."
     "Dojdeš si vzít tašku a vyrazíte společně na recepci."
-    jump recepce
+    call recepce
+    call dvojluzak_hracka_Adrian2
+    return
+
 label adrian_hotel_feministka:
     j "Nene, já si ho vezmu sama."
     "Adrian jde tedy napřed."
@@ -520,6 +529,7 @@ label adrian_hotel_feministka:
     j "Jo, díky."
     "Vybereš si jednu postel, popadneš věci a přesuneš se do koupelny."
     call bathroom_common([a])
+
 label ignorpanel4:
     # TODO the same text, parametrize
     show a neutral
@@ -535,7 +545,10 @@ label ignorpanel4:
     "Takhle strávíte čas do večeře."
     "Chviličku před odchodem se zastavíš v koupelně upravit."
     "Pak se sbalíte a vyrazíte na recepci."
-    jump recepce
+    call recepce
+    call hracka_nolove
+    return
+
 label hracka_Dante:
     "Jako jediná holka jsi měla možnost si vybrat, s kým a kde budeš spát."
     "Zvolila jsi k sobě do pokoje Danteho."
@@ -590,6 +603,7 @@ label hracka_Dante:
         "Pro jistotu se zamkneš."
         call bathroom_common([d])
         jump ignorpanel6
+
 label ignorpanel5:
     scene bg dvojluzakmanp
     show d reading
@@ -628,7 +642,7 @@ label ignorpanel5:
     hide d reading
     j "Jen jsem se zamyslela, promiň."
     "Kuňkneš, zatímco sklápíš zrak. Cítíš, že musíš být červená jako rajče."
-    "Rychle rozsvítíš mobil a děláš, že tam něco strašně naléhavě musíš řešit."  # TODO naléhavě ok?
+    "Rychle rozsvítíš mobil a děláš, že tam něco strašně naléhavě musíš řešit."
     "A odmítáš zvednou zrak od mobilu."
     "..."
     "Po nějaké době se odhodláš odlepit zrak od mobilu."  # TODO přeformulovat, moc zraku v mobilu
@@ -674,7 +688,10 @@ label ignorpanel5:
     "Mrkne na tebe a narovná se."
     hide d black
     "Chceš mu odpovědět, ale akorát se otevřou dveře od výtahu a jste na doslech ostatním."
-    jump recepce
+    call recepce
+    call dvojluzak_hracka_Dante2
+    return
+
 label ignorpanel6:
     scene bg dvojluzak separe
     show d neutral
@@ -695,7 +712,10 @@ label ignorpanel6:
     "Vyhrabeš kosmetickou taštičku a dojdeš se do koupelny upravit."
     "Pak si přebalíš důležité věci do tašky, kterou si chceš vzít s sebou."
     "A vyrazíte směr recepce."
-    jump recepce
+    call recepce
+    call hracka_nolove
+    return
+
 label hrac_ka_Mimon3p(partners):
     "Vybral['a' if j.gender == 'f' else ''] sis do pokoje [' a '.join(partner.name_4p for partner in partners)]."
     $ b = d if j.gender == 'f' else h
@@ -849,7 +869,7 @@ label hracka_Adri_Dante:
         hide a neutral
         j "Vždyť jsem oblečená..."
         "Váš rozhovor přeruší přicházející Dante."
-        "Své stálé oblečení si nese úhledně složené."
+        "Své dosavadní oblečení si nese úhledně složené."
         show d black
         d "Vyrušil jsem vás u něčeho?"
         hide d black
@@ -875,6 +895,8 @@ label hracka_Adri_Dante:
         $ j.add_love_points_for_person(a, 1)
         $ j.add_love_points_for_person(d, 1)
         "[j.show_all_points()]"
+        call recepce
+        # TODO new label for the trojluzak, where something happened
     else:
         "Zavolá Adrian a potkáte se po cestě, kdy on míří do koupelny a ty do pokoje."
         "Dante si u stolu čte knížku."
@@ -884,6 +906,8 @@ label hracka_Adri_Dante:
         "Kluci se mezitím vystřídají v koupelně."
         "Chvíli před šestou se dojdeš do koupelny trošku upravit a nalíčit."
         "Pak se sbalíš a na šestou všichni vyrazíte na recepci."
+        call recepce
+        call hracka_nolove
     return
 
 label hracka_Sucan_Dante:
@@ -995,6 +1019,8 @@ label hracka_Sucan_Dante:
         $ j.add_love_points_for_person(s, 1)
         $ j.add_love_points_for_person(d, 1)
         "[j.show_all_points()]"
+        call recepce
+        # TODO
     else:
         "Zavolá Sučan a potkáte se po cestě, kdy on míří do koupelny a ty do pokoje."
         "Dante si u stolu čte knížku."
@@ -1004,6 +1030,8 @@ label hracka_Sucan_Dante:
         "Kluci se mezitím vystřídají v koupelně."
         "Chvíli před šestou se dojdeš do koupelny trošku upravit a nalíčit."
         "Pak se sbalíš a na šestou všichni vyrazíte na recepci."
+        call recepce
+        call hracka_nolove
     return
 
 label Hracka_Sucan_Adrian:
@@ -1110,11 +1138,23 @@ label Hracka_Sucan_Adrian:
         "Ale vypadá to, že se o něco dohadovali."
         "Dojdeš si k posteli sbalit věci, co si chceš vzít s sebou, a jdeš čekat před pokoj."
         "Kluci tě po chvíli následují. A vyrazíte směr recepce."
+        show s neutral
+        s "Jak se řekne japonsky jdeme?"
+        hide s neutral
+        show a neutral
+        a "Ikimašó"
+        hide a neutral
+        show s neutral
+        s "Ikimašó"
+        hide s neutral
         "Získáváš jeden LP u Sučana"
         $ j.add_love_points_for_person(s, 1)
         "[j.show_all_points()]"
+        call recepce
+        # TODO
     
     elif not clothes and j.love_points.get(a.name, 0) > 1:
+        # TODO is it correct to first check for suchan and then for adrian?
         "Zdržíš se zavíráním dveří do koupelny. A mezitím se Sučan dostane do 'chodbičky' k tobě."
         show s neutral
         "..."
@@ -1185,10 +1225,21 @@ label Hracka_Sucan_Adrian:
         "Ale vypadá to, že se o něco dohadovali."
         "Dojdeš si k posteli sbalit věci, co si chceš vzít s sebou, a jdeš čekat před pokoj."
         "Kluci tě po chvíli následují. A vyrazíte směr recepce."
+        show s neutral
+        s "Jak se řekne japonsky jdeme?"
+        hide s neutral
+        show a neutral
+        a "Ikimašó"
+        hide a neutral
+        show s neutral
+        s "Ikimašó"
+        hide s neutral
         "U každého s kluků získáváš jeden LP."
         $ j.add_love_points_for_person(a, 1)
         $ j.add_love_points_for_person(s, 1)
         "[j.show_all_points()]"
+        call recepce
+        # TODO
     else:
         "Zavolá Sučan a potkáte se po cestě, kdy on míří do koupelny a ty do pokoje."
         "Adrian si v posteli čte něco na mobilu."
@@ -1198,4 +1249,15 @@ label Hracka_Sucan_Adrian:
         "Kluci se mezitím vystřídají v koupelně."
         "Chvíli před šestou se dojdeš do koupelny trošku upravit a nalíčit."
         "Pak se sbalíš a na šestou všichni vyrazíte na recepci."
+        show s neutral
+        s "Jak se řekne japonsky jdeme?"
+        hide s neutral
+        show a neutral
+        a "Ikimašó"
+        hide a neutral
+        show s neutral
+        s "Ikimašó"
+        hide s neutral
+        call recepce
+        call hracka_nolove
     return

@@ -80,7 +80,6 @@ label akt2:
     scene ueno1
     "A vyrážíte do parčíku. Zde narazíte na památníku bojovníků ve válce Ueno, někdy označované jako válka Shogi-tai."
     scene ueno2
-    # TODO zkontrolovat pravdivost
     "Bitva zde proběhla roku 1868 v období Meidži."
     scene ueno3
     "V této válce byli na jedné straně konfliktu služebníci, leníci staré vlády Tokugawa a obyvatelé z okolních provincií. Říkali si Shogi-tai."
@@ -92,6 +91,11 @@ label akt2:
     "od nové vlády Meidži, aby postavili hrobku mrtvým vojákům."
     scene ueno7
     "Od roku 2003 má památné místo na starost Tokio."
+    "Zatímco jdete po parčíkové magistrále, Adrian začne nahrávat video do svého blogu o Japonsku."
+    "Do naprostého ticha, které ruší jen zvuk cikád, zahlásí."
+    show a neutral
+    a "Nemaj tady cikány, zato tu jsou cikády."
+    hide a neutral
     scene bentendo
     "Parčíkem jste se dostali až k Benten-do svatyni, kterou nechal vystavět na začátku sedmnáctého století Mizunoya Katsutka."
     scene bg metro
@@ -132,6 +136,5 @@ label akt2:
     "Vyhlídli jste si (na Japonských veřejných prostranstvích poměrně vzácné) lavičky v nějakém vnitrobloku kanceláří a v 7eleven jste si koupili každý svoji 'hotovku'."
     scene bg vecereday2
     "Prodavači vám ji ohřáli, přibalili ubrousky a dali na výběr mezi hůlkami a plastovým příborem."
-    "Po jídle jste sesbírali všechen odpad a vyrazili jste pěšky na hotel."  # zmínit, že odpad jsme vyhodili až na hotelu?
-
+    "Po jídle jste sesbírali všechen odpad (který se musel vyhodit až na hotelu, venku nejsou koše) a vyrazili jste pěšky na hotel." 
     return

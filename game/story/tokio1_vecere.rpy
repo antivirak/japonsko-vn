@@ -49,7 +49,7 @@ label recepce:
             "Získáváš dva GP"
             $ j.increment_gaijin_points(2)
             "[j.show_all_points()]"
-            jump vecere
+
         "Pořádně se rozhlédnete.":
             "Všimnete si, že jsou vedle stolů úhledně seskládané boty."
             "Stoly stojí na bambusových rohožích."
@@ -57,7 +57,6 @@ label recepce:
             "Získáváš HP pro Mimoně."
             $ j.add_hate_points_for_person(m, 1)
             "[j.show_all_points()]"
-            jump vecere
 
 label vecere:
     "Zujete se, boty vyskládáte na stranu a sednete si."
@@ -122,23 +121,4 @@ label vecere:
     hide m neutral
     scene bg hoteltokio
     "Dojdete na hotel a jdete do pokojů."
-    scene bg hoteltokio
-    menu:
-        "Chceš jít do hotelového Onsenu?"
-        "Ano":
-            "Přijdeš na pokoj, odložíš si věci a vyrazíš do hotelových onsenů."
-            "Samozřejmě jsou striktně rozděleny na ženské a mužské."
-            scene bg onsen
-            menu:
-                "Půjdeš doleva nebo doprava?"
-                "Vlevo":
-                    "Správně si zvolila dámský onsen. V místnosti před samotnou lázní se svlékneš donaha a své věci odložíš do jedné z proutěných krabic v regálu u stěny."
-                    "Osprchuješ se a vlezeš si do horké lázně. Máš štěstí, nikdo jiný zde není."
-                    "Po chvíli se rozhodneš, že je čas jít spát."
-                "Vpravo":
-                    "Vlezla si do pánské sekce!"
-                    "Úchyláku!"
-                    "Hra zde končí."
-                    jump titulky
-        "Ne":
-            "Dojdeš si vyčistit zuby, převlíkneš se do pyžama a jdeš spát."
+    return
