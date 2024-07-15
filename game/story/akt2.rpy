@@ -31,7 +31,7 @@ label akt2:
     scene bg akihabara
     "Pobočka je sice asi 3 km od nákupního centra, ale zatím jste dostatečně fresh, takže tam vyrazíte pěšky."
     "Po cestě potkáte nějaké gamecentrum, tak se domluvíte, že se tam zastavíte po cestě zpět."
-    scene bg ichiran  # sehnat lepší ichiran z venčí
+    scene bg ichiran venek  
     "Dorazíte k pobočce Ichiranu, ale je před vámi dlouhá fronta asi 15 lidí."
     "Avšak jeden z Japonců vám pro urychlení podává meníčko pro zakroužkování správného ramenu na míru."
     call ichiran_selection_minigame_main
@@ -56,13 +56,15 @@ label akt2:
     "Poté, co jsi získal['a' if j.gender == 'f' else ''] svůj rámen, tak si jej rychle snědl['a' if j.gender == 'f' else ''],"
     "aby na tebe ostatní dlouho nečekali."
     "Vylezeš před Ichiran, kde už čekají Adrian, ['Dante' if j.gender == 'f' else 'Hana'] a Sučan. Mimoň je stále uvnitř."
+    scene bg ichiran venek 
     j "Mimoň tu ještě není?"
     show a neutral
     a "Ne, seděl vedle mě. Myslím, že ještě zápasí s hůlkama."
     hide a neutral
     j "Aha."
     "Čekáte dalších dobrých deset minut, než konečně Mimoň vyleze."
-    # TODO bg gamecentrum
+    scene bg gamecentrum
+    show m neutral
     "Když jste všichni pohromadě, vyrazíte do gamecentra."
     "Gamecentrum projdete celé přes ufocatchery, gachapony, rytmické hry a závodní automaty."
     "U rytmických her se zasekne Mimoň a přesvědčuje vás, ať si s ním jdete někdo zahrát."
