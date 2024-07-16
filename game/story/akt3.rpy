@@ -66,9 +66,9 @@ label akt3:
     "Jde o Tokijské 'nigiri' suši. Na hromádce rýže je plátek syrové ryby."
     "Číšník postaví před vás tácy."
     "Mimoň chvíli zkoumá svoji porci, zatímco vy se sborovým Itadakimas začínáte ochutnávat první kousky."
-    show m mask
+    show m mask udiv
     m "{\b} A jsem v prdeli, já nejím ryby! {\b}"
-    hide m mask
+    hide m mask udiv
     "Všichni na něj zůstanete nechápavě zírat."
     "Doufáte, že to je pouze vtip."
     "Ale asi není, podle toho, že Mimoň začne ryby sundávat."
@@ -97,10 +97,10 @@ label akt3:
             "Po tom, co dojíte, tak Mimoň chce do gamecentra, které jste po cestě potkali."
             "Takže se přesunete do gamecentra a klukům napíšeš, že jste tam."
         "Ramen":
-            show m mask
+            show m mask angry
             m "Já ale nechci jít sám! Někdo se mnou musí jít!"
             m "Sám nikam nejdu!"
-            hide m mask
+            hide m mask angry
             show s neutral
             s "Nekřič, koukají se na nás."
             s "Tak já s tebou půjdu."
@@ -162,12 +162,14 @@ label akt3:
     d "Můžeš to brát jako pouťovou růži z papíru."
     hide d plysak
     "Gratulujeme, získáváš plyšáka, budeš ho teď muset tahat 3 týdny s sebou :D"
-    scene bg tokiotower
+    scene bg metro
     "Poté jste vyrazili na Tokijskou Eiffelovu věž, Tokio tower, která měří 333 m. Je tedy o 13 m vyšší než její pařížská předloha."
     "Nejbližší stanice metra je na jedné z linek, na které neplatí vaše celodenní jízdenky."
+    scene bg tokiotower
     "Dojeli jste na nejbližší možnou zastávku metra a zbytek cesty došli. Jako všude jinde, i zde se stojí dvě fronty. Nejdříve fronta na nákup lístků, a pak fronta na příslušný výtah."
     "Vyjedete nahoru a můžete si užívat výhled na noční Tokio."
     "Tohle je poslední zastávka dnešního dne."
+    scene bg metro
     "Vyrazíte zpátky metrem do hotelu a po cestě se zastavíte ještě v 7eleven."
     scene bg 7eleven
     "Potřebujete si udělat nákup na zítřejší výstup na Fuji."
@@ -176,9 +178,9 @@ label akt3:
     j "Mimoňi, půllitrovka coly ti na výstup na Fuji stačit nebude, vem si aspoň dvojlitrovku vody k tomu."
     j "A nějaké jídlo; tam asi nebude možnost si něco koupit."
     j "Takže si musíš něco koupit na snídani, oběd i večeři."
-    show m mask
+    show m mask angry
     m "Nechci! Nebudu. Nevím co si mám koupit! Kup to!"
-    hide m mask
+    hide m mask angry
     "Tohle tě naštve."
     j "Tak dost, já nejsem tvoje matka nebo sestra, abych se o tebe starala. Jsi dospělý. Dávám ti jen radu, zařiď se podle toho sám!"
     "A jdeš si sama najít jídlo a pití na další den."
@@ -190,11 +192,20 @@ label akt3:
     s "Souhlas?"
     hide s neutral
     "Všichni souhlasíte až na..."
-    show m mask
+    show m mask angry
     m "Tak brzo vstávat nebudu! Nikam nejedu."
-    hide m mask
+    hide m mask angry
     show d black
-    d "Tak s námi nejezdi, zaplať si tu hotel na 3 týdny, letenky máš. Nikdo tě nenutí s námi absolvovat 3 týdenní poznávací zájezd."
+    d "Tak s námi nejezdi, zaplať si tu hotel na 3 týdny, letenky máš. Nikdo tě nenutí s námi absolvovat 3 týdenní poznávací zájezd. Jen jsi to mohl říct už před odletem, nemuseli jsme rezervovat ty další hotely."
+    hide d black
+    show m mask angry
+    "Já sám nebudu!!! Nechci!!"
+    hide m mask angry
+    show s neutral
+    s "Tak v tom případě buď ráno v šest na recepci."
+    hide s neutral
+    scene bg hoteltokio
+    "Dojdete na hotel a rozejdete se do svých pokojů."
 
 
 

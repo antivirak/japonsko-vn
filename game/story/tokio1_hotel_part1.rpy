@@ -76,6 +76,7 @@ label problemubytovani:
     s "Tak to má dohru, nejen, že jsem kvůli tomu musel před odjezdem zablokovat a obstarat si novou kreditku..."
     s "...ale ještě mají nějaký zmatek v systému, takže místo tří pokojů máme jen dva."
     a "Takže se musíme rozdělit do jednoho dvojlůžáku a jednoho trojlůžáku."
+    s "Tak snad kvůli tomu nějaký zaměstnanec nespáchá sepuku."
     hide s neutral
     hide a neutral
     show m neutral at left
