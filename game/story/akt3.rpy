@@ -210,4 +210,4 @@ label akt3:
 
 
 
-    jump titulky #provizorně
+    return

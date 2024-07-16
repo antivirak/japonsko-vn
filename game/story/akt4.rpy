@@ -48,7 +48,7 @@ label akt4:
     d "Yes, we are plannig go to the top today."
     hide d fuji
     show fujiguards
-    fujiguards "Do you have book the sleeping spot?"
+    fujiguards "Do you have booked the sleeping spot?"
     hide fujiguards
     show d fuji
     d "No, we are plannig go up and down in one day."
@@ -63,7 +63,7 @@ label akt4:
     fujiguards "Fine, do you have jacket?"
     hide fujiguards
     show d fuji
-    d "Yes, we have jacket in ours bag."
+    d "Yes, we have jacket in ours bags."
     hide d fuji
     show fujiguards
     fujiguards "Do you have good boots? And enought water and food?"
@@ -402,7 +402,6 @@ label akt4:
                     "Před vámi se objeví pár desítek metrů hluboký kráter."
                     "Vlastně, kdyby člověk nevěděl, že je to sopka a na neměl za sebou tu šílenou cestu,"
                     "tak si řekne díra v zemi..."
-                    "Jak se tak nakláníš nad okrajem. Tak tě sučan chytne ze zadu za ramena strčí do tebe."
                     "Právě jste zdolali převýšení asi 1200 m, za 4 a půl hodiny."
                     "Začíná se do tebe dávat zima."
                     "Jemně se oklepeš. vyndáš si z batohu mikinu a tu si oblečeš, pod větrovku."
@@ -457,9 +456,142 @@ label akt4:
                 "Asi v půl deváté, píše Dante, že se musel vrátit až k šesté stanici, ale že Mimoně má a že přijedou na parkoviště."
                 "Ve chvíli, kdy dostanete tuto dobrou zprávu tak všichni vytuhnete."
                 "Vzbudí vás až když Dante klepe na okýnko."
-
             "S Dantem a Adrianem pokořit top v mírnějším tempu.":
-                "hh"
+                "Vyrazila jsi tedy společně s Dantem a Adrianem."
+                "Spolu se zvyšující nadmořskou výškou se zhoršuje i terén."
+                if j.love_points.get(d.name, 0) > 2:
+                    "Adrianovi evidentně nedělá dobře, rychlá změna nadmořské výšky."
+                    "Docela špatně dýchá."
+                    show d fuji
+                    d "Seš v pohodě?"
+                    hide d fuji
+                    show a fuji
+                    a "Jo jsem, jen se mi trochu motá hlava, ale myslím, že jsem v pohodě, klidně běžte napřed."
+                    hide a fuji
+                    show d fuji
+                    d "Určitě?"
+                    hide d fuji
+                    show a fuji
+                    a "Tak nejsem debil, kdybych se na to necítil, tak to přiznám."
+                    hide a fuji
+                    "Adrian se tedy na chvíli zastavil a vyndal si pití."
+                    "Ty a Dante pokračujete nahoru."
+                    "Dante tě pustil před sebe."
+                    "Pomalu postupuješ směrem vzhůru postupně se terén čím dál tím víc zhoršuje."
+                    "Místy doslova musíte horolezovat."
+                    "Když zdoláváš jedno místo, kde je nutné šplhat po kamenech, tak blbě šlápneš."
+                    "Na jeden sice docela větší, ale nestabilní kámen."
+                    "Ten se ti pod nohou uvolní."
+                    "Nevíš jak, ale než si stihneš natlouct, tak Dante je u tebe a drží tě za zadu za boky."
+                    "Takže ačkoliv se držíš jen rukama, tak si nespadla dolů, ani sis neodřela kolena."
+                    show d fuji
+                    d "Opatrně, přitáhni se, pomůžu ti." 
+                    hide d fuji
+                    "Přitáhla ses rukama a druhou nohou si našla stabilnější mezeru o kterou se můžeš zapřít."
+                    "Takže tě Dante mohl pustit a ty ses vyhoupla nahoru."
+                    "Nabídneš Dantemu výměnoou ruku."
+                    show d fuji
+                    d "To je v pořádku, zvládnu to, bych se bál, že tě stáhnu dolů"
+                    hide d fuji
+                    "Tak mu uhneš a on vyleze nahoru jako by to vlastně vůbec nebylo k horolezení, v jeho podání to působí, jako malý kamínek."
+                    "Takhle postupujete až nahoru."
+                    "Adrian postupuje za vámi, stále ho vidíte, ale neslyšíte se."
+                    scene bg fuji before 9th
+                    "Nakonec je v dohledu devátá stanice a se cesta zase trošku zlepší."
+                    "Máš radost, že už na vrchol zbývá jen kousek dokonce se domníváš, že už vidíš vrchol, ale Dante tě vyvede z omylu."
+                    show d fuji
+                    d "Tak tamto je stanice 9b a pak už jsme skoro tam."
+                    d "Nahoru to mělo trvat 6 h, ale už jsme ušetřili pár minut a pokud nám i ty dvě další etapy zaberou o trošku méně, tak bude nahoře čas si i chvíli sednout."
+                    hide d fuji
+                    j "Dobře."
+                    "A rozejdete se dopředu."
+                    "Terén se za stanici se zase rapidně zhoršil."
+                    "Navíc padla mlha ochladilo se a začalo poprchávat."
+                    "Takže vybalujete z batohů větrovky a oblíkáte si je na sebe."
+                    "Asi v polovině cesty mezi vrcholem a devátou stanicí b, konečně vylezete nad mraky a vysvitne sluníčko."
+                    "Ale dost fouká, takže si bundy necháte na sobě."
+                    "Konečně je vidět poslední, desátá stanice."
+                    "To ti dodá sílu a také se terén změnil na větší pevné kameny po kterých se dá docela slušně šplhat."
+                    scene bg fuji top
+                    "Takže poslední úsek zdoláte v dobrém čase."
+                    "U brány si uděláte na střídačku fotku."
+                    "A projdete ke kráteru."
+                    scene bg fuji krater
+                    "Před vámi se objeví pár desítek metrů hluboký kráter."
+                    "Vlastně, kdyby člověk nevěděl, že je to sopka a na neměl za sebou tu šílenou cestu,"
+                    "tak si řekne díra v zemi..."
+                    "Posadíte se na kameny, u kráteru a vyndáte si pití a svačinu."
+                    "Asi za 5 minut dorazí zmožený Adrian."
+                    "Ale pohled na kráter mu vžene energii do žil."
+                    "Dostanete zprávu od Sučana, že je na druhé straně kráteru a ať raději jdete napřed."
+                    "Cesta dolů má trvat tři hodiny jsou čtyři, takže akorát čas vyrazit, pokud u autobusu máte být v sedm."
+                    "Vyrazíte zase všichni tři směrem dolů."
+                    "Adrian jde první a vy dva za ním."
+                    "Kousek od vrcholu potkáváte Mimoně, kterému oznamujete, že nahoru chodit nemá."
+                    "Že je potřeba stihnout autobus a že to bude dost na knop."
+                    "S Mimoněm jste se s Dantem trošku zdželi, takže vám Adrian malinko utekl."
+                    "A vy během chvíle utíkáte Mimoňovi."
+                    "Ale ty začínáš pociťovat únavu, klepou se ti nohy."
+                    "Každý krok je nejistý, do toho sopečný prach strašně klouže."
+                    "Takže člověk udělá krok, noha mu podjede a najde se o dva metry dále s nohou pod nánosem prachu."
+                    "V jednu chvíli slézáš zase nějaký kámen a podlomí se ti unavená noha."
+                    "Dante je zase poblíž."
+                    "Chytí tě."
+                    "A jak tě tak drží, tak se k tobě skloní a do ucha ti pošeptá."
+                    show d fuji
+                    d "Doufám, že se ti ty kolena podlamují ze mě. A ne únavou."
+                    hide d fuji
+                    "Celá zrudneš."
+                    j "Únavou, rozhodně únavou."
+                    "Vyjekneš. A on ti znovu zašeptá něco do ucha."
+                    show d fuji
+                    d "Škoda."
+                    hide d fuji
+                    "Pustí tě ze svého sevření."
+                    "Tentokrát, tě ale předejde."
+                    if j.love_points.get(d.name, 0) > 3:
+                        "Chytí tě za ruku a dělá ti oporu při klesání, je to výrazné ulehčení."
+                        "Dokonce se ti už ani nohy tolik neklepou, když na ně působí, už jen únava, bez nervozity z toho kam člověk šlápne."
+                        "Najednou se dostanete místu, které je dost příkré."
+                        "Dante tě popadne do náruče jako nevěstu a než stihneš zaprotestovat, jste dole."
+                        "Takhle pokračujete i dál, Dante ti buď podává ruku nebo tě přes nepřijemné úseky nosí."
+                    else:   
+                        "A při každém zhoršeném úseku, ti nabídne svou ruku, jako oporu."
+                    "Za což získává obdiv, potlesk či palce nahoru od japonců, které míjíte."
+                    "Když se dostanete k osmé stanici, kde je terén už malinko schůdnější."
+                    "Tak Dante začne řešit, že jste trochu v časové tísni. A že by měl někdo autobusem odjet protože do taxíku se vejdete jen 4."
+                    "A Adrian jste skoro došli."
+                    "Spoléhali jste na Sučana, ale ten vás stále nepředešel."
+                    "Danteho tedy pustíš napřed."
+                    menu: 
+                        "Chceš čekat na Mimoně, nebo odjet autobusem?"
+
+                if j.love_points.get(a.name, 0) > 3:
+                    "Chvíli šplháte společně všichni tři."
+                    "A bavíte se pro změnu tím, jaká obuv je na Fuji nejlepší."
+                    "Samozřejmě, že sandály a vy blbci jste si vzali bevnou obuv."
+                    "Ale po chvíli vám začne Dante, docela utíkat."
+                    show d fuji
+                    d "Hele tak když vy dva jdete spolu a máte podobné tempo, tak já doženu Sučana."
+                    hide d fuji
+                    show a fuji
+                    a "Jo běž, sejdeme se nahoře a nebo u autobusu."
+                    hide a fuji
+                    "Zůstala jsi tedy s Adrianem."
+                    show a fuji
+                    a "Mám ti vzít nějaké věci? Nemáš ten batoh těžký?"
+                    hide a fuji
+                    j "Nene v pohodě, to unesu."
+                    j "Spíš mi to dost klouže, tak jestli mi nepomůžeš, na těch větších kamenech."
+                    show a fuji 
+                    a "Rád."
+                    hide a fuji
+                    "Pomalu postupujete s Adrianem nahoru."
+                    "U větších kamenů a v nebezpečných místech ti pomáhá, takže postupujete velmi úspěšně vstříc vrcholu Fuji."
+                    "Aby byla šance, že stihnete autobus zpátky, napočítali jste, že vrcholu musíte dosáhnout před čtvrtou hodinou."
+
+                else:
+                    "hh"
             "Počkat na Mimoně":
                 "bbg"
     else:
@@ -469,6 +601,11 @@ label akt4:
                 "gfdhgd"
             "Počkat na Mimoně":
                 "gfdhg"
+
+
+
+    jump titulky #provizorně
+    #return
 
 
 
