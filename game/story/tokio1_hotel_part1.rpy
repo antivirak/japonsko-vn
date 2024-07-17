@@ -496,7 +496,7 @@ label ignorpanel3:
     j "A nebojíš se ty být s cizí holkou na pokoji? Nebojíš se tu být se mnou?"
     show a confuse at left
     a "..."
-    hide a confuse 
+    hide a confuse
     j "Promiň, to jsem asi přehnala."
     "Opřeš se pravou rukou o postel, abys z něho mohla slézt."
     show a confuse at left
@@ -1039,35 +1039,35 @@ label hracka_Sucan_Dante:
 
 label Hracka_Sucan_Adrian:
     "Dante si vzal na dvojlůžák Mimoně. Takže ty, Sučan a Adrian jste spolu na trojlůžáku."
-    "Vyzvedli jste si kufry v autě." 
+    "Vyzvedli jste si kufry v autě."
     show a neutral
     a "Chceš vzít kufr?"
-    hide a neutral 
+    hide a neutral
     "Už, už se chystáš říct, že ano. Když přijde Sučan a kufr ti vezme."
     show s neutral
     s "Jsme v osmém patře, tak pojďme k výtahu."
-    hide s neutral 
+    hide s neutral
     "Přesunete se do výtahu."
-    show s neutral 
+    show s neutral
     s "Jak dlouho jsme nespali spolu na jednom pokoji?"
     s "Tak 10 let?"
-    hide s neutral 
+    hide s neutral
     j "Nene, naposledy jsem u tebe spala, jak měla tvoje mamka taneční soutěž v Bratislavě."
     show s neutral
     s "Vidíš, na to jsem skoro zapomněl."
-    hide s neutral 
+    hide s neutral
     "Jak si tak povídáte, došli jste až ke dveřím do pokoje."
     "Sučan otevře dveře kartou a pustí tě před sebe."
-    scene bg dvojluzak separe 
+    scene bg dvojluzak separe
     "Před vámi se otevře minichodbička zakončená pokojem se třemi postelemi, oddělenými dvěma nočními stolky. U okna se nachází stoleček. Naproti postelím je vestavěná skříň s televizí. V chodbičce za dveřmi je ještě vstup do koupelny."
     show s neutral
     s "Vyber si postel"
-    hide s neutral 
+    hide s neutral
     "Vybereš si postel u okna"
-    "Sučan ti tam přinese kufr a sám si zabere postel vedle tebe." 
-    show s neutral 
+    "Sučan ti tam přinese kufr a sám si zabere postel vedle tebe."
+    show s neutral
     s "Pro jistotu,"
-    hide s neutral 
+    hide s neutral
     "mrkne na tebe."
     "Adrian tiše zamíří k poslední volné posteli."
     show s neutral
@@ -1117,7 +1117,7 @@ label Hracka_Sucan_Adrian:
         j "Jak to myslíš?"
         show s neutral
         "Tak, že by ses neměla vystavovat polonahá cizím klukům."
-        hide s neutral 
+        hide s neutral
         j "Tak s tebou jsem se pořádně pár let neviděla, jsi pro mě v podstatě taky cizí kluk."
         "Váš rozhovor přeruší přicházející Adrian."
         show a neutral
@@ -1155,7 +1155,7 @@ label Hracka_Sucan_Adrian:
         "[j.show_all_points()]"
         call recepce
         # TODO
-    
+
     elif not clothes and j.love_points.get(a.name, 0) > 1:
         # TODO is it correct to first check for suchan and then for adrian?
         "Zdržíš se zavíráním dveří do koupelny. A mezitím se Sučan dostane do 'chodbičky' k tobě."
