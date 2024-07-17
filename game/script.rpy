@@ -1,7 +1,7 @@
 ﻿# The script of the game goes in this file.
 
 # The game starts here.
-label start:
+label start_:
     play music "StockTune-Neon Pulse Of Japan_1719152100.mp3"
     call akt1
     call problemubytovani

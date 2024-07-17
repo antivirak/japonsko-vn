@@ -7,7 +7,8 @@ screen parking_machine_game(game_displayable):
     key 'mousedown_1' action NullAction()
     key 'mousedown_3' action NullAction()
 
-    add Solid("#000", xsize=.15 * config.screen_width, ysize=150, xalign=1, yalign=.5)
+    $ xsize = int(renpy.game.preferences.physical_size[0] / 3 * renpy.config.screen_width / renpy.game.preferences.physical_size[0])  # * 1.35
+    add Solid("#cd2e2e", xsize=xsize, ysize=50, xalign=.5, yalign=.85)
     add game_displayable
 
     vbox:
@@ -15,6 +16,7 @@ screen parking_machine_game(game_displayable):
         ypos 50
         spacing 20
 
+        # TODO this probably will be deleted, as we do not allow to move mouse higher than the bar
         textbutton 'Hlavní menu':
             text_hover_color '#fff'
             action [Confirm(
@@ -34,7 +36,7 @@ label start:
     image black = "#000"
     scene black
     # show bg image
-    $ game_displayable = ParkingDisplayable()
+    $ game_displayable = ParkingDisplayable(DynamicLogicMash(EMWW_GameDifficulty.MWWGD_Easy))
     # avoid rolling back and losing game state
     $ renpy.block_rollback()
 
