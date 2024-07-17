@@ -4,7 +4,7 @@ label akt4:
     "Takže místo v 6:05 odjíždíte až v 6:20, příjezd podle navigace 8:30."
     "Řízení se ujme Sučan."
     if j.driver:
-        "Ty si sedneš na místo spolujezdce. Zapojíš mobil přes kabel do panelu, aby se navigace spojila s autem a pustíš spotify."
+        "Protože jsi druhá řidička, tak si sedneš na místo spolujezdce. Zapojíš mobil přes kabel do panelu, aby se navigace spojila s autem a pustíš spotify."
         "V zádu sedí za řidičem rocapený Mimoň, který jen co dosedl, tak usnul, ve prostřed sedí zkroucný Adrian a za tebe si sedl Dante. "
     else:
         "Sedneš si za spolujezdce - Danteho, do středu si sedne Adrian a za Sučana Mimoň. Mimoň ihned usne. Rozvalý přes celou sedačku. Adrian se zase choulí ve středu."
@@ -246,7 +246,7 @@ label akt4:
                     show s fuji
                     s "Bych se nemohl podívat vašim do očí, kdyby se ti něco stalo."
                     hide s fuji
-                    j "Tak hlavně, že to svoje gentlemanství umíš dobře schovat."
+                    j "Tak hlavně, že to svoje gentlemanství umíš dobře odůvodnit."
                     "Se Sučanovou pomocí, postupuješ celkem rychle."
                     scene bg fuji before 9th
                     "Když je v dohledu devátá stanice, tak se cesta zase trošku zlepší a zvládneš se pohybovat i sama."
@@ -314,17 +314,17 @@ label akt4:
                     j "Jak víš, že mám svojí mikinu mokrou."
                     show s fuji
                     s "Tak zaprvé, jsme si ty bundy na sebe brali docela pozdě,"
-                    s "navíc ses asi po cestě nahoru spotila a jak jsme se teď tady na tom výdrholci zastavili, tak ti ta mikina prochladla, nemám pravdu?"
+                    s "navíc ses asi po cestě nahoru zpotila a jak jsme se teď tady na tom výdrholci zastavili, tak ti ta mikina prochladla, nemám pravdu?"
                     s "Neodmlouvej a ber, nechceš být nemocná ne? Nebo tě mám převlíknout sám?"
                     hide s fuji
                     "Dojde ti, že ti je vážně zima a že za to asi vážně může i to, že máš na sobě propocené a promočené oblečení z cesty nahoru."
                     j "Děkuji a nebude zima tobě?"
                     show s fuji
-                    s "Já něco vydržím"
+                    s "Já něco vydržím. Nenarážela jsi sama během cesty na to, že jsme každý jinak stavěný?"
                     hide s fuji
                     "Odložíš si věci sundáš si svou mikinu, navlíkneš si Sučanovu a pod ní si ještě sundáš i tričko."
                     "Sučan dělá, že se nedívá, ale je ti jasné, že tě po očku sleduje."
-                    "Nandáš si zpátky větrovku. A najednou ti je příjemné teplo. Mokré tričko a mikinu dáš do igelitky a daš si to do batohu."
+                    "Nandáš si zpátky větrovku. A najednou ti je příjemné teplo. Mokré tričko a mikinu dáš do igelitky a dáš si to do batohu."
                     show s fuji
                     s "Můžeme?"
                     hide s fuji
@@ -456,6 +456,7 @@ label akt4:
                 "Asi v půl deváté, píše Dante, že se musel vrátit až k šesté stanici, ale že Mimoně má a že přijedou na parkoviště."
                 "Ve chvíli, kdy dostanete tuto dobrou zprávu tak všichni vytuhnete."
                 "Vzbudí vás až když Dante klepe na okýnko."
+                "Narovnáte se do auta a vyrazíte na hotel."
             "S Dantem a Adrianem pokořit top v mírnějším tempu.":
                 "Vyrazila jsi tedy společně s Dantem a Adrianem."
                 "Spolu se zvyšující nadmořskou výškou se zhoršuje i terén."
@@ -482,19 +483,23 @@ label akt4:
                     "Když zdoláváš jedno místo, kde je nutné šplhat po kamenech, tak blbě šlápneš."
                     "Na jeden sice docela větší, ale nestabilní kámen."
                     "Ten se ti pod nohou uvolní."
-                    "Nevíš jak, ale než si stihneš natlouct, tak Dante je u tebe a drží tě za zadu za boky."
+                    "Nevíš jak, ale než si stihneš natlouct, tak Dante je u tebe a drží tě ze zadu za boky."
                     "Takže ačkoliv se držíš jen rukama, tak si nespadla dolů, ani sis neodřela kolena."
                     show d fuji
                     d "Opatrně, přitáhni se, pomůžu ti." 
                     hide d fuji
                     "Přitáhla ses rukama a druhou nohou si našla stabilnější mezeru o kterou se můžeš zapřít."
                     "Takže tě Dante mohl pustit a ty ses vyhoupla nahoru."
-                    "Nabídneš Dantemu výměnoou ruku."
+                    "Nabídneš Dantemu výměnou ruku."
                     show d fuji
                     d "To je v pořádku, zvládnu to, bych se bál, že tě stáhnu dolů"
                     hide d fuji
                     "Tak mu uhneš a on vyleze nahoru jako by to vlastně vůbec nebylo k horolezení, v jeho podání to působí, jako malý kamínek."
-                    "Takhle postupujete až nahoru."
+                    show d fuji
+                    d "Akorát jsem porušel tvé pravidlo, že se od tebe mám držet alespoň na deset centimetrů..."
+                    hide d fuji
+                    j "Zachránil jsi mě před nepříjemným pádem, za to jsem ti vděčná, ber to tak, že pravidlo platí na hotelu."
+                    "Pomalu postupujete nahoru."
                     "Adrian postupuje za vámi, stále ho vidíte, ale neslyšíte se."
                     scene bg fuji before 9th
                     "Nakonec je v dohledu devátá stanice a se cesta zase trošku zlepší."
@@ -555,6 +560,8 @@ label akt4:
                         "Najednou se dostanete místu, které je dost příkré."
                         "Dante tě popadne do náruče jako nevěstu a než stihneš zaprotestovat, jste dole."
                         "Takhle pokračujete i dál, Dante ti buď podává ruku nebo tě přes nepřijemné úseky nosí."
+                        $ j.add_love_points_for_person(d, 1)
+
                     else:   
                         "A při každém zhoršeném úseku, ti nabídne svou ruku, jako oporu."
                     "Za což získává obdiv, potlesk či palce nahoru od japonců, které míjíte."
@@ -563,10 +570,163 @@ label akt4:
                     "A Adrian jste skoro došli."
                     "Spoléhali jste na Sučana, ale ten vás stále nepředešel."
                     "Danteho tedy pustíš napřed."
+                $ j.add_love_points_for_person(d,2)
                     menu: 
                         "Chceš čekat na Mimoně, nebo odjet autobusem?"
+                        "Počkat na Mimoně a sestupovat tedy pomalu.":
+                            "Ale rozhodla jsi se, že Mimoně na samotného nenecháš, takže jseš rozhodnutá na něj počkat."
+                            "Nicméně nechceš absolvovat sestup po setmění, to znamená, stejně musíš být dole před sedmou."
+                            "Daří se ti sestupovat docela dobře, stále vidíš Adriana pár metrů pod tebou."
+                            "Kousek za sedmou stanicí, tě dohání Sučan."
+                            show s fuji
+                            s "Mám pro tebe dvě zprávy jednu dobrou a jednu špatnou."
+                            s "Ta dobrá je, že oproti plánu jsme o 3 minuty napřed."
+                            s "Ta špatná, že Mimoň je tak dvacet minut za mnou."
+                            s "Já běžím napřed mám klíče od auta, ať se pro vás kdyžtak můžu otočit."
+                            hide s fuji
+                            "Zbytek cesty tedy absolvuješ sama, i Adrian ti zmizel z dohledu."
+                            "Nicméně k autobusu u páté stanice jseš v půl sedmé a podle propzic, cesta k autobusu má trvat už jen patnáct minut."
+                            "Když dorazíš na plácek který je kousek od parkoviště autobusů, čeká tam na tebe Dante."
+                            show d fuji
+                            d "Jsem rád, že jsi v pořádku dole, měl jsem trošku, výčitky, že jsem tě tam nechal."
+                            d "Klidně běž k autobusu, kluci tam jsou, počkám na Mimoně sám."
+                            hide d fuji
+                            j "Nene, rozhodla jsem se, že na něj počkám, tak počkám."
+                            j "Za taxík dáme stejně ať jsme dva nebo tři."
+                            "Čekáte spolu 10 minut."
+                            "20 minut."
+                            "Začíná být tma."
+                            "30 minut."
+                            "40 minut."
+                            j "To už je divné, co když se mu něco stalo? Nebo, co když čeká v páté stanici?"
+                            show d fuji
+                            d "Tak já se tam dojdu podívát."
+                            hide d fuji
+                            j "Půjdu s tebou!"
+                            show d fuji
+                            d "Ne, vždyť si nahoře tak 10x spadla za dne, co v noci?"
+                            if driver:
+                                d "Navíc jsi druhá řidička, když si zlomíš nohu, tak máme po dovolené."
+                            d "Zůstaň tady, musíš být naprosto vyčerpaná. Já mám na rozíl od tebe výcvik. Ber to jako svůj trest za nedodržení pravidel na pokoji."
+                            hide d fuji
+                            j "Výcvik?"
+                            show d fuji
+                            d "Prostě si tu sedni, já ho přivedu."
+                            hide d fuji
+                            "Pochopila jsi, že ti Dante na otázku neodpoví a že odmlouvat, také nemá smysl."
+                            "Sedla jsis na obrubník chodníku a čekáš na Danteho s Mimoněm."
+                            "10 minut..."
+                            "20 minut..."
+                            "30 minut..."
+                            "Pokud by byl Mimoň v páté stanici, tak by měli každou chvíli přijít."
+                            "Dává se do tebe strašná zima, do toho jsi nervózní, že nevíš kde je Dante a Mimoň."
+                            "Ke všemu na nikoho nemáš spojení. Jseš sama..."
+                            "Sem tam se objeví skupinka Japonců, kteří s čelovkami a velmi kvalitní výbavou míří na noční výstup."
+                            "40 minut..."
+                            "Z úzkostí se upínáš na všechny přicházející lidi, avšak nikdo není ani Dante ani Mimoň."
+                            "50 minut..."
+                            "Hodina..."
+                            "Tvojí mysl začínají ovládat temné myšlenky, toho jak Mimoň v sandálech někde uklouzl a zřítil se kdo ví kam."
+                            "Nebo ještě hůř, že si ublížil Dante."
+                            "A že si Fuji vyžádala další oběti."
+                            "Do toho se vážne hodně ochladilo a vzhledem k tomu, že oblečení máš vlhké z cesty, tak rozhodně nehřeje."
+                            "Začínáš mít zimnici a nekontrolovatelně drkotáš zubama, cítíš se jak kdyby si měla horečku."
+                            "Začíná ti být na omdlení."
+                            "Vstaneš a začneš pochodovat sem a tam."
+                            "Hodina a dvacet minut..."
+                            "Začíná ti být na zvracení, nervy opravdu pracují velmi dobře."
+                            "Začínáš přemíšlet jestli máte kontakt na Danteho a Mimoňovu rodinu."
+                            "Jak jim dáte vědět, co jim vlastně řeknete?"
+                            "Po hodině a půl, kdy seš zralá na zhroucení konečně uvidíš, přicházet dvojici kdy jeden z dvojice svírá dřevěnou tyč."
+                            "Spadne ti obrovský kámen ze srdce."
+                            "Rozběhneš se za nimi."
+                            j "Díky bohu, jste v pořádku, já už řešila jak přepravit vaše těla do čech."
+                            "Dante se od Mimoně oddělí a jde ti napřed."
+                            show d fuji
+                            d "Tak zle snad nebylo, musel jsem pro něj až k šesté stanici."
+                            hide d fuji
+                            j "Co ho tak zdrželo? Vždyť měl být dvacet minut za mnou."
+                            show d fuji
+                            d "Sandály? Nebo možná... Vidíš tu tyč? Na každé stanici si na ní nechal vypálit razítko."
+                            hide d fuji
+                            j "Cože? To se mi snad zdá. Vždyť veděl, že spěcháme ne? A já se tu můžu posrat strachy."
+                            show d fuji
+                            d "Klid, vztekem tomu nepomůžeš, kluci psali, že je nahoru nepůstí, půjdu zařídit ten taxík, co ty na to?"
+                            hide d fuji
+                            "Jen přikývneš."
+                            if j.love_points.get(d.name, 0)>3:
+                                show d fuji
+                                d "Je mi líto, že si na nás musela čekat tak dlouho."
+                                "Odsune ti vlasy z obličeje."
+                                d "Brr, ty seš studená."
+                                "Šáhne ti na ruce."
+                                d "Ty jsi strašně zmrzlá."
+                                hide d fuji
+                                "Sundá si batoh ze zad a dá ti svojí mikinu"
+                                show d fuji 
+                                d "Vem si jí, je čistá, já jsem jí nepotřeboval."
+                                hide d fuji
+                                "Jsi tak vyčerpaná jak fyzicky, tak psychicky, že mikinu přijmeš."
+                                "Sundáš si bundu, a svojí vlhkou mikinu a místo ní si oblíkneš tu Danteho."
+                                "Pak si vezmeš zpátky bundu."
+                                "Během chvíle je ti výrazně lépe."
+                                $ j.add_love_points_for_person(d, 1)
+                            "Dante odejde směr parkoviště taxíků."
+                            "Zůstala jsi tedy na chvíli s Mimoněm sama, mlčíš protože jinak by si na něj musela křičet."
+                            $ j.add_hate_points_for_person(m, 5)
+                            "Dante se vrací s nějakým japoncem."
+                            show d fuji
+                            d "Tak pojďte on nás dolů odveze."
+                            hide d fuji
+                            "Nastoupíte do taxíku a ten vás odveze na parkoviště."
+                            "Cena překvapivě není tak vysoká."
+                            "Dante zaplatí, poděkujete a vyrazíte k autu."
+                            "Kluci spí."
+                            "Dante zaklepe na okýnko a kluci, se vzbudí, nasáčkujete se do auta a vyrazíte směr hotel."                       
 
-                if j.love_points.get(a.name, 0) > 3:
+                        "Nechat Mimoně svému osudu a hnát na autobus":
+                            "Ale rozhodla jsi se, že za Mimoně nemáš zodpovědnost."
+                            "A že vlastně nechceš absolvovat sestup po setmění, to znamená, stejně musíš být dole před sedmou."
+                            "Daří se ti sestupovat docela dobře, stále vidíš Adriana pár metrů pod tebou."
+                            "Kousek za sedmou stanicí, tě dohání Sučan."
+                            show s fuji
+                            s "Mám pro tebe dvě zprávy jednu dobrou a jednu špatnou."
+                            s "Ta dobrá je, že oproti plánu jsme o 3 minuty napřed."
+                            s "Ta špatná, že Mimoň je tak dvacet minut za mnou."
+                            hide s fuji
+                            if j.love_points.get(s.name, 0)>1:
+                                "Zbytek cesty absolvujete spolu."
+                                "K autobusu přicházíte za deset minut celá."
+                                "Takže jste to stihli."
+                            else:
+                                show s fuji
+                                s "Já běžím napřed mám klíče od auta, ať se pro vás kdyžtak můžu otočit."
+                                hide s fuji
+                                "Zbytek cesty tedy absolvuješ sama, i Adrian ti zmizel z dohledu."
+                                "Nicméně k autobusu ses dostala za pět minut celá, takže stíháš."
+                show d fuji
+                "U autobusu jste se sešli ty, Dante, Adrian a Sučan."           
+                d "Asi tady Mimoně nemůžeme nechat. Tak já na něj počkám a vy jeďte, buď nás naberete, nebo přijedeme taxíkem."
+                hide d fuji
+                "S tím souhlasíte a všichni 3 nastoupíte do autobusu, zatímco se Dante vrací pro Mimoně."
+                "V autobuse jste všichni vytuhli a probrali jste se až na parkovišti."
+                "Vysypali jste se z autobusu, napsali jste Mimoňovi, který neodepsal, sedli jste do auta."
+                "Sučan za volant a jdete zkusit zda vás nahoru nepustí, když už autobusy nejezdí."
+                "Přijeli jste k závorám, Adrian vystoupil a chvíli s hlídačem komunikuje."
+                "Už už to vypadá, že vás nahoru pustí, když k nim přijde ještě druhý japonec a Adrian naznačuje, že to nepůjde."
+                "Vrátil se zpátky do auta"
+                show a fuji
+                a "Tak nic, máme se vrátit na parkoviště a mají použít taxíka."
+                hide a fuji
+                "Dorazili jste tedy zpátky na parkoviště, najedli jste se, došli si na záchod."
+                "Asi v půl deváté, píše Dante, že se musel vrátit až k šesté stanici, ale že Mimoně má a že přijedou na parkoviště."
+                "Ve chvíli, kdy dostanete tuto dobrou zprávu tak všichni vytuhnete."
+                "Vzbudí vás až když Dante klepe na okýnko."
+                "Naskládáte se do auta a vyrazíte na hotel."
+                            
+
+
+                elif j.love_points.get(a.name, 0) > 3:
                     "Chvíli šplháte společně všichni tři."
                     "A bavíte se pro změnu tím, jaká obuv je na Fuji nejlepší."
                     "Samozřejmě, že sandály a vy blbci jste si vzali bevnou obuv."
@@ -589,18 +749,270 @@ label akt4:
                     "Pomalu postupujete s Adrianem nahoru."
                     "U větších kamenů a v nebezpečných místech ti pomáhá, takže postupujete velmi úspěšně vstříc vrcholu Fuji."
                     "Aby byla šance, že stihnete autobus zpátky, napočítali jste, že vrcholu musíte dosáhnout před čtvrtou hodinou."
-
+                    scene bg fuji before 9th
+                    "Nakonec je v dohledu devátá stanice a se cesta zase trošku zlepší."
+                    "Máš radost, že už na vrchol zbývá jen kousek dokonce se domníváš, že už vidíš vrchol, ale Adrian tě vyvede z omylu."
+                    show a fuji
+                    a "Tak tamto je stanice 9b a pak už jsme skoro tam."
+                    a "Nahoru to mělo trvat 6 h, ale už jsme ušetřili pár minut a pokud nám i ty dvě další etapy zaberou o trošku méně, tak bude nahoře čas si i chvíli sednout."
+                    hide a fuji
+                    "Říká Adrian docela z těžka, ačkoliv se evedentně snaží na tebe působit, že je v pořádku."
+                    "Rychlá změna nadmořské výšky mu vůbec nedělá dobře."
+                    j "Dobře."
+                    "A rozejdete se dopředu."
+                    "Terén se za stanici se zase rapidně zhoršil."
+                    "Navíc padla mlha ochladilo se a začalo poprchávat."
+                    "Takže vybalujete z batohů větrovky a oblíkáte si je na sebe."
+                    "Asi v polovině cesty mezi vrcholem a devátou stanicí b, konečně vylezete nad mraky a vysvitne sluníčko."
+                    "Ale dost fouká, takže si bundy necháte na sobě."
+                    "Konečně je vidět poslední, desátá stanice."
+                    "To ti dodá sílu a také se terén změnil na větší pevné kameny po kterých se dá docela slušně šplhat."
+                    scene bg fuji top
+                    "Takže poslední úsek zdoláte v dobrém čase."
+                    "U brány si uděláte na střídačku fotku."
+                    "A projdete ke kráteru."
+                    scene bg fuji krater
+                    "Před vámi se objeví pár desítek metrů hluboký kráter."
+                    "Vlastně, kdyby člověk nevěděl, že je to sopka a na neměl za sebou tu šílenou cestu,"
+                    "tak si řekne díra v zemi..."
+                    "Posadíte se na kameny..."
+                    show a fuji
+                    a "Jsem rád, že jsme to zvládli a že jsi tady se mnou..."
+                    hide a fuji
+                    "Větu ale nedokončí, protože omdlí? A sesune se na tebe."
+                    "Chytíš ho aby se nesesunul z kamene na zem do prachu. A začneš s ním třást."
+                    j "Adriane! Panebože Adriane! Prober se prosím."
+                    "Adrian otevře oči a zmateně se na tebe podívá."
+                    show a fuji
+                    a "Stalo se něco?"
+                    hide s fuji
+                    j "Asi si omdlel, vydrž mám v batohu čokoládu a zhluboka dýchej, ať tě dolů nemusím nést na zádech."
+                    j "Šup nádech, výdech, výdech..."
+                    "Opakuješ zatímco pravou rukou držíš Adriana opřeného o sebe a levou se hrabeš v batohu."
+                    "Adrian se asi konečně probere ze zmatení a tvou ruku sundá ze svého ramena. A narovná se."
+                    show a fuji
+                    a "Promiň, to jsem nechtěl, tohle se nemělo stát."
+                    a "Rozhodně jsem nechtěl v tvých očích vypadat jako padavka."
+                    hide a fuji
+                    j "Vždyť tak nevypadáš, na tady je ta čokoláda sněz jí a napij se."
+                    "Čokoládu si od tebe vezme a sní jí. Pak si vyndá pití z batohu a napije se."
+                    j "Jak ti je? Je to lepší?"
+                    "Dostanete zprávu od Sučana, že je s Dantem na druhé straně kráteru a ať raději jdete napřed."
+                    "Cesta dolů má trvat tři hodiny jsou čtyři, takže akorát čas vyrazit, pokud u autobusu máte být v sedm."
+                    j "Myslíš, že zvládneš cestu dolů? Nebo mám napsat Dantemu, aby ti pomohl?"
+                    "Adrian vytřeští oči."
+                    show a fuji
+                    a "Ne, Dantemu ne... Myslím, že to zvládnu."
+                    hide a fuji
+                    "Vyrazíte směrem dolů."
+                    "Jdeš před Adrianem a hlídáš, zda je při vědomí."
+                    "Ačkoliv se snažíš před Adrianem vypadat, že jsi v pořádku, a mu můžeš být oporou."
+                    "Ve skutečnosti jsi na dně svých sil, nohy se ti klepou při každém kroku vyčerpáním a nervozitou."
+                    "Protože každý krok dolů je nebezpečný, prach klouže, kameny pod nohama padají."
+                    "Takže člověk udělá krok, noha mu podjede a najde se o dva metry dále s nohou pod nánosem prachu."
+                    "A do toho máš obavu, aby Adrian zase neomdlel a nějak blbě nespadl."
+                    "Kousek od vrcholu potkáváte Mimoně, kterému oznamujete, že nahoru chodit nemá."
+                    "Že je potřeba stihnout autobus a že to bude dost na knop."
+                    "S Mimoněm jste se s Adrian malinko zdrželi."
+                    "A vy během chvíle utíkáte Mimoňovi."
+                    "Protože jsi rozhodla, že bude lepší s Adrianem jít napřed a co nejdříve ho dostat do nižších nadmořských výšek."
+                    "Kousek za sedmou stanicí, vás dohání Sučan."
+                    $ j.add_love_points_for_person(a, 2)
+                    show s fuji
+                    s "Mám pro vás dvě zprávy jednu dobrou a jednu špatnou."
+                    s "Ta dobrá je, že oproti plánu jsme o 3 minuty napřed."
+                    s "Ta špatná, že Mimoň je tak dvacet minut za mnou."
+                    s "Ale je s ním Dante, tak se nemusíte bát"
+                    s "Já běžím napřed mám klíče od auta, ať se pro vás kdyžtak můžu otočit."
+                    hide s fuji
+                    "Skoro celou cestu mlčíte až kousek před poslední stanicí, Adrian promluví."
+                    show a fuji
+                    a "Myslíš, že by sis to co se stalo nahoře mohla nechat pro sebe?"
+                    hide a fuji
+                    j "Jen v případě, že mi slíbíš, že mi příště řekneš, že ti není dobře dříve než omdlíš."
+                    j "Víš jak jsem se bála?"
+                    show a fuji
+                    a "To mě mrzí, a ještě více mě mrzí, že ty ses musela postarat o mě a ne já o tebe."
+                    hide a fuji
+                    j "O čem to mluvíš? Nahoře jsme si vyfotili kráter a šli zase zpátky ne?"
+                    "Mrkneš na něj. A přidáš trošku do kroku."
+                    "I na Adrianovi je vidět, že mu je lépe, takže s tebou stíhá držet krok."
+                    "K autobusu jste se dostali za deset celá, takže stíháte."
+                    "Sučan už sedí ve vnitř."
+                    show s fuji
+                    s "Dante psal, že jsou někde mezi sedmou a osmou stanicí nemáme na ně čekat."
+                    hide s fuji
+                    "Adrian si sedne za Sučana a ty vedle něj."
+                    "V autobuse jste všichni vytuhli a probrali jste se až na parkovišti."
+                    "Vysypali jste se z autobusu, napsali jste Mimoňovi, který neodepsal, sedli jste do auta."
+                    "Sučan za volant a jdete zkusit zda vás nahoru nepustí, když už autobusy nejezdí."
+                    "Přijeli jste k závorám, Adrian vystoupil a chvíli s hlídačem komunikuje."
+                    "Už už to vypadá, že vás nahoru pustí, když k nim přijde ještě druhý japonec a Adrian naznačuje, že to nepůjde."
+                    "Vrátil se zpátky do auta"
+                    show a fuji
+                    a "Tak nic, máme se vrátit na parkoviště a mají použít taxíka."
+                    hide a fuji
+                    "Dorazili jste tedy zpátky na parkoviště, najedli jste se, došli si na záchod."
+                    "Asi v půl deváté, píše Dante, že s Mimoněm úspěšně dorazili dolů a že přijedou taxíkem na parkoviště."
+                    "Ve chvíli, kdy dostanete tuto dobrou zprávu tak všichni vytuhnete."
+                    "Vzbudí vás až když Dante klepe na okýnko."
+                    "Narovnáte se do auta a vyrazíte na hotel."
                 else:
-                    "hh"
+                    "Míjíte další skupinu japonců."
+                    "A vylízáš snad stopadesátý kámen. Noha ti podjela tak dvěstěkrát."
+                    scene bg fuji before 9th
+                    "Nakonec je v dohledu devátá stanice a se cesta zase trošku zlepší."
+                    "Máš radost, že už na vrchol zbývá jen kousek dokonce se domníváš, že už vidíš vrchol, ale kluci tě vyvedou z omylu."
+                    "Je to teprve stanice 9b"
+                    "A rozejdete se dopředu."
+                    "Terén se za stanici se zase rapidně zhoršil."
+                    "Navíc padla mlha ochladilo se a začalo poprchávat."
+                    "Takže vybalujete z batohů větrovky a oblíkáte si je na sebe."
+                    "Asi v polovině cesty mezi vrcholem a devátou stanicí b, konečně vylezete nad mraky a vysvitne sluníčko."
+                    "Ale dost fouká, takže si bundy necháte na sobě."
+                    "Konečně je vidět poslední, desátá stanice."
+                    "To ti dodá sílu a také se terén změnil na větší pevné kameny po kterých se dá docela slušně šplhat."
+                    scene bg fuji top
+                    "Takže poslední úsek zdoláte v rekordním čase."
+                    "U brány si uděláte na střídačku fotku."
+                    "A projdete ke kráteru."
+                    scene bg fuji krater
+                    "Před vámi se objeví pár desítek metrů hluboký kráter."
+                    "Vlastně, kdyby člověk nevěděl, že je to sopka a na neměl za sebou tu šílenou cestu,"
+                    "tak si řekne díra v zemi..."
+                    "Právě jste zdolali převýšení asi 1200 m, za 4 a půl hodiny."
+                    "Začíná se do tebe dávat zima."
+                    "Jemně se oklepeš. vyndáš si z batohu mikinu a tu si oblečeš, pod větrovku."
+                    "Když jste se posadili na velký kámen u kráteru, tak vám píše Sučan, že je na druhé straně kráteru a ať raději jdete napřed.."
+                    j "Myslím, že už bychom měli jít ať stihneme ten autobus."
+                    "Začnete slízat dolů, docela dost to po tom prachu klouže, takže asi 3x během chvíle skončíš na zemi."
+                scene bg after 7th
+                "Mezi stanicemi 9b a 9a potkáváte Mimoně."
+                "Řeknete mu, že autobus odjíždí v sedm, takže by měl pohnout."
+                "Krom pár dálších tvých pádů se při cestě dolů nic zajímavého nestalo."
+                "A na parkoviště k autobusu přicházíte ve třičtvrtě na sedm."
+                "Za pět minut celá přichází Sučan."
+                show s fuji
+                s "Tak jsem tady, ale Mimoň zůstal někde mezi sedmou a šestou stanicí."
+                s "Ale já jsem musel jít mám klíče od auta, můžeme ho pak zkusit vyzvednout."
+                s "Nechal jsem mu svůj mobil s internetem, takže bez kontaktu není."
+                show d fuji
+                d "Asi tady Mimoně nemůžeme nechat. Tak já na něj počkám a vy jeďte, buď nás naberete, nebo přijedeme taxíkem."
+                hide d fuji
+                "S tím souhlasíte a všichni 3 nastoupíte do autobusu, zatímco se Dante vrací pro Mimoně."
+                "V autobuse jste všichni vytuhli a probrali jste se až na parkovišti."
+                "Vysypali jste se z autobusu, napsali jste Mimoňovi, který neodepsal, sedli jste do auta."
+                "Sučan za volant a jdete zkusit zda vás nahoru nepustí, když už autobusy nejezdí."
+                "Přijeli jste k závorám, Adrian vystoupil a chvíli s hlídačem komunikuje."
+                "Už už to vypadá, že vás nahoru pustí, když k nim přijde ještě druhý japonec a Adrian naznačuje, že to nepůjde."
+                "Vrátil se zpátky do auta"
+                show a fuji
+                a "Tak nic, máme se vrátit na parkoviště a mají použít taxíka."
+                hide a fuji
+                "Dorazili jste tedy zpátky na parkoviště, najedli jste se, došli si na záchod."
+                "Asi v půl deváté, píše Dante, že se musel vrátit až k šesté stanici, ale že Mimoně má a že přijedou na parkoviště."
+                "Ve chvíli, kdy dostanete tuto dobrou zprávu tak všichni vytuhnete."
+                "Vzbudí vás až když Dante klepe na okýnko."
+                "Narovnáte se do auta vyrazíte na hotel."
             "Počkat na Mimoně":
-                "bbg"
+                "Vážně takových možností jít na Fuji se sexy milýma klukama a ty zvolíš Mimoně?"
+                "Takže tě všichni opustili a vyrazili směr vrchol."
+                "Asi za deset minut přichází Mimoň."
+                "Naprosto naštvaný."
+                j "Tak si chvíli odpočiň a pak půjdeme dál."
+                show m fuji
+                m "Nikam nejdu!"
+                hide m fuji
+                j "Tak nemusíš, jestli nechceš."
+                j "Vzdát to v sedmé stanici není ostuda, na to že to jdeš v sandálích."
+                j "Klidně běž napřed dolů a počkej na nás, musíme být dole do sedmi."
+                show m fuji
+                m "..."
+                hide m fuji
+                j "Nebo můžeš jít pomalu nahoru a uvidíš kam zvládneš dojít, než je potkáme jak jdou dolů."
+                show m fuji
+                m "..."
+                hide m fuji
+                j "Nebo můžeš počkat tady a po cestě dolů tě nabereme."
+                show m fuji
+                m "..."
+                hide m fuji 
+                j "Hele musíš, se mnou komunikovat!"
+                show m fuji
+                m "..."
+                hide m fuji
+                j "Tak víš co? Já ten vrchol chci taky pokořit a když se mnou nemluvíš, tak já jdu. Jsi dospělý, nahoru nepoletíš a dole tě najdeme."
+                show m fuji
+                m "..."
+                "Rozhodneš se, že to nemá cenu, že když trucuje, tak že půjdeš napřed."
+                "Takhle praktika většinou funguje na malé děti, že pokud začnou dělat scénu, že nikam nejdou. Tak je tam prosstě necháte a jdete napřad."
+                "Děti když vidí, že jim nevěnujete pozornost a dokonce odcházíte, se přestanou vztekat a doženou vás."
+                "Navíc druhá možnost pro výstup na Fuji se nemusí objevit."
+                "Míjíš další skupinu japonců."
+                "A vylízáš snad stopadesátý kámen. Noha ti podjela tak dvěstěkrát."
+                    scene bg fuji before 9th
+                    "Nakonec je v dohledu devátá stanice a se cesta zase trošku zlepší."
+                    "Máš radost, že už na vrchol zbývá jen kousek dokonce se domníváš, že už vidíš vrchol."
+                    "Když dolezeš k ukazateli tvá radost zmizí."
+                    "Je to teprve stanice 9b"
+                    "A rozejdeš se dopředu."
+                    "Terén se za stanicí se zase rapidně zhoršil."
+                    "Navíc padla mlha ochladilo se a začalo poprchávat."
+                    "Takže vybaluješ z batohu větrovku a oblíkáš si ji na sebe."
+                    "Asi v polovině cesty mezi vrcholem a devátou stanicí b, konečně vylezš nad mraky a vysvitne sluníčko."
+                    "Ale dost fouká, takže si bundu necháváš na sobě."
+                    "Konečně je vidět poslední, desátá stanice."
+                    "To ti dodá sílu a také se terén změnil na větší pevné kameny po kterých se dá docela slušně šplhat."
+                    scene bg fuji top
+                    "Takže poslední úsek zdoláš v rekordním čase."
+                    "U brány tě vyhlíží Dante s Adrianem a udělají ti fotku."
+                    "A projdete ke kráteru."
+                    scene bg fuji krater
+                    "Před vámi se objeví pár desítek metrů hluboký kráter."
+                    "Vlastně, kdyby člověk nevěděl, že je to sopka a na neměl za sebou tu šílenou cestu,"
+                    "tak si řekne díra v zemi..."
+                    "Právě jste zdolali převýšení asi 1200 m, za 4 a půl hodiny."
+                    "Začíná se do tebe dávat zima."
+                    "Jemně se oklepeš. Vyndáš si z batohu mikinu a tu si oblečeš, pod větrovku."
+                    "Když jses se posadila na velký kámen u kráteru, tak vám píše Sučan, že je na druhé straně kráteru a ať raději jdete napřed.."
+                    j "Myslím, že už bychom měli jít ať stihneme ten autobus."
+                    "Začnete slízat dolů, docela dost to po tom prachu klouže, takže asi 3x během chvíle skončíš na zemi."
+                scene bg after 7th
+                "Mezi stanicemi 9b a 10 potkáváte Mimoně."
+                "Řeknete mu, že autobus odjíždí v sedm, takže by měl pohnout."
+                "Krom pár dálších tvých pádů se při cestě dolů nic zajímavého nestalo."
+                "A na parkoviště k autobusu přicházíte ve třičtvrtě na sedm."
+                "Za pět minut celá přichází Sučan."
+                show s fuji
+                s "Tak jsem tady, ale Mimoň zůstal někde mezi sedmou a šestou stanicí."
+                s "Ale já jsem musel jít mám klíče od auta, můžeme ho pak zkusit vyzvednout."
+                s "Nechal jsem mu svůj mobil s internetem, takže bez kontaktu není."
+                show d fuji
+                d "Asi tady Mimoně nemůžeme nechat. Tak já na něj počkám a vy jeďte, buď nás naberete, nebo přijedeme taxíkem."
+                hide d fuji
+                "S tím souhlasíte a všichni 3 nastoupíte do autobusu, zatímco se Dante vrací pro Mimoně."
+                "V autobuse jste všichni vytuhli a probrali jste se až na parkovišti."
+                "Vysypali jste se z autobusu, napsali jste Mimoňovi, který neodepsal, sedli jste do auta."
+                "Sučan za volant a jdete zkusit zda vás nahoru nepustí, když už autobusy nejezdí."
+                "Přijeli jste k závorám, Adrian vystoupil a chvíli s hlídačem komunikuje."
+                "Už už to vypadá, že vás nahoru pustí, když k nim přijde ještě druhý japonec a Adrian naznačuje, že to nepůjde."
+                "Vrátil se zpátky do auta"
+                show a fuji
+                a "Tak nic, máme se vrátit na parkoviště a mají použít taxíka."
+                hide a fuji
+                "Dorazili jste tedy zpátky na parkoviště, najedli jste se, došli si na záchod."
+                "Asi v půl deváté, píše Dante, že se musel vrátit až k šesté stanici, ale že Mimoně má a že přijedou na parkoviště."
+                "Ve chvíli, kdy dostanete tuto dobrou zprávu tak všichni vytuhnete."
+                "Vzbudí vás až když Dante klepe na okýnko."
+                "Narovnáte se do auta vyrazíte na hotel."
+
     else:
         menu:
             "Sučan vám utekl, chceš jít s Dantem a Adrianem nebo počkáš na Mimoně?"
             "S Dantem a Adrianem pokořit top v mírnějším tempu.":
-                "gfdhgd"
+                "Překopírovat sem verzi ze sportovní linky"
             "Počkat na Mimoně":
-                "gfdhg"
+                "Překopírovat sem verzi ze sportovní linky"
 
 
 
