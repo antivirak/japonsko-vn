@@ -73,9 +73,13 @@ label akt3:
     "Doufáte, že to je pouze vtip."
     "Ale asi není, podle toho, že Mimoň začne ryby sundávat."
     "Začnete všichni jíst, ryby od Mimoně si rozdělí kluci mezi sebe."
+    scene bg sibuja
     "Po obědě vyrazíte přejít Šibuju a šáhnout si na psa pro štěstí."
+    scene bg metro
     "Ze Šibuji se metrem přesouváte na Šindžuku, křižovatku vyhlášenou velkou obrazovkou s kočičkou."
+    scene bg sindzuku
     "Zde vyčkáte asi dva reklamní bloky (15minutové), abyste viděli alespoň dva celé spoty s kočičkou."
+    scene bg godzila
     "Poté se si jdete do vedlejší ulice vyfotit obchodní centrum s godzilou."
     "A protože, Mimoň toho moc nesnědl, začne otravovat, že má hlad."
     show m mask
@@ -111,6 +115,7 @@ label akt3:
             "Ale nezoufáte a během chvíle má Adrian náhradu."
             "Procházíte malými uličkami, až k takovým zapadlým dveřím."
             "Vlezete dovnitř po úzkém schodišti, do nosu váš udeří odér rybí polévky."
+            scene bg nagi
             "Na konci schodiště visí na zdi objednávkový automat."
             if j.love_points.get(a.name, 0) > 2:
                 show a neutral
@@ -148,6 +153,7 @@ label akt3:
             "Na to, jak zapadlý a na první pohled pochybný podnik to je, vám jídlo přijde výborné."
             "Dojíte, poděkujete a jdete hledat druhou část skupiny."
             "Od Sučana jste dostali zprávu, že jsou v gamecentru."
+    scene bg plysak
     "Všichni sejdete v gamecentru. Mimoň hraje už asi pátou rytmickou hru a odmítá odejít."
     # TODO další kolo minihry
     "Asi po hodině se vám podaří Mimoně přesvědčit, že už půjdete."
@@ -157,7 +163,7 @@ label akt3:
     "A plyšák kupodivu nespadl a dojel až k výdejnímu otvoru."
     "Celý automat hraje a bliká."
     "Dante vytahuje plyšáka."
-    show d plysak
+    show d plysak at left
     d "Na, vem si ho, já jsem si to chtěl jen zkusit."
     d "Můžeš to brát jako pouťovou růži z papíru."
     hide d plysak

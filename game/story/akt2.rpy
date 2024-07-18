@@ -35,7 +35,7 @@ label akt2:
     "Dorazíte k pobočce Ichiranu, ale je před vámi dlouhá fronta asi 15 lidí."
     "Avšak jeden z Japonců vám pro urychlení podává meníčko pro zakroužkování správného ramenu na míru."
     call ichiran_selection_minigame_main
-    scene bg ichiran2 # sehnat lepší ichiran
+    scene bg ichiran venek # sehnat lepší ichiran
     "Poté, co jste zakroužkovali, jak by váš Ichiran ramen měl vypadat, jste ještě chvíli čekali."
     "Než jste se dostali dovnitř budovy, u vstupu byl automat, kam jste museli zadat, jestli chcete jen ramen nebo například vajíčko navíc."
     "Když jste zaplatili a posunuli se ještě ve frontě, všimli jste si, že do 'jídelny' vedou 4 vstupy."
@@ -49,6 +49,7 @@ label akt2:
     hide a neutral
     "Číšník se strašně zděsí, ale pomocí rukou, nohou, japonštiny a angličtiny mu vysvětlíte, že je v pořádku, když budete sedět odděleně."
     hide ichiran_led
+    scene bg ichiran2
     "Sice se mu tato informace nezamlouvá, ale po chvíli se mu podaří vás všechny usadit do kóje."
     "Obsluha za stěnou vytáhne roletku u vašich míst. Ty jí předáš svoje vyplněné meníčko a lísteček o zaplacení. Poděkují a zase stáhnou roletku."
     "A aby sis ukrátil['a' if j.gender == 'f' else ''] čekání na svůj rámen, tak si ho v minihře vytvoř."

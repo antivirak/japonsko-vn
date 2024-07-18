@@ -34,7 +34,7 @@ label akt1:
         print(j.name_5p)
 
     image black = "#000"
-    scene black
+    scene bg letistenara
     if j.gender == 'f':
         "Na podzim jsi ukončila velmi toxický vztah a hledala jsi nějakou cestu, jak co nejrychleji zapomenout."
         "V té době se ti ozval Sučan, že plánuje jet do Japonska, tak jestli se k němu nechceš přidat."
@@ -43,6 +43,7 @@ label akt1:
     if j.gender == 'm':
         "Po Vánocích ti napsal tvůj kamarád z dětství, že shání někoho do party na cestu do Japonska."
         "Ani nevíš, jak se to stalo, ale v únoru už jsi měl letenku s červencovým odletem."
+    scene black
     show s neutral at left
     "Tohle je kluk s přezdívkou Sučan."
     if j.gender == 'f':
@@ -81,7 +82,7 @@ label akt1:
     show m neutral at right
     show a neutral at left
     show s neutral:
-        xalign 0.3
+        xalign 0.35
         yalign 1.0
     if j.gender == 'f':
         show d neutral:
