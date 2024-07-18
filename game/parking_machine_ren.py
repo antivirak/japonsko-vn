@@ -4,10 +4,11 @@ init python:
 
 # from datetime import datetime
 from enum import Enum
+from typing import Optional
 
 import pygame
 from renpy import config
-# from renpy.display.imagelike import Solid
+from renpy.display.imagelike import Solid
 
 # TODO change game cursor to tweezers (img on Desktop)
 
@@ -42,7 +43,7 @@ class DynamicLogicSimple:
     def UpdateLogic(self, isPointerInHotSpot: bool, timeDelta: float) -> bool:
         return self.ProcessLogic(isPointerInHotSpot, timeDelta)
 
-    def GetWinner(self) -> int:
+    def GetWinner(self) -> bool:
         return self.m_winner
 
     def GetBarWidthScale(self) -> float:
@@ -63,7 +64,7 @@ class DynamicLogicSimple:
             self.m_lastInHotspot = True
         else:
             if self.m_lastInHotspot:
-                self.m_barInteriaTimer = 1.0
+                self.m_barInteriaTimer = 1
             self.m_barPos -= timeDelta * self.m_barSpeed
             self.m_lastInHotspot = False
 
@@ -71,14 +72,14 @@ class DynamicLogicSimple:
             self.m_tiredFactor += timeDelta * .03
 
         if self.m_tiredFactor > .5:
-            self.m_barSpeed += .01 * timeDelta
+            self.m_barSpeed += timeDelta * .01
             self.m_barSpeed = min(self.m_barSpeed, .5)
 
         if self.m_barPos >= .9:
-            self.m_winner = 0
+            self.m_winner = True
             return True
         elif self.m_barPos < -.9:
-            self.m_winner = 1
+            self.m_winner = False
             return True
 
         return False
@@ -190,15 +191,23 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
         self.has_ended = False
         self.success = False
         self.logic = logic
+        self.bar_width = 200  # TODO
+        self.bar_drawable = Solid(
+            '#ff8000', xsize=self.bar_width, ysize=50,
+        )
         # self.cur_y = 700
         self.cur_y = renpy.game.preferences.physical_size[1] * .85 - 10
+        self.bar_y = config.screen_height * .85 - 43
         # pygame.mouse.set_pos([700, self.cur_y])  # somehow relative, but config.screen_height is not working
         self.screen_width_half = renpy.game.preferences.physical_size[0] // 2
+        self.bulgar_const = renpy.game.preferences.physical_size[0] / config.screen_width
         self.pos_min = self.screen_width_half - self.screen_width_half // 3
         # self.pos_max = self.screen_width_half + 250
-        pygame.mouse.set_pos([self.screen_width_half, self.cur_y])
+        self.pos_x = self.screen_width_half
+        pygame.mouse.set_pos([self.pos_x, self.cur_y])
         # record all the drawables for self.visit
         self.drawables = [
+            self.bar_drawable,
         ]
         # time = renpy.get_time()
         self.start_time = 0
@@ -216,17 +225,46 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
         """
         render = renpy.Render(width, height)
 
-        # render.place(
-        #     self.drum_bar_drawable,
-        #     x=0, y=config.screen_height // 2 - self.horizontal_bar_height // 2,
-        # )
         if not self.start_time:
             self.start_time = st
+
+        xsize = int(self.logic.GetBarWidthScale() * self.bar_width)
+        print('xsize', xsize)
+        x_place = self.logic.GetBarPos() * 250 + (config.screen_width - xsize) / 2  # center
+
+        self.bar_drawable = Solid(
+            '#ff8000', xsize=xsize, ysize=50,
+        )
+        self.bar_drawable.xsize = xsize
+        self.bar_drawable.x_place = x_place  # pylint: disable attribut outside init
+
+        render.place(
+            self.bar_drawable,
+             # scale to (-250 to 250)
+            x=x_place, y=self.bar_y,
+        )
+
+        # find out if the cursor is inside hotspot
+        # this should probably be managable by the pygame's collisions
+        inside_hotspot = self.bar_drawable.x_place - self.bar_drawable.xsize <= self.pos_x / self.bulgar_const <= self.bar_drawable.x_place + self.bar_drawable.xsize
+        seconds = st - self.start_time
+        if seconds >= 0.1:
+            self.start_time = st
+            end = self.logic.UpdateLogic(inside_hotspot, seconds)
+            if end:
+                self.has_ended = True
+        self.set_pointer_pos()
 
         renpy.redraw(self, 0)
         return render
 
-    def event(self, ev: pygame.event, _: float, __: float, st: float) -> None:
+    def set_pointer_pos(self):
+        pos_x = self.logic.GetPointerPos()  # -1 to 1
+        # scale to (-250 to 250) + pos_min
+        self.pos_x = int((pos_x + 1) * self.screen_width_half / 3) + self.pos_min
+        pygame.mouse.set_pos([self.pos_x, self.cur_y])
+
+    def event(self, ev: pygame.event, _: float, __: float, st: float) -> Optional[bool]:
         """
         Called to report than an event has occured. Ev is the raw
         pygame event object representing that event. If the event
@@ -240,24 +278,29 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
         if self.has_ended:
             # refresh the screen
             renpy.restart_interaction()
-            return
+            return self.logic.m_winner
 
         if ev.type != pygame.MOUSEMOTION:
             return
 
         self.logic.UpdateInput(ev.rel[0])
-        pos_x = self.logic.GetPointerPos()  # -1 to 1
-        # scale to (-250 to 250) + pos_min
-        pos_x = int((pos_x + 1) * self.screen_width_half / 3) + self.pos_min
-        pygame.mouse.set_pos([pos_x, self.cur_y])
+        self.set_pointer_pos()
 
-        seconds = st - self.start_time
-        if seconds >= 0.1:
-            self.start_time = st
-            self.logic.UpdateLogic(True, seconds)  # TODO True only if in the hotspot
+        renpy.restart_interaction()
+        # # find out if the cursor is inside hotspot
+        # # this should probably be managable by the pygame's collisions
+        # inside_hotspot = self.bar_drawable.x_place - self.bar_drawable.xsize <= pos_x <= self.bar_drawable.x_place + self.bar_drawable.xsize
+        # seconds = st - self.start_time
+        # if seconds >= 0.1:
+        #     self.start_time = st
+        #     self.logic.UpdateLogic(inside_hotspot, seconds)
+        #     renpy.restart_interaction()
+
         #     print('updating logic', st)
 
         # print(ev.pos, ev.rel)
+        # renpy.restart_interaction()
+        # renpy.redraw(self, 0)
 
     def visit(self) -> list[renpy.display.displayable.Displayable]:
         """

@@ -36,6 +36,7 @@ label start:
     image black = "#000"
     scene black
     # show bg image
+    # TODO probably disable esc
     $ game_displayable = ParkingDisplayable(DynamicLogicMash(EMWW_GameDifficulty.MWWGD_Easy))
     # avoid rolling back and losing game state
     $ renpy.block_rollback()
