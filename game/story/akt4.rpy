@@ -44,6 +44,7 @@ label akt4:
     show fujiguards
     "Na takovém plácku, kde stojí dvě buňky a taxíky, vás před stupem na 'schodiště' vedoucí na stezku nahoru zastaví dva Japonci."
     fujiguards "Are you plannig go to Fuji-san?"
+    "Pomyslíte si, že tito dva mají snad nejlepší angličtinu, co jste zatím v Japonsku slyšeli."
     hide fujiguards
     show d fuji
     d "Yes, we are plannig go to the top today."
@@ -80,7 +81,13 @@ label akt4:
     d "No, thanks, we don't need them."
     hide d fuji
     show fujiguards
-    fujiguards "If you think so, so be carefull. Bye"
+    fujiguards "If you think so, so be carefull."
+    fujiguards "You can leave here a voluntary donation 1000 yen per person. It will be used for the maintenance of the routes."
+    fujiguards "Starting 2024 this fee will be obligatory and raised to 2000 yen."
+    hide fujiguards
+    "Několik z vás se rozhodne zaplatit a dostanou za to papír s rozpisem stanic, razítko a dřevéný suvenýrek."
+    show fujiguards
+    fujiguards "Thank you, bye."
     hide fujiguards
     show d fuji
     d "Thank you, arigató, bye."
