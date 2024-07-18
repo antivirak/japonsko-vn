@@ -276,6 +276,8 @@ label tokio1:
             d "..."
             "Vypadá to, že je opravdu zabraný do četby."
             "Najednou však zvedne oči od mobilu."
+            hide d neutral
+            show d neutral smile
             d "Je tu strašný teplo."
             "Jemně se usměje."
             d "Chceš?"
@@ -285,7 +287,7 @@ label tokio1:
             "Získáváš jeden LP u Danteho"
             $ j.add_love_points_for_person(d, 1)
             "[j.show_all_points()]"
-            hide d neutral
+            hide d neutral smile
             return
 
         "Zůstanu čekat sama.":

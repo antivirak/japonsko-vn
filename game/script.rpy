@@ -7,6 +7,7 @@ label start:
     call problemubytovani
     call akt2
     call akt3
+    call akt4
 
 
 label titulky:

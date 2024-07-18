@@ -1,5 +1,4 @@
 ﻿# picture from https://www.shiroang.com/blog/ichiran-main-store-pilgrimage-visit-to-a-ramen-chain-hq-in-fukuoka
-# https://www.deviantart.com/lrissman/art/Red-Circle-2-867253268 (creative commons)
 
 # start minigame by "jump / call ichiran_selection_minigame_main" from script
 

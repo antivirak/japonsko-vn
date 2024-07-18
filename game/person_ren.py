@@ -25,7 +25,7 @@ class Person(ADVCharacter):
             return (self.__dict__ == other.__dict__)
         return False
 
-    def add_love_points_for_person(self, person: Person, value: int) -> None:
+    def add_love_points_for_person(self, person: Person, value: int | float) -> None:
         if person.name not in self.love_points:
             self.love_points[person.name] = 0
         if not renpy.in_rollback():
