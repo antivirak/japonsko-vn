@@ -691,6 +691,8 @@ label ignorpanel5:
     "Mrkne na tebe a narovná se."
     hide d black
     "Chceš mu odpovědět, ale akorát se otevřou dveře od výtahu a jste na doslech ostatním."
+    $ j.add_love_points_for_person(d, 2)
+    "[j.show_all_points()]"
     call recepce
     call dvojluzak_hracka_Dante2
     return

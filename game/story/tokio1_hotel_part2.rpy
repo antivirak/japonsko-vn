@@ -212,7 +212,7 @@ label dvojluzak_hracka_Dante2:
             "A tak čte Dante dál a přečte ti asi 20 stránek, ale ke konci začínáš být hodně unavená a začneš usínat."
             show d pyjama
             d "A tak Marylin s dcerkou v náručí..., lesem.... a větvičky stromů jí... do obličeje..."
-            d "[j.nape5p], spíš?"
+            d "[j.name_5p], spíš?"
             hide d pyjama
             j "Promiň Dante, asi ano. Poslední, co si pamatuji, je, že vyběhla zadním vchodem s malou."
             show d pyjama

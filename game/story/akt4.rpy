@@ -19,6 +19,7 @@ label akt4:
     "Ale bez problémů se vám daří najíždět a rozpoznávat nájezdy a sjezdy pro placení."
     scene bg cestafuji1
     "Dálnice je převážně na mostech a v tunelech, takže místy se otvírá krásný výhled na okolní krajinu."
+    scene bg mapafuji
     "Když z dálnice sjedete kousek od Fuji, tak se dostanete na takové menší okresní silničky."
     scene bg cestafuji3
     "Cestou se koukáš z okýnka, všude je vše krásně zelené. Konečně chápeš, proč je v Anime vždy tráva tak krásně zelená:"
@@ -564,6 +565,7 @@ label top_but_slower:
         "Ale pohled na kráter mu vžene energii do žil."
         "Dostanete zprávu od Sučana, že je na druhé straně kráteru a ať raději jdete napřed."
         "Cesta dolů má trvat tři hodiny. Jsou čtyři odpoledne, takže je akorát čas vyrazit, pokud máte stihnout autobus v sedm."
+        scene bg fuji3
         "Vyrazíte zase všichni tři směrem dolů."
         "Adrian jde první a vy dva za ním."
         show m fuji
@@ -633,7 +635,7 @@ label top_but_slower:
                 j "Za taxík dáme stejně ať jsme dva nebo tři."
                 "Čekáte spolu 10 minut."
                 "20 minut."
-                scene fuji under tma
+                scene bg fuji under tma
                 "Začíná být tma."
                 "30 minut."
                 "40 minut."
@@ -725,6 +727,7 @@ label top_but_slower:
                 "Dante zaplatí, poděkujete a vyrazíte k autu."
                 "Kluci spí."
                 "Dante zaklepe na okénko a kluci, se vzbudí. Nasáčkujete se k nim do auta a vyrazíte směr hotel."
+                return
             "Nechat Mimoně svému osudu a hnát na autobus":
                 "Ale rozhodla jsi se, že za Mimoně nemáš zodpovědnost."
                 "A že vlastně nechceš absolvovat sestup po setmění, to znamená, stejně musíš být dole kolem sedmé."
@@ -768,6 +771,7 @@ label top_but_slower:
         "Ve chvíli, kdy dostanete tuto dobrou zprávu, všichni vytuhnete."
         "Vzbudí vás až když Dante klepe na okénko."
         "Naskládáte se do auta a vyrazíte na hotel."
+        return
 
     elif j.love_points.get(a.name, 0) > 2:
         "Chvíli šplháte společně všichni tři."
