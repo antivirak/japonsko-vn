@@ -1,9 +1,11 @@
 ﻿# start minigame by "jump / call parking_machine_game_main" from script
 
+image mouse tweezers:
+    "images/tweezers.png"
+
 
 screen parking_machine_game(game_displayable):
-
-    # disable the mous buttons for actions other than the game
+    # disable the mouse buttons for actions other than the game
     key 'mousedown_1' action NullAction()
     key 'mousedown_3' action NullAction()
 
@@ -37,7 +39,11 @@ label start:
     scene black
     # show bg image
     # TODO probably disable esc
-    $ game_displayable = ParkingDisplayable(DynamicLogicMash(EMWW_GameDifficulty.MWWGD_Easy))
+    $ mouse_backup = config.mouse_displayable
+    $ config.mouse_displayable = MouseDisplayable(
+        "images/tweezers.png", 0, 0,
+    ).add("tweezers", "mouse tweezers", 9.9, 9.9)  # Transform(, xysize=(100, 50))
+    $ game_displayable = ParkingDisplayable(DynamicLogicMash(EMWW_GameDifficulty.MWWGD_Easy), mouse="tweezers")
     # avoid rolling back and losing game state
     $ renpy.block_rollback()
 
@@ -45,6 +51,7 @@ label start:
         _screen_name='parking_machine_game', game_displayable=game_displayable,
     )
     $ renpy.checkpoint()
+    $ config.mouse_displayable = mouse_backup
     if success is True:
         "Bankovka úspěšně vyndána z automatu!"
     else:

@@ -10,8 +10,6 @@ import pygame
 from renpy import config
 from renpy.display.imagelike import Solid
 
-# TODO change game cursor to tweezers (img on Desktop)
-
 
 class EMWW_GameDifficulty(Enum):
     MWWGD_Easy = .2
@@ -185,8 +183,11 @@ class DynamicLogicMash(DynamicLogicSimple):
 
 
 class ParkingDisplayable(renpy.display.displayable.Displayable):
-    def __init__(self, logic: DynamicLogicSimple) -> None:
+    def __init__(self, logic: DynamicLogicSimple, mouse=None) -> None:
         super().__init__()
+
+        # if mouse:
+        #     self.kwargs['mouse'] = mouse
 
         self.has_ended = False
         self.success = False
@@ -196,7 +197,7 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
             '#ff8000', xsize=self.bar_width, ysize=50,
         )
         # self.cur_y = 700
-        self.cur_y = renpy.game.preferences.physical_size[1] * .85 - 10
+        self.cur_y = renpy.game.preferences.physical_size[1] * .85 - 20
         self.bar_y = config.screen_height * .85 - 43
         # pygame.mouse.set_pos([700, self.cur_y])  # somehow relative, but config.screen_height is not working
         self.screen_width_half = renpy.game.preferences.physical_size[0] // 2
