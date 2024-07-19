@@ -35,7 +35,7 @@ label akt2:
     "Dorazíte k pobočce Ichiranu, ale je před vámi dlouhá fronta asi 15 lidí."
     "Avšak jeden z Japonců vám pro urychlení podává meníčko pro zakroužkování správného ramenu na míru."
     call ichiran_selection_minigame_main
-    scene bg ichiran venek # sehnat lepší ichiran
+    scene bg ichiran venek  # TODO sehnat jeste lepší ichiran
     "Poté, co jste zakroužkovali, jak by váš Ichiran ramen měl vypadat, jste ještě chvíli čekali."
     "Než jste se dostali dovnitř budovy, u vstupu byl automat, kam jste museli zadat, jestli chcete jen ramen nebo například vajíčko navíc."
     "Když jste zaplatili a posunuli se ještě ve frontě, všimli jste si, že do 'jídelny' vedou 4 vstupy."

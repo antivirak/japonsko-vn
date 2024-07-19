@@ -1,4 +1,5 @@
 label akt4:
+    $ j.hoodie = ""  # Whose hoodie does Hracka end up with
     "Ráno jste se sešli všichni na recepci, zase bylo nutné počkat na Mimoně, který s vámi nakonec jede."
     "Pak jste šli narovnat věci do auta. Zabralo vám to víc času, než jste čekali,"
     "takže místo v 6:05 odjíždíte až v 6:20. Příjezd odhaduje navigace na 8:30."
@@ -337,6 +338,7 @@ label sucan_krater:
         "Říkáš, zatímco ho pouštíš a trochu si od něj poodstoupíš."
         "V tu ránu se do tebe dá zima."
         "Jemně se oklepeš. Ale Sučan to zaregistroval a už z batohu vyndává mikinu, kterou ti podává."
+        $ j.hoodie = s.name
         show s fuji
         s "Na, je tu zima. Svlíkni si tu svoji mokrou mikinu a ven si místo ní moji suchou a přes to až tu bundu."
         hide s fuji
@@ -435,7 +437,7 @@ label sucan_krater:
         "tak si řekne díra v zemi..."
         "Právě jste zdolali převýšení asi 1200 m, za 4 a půl hodiny."
         "Začíná se do tebe dávat zima."
-        "Jemně se oklepeš. vyndáš si z batohu mikinu a tu si oblečeš, pod větrovku."
+        "Jemně se oklepeš. vyndáš si z batohu mikinu a tu si oblečeš pod větrovku."
         show s fuji
         s "Můžeme?"
         hide s fuji
@@ -704,6 +706,7 @@ label top_but_slower:
                     d "Ty jsi strašně zmrzlá."
                     hide d fuji
                     "Sundá si batoh ze zad a dá ti svoji mikinu"
+                    $ j.hoodie = d.name
                     show d fuji
                     d "Vem si ji, je čistá, já jsem ji nepotřeboval."
                     hide d fuji
@@ -965,7 +968,7 @@ label top_but_slower:
         scene bg fuji parkoviste
         "Vysypali jste se z autobusu, napsali jste Mimoňovi, který neodepsal, sedli jste do auta."
         "Sučan za volant a jdete zkusit, zda vás nahoru nepustí, když už autobusy nejezdí."
-        scene bg cesta fuji5
+        scene bg cestafuji5
         "Přijeli jste k závorám, Adrian vystoupil a chvíli s hlídačem komunikuje."
         "Už, už to vypadá, že vás nahoru pustí, když k nim přijde ještě druhý Japonec a Adrian naznačuje, že to nepůjde."
         show a fuji
@@ -1040,7 +1043,7 @@ label fuji_mimon_wait:
     "tak si řekne díra v zemi..."
     "Právě jste zdolali převýšení asi 1200 m, za 4 a půl hodiny."
     "Začíná se do tebe dávat zima."
-    "Jemně se oklepeš. Vyndáš si z batohu mikinu a tu si oblečeš, pod větrovku."
+    "Jemně se oklepeš. Vyndáš si z batohu mikinu a tu si oblečeš pod větrovku."
     "Když ses se posadila na velký kámen u kráteru, píše vám Sučan, že je na druhé straně kráteru a ať raději jdete napřed."
     j "Myslím, že už bychom měli jít ať stihneme ten autobus."
     scene bg fuji3

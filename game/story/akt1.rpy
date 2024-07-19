@@ -33,7 +33,6 @@ label akt1:
         j.name_5p = vokativ(j.name, woman=j.gender == "f", last_name=False).capitalize()
         print(j.name_5p)
 
-    image black = "#000"
     scene bg letistenara
     if j.gender == 'f':
         "Na podzim jsi ukončila velmi toxický vztah a hledala jsi nějakou cestu, jak co nejrychleji zapomenout."
@@ -43,6 +42,7 @@ label akt1:
     if j.gender == 'm':
         "Po Vánocích ti napsal tvůj kamarád z dětství, že shání někoho do party na cestu do Japonska."
         "Ani nevíš, jak se to stalo, ale v únoru už jsi měl letenku s červencovým odletem."
+    image black = "#000"
     scene black
     show s neutral at left
     "Tohle je kluk s přezdívkou Sučan."
