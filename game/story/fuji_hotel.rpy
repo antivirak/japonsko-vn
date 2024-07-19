@@ -1,5 +1,7 @@
 label hotel_fuji:
+    scene bg hotel fuji parking
     "Po příjezdu na hotel zaparkujete na hotelovém parkovišti, vyndáte si kufry"
+    scene bg fuji recepce
     "a úplně zničení zamíříte na recepci."
     "Na recepci ukážete své pasy a rozhodnete se přikoupit si pozdější checkout a snídani."
     "Dostanete každý svou kartu od pokoje, tentokrát Sučan zařídil jednolůžkový pokoj pro každého a hotel nikdo nehacknul."
@@ -17,6 +19,7 @@ label hotel_fuji:
     "Tvůj pokoj je nejblíže k výtahu."
     "Vedle tebe má pokoj Dante, vedle Danteho Adrian."
     "Sučan má pokoj naproti tobě a Mimoň pak vedle něho."
+    scene bg fuji pokoj
     "Zapadneš do pokoje. Pokoj se nijak extra neliší od pokoje, ve kterém jste spali v Tokiu."
     "Zamkneš se, odložíš si kufr, vybalíš si věci na převlečení a zalezeš do koupelny."
     "Jsi celá ulepená a černá od sopečného prachu."
@@ -27,7 +30,7 @@ label hotel_fuji:
     menu:
         "Kdo si přeješ, aby to byl?"
         "Adrian":
-            if j.love_points.get(a, 0) > 4:
+            if j.love_points.get(a.name, 0) > 4:
                 jump adrian_fuji
                 # TODO if really jump, then we can unindent this one level
             else:
@@ -36,7 +39,7 @@ label hotel_fuji:
                 "Otevřeš dveře a jsi zklamaná."
                 jump sucan_fuji_nolove
         "Dante":
-            if j.love_points.get(d, 0) > 4:
+            if j.love_points.get(d.name, 0) > 4:
                 jump dante_fuji
             else:
                 "Vstaneš."
@@ -47,7 +50,7 @@ label hotel_fuji:
         "Mimoň":
             jump mimon_fuji
         "Sučan":
-            if j.love_points.get(s, 0)>4:
+            if j.love_points.get(s.name, 0)>4:
                 jump sucan_fuji
             else:
                 "Vstaneš."
@@ -327,6 +330,7 @@ label sucan_fuji:
     j "Jo, tak běž, ty podvodníku."
     "Sučan si posbírá svoje věci a odejde."
     "Zamkneš za ním a usneš."
+    return
 
 label mimon_fuji:
     "Za dveřmi srojí Mimoň, stále špinavý a ve stejném oblečení v kterém byl na Fuji."
@@ -348,6 +352,7 @@ label mimon_fuji:
     "Zavřeš dveře, zamkneš a jdeš spát."
     "Ráno ti zvoní budík před sedmou, vstaneš převlíkneš vezmeš si své špinavé prádlo."
     "Vylezeš před pokoj je 6:59, čekáš jestli se neobjeví Mimoň. Po deseti minutách to vzdáš a sjedeš výtahem dolů."
+    scene bg fuji pradelna
     "Večer sis totiž na recepci všimla, že inzerují že mají pračku. Najdeš ji v dámském onsenu. V předcíňce jsou pračky dokonce dvě a dvě sušičky."
     "Naházíš věci do pračky, pomocí překladače se dozvíš, že cyklus stojí 600 yenů a že si na recepci můžeš koupit prací kapsli za 60 yenů."
     "Vezmeš si tedy propozice s sebou a na racepci ukážeš na příslušný odstavec."
@@ -357,6 +362,7 @@ label mimon_fuji:
     "Nařídíš si budíka, a jdeš zpátky do pokoje. A ještě usneš."
     "Když ti zazvoní budík, sejdeš dolů a věci přendáš do susičky."
     "A je pomalu čas na snídani po chatu jste se domluvili, že se sejtede před pokoji, takže vyjedeš zpátky do patra."
+    return
 
 label sucan_fuji_nolove:
     "Za dveřmi stojí Sučan."
@@ -391,6 +397,7 @@ label spanek_fuji:
     "Rozhodla ses, že na nikoho nemáš náladu a že budeš předstírat, že spíš."
     "A za pár minut už to ani není předstírání."
     "Ráno ti zvoní budík, vstaneš, oblékneš se a vezmeš si špinavé prádlo dolů."
+    scene bg fuji pradelna
     "Večer sis totiž na recepci všimla, že inzerují že mají pračku. Najdeš ji v dámském onsenu. V předcíňce jsou pračky dokonce dvě a dvě sušičky."
     "Naházíš věci do pračky, pomocí překladače se dozvíš, že cyklus stojí 600 yenů a že si na recepci můžeš koupit prací kapsli za 60 yenů."
     "Vezmeš si tedy propozice s sebou a na racepci ukážeš na příslušný odstavec."
@@ -400,4 +407,4 @@ label spanek_fuji:
     "Nařídíš si budíka, a jdeš zpátky do pokoje. A ještě usneš."
     "Když ti zazvoní budík, sejdeš dolů a věci přendáš do susičky."
     "A je pomalu čas na snídani po chatu jste se domluvili, že se sejtede před pokoji, takže vyjedeš zpátky do patra."
-
+    return

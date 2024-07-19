@@ -246,9 +246,7 @@ label akt4:
                 call top_but_slower
             "Počkat na Mimoně.":
                 call fuji_mimon_wait
-
-    jump titulky #provizorně
-    #return
+    return
 
 label sucan_krater:
     scene bg fuji after 7th
