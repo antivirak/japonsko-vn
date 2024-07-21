@@ -333,35 +333,35 @@ label sucan_fuji:
     return
 
 label mimon_fuji:
-    "Za dveřmi srojí Mimoň, stále špinavý a ve stejném oblečení v kterém byl na Fuji."
+    "Za dveřmi stojí Mimoň, stále špinavý a ve stejném oblečení, ve kterém byl na Fuji."
     show m fuji
     m "Přišel jsem ti oznámit, že už mi zbývají jen 3 čistá trička."
     hide m fuji
-    j "Dobře a mně to říkáš proč?"
+    j "Dobře, a mně to říkáš proč?"
     show m fuji
-    m "Že by se měli vyprat."
+    m "Že by se měla vyprat."
     hide m fuji
     "To chce, abych mu vyprala? Tak to ne, jestli po mě něco chce tak by mohl aspoň poprosit."
-    j "By se měli? No to asi jo. A ty by si se měl vykoupat, převlíknout a jít spát."
-    "Chceš zabouchnout, ale pak si to rozmyšlíš a ustoupíš."
-    j "Dobře, to co chceš vyprat, tak přines ráno v sedm ke mě. Koukala jsem, že tu pračku na hotelu mají."
+    j "By se měla? No to asi jo. A ty by ses měl vykoupat, převlíknout a jít spát."
+    "Chceš zabouchnout, ale pak si to rozmyslíš a ustoupíš."
+    j "Dobře. To, co chceš vyprat, přines ráno v sedm ke mně. Koukala jsem, že tu pračku na hotelu mají."
     show m fuji
     m "V sedm vstávat nebudu!"
     hide m fuji
-    j "Ber jak je, v sedm tu bude tvé prádlo a nebo máš smůlu."
+    j "Ber, jak je. V sedm tu bude tvé prádlo anebo máš smůlu."
     "Zavřeš dveře, zamkneš a jdeš spát."
-    "Ráno ti zvoní budík před sedmou, vstaneš převlíkneš vezmeš si své špinavé prádlo."
-    "Vylezeš před pokoj je 6:59, čekáš jestli se neobjeví Mimoň. Po deseti minutách to vzdáš a sjedeš výtahem dolů."
+    "Ráno ti zvoní budík před sedmou, vstaneš, převlékneš se a vezmeš si své špinavé prádlo."
+    "Vylezeš před pokoj. Je 6:59. Čekáš, jestli se neobjeví Mimoň. Po deseti minutách to vzdáš a sjedeš výtahem dolů."
     scene bg fuji pradelna
-    "Večer sis totiž na recepci všimla, že inzerují že mají pračku. Najdeš ji v dámském onsenu. V předcíňce jsou pračky dokonce dvě a dvě sušičky."
+    "Večer sis totiž na recepci všimla, že inzerují že mají pračku. Najdeš ji v dámském onsenu. V předsíňce jsou pračky dokonce dvě a dvě sušičky."
     "Naházíš věci do pračky, pomocí překladače se dozvíš, že cyklus stojí 600 yenů a že si na recepci můžeš koupit prací kapsli za 60 yenů."
-    "Vezmeš si tedy propozice s sebou a na racepci ukážeš na příslušný odstavec."
-    "Za chvíli odcházíš s vítězným výrazem zpátky s kapslý na prádlo a o 60 yenů lehčí."
-    "Hodíš ji k prádlu, zavřeš naházíš 600 jenů do pračky a navolíš program. Pračka se pustila."
-    "Na displeji se ukážou čísla a nějaké znaky, odvodíš z toho, že cyklus skončí."
-    "Nařídíš si budíka, a jdeš zpátky do pokoje. A ještě usneš."
-    "Když ti zazvoní budík, sejdeš dolů a věci přendáš do susičky."
-    "A je pomalu čas na snídani po chatu jste se domluvili, že se sejtede před pokoji, takže vyjedeš zpátky do patra."
+    "Vezmeš si tedy propozice s sebou a na recepci ukážeš na příslušný odstavec."
+    "Za chvíli odcházíš s vítězným výrazem zpátky s kapslí na prádlo a o 60 yenů lehčí."
+    "Hodíš ji k prádlu, zavřeš, naházíš 600 yenů do automatu na mince a navolíš program. Pračka se pustila."
+    "Na displeji se ukážou čísla a nějaké znaky. Odvodíš z toho, kdy cyklus skončí."
+    "Nařídíš si budíka a jdeš zpátky do pokoje. A ještě usneš."
+    "Když ti zazvoní budík, sejdeš dolů a věci přendáš do sušičky."
+    "A je pomalu čas na snídani. Po chatu jste se domluvili, že se sejdete před pokoji, takže vyjedeš zpátky do patra."
     return
 
 label sucan_fuji_nolove:
@@ -375,36 +375,37 @@ label sucan_fuji_nolove:
     s "Jo, dole v předsíňce onsenu je za 600 yenů pračka a asi za 200 yenů sušička. Mám v podstatě jen věci z Fuji a z letu a ta pračka je velká."
     hide s fujihs
     j "Oki, hodím si tam také věci."
-    j "Počkej, hodím si něco přes pyžamo a jdu s tebou."
+    j "Počkej, oblíknu si něco přes pyžamo a jdu s tebou."
     show s fujihs
     s "To není nutné. Prát umím obstojně a ta pračka moc jiná, než pračky v Čechách, nebude."
-    s "Jen mi dej co chceš vyprat běž klidně spát zařídím to."
+    s "Jen mi dej, co chceš vyprat a běž klidně spát. Zařídím to."
     hide s fujihs
     j "No jo, ta pračka bude prát tak hodinu a něco a cyklus sušičky je také minimálně na půl hodiny."
-    j "Jseš si tím jistý? Nemám ti nějak pomoc?"
+    j "Jsi si tím jistý? Nemám ti nějak pomoc?"
     show s fujihs
-    s "Ne budu si prát svoje věci, tak mi je jedno jestli je tam o tričko a kalhoty víc."
+    s "Ne, budu si prát svoje věci, tak mi je jedno, jestli je tam o tričko a kalhoty víc."
     hide s fujihs
-    j "Tak dobře moc díky."
-    "Dojdeš do pokoje do pláťené tašky naházíš věci na vyprání a dáš je Sučanovi."
+    j "Tak dobře, moc díky."
+    "Dojdeš do pokoje, do plátěné tašky naházíš věci na vyprání a dáš je Sučanovi."
     show s fujihs
     s "Super, dám ti to zpátky ráno po snídani?"
     hide s fujihs
     j "Jo, ještě jednou díky a dobrou noc."
     "Odejde, nastavíš si budík na ráno a mobil si dáš nabíjet."
     "A během pár minut usneš."
+
 label spanek_fuji:
     "Rozhodla ses, že na nikoho nemáš náladu a že budeš předstírat, že spíš."
     "A za pár minut už to ani není předstírání."
     "Ráno ti zvoní budík, vstaneš, oblékneš se a vezmeš si špinavé prádlo dolů."
     scene bg fuji pradelna
-    "Večer sis totiž na recepci všimla, že inzerují že mají pračku. Najdeš ji v dámském onsenu. V předcíňce jsou pračky dokonce dvě a dvě sušičky."
+    "Večer sis totiž na recepci všimla, že inzerují že mají pračku. Najdeš ji v dámském onsenu. V předsíňce jsou pračky dokonce dvě a dvě sušičky."
     "Naházíš věci do pračky, pomocí překladače se dozvíš, že cyklus stojí 600 yenů a že si na recepci můžeš koupit prací kapsli za 60 yenů."
-    "Vezmeš si tedy propozice s sebou a na racepci ukážeš na příslušný odstavec."
-    "Za chvíli odcházíš s vítězným výrazem zpátky s kapslý na prádlo a o 60 yenů lehčí."
-    "Hodíš ji k prádlu, zavřeš naházíš 600 jenů do pračky a navolíš program. Pračka se pustila."
+    "Vezmeš si tedy propozice s sebou a na recepci ukážeš na příslušný odstavec."
+    "Za chvíli odcházíš s vítězným výrazem zpátky s kapslí na prádlo a o 60 yenů lehčí."
+    "Hodíš ji k prádlu, zavřeš, naházíš 600 yenů do automatu a navolíš program. Pračka se pustila."
     "Na displeji se ukážou čísla a nějaké znaky, odvodíš z toho, že cyklus skončí."
     "Nařídíš si budíka, a jdeš zpátky do pokoje. A ještě usneš."
-    "Když ti zazvoní budík, sejdeš dolů a věci přendáš do susičky."
+    "Když ti zazvoní budík, sejdeš dolů a věci přendáš do sušičky."
     "A je pomalu čas na snídani po chatu jste se domluvili, že se sejtede před pokoji, takže vyjedeš zpátky do patra."
     return
