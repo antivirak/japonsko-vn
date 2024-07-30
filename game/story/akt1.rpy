@@ -33,16 +33,16 @@ label akt1:
         j.name_5p = vokativ(j.name, woman=j.gender == "f", last_name=False).capitalize()
         print(j.name_5p)
 
-    image black = "#000"
-    scene black
+    scene bg letistenara
     if j.gender == 'f':
         "Na podzim jsi ukončila velmi toxický vztah a hledala jsi nějakou cestu, jak co nejrychleji zapomenout."
         "V té době se ti ozval Sučan, že plánuje jet do Japonska, tak jestli se k němu nechceš přidat."
-        "V únoru už byla vaše parta domluvená po internetu a koupili jste si letenky"
-        "s odletem v červenci."
+        "V únoru už byla vaše parta domluvená po internetu a koupili jste si letenky s odletem v červenci."
     if j.gender == 'm':
         "Po Vánocích ti napsal tvůj kamarád z dětství, že shání někoho do party na cestu do Japonska."
         "Ani nevíš, jak se to stalo, ale v únoru už jsi měl letenku s červencovým odletem."
+    image black = "#000"
+    scene black
     show s neutral at left
     "Tohle je kluk s přezdívkou Sučan."
     if j.gender == 'f':
@@ -76,12 +76,12 @@ label akt1:
     "Domluvili jste se, že se všichni sejdete u Sučana na bytě, dáte si večeři a pak vyrazíte společně na letiště."
     "Ale den před odletem přišla zpráva od Mimoně, který se ptal, kdo ho vyzvedne autem, že s kufrem 'sockou' rozhodně nepojede."
     "Nakonec se to vyřešilo tak, že ho přivezla sestra."
-    "Další scénu ztropil, když zjistil, že v letadle bude muset sedět sám (letenky, jste si koupili bez místenky)."
+    "Další scénu ztropil, když zjistil, že v letadle bude muset sedět sám (letenky jste si koupili bez místenky)."
     "Takže už jen po těch pár společných hodinách máte všichni neblahé tušení, že to bude s Mimoněm asi hodně náročné..."
     show m neutral at right
     show a neutral at left
     show s neutral:
-        xalign 0.3
+        xalign 0.35
         yalign 1.0
     if j.gender == 'f':
         show d neutral:

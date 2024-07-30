@@ -8,14 +8,17 @@ label start:
     call akt2
     call akt3
     call akt4
+    call hotel_fuji
 
 
 label titulky:
     image black = "#000"
     scene black
-    "konec části co máme hotovou, nebo se něco pokazilo :D"
+    "Konec části co máme hotovou, nebo se něco pokazilo :D"
     "Tvůrci hry Cerman Jaroslav, Lokajová Eliška a Sedláček Martin"
     "Na příběhu se taktéž podíleli Drahota Matěj a Suchan Tomáš"
+    "Hlavní konzultantka příběhu Tereza Petrová."
+    "Betatesteři Tomáš Suchan, Tereza Petrová a další."
     "Obrázky jsou originální fotografie z Japonska"
     "Postavy byly vygenerovány pomocí AI a následně upraveny"
     $ MainMenu(confirm=False)()

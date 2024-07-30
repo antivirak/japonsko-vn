@@ -212,7 +212,7 @@ label dvojluzak_hracka_Dante2:
             "A tak čte Dante dál a přečte ti asi 20 stránek, ale ke konci začínáš být hodně unavená a začneš usínat."
             show d pyjama
             d "A tak Marylin s dcerkou v náručí..., lesem.... a větvičky stromů jí... do obličeje..."
-            d "[j.nape5p], spíš?"
+            d "[j.name_5p], spíš?"
             hide d pyjama
             j "Promiň Dante, asi ano. Poslední, co si pamatuji, je, že vyběhla zadním vchodem s malou."
             show d pyjama
@@ -351,7 +351,7 @@ label dvojluzak_hracka_Adrian2:
     "Ve výtahu ti vyklouzne z ruky karta, tak se pro ni sehneš."
     "Samozřejmě se sehnul i Adrian a byl rychlejší, takže místo karty ses dotkla jeho ruky."
     show a neutral
-    "Na."
+    a "Na."
     hide a neutral
     "Řekne a podává ti spadlou kartu."
     j "Děkuji."
@@ -530,6 +530,7 @@ label adrian_onsen:
     j "Díky za kompliment a vodu."
     show a neutral
     a "Za pravdu se neděkuje. A ta voda je maličkost."
+    hide a neutral
     "Odloží hrneček s čajem, vezme si z postele připravené věci a vyrazí do koupelny."
     "Ty se napiješ, uložíš si věci do kufru a zalezeš si do postele."
     "Chceš si připravit peřinu a zjistíš, že je pouze jedna společná."

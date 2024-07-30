@@ -46,7 +46,7 @@ label akt3:
     scene bg metro
     "Pak jste se přesunuli na Šibuju, na jednu z největších křižovatek v Tokiu, co do počtu chodců, kteří ji denně používají."
     scene bg sibuja
-    "A protože je čas obědu a Mimoň stále otravuje se suši, rozhodli jste se mu vyjít vstříc."
+    "A protože je čas oběda a Mimoň stále otravuje se suši, rozhodli jste se mu vyjít vstříc."
     "V obchodním centru jste našli suši restauraci."
     scene bg susirestaurace
     "Chvíli jste procházeli meníčko a nakonec jste se rozhodli, že si každý objednáte ochutnávkové menu."
@@ -73,11 +73,15 @@ label akt3:
     "Doufáte, že to je pouze vtip."
     "Ale asi není, podle toho, že Mimoň začne ryby sundávat."
     "Začnete všichni jíst, ryby od Mimoně si rozdělí kluci mezi sebe."
+    scene bg sibuja
     "Po obědě vyrazíte přejít Šibuju a šáhnout si na psa pro štěstí."
+    scene bg metro
     "Ze Šibuji se metrem přesouváte na Šindžuku, křižovatku vyhlášenou velkou obrazovkou s kočičkou."
+    scene bg sindzuku
     "Zde vyčkáte asi dva reklamní bloky (15minutové), abyste viděli alespoň dva celé spoty s kočičkou."
+    scene bg godzila
     "Poté se si jdete do vedlejší ulice vyfotit obchodní centrum s godzilou."
-    "A protože, Mimoň toho moc nesnědl, začne otravovat, že má hlad."
+    "A protože Mimoň toho moc nesnědl, začne otravovat, že má hlad."
     show m mask
     "Mekáč!"
     hide m mask
@@ -102,7 +106,7 @@ label akt3:
             m "Sám nikam nejdu!"
             hide m mask angry
             show s neutral
-            s "Nekřič, koukají se na nás."
+            s "Nekřič, koukají na nás lidi."
             s "Tak já s tebou půjdu."
             hide s neutral
             "Sučan tedy odchází s naštvaným Mimoněm a vy vyrážíte na rámen."
@@ -111,6 +115,7 @@ label akt3:
             "Ale nezoufáte a během chvíle má Adrian náhradu."
             "Procházíte malými uličkami, až k takovým zapadlým dveřím."
             "Vlezete dovnitř po úzkém schodišti, do nosu váš udeří odér rybí polévky."
+            scene bg nagi
             "Na konci schodiště visí na zdi objednávkový automat."
             if j.love_points.get(a.name, 0) > 2:
                 show a neutral
@@ -145,10 +150,12 @@ label akt3:
                 a "No, vlastně ne."
                 "To už se směješ tak, že skoro brečíš, protože se snažíš nesmát se nahlas, neb je to v Japonku neslušné."
             "Během toho dostanete ramen, se sborovým Arigató jej převezmete a pustíte se do jídla."
-            "Na to, jak zapadlý a na první pohled pochybný podnik to je, vám jídlo přijde výborné."
+            "Na to, jak zapadlý a na první pohled pochybný podnik to je, se během vašeho pobytu v podniku vystřídá dost Japonců."
+            "Čemuž ale vůbec nerozumíte, rámen je z ančoviček nebo čeho, takže je dost slaný a cítit rybinou."
             "Dojíte, poděkujete a jdete hledat druhou část skupiny."
             "Od Sučana jste dostali zprávu, že jsou v gamecentru."
-    "Všichni sejdete v gamecentru. Mimoň hraje už asi pátou rytmickou hru a odmítá odejít."
+    scene bg plysak
+    "Všichni se sejdete v gamecentru. Mimoň hraje už asi pátou rytmickou hru a odmítá odejít."
     # TODO další kolo minihry
     "Asi po hodině se vám podaří Mimoně přesvědčit, že už půjdete."
     "V nižším patře si ještě projdete ufocatchery."
@@ -157,7 +164,7 @@ label akt3:
     "A plyšák kupodivu nespadl a dojel až k výdejnímu otvoru."
     "Celý automat hraje a bliká."
     "Dante vytahuje plyšáka."
-    show d plysak
+    show d plysak at left
     d "Na, vem si ho, já jsem si to chtěl jen zkusit."
     d "Můžeš to brát jako pouťovou růži z papíru."
     hide d plysak
@@ -173,7 +180,7 @@ label akt3:
     "Vyrazíte zpátky metrem do hotelu a po cestě se zastavíte ještě v 7eleven."
     scene bg 7eleven
     "Potřebujete si udělat nákup na zítřejší výstup na Fuji."
-    "Zatímco nakupujete, všimmnete si, že si Mimoň plánuje koupit pouze půllitrovku coly."
+    "Zatímco nakupujete, všimnete si, že si Mimoň plánuje koupit pouze půllitrovku coly."
     "Přitom si musíte nakoupit jídlo a pití na celý den, na Fuji si jídlo nekoupíte."
     j "Mimoňi, půllitrovka coly ti na výstup na Fuji stačit nebude, vem si aspoň dvojlitrovku vody k tomu."
     j "A nějaké jídlo; tam asi nebude možnost si něco koupit."
