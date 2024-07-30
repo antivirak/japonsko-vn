@@ -10,16 +10,15 @@ screen parking_machine_game(game_displayable):
     key 'mousedown_3' action NullAction()
 
     $ xsize = int(renpy.game.preferences.physical_size[0] / 3 * renpy.config.screen_width / renpy.game.preferences.physical_size[0])  # * 1.35
-    add Solid("#000", xsize=xsize, ysize=10, xalign=.5, yalign=.63)
+    # add Solid("#000", xsize=xsize, ysize=10, xalign=.5, yalign=.63)
     add game_displayable
 
     if game_displayable.has_ended:
         timer .1 action Return(game_displayable.success)
 
 
-# label parking_machine_game_main:
-label start:
-    "Zasekla se ti bakovka v automatu na placení!"
+label parking_machine_game_main:
+    "Zasekla se ti bakovka v automatu na placení! Opatrně ji vytáhni pinzetou za oranžovou část."
     scene automat:
         xzoom 1.5 yzoom 1.5
     $ mouse_backup = config.mouse_displayable
@@ -36,6 +35,9 @@ label start:
     $ renpy.checkpoint()
     $ config.mouse_displayable = mouse_backup
     if success:
+        show 2kyen:
+            yalign .63
+            xalign .5
         "Bankovka úspěšně vyndána z automatu!"
     else:
         menu:

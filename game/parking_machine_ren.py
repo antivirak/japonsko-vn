@@ -173,14 +173,15 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
     def __init__(self, logic: DynamicLogicSimple) -> None:
         super().__init__()
 
-        # if mouse:
-        #     self.kwargs['mouse'] = mouse
-
         self.has_ended = False
         self.success = False
         self.logic = logic
         self.bar_width = 150  # can be scaled
+        self.bill_width = 500
         self.bar_drawable = Solid(
+            '#ff8000', xsize=self.bar_width, ysize=50,
+        )
+        self.bill_drawable = Solid(  # this one is dummy
             '#ff8000', xsize=self.bar_width, ysize=50,
         )
         # self.cur_y = 700
@@ -199,6 +200,7 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
         # record all the drawables for self.visit
         self.drawables = [
             self.bar_drawable,
+            self.bill_drawable,
         ]
         # time = renpy.get_time()
         self.start_time = .0
@@ -220,23 +222,30 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
             self.start_time = st
 
         xsize = int(self.logic.bar_width_scale * self.bar_width)
+            # scale to (-250 to 250)
         x_place = self.logic.bar_position * 250 + (config.screen_width - xsize) / 2  # center
 
-        # self.bar_drawable = Solid(
-        #     '#ff8000', xsize=xsize, ysize=50,
-        # )
-        # TODO show half bill at start and then crop according to the bar position
-        # a right-hand part of the bill will be hot spot
-        self.bar_drawable = Crop(
-            (self.bar_width - xsize, 0, self.bar_width, 100),
-            Image('images/2kyen.png', xsize=xsize),
+        bill_size_y = 263  # 287 for 600
+        self.bar_drawable = Solid(
+            '#ff800090', xsize=xsize, ysize=bill_size_y,
+        )
+
+        self.bill_drawable = Crop(
+            (
+                int(self.bill_width - (self.logic.bar_position + 1) * 250), 0,
+                self.bill_width * self.bulgar_const, bill_size_y,
+            ),
+            Image('images/2kyen.png'),
         )
         self.bar_drawable.xsize = xsize
         self.bar_drawable.x_place = x_place
 
         render.place(
+            self.bill_drawable,
+            x=config.screen_width / 2 - 250, y=self.bar_y,
+        )
+        render.place(
             self.bar_drawable,
-            # scale to (-250 to 250)
             x=x_place, y=self.bar_y,
         )
 
@@ -258,7 +267,7 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
         renpy.redraw(self, 0)
         return render
 
-    def set_pointer_pos(self):
+    def set_pointer_pos(self) -> None:
         pos_x = self.logic.mouse_pointer_position  # -1 to 1
         # scale to (-250 to 250) + pos_min
         self.pos_x = int((pos_x + 1) * self.screen_width_half / 3) + self.pos_min
