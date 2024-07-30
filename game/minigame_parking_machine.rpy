@@ -10,23 +10,8 @@ screen parking_machine_game(game_displayable):
     key 'mousedown_3' action NullAction()
 
     $ xsize = int(renpy.game.preferences.physical_size[0] / 3 * renpy.config.screen_width / renpy.game.preferences.physical_size[0])  # * 1.35
-    add Solid("#cd2e2e", xsize=xsize, ysize=50, xalign=.5, yalign=.85)
+    add Solid("#000", xsize=xsize, ysize=10, xalign=.5, yalign=.63)
     add game_displayable
-
-    vbox:
-        xpos 50
-        ypos 50
-        spacing 20
-
-        # TODO this probably will be deleted, as we do not allow to move mouse higher than the bar
-        textbutton 'Hlavní menu':
-            text_hover_color '#fff'
-            action [Confirm(
-                'Opravdu chcete odejít do hlavního menu?',
-                yes=[
-                    Return(False),
-                ],
-            )]
 
     if game_displayable.has_ended:
         timer .1 action Return(game_displayable.success)
@@ -35,15 +20,13 @@ screen parking_machine_game(game_displayable):
 # label parking_machine_game_main:
 label start:
     "Zasekla se ti bakovka v automatu na placení!"
-    image black = "#000"
-    scene black
-    # show bg image
-    # TODO probably disable esc
+    scene automat:
+        xzoom 1.5 yzoom 1.5
     $ mouse_backup = config.mouse_displayable
     $ config.mouse_displayable = MouseDisplayable(
         "images/tweezers.png", 0, 0,
     ).add("tweezers", "mouse tweezers", 9.9, 9.9)  # Transform(, xysize=(100, 50))
-    $ game_displayable = ParkingDisplayable(DynamicLogicMash(EMWW_GameDifficulty.MWWGD_Easy), mouse="tweezers")
+    $ game_displayable = ParkingDisplayable(DynamicLogicMash(GameDifficulty.HARD))
     # avoid rolling back and losing game state
     $ renpy.block_rollback()
 
@@ -52,7 +35,12 @@ label start:
     )
     $ renpy.checkpoint()
     $ config.mouse_displayable = mouse_backup
-    if success is True:
+    if success:
         "Bankovka úspěšně vyndána z automatu!"
     else:
-        "Bohužel, nepovelo se ti vyndat bankovku z automatu, takže přicházíš o 2000 jenů. Stále však šlo zaplatit mincemi."
+        menu:
+            "Chceš to zkusit znovu?"
+            "Ano.":
+                jump parking_machine_game_main
+            "Ne.":
+                "Bohužel, nepovelo se ti vyndat bankovku z automatu, takže přicházíš o 2000 jenů. Stále však šlo zaplatit mincemi."

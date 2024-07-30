@@ -11,73 +11,65 @@ from renpy import config
 from renpy.display.imagelike import Solid
 
 
-class EMWW_GameDifficulty(Enum):
-    MWWGD_Easy = .2
-    MWWGD_Normal = .4
-    MWWGD_Nightmare = .8
+class GameDifficulty(Enum):
+    EASY = .2
+    NORMAL = .4
+    HARD = .8
 
 
 class DynamicLogicSimple:
-    def __init__(self, *args) -> None:
-        self.m_barPos = 0
-        self.m_pointerPos = 0
-        self.m_barInteriaTimer = 0
-        self.m_lastInHotspot = True
-        self.m_tiredFactor = 0
-        self.m_barSpeed = .1
+    def __init__(self, *_) -> None:
+        self.bar_position = .0
+        self.mouse_pointer_position = .0
+        self.bar_interia_timer = .0
+        self.was_in_hotspot = True
+        self.tired_factor = .0
+        self.bar_speed = .1
+        self.winner = False
 
-    def UpdateInput(self, value: float) -> None:
+    def update_input(self, value: float) -> None:
         value = min(value, 1)
         value = max(value, -1)
 
-        self.SetPointerPos(self.m_pointerPos + value * .02)
+        self.set_pointer_pos(self.mouse_pointer_position + value * .02)
 
-    def GetBarPos(self) -> float:
-        return self.m_barPos
+    def update_logic(self, pointer_in_hotspot: bool, time_delta: float) -> bool:
+        return self.process_logic(pointer_in_hotspot, time_delta)
 
-    def GetPointerPos(self) -> float:
-        return self.m_pointerPos
+    @property
+    def bar_width_scale(self) -> float:
+        return max(1 - self.tired_factor, .3)
 
-    def UpdateLogic(self, isPointerInHotSpot: bool, timeDelta: float) -> bool:
-        return self.ProcessLogic(isPointerInHotSpot, timeDelta)
-
-    def GetWinner(self) -> bool:
-        return self.m_winner
-
-    def GetBarWidthScale(self) -> float:
-        return max(1 - self.m_tiredFactor, .3)
-
-    def SetPointerPos(self, pos: float) -> None:
+    def set_pointer_pos(self, pos: float) -> None:
         pos = min(pos, 1)
         pos = max(pos, -1)
-        self.m_pointerPos = pos
+        self.mouse_pointer_position = pos
 
-    def ProcessLogic(self, isPointerInHotSpot: bool, timeDelta: float) -> bool:
-        if isPointerInHotSpot:
-            if self.m_barInteriaTimer > 0:
-                self.m_barInteriaTimer -= timeDelta
-                self.m_barPos -= timeDelta * self.m_barSpeed
+    def process_logic(self, pointer_in_hotspot: bool, time_delta: float) -> bool:
+        if pointer_in_hotspot:
+            if self.bar_interia_timer > 0:
+                self.bar_interia_timer -= time_delta
+                self.bar_position -= time_delta * self.bar_speed
             else:
-                self.m_barPos += timeDelta * self.m_barSpeed
-            self.m_lastInHotspot = True
+                self.bar_position += time_delta * self.bar_speed
+            self.was_in_hotspot = True
         else:
-            if self.m_lastInHotspot:
-                self.m_barInteriaTimer = 1
-            self.m_barPos -= timeDelta * self.m_barSpeed
-            self.m_lastInHotspot = False
+            if self.was_in_hotspot:
+                self.bar_interia_timer = 1
+            self.bar_position -= time_delta * self.bar_speed
+            self.was_in_hotspot = False
 
-        if self.m_tiredFactor < 1:
-            self.m_tiredFactor += timeDelta * .03
+        if self.tired_factor < 1:
+            self.tired_factor += time_delta * .03
 
-        if self.m_tiredFactor > .5:
-            self.m_barSpeed += timeDelta * .01
-            self.m_barSpeed = min(self.m_barSpeed, .5)
+        if self.tired_factor > .5:
+            self.bar_speed += time_delta * .01
+            self.bar_speed = min(self.bar_speed, .5)
 
-        if self.m_barPos >= .9:
-            self.m_winner = True
+        if self.bar_position >= .98:
+            self.winner = True
             return True
-        elif self.m_barPos < -.9:
-            self.m_winner = False
+        if self.bar_position < -.9:
             return True
 
         return False
@@ -86,104 +78,99 @@ class DynamicLogicSimple:
 class DynamicLogicSimpleCont(DynamicLogicSimple):
     def __init__(self, *args) -> None:
         super().__init__(args)
-        self.m_barShift = 0
+        self.bar_shift = .0
 
-    def UpdateInput(self, value: float) -> None:
+    def update_input(self, value: float) -> None:
         value = min(value, 1)
         value = max(value, -1)
 
-        self.m_barShift = value * .03
-        self.SetPointerPos(self.m_pointerPos + value * .02)
+        self.bar_shift = value * .03
+        self.set_pointer_pos(self.mouse_pointer_position + value * .02)
 
-    def UpdateLogic(self, isPointerInHotSpot: bool, timeDelta: float) -> bool:
-        self.SetPointerPos(self.m_pointerPos + self.m_barShift)
-        return self.ProcessLogic(isPointerInHotSpot, timeDelta)
+    def update_logic(self, pointer_in_hotspot: bool, time_delta: float) -> bool:
+        self.set_pointer_pos(self.mouse_pointer_position + self.bar_shift)
+        return self.process_logic(pointer_in_hotspot, time_delta)
 
 
 class DynamicLogicNewton(DynamicLogicSimple):
-    def __init__(self, difficulty: EMWW_GameDifficulty):
+    def __init__(self, difficulty: GameDifficulty):
         super().__init__()
         # lengths of vectors
-        self.m_barVelocity = 0
-        self.m_barAcceleration = 0
+        self.bar_velocity = .0
+        self.bar_acceleration = .0
 
-        self.m_barMass = .5
-        self.m_distractingForce = 0
-        self.m_distractingForceCurr = 0
-        self.m_distractingForceTimer = 0
-        self.ApplyDifficultySettings(difficulty)
+        self.bar_mass = .5
+        self.distracting_force_curr = .0
+        self.distracting_force_timer = .0
+        # we could also change the bar_mass
+        self.distracting_force = difficulty.value
 
-    def UpdateInput(self, value: float) -> None:
+    def update_input(self, value: float) -> None:
         value = min(value, 1)
         value = max(value, -1)
 
-        self.m_barAcceleration = value / (self.m_barMass * 6)
+        self.bar_acceleration = value / (self.bar_mass * 6)
 
-    def UpdateLogic(self, isPointerInHotSpot: bool, timeDelta: float) -> bool:
-        self.m_distractingForceTimer -= timeDelta
-        if self.m_distractingForceTimer <= 0:
-            self.m_distractingForce = -self.m_distractingForce
-            self.m_distractingForceTimer = 0.3
-            self.m_distractingForceCurr = self.m_distractingForce
+    def update_logic(self, pointer_in_hotspot: bool, time_delta: float) -> bool:
+        self.distracting_force_timer -= time_delta
+        if self.distracting_force_timer <= 0:
+            self.distracting_force = -self.distracting_force
+            self.distracting_force_timer = 0.3
+            self.distracting_force_curr = self.distracting_force
 
-        self.m_barVelocity += self.m_distractingForceCurr * timeDelta
+        self.bar_velocity += self.distracting_force_curr * time_delta
 
-        self.m_barVelocity += self.m_barAcceleration * timeDelta
+        self.bar_velocity += self.bar_acceleration * time_delta
 
-        self.m_barVelocity = min(self.m_barVelocity, 1)
-        self.m_barVelocity = max(self.m_barVelocity, -1)
+        self.bar_velocity = min(self.bar_velocity, 1)
+        self.bar_velocity = max(self.bar_velocity, -1)
 
-        self.SetPointerPos(self.m_pointerPos + (self.m_barVelocity * timeDelta))
-        return self.ProcessLogic(isPointerInHotSpot, timeDelta)
-
-    def ApplyDifficultySettings(self, difficulty: EMWW_GameDifficulty) -> None:
-        # we could also change the m_barMass
-        self.m_distractingForce = difficulty.value
+        self.set_pointer_pos(self.mouse_pointer_position + (self.bar_velocity * time_delta))
+        return self.process_logic(pointer_in_hotspot, time_delta)
 
 
 class DynamicLogicMash(DynamicLogicSimple):
-    def __init__(self, *args) -> None:
+    def __init__(self, *_) -> None:
         super().__init__()
-        self.m_barVelocity = 0
-        self.m_barAcceleration = 0
-        self.m_barMass = 2
+        self.bar_velocity = .0
+        self.bar_acceleration = .0
+        self.bar_mass = 2
 
-    def UpdateInput(self, value: float) -> None:
-        value = abs(value)
-        if value > .001:
-            self.m_barAcceleration = value / (self.m_barMass * 2)
+    def update_input(self, value: float) -> None:
+        if abs(value) > .001:
+            self.bar_acceleration = value / (self.bar_mass * 2)
 
-    def UpdateLogic(self, isPointerInHotSpot: bool, timeDelta: float) -> bool:
-        fraction = .8 if self.m_barVelocity > 0 else .5
-        self.m_barAcceleration -= timeDelta * fraction
+    def update_logic(self, pointer_in_hotspot: bool, time_delta: float) -> bool:
+        fraction = .8 if self.bar_velocity > 0 else .5
+        self.bar_acceleration -= time_delta * fraction
 
         # maximum acceleration
-        if self.m_barVelocity > 0 and self.m_barAcceleration < -3:
-            self.m_barAcceleration = -3
-        elif self.m_barVelocity <= 0 and self.m_barAcceleration < -2.5:
-            self.m_barAcceleration = -2.5
-        elif self.m_barVelocity > 0 and self.m_barAcceleration > 1.2:
-            self.m_barAcceleration = 1.2
-        elif self.m_barVelocity <= 0 and self.m_barAcceleration > 2:
-            self.m_barAcceleration = 2.0
+        if self.bar_velocity > 0 and self.bar_acceleration < -3:
+            self.bar_acceleration = -3
+        elif self.bar_velocity <= 0 and self.bar_acceleration < -2.5:
+            self.bar_acceleration = -2.5
+        elif self.bar_velocity > 0 and self.bar_acceleration > 1.2:
+            self.bar_acceleration = 1.2
+        elif self.bar_velocity <= 0 and self.bar_acceleration > 2:
+            self.bar_acceleration = 2.0
 
-        self.m_barVelocity += self.m_barAcceleration * timeDelta
+        self.bar_velocity += self.bar_acceleration * time_delta
 
         # maximum velocity
-        self.m_barVelocity = min(self.m_barVelocity, .2)
-        self.m_barVelocity = max(self.m_barVelocity, -.3)
+        self.bar_velocity = min(self.bar_velocity, .2)
+        self.bar_velocity = max(self.bar_velocity, -.3)
 
-        self.SetPointerPos(self.m_pointerPos + (self.m_barVelocity * timeDelta))
-        result = self.ProcessLogic(isPointerInHotSpot, timeDelta)
+        self.set_pointer_pos(self.mouse_pointer_position + (self.bar_velocity * time_delta))
+        result = self.process_logic(pointer_in_hotspot, time_delta)
 
-        print('WristWrestling', f"Acceleration : {self.m_barAcceleration}")
-        print('WristWrestling', f"Velocity : {self.m_barVelocity}")
+        # print('WristWrestling', f"Acceleration : {self.bar_acceleration}")
+        # print('WristWrestling', f"Velocity : {self.bar_velocity}")
 
         return result
 
 
 class ParkingDisplayable(renpy.display.displayable.Displayable):
-    def __init__(self, logic: DynamicLogicSimple, mouse=None) -> None:
+    def __init__(self, logic: DynamicLogicSimple) -> None:
         super().__init__()
 
         # if mouse:
@@ -192,13 +179,16 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
         self.has_ended = False
         self.success = False
         self.logic = logic
-        self.bar_width = 200  # TODO
+        self.bar_width = 150  # can be scaled
         self.bar_drawable = Solid(
             '#ff8000', xsize=self.bar_width, ysize=50,
         )
         # self.cur_y = 700
-        self.cur_y = renpy.game.preferences.physical_size[1] * .85 - 20
-        self.bar_y = config.screen_height * .85 - 43
+        # self.cur_y = renpy.game.preferences.physical_size[1] * .85 - 20
+        # self.bar_y = config.screen_height * .85 - 43
+        y_scale = .63
+        self.cur_y = renpy.game.preferences.physical_size[1] * y_scale - 20
+        self.bar_y = config.screen_height * y_scale - 43
         # pygame.mouse.set_pos([700, self.cur_y])  # somehow relative, but config.screen_height is not working
         self.screen_width_half = renpy.game.preferences.physical_size[0] // 2
         self.bulgar_const = renpy.game.preferences.physical_size[0] / config.screen_width
@@ -211,7 +201,7 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
             self.bar_drawable,
         ]
         # time = renpy.get_time()
-        self.start_time = 0
+        self.start_time = .0
 
     def render(self, width: int, height: int, st: float, *_) -> renpy.Render:
         """
@@ -229,29 +219,38 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
         if not self.start_time:
             self.start_time = st
 
-        xsize = int(self.logic.GetBarWidthScale() * self.bar_width)
-        print('xsize', xsize)
-        x_place = self.logic.GetBarPos() * 250 + (config.screen_width - xsize) / 2  # center
+        xsize = int(self.logic.bar_width_scale * self.bar_width)
+        x_place = self.logic.bar_position * 250 + (config.screen_width - xsize) / 2  # center
 
-        self.bar_drawable = Solid(
-            '#ff8000', xsize=xsize, ysize=50,
+        # self.bar_drawable = Solid(
+        #     '#ff8000', xsize=xsize, ysize=50,
+        # )
+        # TODO show half bill at start and then crop according to the bar position
+        # a right-hand part of the bill will be hot spot
+        self.bar_drawable = Crop(
+            (self.bar_width - xsize, 0, self.bar_width, 100),
+            Image('images/2kyen.png', xsize=xsize),
         )
         self.bar_drawable.xsize = xsize
-        self.bar_drawable.x_place = x_place  # pylint: disable attribut outside init
+        self.bar_drawable.x_place = x_place
 
         render.place(
             self.bar_drawable,
-             # scale to (-250 to 250)
+            # scale to (-250 to 250)
             x=x_place, y=self.bar_y,
         )
 
         # find out if the cursor is inside hotspot
-        # this should probably be managable by the pygame's collisions
-        inside_hotspot = self.bar_drawable.x_place - self.bar_drawable.xsize <= self.pos_x / self.bulgar_const <= self.bar_drawable.x_place + self.bar_drawable.xsize
+        # this could probably be managable by the pygame's collisions
+        inside_hotspot = (
+            self.bar_drawable.x_place - self.bar_drawable.xsize / 3
+            <= self.pos_x / self.bulgar_const
+            <= self.bar_drawable.x_place + self.bar_drawable.xsize
+        )
         seconds = st - self.start_time
-        if seconds >= 0.1:
+        if seconds >= .1:
             self.start_time = st
-            end = self.logic.UpdateLogic(inside_hotspot, seconds)
+            end = self.logic.update_logic(inside_hotspot, seconds)
             if end:
                 self.has_ended = True
         self.set_pointer_pos()
@@ -260,7 +259,7 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
         return render
 
     def set_pointer_pos(self):
-        pos_x = self.logic.GetPointerPos()  # -1 to 1
+        pos_x = self.logic.mouse_pointer_position  # -1 to 1
         # scale to (-250 to 250) + pos_min
         self.pos_x = int((pos_x + 1) * self.screen_width_half / 3) + self.pos_min
         pygame.mouse.set_pos([self.pos_x, self.cur_y])
@@ -279,29 +278,16 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
         if self.has_ended:
             # refresh the screen
             renpy.restart_interaction()
-            return self.logic.m_winner
+            return self.logic.winner
 
         if ev.type != pygame.MOUSEMOTION:
-            return
+            return None
 
-        self.logic.UpdateInput(ev.rel[0])
+        self.logic.update_input(ev.rel[0])
         self.set_pointer_pos()
 
         renpy.restart_interaction()
-        # # find out if the cursor is inside hotspot
-        # # this should probably be managable by the pygame's collisions
-        # inside_hotspot = self.bar_drawable.x_place - self.bar_drawable.xsize <= pos_x <= self.bar_drawable.x_place + self.bar_drawable.xsize
-        # seconds = st - self.start_time
-        # if seconds >= 0.1:
-        #     self.start_time = st
-        #     self.logic.UpdateLogic(inside_hotspot, seconds)
-        #     renpy.restart_interaction()
-
-        #     print('updating logic', st)
-
-        # print(ev.pos, ev.rel)
-        # renpy.restart_interaction()
-        # renpy.redraw(self, 0)
+        return None
 
     def visit(self) -> list[renpy.display.displayable.Displayable]:
         """
