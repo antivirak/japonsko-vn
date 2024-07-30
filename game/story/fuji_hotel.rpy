@@ -1,3 +1,4 @@
+# Scene where the player arrives at the Fuji hotel and parks their car
 label hotel_fuji:
     scene bg hotel fuji parking
     "Po příjezdu na hotel zaparkujete na hotelovém parkovišti, vyndáte si kufry"
