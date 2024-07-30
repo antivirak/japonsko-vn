@@ -46,7 +46,7 @@ label akt3:
     scene bg metro
     "Pak jste se přesunuli na Šibuju, na jednu z největších křižovatek v Tokiu, co do počtu chodců, kteří ji denně používají."
     scene bg sibuja
-    "A protože je čas obědu a Mimoň stále otravuje se suši, rozhodli jste se mu vyjít vstříc."
+    "A protože je čas oběda a Mimoň stále otravuje se suši, rozhodli jste se mu vyjít vstříc."
     "V obchodním centru jste našli suši restauraci."
     scene bg susirestaurace
     "Chvíli jste procházeli meníčko a nakonec jste se rozhodli, že si každý objednáte ochutnávkové menu."
@@ -81,7 +81,7 @@ label akt3:
     "Zde vyčkáte asi dva reklamní bloky (15minutové), abyste viděli alespoň dva celé spoty s kočičkou."
     scene bg godzila
     "Poté se si jdete do vedlejší ulice vyfotit obchodní centrum s godzilou."
-    "A protože, Mimoň toho moc nesnědl, začne otravovat, že má hlad."
+    "A protože Mimoň toho moc nesnědl, začne otravovat, že má hlad."
     show m mask
     "Mekáč!"
     hide m mask
@@ -106,7 +106,7 @@ label akt3:
             m "Sám nikam nejdu!"
             hide m mask angry
             show s neutral
-            s "Nekřič, koukají se na nás."
+            s "Nekřič, koukají na nás lidi."
             s "Tak já s tebou půjdu."
             hide s neutral
             "Sučan tedy odchází s naštvaným Mimoněm a vy vyrážíte na rámen."
@@ -150,11 +150,12 @@ label akt3:
                 a "No, vlastně ne."
                 "To už se směješ tak, že skoro brečíš, protože se snažíš nesmát se nahlas, neb je to v Japonku neslušné."
             "Během toho dostanete ramen, se sborovým Arigató jej převezmete a pustíte se do jídla."
-            "Na to, jak zapadlý a na první pohled pochybný podnik to je, vám jídlo přijde výborné."
+            "Na to, jak zapadlý a na první pohled pochybný podnik to je, se během vašeho pobytu v podniku vystřídá dost Japonců."
+            "Čemuž ale vůbec nerozumíte, rámen je z ančoviček nebo čeho, takže je dost slaný a cítit rybinou."
             "Dojíte, poděkujete a jdete hledat druhou část skupiny."
             "Od Sučana jste dostali zprávu, že jsou v gamecentru."
     scene bg plysak
-    "Všichni sejdete v gamecentru. Mimoň hraje už asi pátou rytmickou hru a odmítá odejít."
+    "Všichni se sejdete v gamecentru. Mimoň hraje už asi pátou rytmickou hru a odmítá odejít."
     # TODO další kolo minihry
     "Asi po hodině se vám podaří Mimoně přesvědčit, že už půjdete."
     "V nižším patře si ještě projdete ufocatchery."
@@ -179,7 +180,7 @@ label akt3:
     "Vyrazíte zpátky metrem do hotelu a po cestě se zastavíte ještě v 7eleven."
     scene bg 7eleven
     "Potřebujete si udělat nákup na zítřejší výstup na Fuji."
-    "Zatímco nakupujete, všimmnete si, že si Mimoň plánuje koupit pouze půllitrovku coly."
+    "Zatímco nakupujete, všimnete si, že si Mimoň plánuje koupit pouze půllitrovku coly."
     "Přitom si musíte nakoupit jídlo a pití na celý den, na Fuji si jídlo nekoupíte."
     j "Mimoňi, půllitrovka coly ti na výstup na Fuji stačit nebude, vem si aspoň dvojlitrovku vody k tomu."
     j "A nějaké jídlo; tam asi nebude možnost si něco koupit."

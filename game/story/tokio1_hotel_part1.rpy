@@ -70,7 +70,7 @@ label bathroom_sucan:
 label problemubytovani:
     show s neutral at left
     show a smile at right
-    "Všimneš si, že Sučan se tváří pobaveně, zatímmco Adrian smutně."
+    "Všimneš si, že Sučan se tváří pobaveně, zatímco Adrian smutně."
     s "Víte, jak jsem řešil, že tenhle hotel někdo hacknul?"
     "říká velmi pobaveným tónem."
     s "Tak to má dohru, nejen, že jsem kvůli tomu musel před odjezdem zablokovat a obstarat si novou kreditku..."

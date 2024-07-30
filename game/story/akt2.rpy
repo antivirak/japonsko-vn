@@ -32,7 +32,7 @@ label akt2:
     "Pobočka je sice asi 3 km od nákupního centra, ale zatím jste dostatečně fresh, takže tam vyrazíte pěšky."
     "Po cestě potkáte nějaké gamecentrum, tak se domluvíte, že se tam zastavíte po cestě zpět."
     scene bg ichiran venek  
-    "Dorazíte k pobočce Ichiranu, ale je před vámi dlouhá fronta asi 15 lidí."
+    "Dorazíte k pobočce Ichiranu, ale je před vámi dlouhá fronta asi 30 lidí."
     "Avšak jeden z Japonců vám pro urychlení podává meníčko pro zakroužkování správného ramenu na míru."
     call ichiran_selection_minigame_main
     scene bg ichiran venek  # TODO sehnat jeste lepší ichiran
@@ -81,7 +81,7 @@ label akt2:
     "Sučan zapadne k závodním automatům a rozjíždí velký závod s místními Japonci."
     "Asi po hodině se vám podaří Mimoně a Sučana odtud dostat."
     scene ueno1
-    "A vyrážíte do parčíku. Zde narazíte na památníku bojovníků ve válce Ueno, někdy označované jako válka Shogi-tai."
+    "A vyrážíte do parčíku. Zde narazíte na památník bojovníků ve válce Ueno, někdy označované jako válka Shogi-tai."
     scene ueno2
     "Bitva zde proběhla roku 1868 v období Meidži."
     scene ueno3

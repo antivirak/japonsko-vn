@@ -24,7 +24,7 @@ label akt4:
     "Když z dálnice sjedete kousek od Fuji, tak se dostanete na takové menší okresní silničky."
     scene bg cestafuji3
     "Cestou se koukáš z okýnka, všude je vše krásně zelené. Konečně chápeš, proč je v Anime vždy tráva tak krásně zelená:"
-    "ona to totiž není tráva, ale rýže. Kterou pěstují kde se dá."
+    "ona to totiž není tráva, ale rýže. Kterou pěstují, kde se dá."
     scene bg cestafuji6
     "Konečně se před vámi v mracích zahalená objeví Fuji."
     scene bg cestafuji5
@@ -114,7 +114,7 @@ label akt4:
     if j.sportovni:
         "Dala ses do dvojice se Sučanem a po cestě si povídáte. Řešíte, že vyrážíte nahoru o 2 h později, než byl plán."
         "A že musíte nastolit trošku svižnější tempo, abyste to stihli."
-        "Pak si chvíli povídáte o tam, jak se mají jedni nebo druzí rodiče."
+        "Pak si chvíli povídáte o tom, jak se mají jedni nebo druzí rodiče."
         scene bg fuji 5th
         "A vida, jak si tak povídáte, už jste u páté stanice."
         show s fuji
