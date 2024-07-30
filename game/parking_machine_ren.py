@@ -252,7 +252,7 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
         # find out if the cursor is inside hotspot
         # this could probably be managable by the pygame's collisions
         inside_hotspot = (
-            self.bar_drawable.x_place - self.bar_drawable.xsize / 3
+            self.bar_drawable.x_place
             <= self.pos_x / self.bulgar_const
             <= self.bar_drawable.x_place + self.bar_drawable.xsize
         )

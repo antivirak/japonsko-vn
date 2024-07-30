@@ -25,7 +25,7 @@ label parking_machine_game_main:
     $ config.mouse_displayable = MouseDisplayable(
         "images/tweezers.png", 0, 0,
     ).add("tweezers", "mouse tweezers", 9.9, 9.9)  # Transform(, xysize=(100, 50))
-    $ game_displayable = ParkingDisplayable(DynamicLogicMash(GameDifficulty.HARD))
+    $ game_displayable = ParkingDisplayable(DynamicLogicNewton(GameDifficulty.HARD))
     # avoid rolling back and losing game state
     $ renpy.block_rollback()
 
