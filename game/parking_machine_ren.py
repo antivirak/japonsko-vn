@@ -69,10 +69,7 @@ class DynamicLogicSimple:
         if self.bar_position >= .98:
             self.winner = True
             return True
-        if self.bar_position < -.9:
-            return True
-
-        return False
+        return self.bar_position < -.9
 
 
 class DynamicLogicSimpleCont(DynamicLogicSimple):
@@ -161,12 +158,7 @@ class DynamicLogicMash(DynamicLogicSimple):
         self.bar_velocity = max(self.bar_velocity, -.3)
 
         self.set_pointer_pos(self.mouse_pointer_position + (self.bar_velocity * time_delta))
-        result = self.process_logic(pointer_in_hotspot, time_delta)
-
-        # print('WristWrestling', f"Acceleration : {self.bar_acceleration}")
-        # print('WristWrestling', f"Velocity : {self.bar_velocity}")
-
-        return result
+        return self.process_logic(pointer_in_hotspot, time_delta)
 
 
 class ParkingDisplayable(renpy.display.displayable.Displayable):
