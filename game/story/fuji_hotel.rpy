@@ -1,4 +1,4 @@
-# Scene where the player arrives at the Fuji hotel and parks their car
+# Scene where the player arrives at the Fuji hotel and parks their car, romantic lines
 label hotel_fuji:
     scene bg hotel fuji parking
     "Po příjezdu na hotel zaparkujete na hotelovém parkovišti, vyndáte si kufry"
@@ -331,6 +331,7 @@ label sucan_fuji:
     j "Jo, tak běž, ty podvodníku."
     "Sučan si posbírá svoje věci a odejde."
     "Zamkneš za ním a usneš."
+    "Ráno tě vzbudí nařízený budík, oblíkneš se varazíš na snídani."
     return
 
 label mimon_fuji:
@@ -394,6 +395,7 @@ label sucan_fuji_nolove:
     j "Jo, ještě jednou díky a dobrou noc."
     "Odejde, nastavíš si budík na ráno a mobil si dáš nabíjet."
     "A během pár minut usneš."
+    "Ráno tě vzbudí nařízený budík, oblečeš se a vyrazíš na domluvený sraz ohledně snídaně."
 
 label spanek_fuji:
     "Rozhodla ses, že na nikoho nemáš náladu a že budeš předstírat, že spíš."
