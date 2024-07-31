@@ -2,7 +2,6 @@
 init python:
 """
 
-# from datetime import datetime
 from enum import Enum
 from typing import Optional
 
@@ -176,17 +175,13 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
         self.bill_drawable = Solid(  # this one is dummy
             '#ff8000', xsize=self.bar_width, ysize=50,
         )
-        # self.cur_y = 700
-        # self.cur_y = renpy.game.preferences.physical_size[1] * .85 - 20
-        # self.bar_y = config.screen_height * .85 - 43
         y_scale = .63
         self.cur_y = renpy.game.preferences.physical_size[1] * y_scale - 20
         self.bar_y = config.screen_height * y_scale - 43
-        # pygame.mouse.set_pos([700, self.cur_y])  # somehow relative, but config.screen_height is not working
+
         self.screen_width_half = renpy.game.preferences.physical_size[0] // 2
         self.bulgar_const = renpy.game.preferences.physical_size[0] / config.screen_width
         self.pos_min = self.screen_width_half - self.screen_width_half // 3
-        # self.pos_max = self.screen_width_half + 250
         self.pos_x = self.screen_width_half
         pygame.mouse.set_pos([self.pos_x, self.cur_y])
         # record all the drawables for self.visit
@@ -214,10 +209,10 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
             self.start_time = st
 
         xsize = int(self.logic.bar_width_scale * self.bar_width)
-            # scale to (-250 to 250)
+        # scale to (-250 to 250)
         x_place = self.logic.bar_position * 250 + (config.screen_width - xsize) / 2  # center
 
-        bill_size_y = 263  # 287 for 600
+        bill_size_y = 263
         self.bar_drawable = Solid(
             '#ff800090', xsize=xsize, ysize=bill_size_y,
         )

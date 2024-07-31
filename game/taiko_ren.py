@@ -256,11 +256,10 @@ class RhythmGameDisplayable(renpy.display.displayable.Displayable):
             if time_before_appearance < 0:  # already below the bottom of the screen
                 continue
             # should be on screen
-            if time_before_appearance <= self.note_offset:
-                active_notes[drum_idx].append((onset, time_before_appearance))
-            # there is still time before the next note should show
-            # break out of the loop so we don't process subsequent notes that are even later
-            elif time_before_appearance > self.note_offset:
+            if time_before_appearance > self.note_offset:
+                # there is still time before the next note should show
+                # break out of the loop so we don't process subsequent notes that are even later
                 break
+            active_notes[drum_idx].append((onset, time_before_appearance))
 
         return active_notes
