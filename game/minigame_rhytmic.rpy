@@ -52,7 +52,7 @@ label rhytm_game_main:
     # avoid rolling back and losing game state
     $ renpy.block_rollback()
 
-    # $ _game_menu_screen = None
+    $ _game_menu_screen = None
 
     # show screen _performance at right
     $ new_score = renpy.call_screen(
@@ -63,3 +63,4 @@ label rhytm_game_main:
     $ score = score[:min(5, len(score))]
     "Hra skončila! Tvoje skóre je: [new_score]; [score] procent."
     play music "StockTune-Neon Pulse Of Japan_1719152100.mp3"
+    $ _game_menu_screen = 'save'
