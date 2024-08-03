@@ -63,12 +63,14 @@ label ichiran_selection_minigame:
     if not all(len(tbtn_instance.get_selected_index()) for tbtn_instance in tbtn if tbtn_instance):
         "Vyber si prosím všechny ingredience."
         call screen ichiran_menu(tbtn)
-    $ print({
-        # map choice to selection index,
-        choice: tbtn_instance.get_selected_index()[0]
-        # but for spiciness return float value
-        if choice != 'spiciness'
-        else tbtn_instance.get_spiciness()
-        for choice, tbtn_instance in zip(choices, tbtn) if tbtn_instance
-    })
+
+    $ ichiran_selection_result = {
+        choice: (
+            tbtn_instance.get_spiciness() if choice == 'spiciness'
+            else tbtn_instance.get_selected_index()[0]
+        )
+        for choice, tbtn_instance in zip(choices, tbtn)
+        if tbtn_instance
+    }
+    $ print(ichiran_selection_result)
     return  # TODO jump if calling this label causes problems
