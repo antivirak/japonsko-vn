@@ -57,7 +57,8 @@ init python:
                     self.speed = abs(self.speed)
 
             def get_bounds(self):
-                print(self.collidable_width)
+            def get_bounds(self):
+                return (self.x + 30, self.y + 32, self.x + self.collidable_width,  self.y + 32 + self.collidable_height)
 
                 return (self.x + 30, self.y + 32, self.x + self.collidable_width,  self.y + 32 + self.collidable_height)
             
