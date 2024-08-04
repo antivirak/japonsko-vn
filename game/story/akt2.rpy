@@ -45,7 +45,7 @@ label akt2:
     "Když se vás Japonec, který usazuje ke stolům, zeptá, kolik vás je."
     show a neutral
     "Adrian hbitě odpoví"
-    a "Go."
+    a "Gonin."
     hide a neutral
     "Číšník se strašně zděsí, ale pomocí rukou, nohou, japonštiny a angličtiny mu vysvětlíte, že je v pořádku, když budete sedět odděleně."
     hide ichiran_led
