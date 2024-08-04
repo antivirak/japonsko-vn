@@ -56,7 +56,6 @@ label akt2:
     $ ramencatch_target_amounts = IngredientsMapper.map_ingredients(ichiran_selection_result)
     call ramencatch_start
     label ramencatch_won:
-        return
     "Poté, co jsi získal['a' if j.gender == 'f' else ''] svůj rámen, tak si jej rychle snědl['a' if j.gender == 'f' else ''],"
     "aby na tebe ostatní dlouho nečekali."
     "Vylezeš před Ichiran, kde už čekají Adrian, ['Dante' if j.gender == 'f' else 'Hana'] a Sučan. Mimoň je stále uvnitř."

@@ -20,4 +20,4 @@ init python:
                 self.counters[item_type] = 0
                 
         def all_counters_reached_target_amount(self):
-                return all(self.counters[item_type] >= self.get_target_amount(item_type) for item_type in self.counters)
+            return all(self.counters[item_type] >= self.get_target_amount(item_type) for item_type in self.counters)

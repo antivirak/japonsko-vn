@@ -12,7 +12,7 @@ init python:
 
             for ingredient, value in input_dict.items():
                 if ingredient == "noodle":
-                    mapped_ingredients["noodle"] = 10
+                    mapped_ingredients["noodle"] = 8
                 elif ingredient == "dashi":
                     mapped_ingredients["dashi"] = IngredientsMapper.scale_value(value, 5)
                 elif ingredient == "chashu":

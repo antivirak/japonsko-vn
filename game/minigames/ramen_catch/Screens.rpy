@@ -47,7 +47,7 @@ screen ramencatch():
     timer spawner.spawn_interval repeat True action Function(spawner.spawn_item)
 
 label ramencatch_lost:
-    show text "You lost the minigame!" at Position(xalign=0.5, yalign=0.3) with dissolve
+    show text "Prohrál['a' if j.gender == 'f' else ''] jsi minihru!" at Position(xalign=0.5, yalign=0.3) with dissolve
 
     menu:
         "Restart":
