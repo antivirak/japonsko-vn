@@ -340,12 +340,87 @@ label akt5:
                 hide s plavky
                 "Během pár vteřin je Sučan s věcmi zpátky."
                 "Usušíš se nazuješ si boty a vyrazíte všichni k autu."
+            else:
+                "Otočíš se na čtyři a postavíš se, když se ti dostane hlava nad hladinu tak se nadechneš."
+                "Protřeš si oči a rozhlídneš se. Spláchlo tě to blíže ke břehu."
+                "Sedneš si na bobek a opláchneš si písek ze sebe."
+                "A vydáš se ke břehu, boty jste si nechali až kousek dál od vody. Aby vám je nevzala nějaká vlna"
+                "Takže musíš do toho rozpáleného písku, chvíli jen hřeje, ale když se voda z nohou vsákne do písku a odpaří. Začne nepříjemně pálit."
+                "K botám přímo doposkakuješ. Ometeš si písek z nohou rukou a obuješ si boty."
+                "Pak si vezmeš ručník a osušíš se. Kluci mezitím doplavali a vydali se taktéž ke břehu."
+                "Adriana jedna větší vlna, také spláchla, když se dostal na nohy, vapadal jak vyvoraná myš."
+                "Všichni se mu začnete smát a po chvíli se začne smát i Adrian."
+                "Uděláš pár fotek a kluci se mezitím dostali ke břehu."
+                "Obuli se osušili a vyrazili jste k autu."
         "Ne, nechci pak jet slaná další 2h v autě, ale k vodě půjdu.":
             "Adrian, Dante a Sučan se převlíkli do plavek a vyrazili jste společně k vodě."
             "Přelezli jste val, otevře se vám výhled na oceán s pěknou písečnou pláží."
             "Pláž je naprosto prázdná sem tam je vidět nějaký rybář. Ale rozhodně se nikdo nekoupe."
             "Chcete si sundat boty, ale zjistíte, že písek je strašně horký."
             "Takže dojdete v botech až skoro k oceánu, zde se kluci zujou a jdou si zaplavat."
+            "Zůstala jsi na břehu tedy sama, uděláš pár fotek, pak si chvíli stavíš z větších kamínků a mušlí na písku."
+            if j.love_points.get(s, 0) > 5:
+                "Po chvíli, se Sučan oddělí od ostatních a zamíří k tobě."
+                "Kousek od tebe křikne."
+                show s plavky
+                s "Pojď také do vody, je to tady super!"
+                hide s plavky
+                j "Není se tu kde osprchovat, nechci být slaná. Pojedeme ještě docela dlouho autem."
+                "Mezitím došel Sučan až na vzdálenost pár kroků."
+                show s plavky
+                s "Tak aspoň přátelské objetí!"
+                hide s plavky
+                "Rozpřáhne ruce v naznačení objetí a rozejde se k tobě."
+                j "Tak na to zapomeň, to bych pak rovnou mohla do vody, podívej se jak z tebe teče!"
+                "Ale když zjistíš, že jsi ho nepřesvědčila a objetí myslí vážně."
+                "Dáš se do běhu od vody a Sučan za tebou."
+                "Už už tě skoro doběhl."
+                show s plavky
+                "Au, au, sakryš to pálí!"
+                hide s plavky
+                "Nechá tě být a běží zpátky k vodě kde si chladí spálená chodidla."
+                "Vyhrála, jsi. Začneš se mu smát."
+                j "Kdo jinému jámu kopá sám do ní padá a karma je zdarma!"
+                if j.driver:
+                    show s plavky
+                    s "Moc se nesměj, kdyby si mi neutekla, tak se to nestalo. Co když teď nebudu moct řídit?"
+                    hide s plavky
+                "Po chvíli se na chodidla podívá, má je červená. Ale vypadá to, že jinak jsou v pohodě."
+                "To už se vracejí Dante a Adrian. Takže se společně přesunou ke věcem obují, usuší a vyrazíte k autu."
+            if j.love_points.get(d, 0) > 5:
+                "Po chvíli se Dante oddělí od ostatních a zamíří k tobě." 
+                "Když se ve vodě postaví, všimneš si, že se koupal v triku."
+                "Proč? Vždyť všichni kluci jsou normálně v plavkách. A na pláži nikdo není v dálce je sem tam nějaký rybář."
+                show d plavky
+                d "Co je na mě špatně, že na mě zase tak zíráš?"
+                hide d plavky
+                "Vyruší tě z myšlení Dante, který se dostal až k tobě."
+                j "Chceš slyšet pravdu nebo si mám vymýšlet?"
+                show d plavky
+                d "Takže je na mě něco špatně, jasně že pravdu. Já ti také nelžu."
+                hide d plavky
+                j "Přemýšlela jsem proč se koupeš v triku, když tu kromě nás nikdo není."
+                show d plavky 
+                d "Jo aha a já myslel, že mí narostli rohy, nebo tak něco. Že sis mě tak zkoumavě prohlížela."
+                d "Dám ti na výběr ze čtyř... pěti možností vyber si, co je podle tvého pravda."
+                d "Takže na veřejnosti se nesvlékám, protože se za a) stydím, za b) víc na to letí holky, c) z náboženského přesvědčení,"
+                d "d) mám tetování, které by se v japonsku na veřejnosti nemělo ukazovat a za e) mám tělo samoou jizvu, tak nechci nikoho děsit."
+                hide d plavky
+                "Možností máš na výběr opravdu hodně, možnost a) a nebo b) z nich z ní nejlépe, ale také nejméně pravděpodobně."
+                j "V japonsku, se na veřejnosti nesmí ukazovat tetování?"
+                show d plavky
+                d "Ne no. Japonci mají tetování spojené s yakuzou."
+                hide d plavky
+                j "Aha."
+                show d plavky
+                d "Proč si vlastně nešla také do vody?"
+                hide d plavky
+                j "Nechtěla jsem být celá od soli a písku, když je odsud hotel ještě dvě hodiny autem."
+                show d plavky
+                d "Všiml jsem si že u toho parkovistě byl kohoutek, planuju se opláchnout tam."
+
+
+
         "Ne, zůstanu u auta.":
             "Adrian, Dante a Sučan se převlíkli do plavek a vyrazili k vodě."
             "Ty jsi zůstala na parkovišti s Mimoněm."
@@ -362,7 +437,7 @@ label adrian_otazky:
             show a plavky worried
             "Po tom, co jsem utekl z domu a neměl jsem nic, zvládl jsem si sbalit jen pár osobních věcí, na který jsem si vidělal potají na brigádě."
             hide a plavky worried
-            j "Utekl z domu, bez věci proč?"
+            j "Utekl z domu, bez věcí proč?"
             show a plavky worried
             a "Řekl jsem, že ti odpovím jen na jednu otázku a útěk z domova je jiný příběh."
             a "Neměl jsem tedy vlastně vůbec nic, neměl jsem ke komu jít, kde spát."
@@ -372,9 +447,9 @@ label adrian_otazky:
             a "Teď to bylo 5 let, díky jeho podpoře jsem dostudoval a vlastně díky němu mám tak dobrou práci."
             a "Ale nechci být na něm tak závislý, vždycky moje problémy řeší, ale já po zkušenostech s otcem, nechci být na nikom závislý."
             a "A rozhodně nechci, aby si myslel, že jsem taková padavka, kterou skolí, první výšlap na horu."
-            a "Když on je zvyklí běhat na sněžku ss plnou polní."
+            a "Když on je zvyklí běhat na sněžku s plnou polní."
             hide a plavky worried
-        "Jak je to jeho s maminkou?":
+        "Jak je to s jeho maminkou?":
             "Adrian zesmutní."
             show a plavky worried
             a "Dobře, dal jsem slib tak ti to tedy řeknu."
