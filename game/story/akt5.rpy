@@ -387,7 +387,7 @@ label akt5:
                     hide s plavky
                 "Po chvíli se na chodidla podívá, má je červená. Ale vypadá to, že jinak jsou v pohodě."
                 "To už se vracejí Dante a Adrian. Takže se společně přesunou ke věcem obují, usuší a vyrazíte k autu."
-            if j.love_points.get(d, 0) > 5:
+            elif j.love_points.get(d, 0) > 5:
                 "Po chvíli se Dante oddělí od ostatních a zamíří k tobě." 
                 "Když se ve vodě postaví, všimneš si, že se koupal v triku."
                 "Proč? Vždyť všichni kluci jsou normálně v plavkách. A na pláži nikdo není v dálce je sem tam nějaký rybář."
@@ -417,13 +417,40 @@ label akt5:
                 hide d plavky
                 j "Nechtěla jsem být celá od soli a písku, když je odsud hotel ještě dvě hodiny autem."
                 show d plavky
-                d "Všiml jsem si že u toho parkovistě byl kohoutek, planuju se opláchnout tam."
-
-
-
+                d "Všiml jsem si že u toho parkovistě byl kohoutek, plánuju se opláchnout tam."
+                hide d plavky
+                "Jen co domluví připojí se k vám Adrian a Sučan, osušej se ručníkem, obují se a vyrazíte k autu."
+            elif j.love_points.get(a, 0) > 5:
+                "Po chvíli se oddělí Adrian od ostatních."
+                "A rozejde se k tobě. Když má vodu asi do pasu, přijde větší vlna a zezadu ho překlopí a smete."
+                "Trochu tě zamrazí, ale když se Adrian v pořádku vynoří, tak tě to rozesměje."
+                "Dojde k tobě."
+                show a plavky
+                a "Proč jsi také nešla? Ta voda je osvěžující."
+                hide a plavky 
+                j "Aby mě ty vlny smetly, jako tebe?"
+                show a plavky
+                a "Přiznávám, že mě ta vlna překvapila. Možná proto se tu nikdo nekoupe."
+                hide a plavky
+                j "Nechtěla jsem ztrávit další dvě hodiny v autě slaná. Proč nejsi ještě s klukama ve vodě?"
+                show a plavky
+                a "Nechtěl jsem tě nechávat čekat dlouho samotnou na břehu."
+                hide a plavky
+                j "To je od tebe milé. Takže mi teď vysvětlíš všechny ty věci?"
+                show a plavky
+                a "Všechny asi ne, dneska ti odpovím na jednu otázku."
+                hide a plavky
+                call adrian_otazky
+                "Adrian si všimne, že se kluci už vracejí a zmlkne."
+                "Ty také nevíš jak na jeho odpověď reagovat tak raději mlčíš."
+                "Kluci se usuší a obují a vyrazíte k autu."
         "Ne, zůstanu u auta.":
             "Adrian, Dante a Sučan se převlíkli do plavek a vyrazili k vodě."
             "Ty jsi zůstala na parkovišti s Mimoněm."
+            "Mimoň sedí rozvaléný přes zadní sedačky auta a vyndal si Danteho nintendo swich."
+            show m mask
+            m "Vždyť tu vůbec nemá žádný dobrý hry, proč to vůbec vozí?"
+            m "Tak to musím změnit... "
 
 
 
