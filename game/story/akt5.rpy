@@ -478,11 +478,229 @@ label akt5:
     show m mask angry
     "Co je?"
     hide m mask angry
-    
+    show d fujihs
+    d "Pojedeme, skoro po cestě je ten Gibli park sice se nám nepodařilo koupit lístky dovnitř, alr mají i nějakou volně přístupnou část."
+    d "Tak bychom se tam mohli zastavit."
+    hide d fujihs
+    show a fujihs
+    a "Je úterý, mají zavřeno."
+    show d fujihs
+    d "Ajo, ale ono je stejně docela pozdě."
+    hide d fujihs
+    show s fujihs
+    s "Sjel bych někam do lékárny, pro pantenol, spálil jsem se a všimli jsem si, že jste všichni spálený."
+    s "Jsem za koupit jeden a podělíme se o něj."
+    hide s fujihs
+    "S tím souhlasíte."
+    scene bg nagojapoliklinika
+    "Pomocí map najdete něco co podle názvu připomíná lékárnu."
+    "Zaparkujete u takového malého domečku s parkovišťátkem."
+    "Adrian a Sučan vystoupí, vlezou dovnitř a za pár minut vychází."
+    show a fujihs
+    a "Je to nějaká poliklinika, ale doporučili nám nějaký velký obchoďák s drogerií."
+    a "Že tam by mohli mít to co chceme."
+    hide a fujihs
+    "Vyrazíte tedy na doporučené místo."
+    "Vypadá to trošku jako u nás globus nebo tesko, velký 'hangár' s parkovištěm."
+    if j.driver:
+        "Protože se nechcete zdržovat a dovnitř stejně nepůjdete všichni. Přibrzdíš u vchodu a kluci vyskáčou a jdou do obchoďáku."
+        "A ty jedeš zaparkovat."
+        menu:
+            "Budeš parkovat po předu nebo po zádu?"
+            "Po předu.":
+                "Zajela jsi na místo jako po másle, kola se ti zastavili o betonovou zarážku."
+                "Za pár minut se kluci vracejí s dvěmi tubami přípravku."
+                "Naskákali do auta a ty začneš vycouvávat, ozve se hodně divný zvuk."
+                "Dření plastů o beton."
+                "Asi jak se zatížilo auto tak vám kleslo těžiště a odřeli jste kryt motoru o betonovou zarážku."
+                "Na jízdních vlastnostech se nic nezměnilo, takže jsi vyrazila."
+                "Ale ujeli jste pár metrů mimo parkoviště."
+                "A na křižovatce auto začíná vydávat opravdu děsivé zvuky."
+                "Projedeš křižovatkou."
+                show a fujihs
+                a "Asi bychom měli zastavit, ti japonci na nás divně koukají."
+                hide a fujihs
+                j "Jo také se mi to nelíbí."
+                scene bg opravaauta
+                "Zastavíš u prvního vězdu do baráku, kde se zastavit dá."
+                "Vylezete ven a zjistíte."
+                "Že vám z auta ve předu visí plasty."
+                "Jak jsi vyjížděla ven z místa na parkovišti, zachytila jsi o betonovou zarážku krytku motoru a část podběhů."
+                "Sučan jako milovník aut, jako první leze pod auto."
+                show s fujihs
+                s "Hmmm... Urvala jsi takové ty plastové nýty, teda ne všechny, ale nedrží tam, takže se nám to chytá do kol."
+                s "Bez nářadí to neopravím."
+                hide s fujihs
+                show d fujihs
+                d "Ukaž?"
+                hide d fujihs
+                "Dante se vymění se Sučanem pod autem."
+                show d fujihs
+                d "Jo souhlasím, to bez nářadí asi nedáme, nevím kde sehnat nýty nebo aspoň šrouby v japonsku."
+                hide d fujihs
+                "Zatímco poskakujete kolem auta všimnete si, že vedle vás nějaká rodina japonců se balí asi na dovolenou."
+                show s fujihs
+                s "Navrhuji ty plasty sundat a vyřešit to později."
+                hide s fujihs
+                show d fujihs
+                d "Jo souhlasím, ale i tak by se nám hodilo nějaký nářadí."
+                hide d fujihs
+                show a fujihs
+                a "A co byste chtěli, za nářadí? Zkusím se zeptat těch Japonců."
+                show s fujihs
+                s "Hele asi osmičku klíč a kleště."
+                hide s fujihs
+                "Adrian chvíli kouká do mobilu, asi do slovníku a pak se rozejde k rodině."
+                "Chvíli s nimi mluví."
+                "Poté se od rodiny oddělí starší japonec asi dědeček, jde přes ulici do nějaké garáže."
+                "Za chvíli se vrací s nějakými nástroji, které podal Adrianovi."
+                show a fujihs
+                a "Tak mi půjčili tohle, bude to stačit?"
+                hide a fujihs
+                show s fujihs
+                s "Uka? Jo to by mohlo stačit."
+                hide s fujihs
+                "Dante se mezitím vysoukal z pod auta a pustil Sučana zpět."
+                "Sučan tedy zalezl pod auto, chvíli to tam morduje a za chvíli podává první plast."
+                show s fujihs
+                s "Ten velkéj nějak přichytím, ale ten menší sundám i na druhé straně."
+                hide s fujihs
+                "Zatím co Sučan sundává druhý plast, japonská rodina se mezitím nasoukala do auta a vypadá nervózně. Že by chtěla jet a vy stále máte jejich nářadí."
+                hide s fujihs
+                "Naštěsí během chvíle, Sučan podává i druhý plast."
+                show s fujihs
+                s "Hele není to ideální, ale asi s tím můžeme jet."
+                hide s fujihs
+                "Začne vylízat z pod auta, a podává nářadí Adrianovi."
+                "Ten si jej převzal a rozejde se k Japoncům, na nich je vidět, že jsou se rádi, že brzy vypadnete."
+                "Plasty jste dali na podlahu ke spolujezdci."
+                "Sedla jsi zase za volant a vyrážíte směr hotel."
+            "Po zádu.":
+                "Pomocí párkovacích kamer si na první dobrou krásně zaparkovala."
+                "Za pár minut se kluci vracejí s dvěmi tubami přípravku."
+                "Naskládali se do auta. A vyrazíte směr hotel."
+    else:
+        "Sučan zaparkoval po zádu pomocí parkovacích asistentů. A jde s Adrianem a Dantem do obchoďáku."
+        "Pomocí párkovacích kamer si na první dobrou krásně zaparkovala."
+        "Za pár minut se kluci vracejí s dvěmi tubami přípravku."
+        "Naskládali se do auta. A vyrazíte směr hotel."
+    scene bg mapanagoja
+    "Kolem šesté přijíždíte do Nagoji."
+    "Najdete váš hotel, ale nevíte jak je to s parkováním, tak zastavíte na blikačky."
+    show s fujihs
+    s "Hotel má mít nějaké vlastní parkoviště, ale nevím kde."
+    hide s fujihs
+    "Takže Sučan s Adrianem vyrazí na recepci, vy čekáte v autě."
+    show s fujihs
+    s "Tak jsem dostal nějakou mapku a lísteček na slevu, je to nějaký parkoviště, kde mají zákazníci hotelu slevu."
+    hide s fujihs
+    "Parkoviště, je někde za vámi, takže musíte objet blok a nakonec parkoviště trefíte."
+    "Vyndáte kufry a vyrazíte zpátky k hotelu."
+    "Máte tři pokoje, dva dvojlůžáky a jeden jednolůžák."
+    "Jednolůžák dostaneš ty, dokonce to tak očekávájí na recepci. Dante si bere pokoj s Adrianem."
+    "A Sučan tedy schytal Mimoně."
+    "Dáte si sraz za hodinku před pokoji, že půjdete společně na večeři."
+    "Dala sis věci na pokoj a proběhneš sprchou."
+    "Dáš vědět domů. Převlíkneš se přebalíš si věci s sebou a je akorát čas srazu."
+    "Vylezeš před pokoj a tam už čekají Adrian, Dante a Sučan."
+    show s nagoja
+    s "Není tu Ichiran? Ten mi chutnal."
+    hide s nagoja
+    show a nagoja
+    a "Jo, pobočka v Nagoji je, kouknu jestli je to někde blízko."
+    a "..."
+    a "Jo, tak je odsud asi 3 ulice."
+    hide a nagoja
+    show s nagoja
+    s "Tak super za mě Ichiran."
+    hide s nagoja
+    show d nagoja
+    d "Jo já jsem za."
+    hide d nagoja
+    "Vypadá to, že je rozhodnuto."
+    show s nagoja
+    "Hmmm. Ten Mimoň asi nepřijde, dojdu se na něj podívat."
+    hide s nagoja
+    "Zajde do pokoje a za cvíli vychází s Mimoněm."
+    show m mask angry
+    m "Mám hlad! Dal bych si normální suši."
+    hide m mask angry
+    show d nagoja
+    d "Jde se na Ichiran, jak jsme byli první den v Tokiu."
+    hide d nagoja
+    show m mask angry
+    m "Nechci!"
+    hide m mask angry
+    show s nagoja
+    s "Tak zůstaň na hotelu, nebo si někam zajdi sám."
+    hide s nagoja
+    show m mask angry
+    m "Sám nikam nejdu, ať se mnou jde [j.name]."
+    hide m mask angry
+    j "Já jdu se zbytkem na Ichiran."
+    show m mask angry
+    m "Sám nejdu, tak jdu teda s vámi."
+    hide m mask angry
+    show s nagoja
+    s "Takže ikimašó."
+    "Jdete tedy pár ulic a najdete pobočku Ichiranu."
+    "Moc se neliší od Tokijské pobočky."
+    "Zakrouškujete si, co si chcete dát, zaplatíte u automatu a během chvíle si už vychutbáváte každý svůj rámen."
+    "Po jídle se jdete po Nagoje ještě projít."
+    scene bg pachinko
+    "Zaujme vás herna s Pachinkem."
+    "V japonsku je totiž zakázaný hazard, takže nenajdete v něm typické herny."
+    "Ale samozřejmně i Japonci jsou vynalézavý, takže mají pachinko herny."
+    "Což je hra s kovovými kuličkami, něco na styl pinballu."
+    "A jako výhru množíte kuličky a kuličky se dají vyměnit za hračky, nebo za speciální krabičku."
+    "Která se na 'černém' trhu za pěníze."
+    "Vlezli jste tedy dovnitř a jdete k jednomu automatu."
+    "Sučan se posadil k jednomu automatu a vy jste se rozestavili kolem něho."
+    "Vytáhli jste překladač a snažíte se přijít na to jak to funguje."
+    "Po chvíli přijde Japonec, který se vás zeptá jestli chcete pomoc v japonštině."
+    "Adrian odpoví v japonštině, že ano. Tak japonec spustí v japonštině. Tak mu řeknete anglicky jestli by to nemohl říct anglicky."
+    "Tak to se viděsí a uteče?"
+    "Za chvíli přijde Japonka, která na vás začne mluvit anglicky."
+    show japonkaherna
+    Japonka "Do you need help?"
+    hide japonkaherna
+    show d nagoja
+    d "Maybe yes? We want to try it."
+    hide d nagoja
+    show japonkaherna
+    Japonka "Ok, so give the money here and you get card. One thousand is minimum."
+    hide d nagoja
+    "Tak Sučan vyndá peníze, a strčí je do ukázané dírky."
+    "Vypadla mu zlatá karta."
+    show japonkaherna
+    Japonka "So now, give the card here. And you can start."
+    hide japonkaherna
+    "A tak Sučan vložil kartu do stroje a navolil první hru."
+    "Když zmáčkl start, tak začnou lítat kuličky do stroje."
+    show japonkaherna
+    Japonka "Oh, you must, oh the button... Sorry."
+    hide japonkaherna
+    "Japonka pochopila že Sučan vůbec netuší, tak mu chytla ruku a snaží se ho navést."
+    "Ale skoro všechny kuličky padají mimo výherní místo."
+    "Když přestanou kuličky létat. Tak se Japonka zasměje a řekne."
+    show japonkaherna
+    Japonka "Ups, gameover, you lost five hundred yen. So you know how to play, in other part of room is automat where you pay one yen per ball."
+    Japonka "Bye."
+    hide japonkaherna
+    "A zmizela"
+    show s nagoja
+    s "Hm, tak jsem prohrál pět set yenů a už chápu proč ti japonci u toho sedí ruku v jedné pozici."
+    s "Jestli si to chcete někdo zkusit, jsem za vyndat tu kartu a jít na ten druhý automat."
+    hide s nagoja
+    "Ukončili jste tedy hru vyndali kartu a přesunuli se k automatu, kde se platí za jednotlivé míčky."
+    "Každý jste si to vyzkoušeli."
+    "Takže jste získali i nějaké kuličky zpět, ale po chvíli jste neměli žádné."
+    "Takže jste odcházeli o 1000 yenů lehčí, ale nabytí nových zkušeností."
+    "Ještě jste udělali malý okruh a vrátili jste se na hotel."
+    "Druhý den se plánujete přesunout do Kjóta s tím, že část z vás pojede Šinkanzenem."
+    "A protože zítřek je ve znamení přejezdu, rozhodnete se, že si ještě ráno Nagoju projdete za světla."
+    "Rozejdete se do svých pokojů, proběhneš koupelnou, nařídíš budíka a do pár minut jsi tuhá."
 
-
-
-     
     return
 
 label adrian_otazky:
