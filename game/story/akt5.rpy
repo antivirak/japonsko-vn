@@ -352,6 +352,9 @@ label akt5:
                 "Všichni se mu začnete smát a po chvíli se začne smát i Adrian."
                 "Uděláš pár fotek a kluci se mezitím dostali ke břehu."
                 "Obuli se osušili a vyrazili jste k autu."
+            "Mimoň spí v otevřeném autě, ještě že se v japonsku nekrade."    
+            "U parkoviště je kohoutek se sladkou vodou, takže se u něj vystřídáte."
+            "Každý se pak jdete oblíknout za auto, kde se kryjete ještě i ručníkem."
         "Ne, nechci pak jet slaná další 2h v autě, ale k vodě půjdu.":
             "Adrian, Dante a Sučan se převlíkli do plavek a vyrazili jste společně k vodě."
             "Přelezli jste val, otevře se vám výhled na oceán s pěknou písečnou pláží."
@@ -432,7 +435,7 @@ label akt5:
                 show a plavky
                 a "Přiznávám, že mě ta vlna překvapila. Možná proto se tu nikdo nekoupe."
                 hide a plavky
-                j "Nechtěla jsem ztrávit další dvě hodiny v autě slaná. Proč nejsi ještě s klukama ve vodě?"
+                j "Nechtěla jsem strávit další dvě hodiny v autě slaná. Proč nejsi ještě s klukama ve vodě?"
                 show a plavky
                 a "Nechtěl jsem tě nechávat čekat dlouho samotnou na břehu."
                 hide a plavky
@@ -444,6 +447,10 @@ label akt5:
                 "Adrian si všimne, že se kluci už vracejí a zmlkne."
                 "Ty také nevíš jak na jeho odpověď reagovat tak raději mlčíš."
                 "Kluci se usuší a obují a vyrazíte k autu."
+        "Mimoň spí v otevřeném autě, ještě že se v japonsku nekrade."    
+        "U parkoviště je kohoutek se sladkou vodou, takže se u něj kluci vystřídají."
+        "Ty si sedneš na obrubník dál od auta a kohoutku a koukáš se do mobilu."
+        "Každý se pak jde oblíknout za auto, kde se kryje ještě i ručníkem."
         "Ne, zůstanu u auta.":
             "Adrian, Dante a Sučan se převlíkli do plavek a vyrazili k vodě."
             "Ty jsi zůstala na parkovišti s Mimoněm."
@@ -451,6 +458,27 @@ label akt5:
             show m mask
             m "Vždyť tu vůbec nemá žádný dobrý hry, proč to vůbec vozí?"
             m "Tak to musím změnit... "
+            hide m mask 
+            j "Vážně, chceš instalovat nějaké hry na cizí zařízení a vůbec půjčil ti ho?"
+            show m mask
+            m "Bral ho kvůli mně, mám ho u sebe už od letadla."
+            hide m mask
+            "Aha."
+            "No docela drahá hračka, no snad Dante nebude litovat, že mu ho půjčil."
+            "Sedneš si tedy na místo spolujezdce, nandáš si sluchátka, aby si nemusela poslouchat Mimoně."
+            "Pustíš si svůj oblíbený playlist."
+            "Vzbudí tě až to že se kluci vrací od vody."
+        "Všimneš si že Mimoň také spí, ale nechal otevřené zadní dveře, ještě že se v japonsku nekrade."    
+        "U parkoviště je kohoutek se sladkou vodou, takže se u něj kluci vystřídají."
+        "Každý se pak jdete oblíknout za auto, kde se kryjete ještě i ručníkem."
+        "Pak přijdou k autu a vypadají, že se chtějí převlíknout."
+        "Rozespale tedy vylezeš a deš si stoupnout dál od auta."
+        "Každý se pak jde oblíknout za auto, kde se kryje ještě i ručníkem."
+    "Když jste přichystaní na odjezd vzbudíte Mimoně."
+    show m mask angry
+    "Co je?"
+    hide m mask angry
+    
 
 
 
