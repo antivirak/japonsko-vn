@@ -159,7 +159,7 @@ label akt5:
     "Po chvíli ale vypozorujete, že všichni Japonci jedou přesně o 20 km/h více."
     "Odvodíte si z toho, že v Japonsku je základní výbava auta tempomat a po chvíli googlení zjistíte, že se na dálnici dává pokuta až při překročení rychlosti o 20 km/h."
     "Zasmějete se nad myšlenkou, jak striktně Japonci dodržují pravidla a pak na dálnicích jedou o 20 km/h více."
-    "Sice jste snídali až v devět, ale vyráželi jste od hotelu až chvíli po dvanácté hodině."  # TODO až v 9 nebo už?
+    "Snídali jste až v devět, od hotelu vyrážíte až chvíli po dvanácté hodině."
     "Takže po chvíli jízdy začínáte mít všichni hlad."
     "Navíc je nutné natankovat, takže sjedete k nějaké benzínce po cestě."
     "Jde o velké odstavné parkoviště, kde zaparkujete a vydáte se do přilehlé budovy."
