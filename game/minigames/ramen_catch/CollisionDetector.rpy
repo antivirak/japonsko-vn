@@ -36,6 +36,7 @@ init python:
                             renpy.jump("ramencatch_won")         
                     elif self.counter.get_target_amount(item.item_type) == 0:
                         renpy.play('audio/wrong.mp3')
-                        renpy.call_in_new_context("ramencatch_lost")               
+                        renpy.call_in_new_context("ramencatch_lost")
+                        renpy.jump("ramencatch_won")         
                     continue
 

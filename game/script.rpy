@@ -6,6 +6,7 @@ label start:
     call akt1
     call problemubytovani
     call akt2
+    call akt2_after_ichiran
     call akt3
     call akt4
     call hotel_fuji
