@@ -21,7 +21,7 @@ label hotel_fuji:
     "Vedle tebe má pokoj Dante, vedle Danteho Adrian."
     "Sučan má pokoj naproti tobě a Mimoň pak vedle něho."
     scene bg fuji pokoj
-    "Zapadneš do pokoje. Pokoj se nijak extra neliší od pokoje, ve kterém jste spali v Tokiu."
+    "Zapadneš do pokoje. Pokoj se nijak extra neliší od pokoje, ve kterém jste spali v Tokiu."
     "Zamkneš se, odložíš si kufr, vybalíš si věci na převlečení a zalezeš do koupelny."
     "Jsi celá ulepená a černá od sopečného prachu."
     "Dopřeješ si tedy pořádnou koupel. Oblékneš se."
@@ -82,7 +82,7 @@ label adrian_fuji:
     a "Tak ty naše jsou určitě špinavější. Jestli ti je blbé mi dávat spodní prádlo, pochopím to, a dej mi jen kalhoty, triko a mikinu."
     hide a fujihs
     "Teď ti dojde, že v té hromadě špíny samozřejmě máš zahrabané i spodní prádlo."
-    j "Hele, jsem vykoupaná, a spodní prádlo je zamotané v tom. Dám ti to tak."
+    j "Hele, jsem vykoupaná, a spodní prádlo je zamotané v tom. Dám ti to tak."
     j "Ale mám jednu podmínku, zastavíš se tu až půjdeš od pračky zpátky na pokoj."
     show a fujihs
     a "..."
@@ -98,7 +98,7 @@ label adrian_fuji:
     hide a fujihs
     j "Ne, já děkuji. Nemám sílu si jít prát sama."
     "Adrian odejde z tvého pokoje."
-    "Trošku pokoj poklidíš a uděláš dva čaje, které na pokoji jsou v rámci klasické výbavy japonských hotelů."
+    "Trošku pokoj poklidíš a uděláš dva čaje, které na pokoji jsou v rámci klasické výbavy japonských hotelů."
     "Za chvíli někdo klepe."
     j "Už běžím, Adri."
     "Otevřeš dveře a tam Adrian."
@@ -115,10 +115,10 @@ label adrian_fuji:
     hide a fujihs
     "Říkala?! Proč sakra použil minulý čas? Nechceš úplně šlapat do vosího hnízda, zeptáš se na to jindy až bude lepší příležitost."
     j "Tak pojď dovnitř, dáš si čaj? Udělala jsem dva."
-    "Přikývne. Vstoupí tedy do pokoje, zavře za sebou a ty mu naznačíš ať jde s tebou dál."
+    "Přikývne. Vstoupí tedy do pokoje, zavře za sebou a ty mu naznačíš ať jde s tebou dál."
     "Ukážeš mu, aby si sedl na postel."
     "A podáš mu hrneček s čajem."
-    j "Chci vědět, zda si v pohodě. Nahoře si byl dobrou minutu v bezvědomí a ještě nechceš, abych o tom někomu říkala. Takže mi asi dlužíš vysvětlení."
+    j "Chci vědět, zda si v pohodě. Nahoře si byl dobrou minutu v bezvědomí a ještě nechceš, abych o tom někomu říkala. Takže mi asi dlužíš vysvětlení."
     show a fujihs
     a "Jo, je mi dobře, jen nejsem zvyklý na tak vysoké nadmořské výšky."
     hide a fujihs
@@ -131,7 +131,7 @@ label adrian_fuji:
     a "Jenou ti to třeba řeknu, ale teď mě prosím nenuť."
     a "Co ty, nejsi moc pomlácená?"
     hide a fujihs
-    j "Pomlácená asi trošku, ale spálila jsem se. Přišlo mi, že sluníčko v podstatě nesvítilo, ale jsem spálená."
+    j "Pomlácená asi trošku, ale spálila jsem se. Přišlo mi, že sluníčko v podstatě nesvítilo, ale jsem spálená."
     show a fujihs
     a "Jo, já jsem se také spálil. Zítra najdeme lékárnu a koupíme něco na spáleniny."
     hide a fujihs
@@ -139,7 +139,7 @@ label adrian_fuji:
     show a fujihs
     a "Asi bych už měl jít. Věci ti dám zítra po snídani."
     hide a fujihs
-    "Sice by sis ráda s Adrianem ještě povídala a dostala z něho, jak je to s jeho mámou a s Dantem."
+    "Sice by sis ráda s Adrianem ještě povídala a dostala z něho, jak je to s jeho mámou a s Dantem."
     "Ale zároveň seš strašně unavená."
     j "Asi bych měla jít spát, tak ráno v devět na snídani?"
     "Adrian vstane a zamíří s hrníčkem do koupelny"
@@ -170,7 +170,7 @@ label dante_fuji:
         j "Jé, promiň, to mi vůbec nedošlo. Moc díky za půjčení."
         j "Neměla bych ti ji spíše vyprat já?"
         show d fujihs
-        d "To je dobrý, stejně potřebuju vyprat zbytek oblečení z Fuji."
+        d "To je dobrý, stejně potřebuju vyprat zbytek oblečení z Fuji."
     d "Nechceš si tam dát i to svoje?"
     d "Pračka je dost velká, jen do sušičky to budeme muset dát na víckrát."
     hide d fujihs
@@ -182,7 +182,7 @@ label dante_fuji:
     j "Jen teda si z toho vyndám spodní prádlo."
     show d fujihs
     d "Tvoje kalhotky jsem už viděl, vypereme to všechno. Dej to sem. Nejsme malý, ne?"
-    d "Nebo na tvém spodním prádle uvidím něco, co jsem ještě neviděl? Máš ho s vodotryskem? Či s GPS?"
+    d "Nebo na tvém spodním prádle uvidím něco, co jsem ještě neviděl? Máš ho s vodotryskem? Či s GPS?"
     d "Vlastně, to jsem už taky viděl."
     hide d fujihs
     "Dante mluví od dveří, zatímco jsi zašla dále do pokoje a bereš plátěnou tašku, do které jsi naskládala ty špinavé věci z Fuji."
@@ -203,7 +203,7 @@ label dante_fuji:
             d "Dobře, odnesu to prádlo do pračky a přijdu s knihou."
             hide d fujihs
             j "Domluveno."
-            "Dante se sebere a odejde z pokoje."
+            "Dante se sebere a odejde z pokoje."
             "Trošku v pokoji poklidíš a dáš vařit vodu, kdyby chtěl Dante čaj nebo kávu."
             "Nařídíš si budíka a dáš si nabíjet mobil."
             "Neuběhne ani čtvrt hodiny a někdo klepe na dveře."
@@ -214,7 +214,7 @@ label dante_fuji:
             d "Dáš si?"
             hide d fujihs
             menu:
-                "Dáš si s Dantem trošku ovocné vodky?"
+                "Dáš si s Dantem trošku ovocné vodky?"
                 "Ano":
                     j "Tak trošku na ochutnání."
                     "Dante tedy rozlije obsah plechovky do hrnečků na tácku u varné konvice."
@@ -235,7 +235,7 @@ label dante_fuji:
             "No, asi není vhodné ho teď vyhazovat, a navíc tě zajímá ta knížka."
             "Takže si lehneš do postele a Dante se posedí k tobě na okraj, někam na úroveň tvých boků."
             "Otevře knihu a dá se do čtení"
-            "Ani nevíš, kdy jsi usnula a kdy Dante odešel. Ráno tě vzbudil budík na mobilu a Dante v pokoji není."
+            "Ani nevíš, kdy jsi usnula a kdy Dante odešel. Ráno tě vzbudil budík na mobilu a Dante v pokoji není."
             "Na nočním stolečku najdeš na bločku s papíry s hlavičkou hotelu napsáno:"
             "Dobrou noc, [j.name_5p]. Probdělou noc si necháme na jindy. D."
         "Ne":
@@ -249,20 +249,20 @@ label dante_fuji:
 label sucan_fuji:
     "Otevřeš dveře a k tvému milému překvapení to doopravdy je Sučan."
     show s fujihs
-    s "Dvě věci, nechceš si dát prát věci z Fuji? A nechceš si chvíli ještě povídat?"
+    s "Dvě věci, nechceš si dát prát oblečení z Fuji? A nechceš si chvíli ještě povídat?"
     hide s fujihs
     "Vybalí na tebe."
     j "Vyprat oblečení? Jo, to by bylo asi super. Povídat? Moc ráda."
     j "Tady je nějaká pračka?"
     show s fujihs
-    s "Jo, dole v předsíňce onsenu je za 600 yenů pračka a asi za 200 yenů sušička. Mám v podstatě jen věci z Fuji a z letu a ta pračka je velká."
+    s "Jo, dole v předsíňce onsenu je za 600 yenů pračka a asi za 200 yenů sušička. Mám v podstatě jen věci z Fuji a z letu a ta pračka je velká."
     hide s fujihs
     j "Oki, hodím si tam také věci."
     if j.hoodie == s.name:
         "Navíc mám tvoji mikinu, tak aspoň ti ji vrátím čistou."
     j "Počkej, hodím si něco přes pyžamo a jdu s tebou."
     show s fujihs
-    s "To není nutné. Prát umím obstojně a ta pračka moc jiná, než pračky v Čechách, nebude."
+    s "To není nutné. Prát umím obstojně a ta pračka moc jiná, než pračky v Čechách, nebude."
     s "Spíš jsem si říkal, zda si nechceš povídat, než ta pračka dopere."
     hide s fujihs
     j "No jo, ta pračka bude prát tak hodinu a něco a cyklus sušičky je také minimálně na půl hodiny."
@@ -275,7 +275,7 @@ label sucan_fuji:
     "Sučan odejde, nastavíš si budík na ráno a mobil si dáš nabíjet."
     "Poklidíš trošku pokoj."
     "A během chvíle někdo klepe."
-    "Otevřeš a Sučan stojí za dveřmi s polštářem a peřinou."
+    "Otevřeš a Sučan stojí za dveřmi s polštářem a peřinou."
     show s fujihs
     s "Tak mě tady máš, pračka dopere za hodinu a 10 minut. Budík nastaven."
     hide s fujihs
@@ -296,7 +296,7 @@ label sucan_fuji:
     s "Dobře."
     hide s fujihs
     "Natáhnete se vedle sebe. Sice to není klasické jednolůžko, ale manželská postel to také není."
-    "Sučan tě chytne za ruku dál od něj a donutí tě přetočit se na bok obličejem k němu. Pak ti dá ruku pod hlavu."
+    "Sučan tě chytne za ruku dál od něj a donutí tě přetočit se na bok obličejem k němu. Pak ti dá ruku pod hlavu."
     "A našteluje si tě tak, že máš teď hlavu na jeho ramenu."
     show s fujihs
     s "Tak je to lepší než se drcat rameny."
@@ -305,7 +305,7 @@ label sucan_fuji:
     show s fujihs
     s "Spi, vypadáš unaveně."
     hide s fujihs
-    "Chceš mu odporovat, vysmeknout se z objetí. Ale jsi strašně unavená už nemáš sílu. Navíc ti drží ruku a hladí tě ve vlasech."
+    "Chceš mu odporovat, vysmeknout se z objetí. Ale jsi strašně unavená už nemáš sílu. Navíc ti drží ruku a hladí tě ve vlasech."
     j "Tak moc unavená nejsem, pust mě,"
     "špitneš. Cítíš jeho teplo a kolínskou, ale jen tak lehce. Dopadla na tebe únava, tvé tělo je těžké a odmítá se hnout."
     "Víčka se ti zavírají a je strašně těžké je nechat otevřené. Spíš."
@@ -317,25 +317,25 @@ label sucan_fuji:
     "Mžouráš na něj. Konečně ses doprobrala a došlo ti, kde jsi a která bije."
     j "Půjdu já, ty ho pak vyndej ze sušičky."
     show s fujihs
-    s "To nepůjde, musím já. Ta pračka se sušičkou jsou v pánském onsenu."
+    s "To nepůjde, musím já. Ta pračka se sušičkou jsou v pánském onsenu."
     hide s fujihs
-    j "Počkej, ty si mě podvedl? Takže já tě tu nechala spát, abychom se vystřídali u pračky, a já k ní nemůžu?"
+    j "Počkej, ty si mě podvedl? Takže já tě tu nechala spát, abychom se vystřídali u pračky, a já k ní nemůžu?"
     show s fujihs
     s "Nenazval bych to podvodem, spíše využitím situace."
     s "Ale netvrď mi, že se ti to nelíbilo. Usla si dřív, než si dolehla."
     hide s fujihs
     j "Ale to protože si mě uhnal na Fuji."
     show s fujihs
-    s "Dobře, jdu přehodit to prádlo, a pak půjdu spát k sobě. Spokojená?"
+    s "Dobře, jdu přehodit to prádlo, a pak půjdu spát k sobě. Spokojená?"
     hide s fujihs
     j "Jo, tak běž, ty podvodníku."
     "Sučan si posbírá svoje věci a odejde."
     "Zamkneš za ním a usneš."
-    "Ráno tě vzbudí nařízený budík, oblíkneš se varazíš na snídani."
+    "Ráno tě vzbudí nařízený budík, oblékneš se vyrazíš na snídani."
     return
 
 label mimon_fuji:
-    "Za dveřmi stojí Mimoň, stále špinavý a ve stejném oblečení, ve kterém byl na Fuji."
+    "Za dveřmi stojí Mimoň, stále špinavý a ve stejném oblečení, ve kterém byl na Fuji."
     show m fuji
     m "Přišel jsem ti oznámit, že už mi zbývají jen 3 čistá trička."
     hide m fuji
@@ -355,12 +355,12 @@ label mimon_fuji:
     "Ráno ti zvoní budík před sedmou, vstaneš, převlékneš se a vezmeš si své špinavé prádlo."
     "Vylezeš před pokoj. Je 6:59. Čekáš, jestli se neobjeví Mimoň. Po deseti minutách to vzdáš a sjedeš výtahem dolů."
     scene bg fuji pradelna
-    "Večer sis totiž na recepci všimla, že inzerují že mají pračku. Najdeš ji v dámském onsenu. V předsíňce jsou pračky dokonce dvě a dvě sušičky."
+    "Večer sis totiž na recepci všimla, že inzerují že mají pračku. Najdeš ji v dámském onsenu. V předsíňce jsou pračky dokonce dvě a dvě sušičky."
     "Naházíš věci do pračky, pomocí překladače se dozvíš, že cyklus stojí 600 yenů a že si na recepci můžeš koupit prací kapsli za 60 yenů."
     "Vezmeš si tedy propozice s sebou a na recepci ukážeš na příslušný odstavec."
-    "Za chvíli odcházíš s vítězným výrazem zpátky s kapslí na prádlo a o 60 yenů lehčí."
+    "Za chvíli odcházíš s vítězným výrazem zpátky s kapslí na prádlo a o 60 yenů lehčí."
     "Hodíš ji k prádlu, zavřeš, naházíš 600 yenů do automatu na mince a navolíš program. Pračka se pustila."
-    "Na displeji se ukážou čísla a nějaké znaky. Odvodíš z toho, kdy cyklus skončí."
+    "Na displeji se ukážou čísla a nějaké znaky. Odvodíš z toho, kdy cyklus skončí."
     "Nařídíš si budíka a jdeš zpátky do pokoje. A ještě usneš."
     "Když ti zazvoní budík, sejdeš dolů a věci přendáš do sušičky."
     "A je pomalu čas na snídani. Po chatu jste se domluvili, že se sejdete před pokoji, takže vyjedeš zpátky do patra."
@@ -377,9 +377,9 @@ label sucan_fuji_nolove:
     s "Jo, dole v předsíňce onsenu je za 600 yenů pračka a asi za 200 yenů sušička. Mám v podstatě jen věci z Fuji a z letu a ta pračka je velká."
     hide s fujihs
     j "Oki, hodím si tam také věci."
-    j "Počkej, oblíknu si něco přes pyžamo a jdu s tebou."
+    j "Počkej, oblíknu si něco přes pyžamo a jdu s tebou."
     show s fujihs
-    s "To není nutné. Prát umím obstojně a ta pračka moc jiná, než pračky v Čechách, nebude."
+    s "To není nutné. Prát umím obstojně a ta pračka moc jiná, než pračky v Čechách, nebude."
     s "Jen mi dej, co chceš vyprat a běž klidně spát. Zařídím to."
     hide s fujihs
     j "No jo, ta pračka bude prát tak hodinu a něco a cyklus sušičky je také minimálně na půl hodiny."
@@ -402,12 +402,12 @@ label spanek_fuji:
     "A za pár minut už to ani není předstírání."
     "Ráno ti zvoní budík, vstaneš, oblékneš se a vezmeš si špinavé prádlo dolů."
     scene bg fuji pradelna
-    "Večer sis totiž na recepci všimla, že inzerují že mají pračku. Najdeš ji v dámském onsenu. V předsíňce jsou pračky dokonce dvě a dvě sušičky."
+    "Večer sis totiž na recepci všimla, že inzerují že mají pračku. Najdeš ji v dámském onsenu. V předsíňce jsou pračky dokonce dvě a dvě sušičky."
     "Naházíš věci do pračky, pomocí překladače se dozvíš, že cyklus stojí 600 yenů a že si na recepci můžeš koupit prací kapsli za 60 yenů."
     "Vezmeš si tedy propozice s sebou a na recepci ukážeš na příslušný odstavec."
-    "Za chvíli odcházíš s vítězným výrazem zpátky s kapslí na prádlo a o 60 yenů lehčí."
-    "Hodíš ji k prádlu, zavřeš, naházíš 600 yenů do automatu a navolíš program. Pračka se pustila."
-    "Na displeji se ukážou čísla a nějaké znaky, odvodíš z toho, že cyklus skončí."
+    "Za chvíli odcházíš s vítězným výrazem zpátky s kapslí na prádlo a o 60 yenů lehčí."
+    "Hodíš ji k prádlu, zavřeš, naházíš 600 yenů do automatu a navolíš program. Pračka se pustila."
+    "Na displeji se ukážou čísla a nějaké znaky, odvodíš z toho, že cyklus skončí."
     "Nařídíš si budíka, a jdeš zpátky do pokoje. A ještě usneš."
     "Když ti zazvoní budík, sejdeš dolů a věci přendáš do sušičky."
     "A je pomalu čas na snídani po chatu jste se domluvili, že se sejtede před pokoji, takže vyjedeš zpátky do patra."

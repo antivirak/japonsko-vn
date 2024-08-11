@@ -427,10 +427,10 @@ label dante_onsen_doleva:
     "Odskočíš si a usneš hodně na kraji své půlky postele."
     "Ráno ti zazvoní budík, vstaneš, rozhlídneš se po pokoji a Dante nikde, na jeho straně postele najdeš lísteček."
     "Kde je napsáno tiskacím písmem:"
-    "Šel jsem si zaběhat přijdu v 7:30, bylo by fajn kdyby byla volná koupelna. Díky D."
+    "Šel jsem si zaběhat přijdu v 7:30, bylo by fajn kdyby byla volná koupelna. Díky D."
     j "Blázen."
     "Rozhodneš se mu vyjít vstříc, takže nejdříve zamíříš do koupelny. Rychle se osprchneš, usušíš, nalíčíš, učešeš, převlíkneš se."
-    "Vylezeš ven z ledničky si vyndáš snídani a jdeš se najíst."
+    "Vylezeš ven, z ledničky si vyndáš snídani a jdeš se najíst."
     "Je přesně 7:30, když uslyšíš, jak se odemkly dveře a Dante vstoupí dovnitř."
     show d run
     d "Můžu jít do koupelny?"
