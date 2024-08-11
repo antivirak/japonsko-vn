@@ -30,7 +30,7 @@ init python:
                         item.show = False
                         ui.remove(item)              
                         self.spawner.items.remove(item)
-                        renpy.restart_interaction() # Redraw screen - bcs it takes too long to rerender for example the item number in vbox
+                        renpy.restart_interaction()  # Redraw screen - bcs it takes too long to rerender for example the item number in vbox
                         if self.counter.all_counters_reached_target_amount():
                             renpy.play('audio/victory-8bit.mp3')
                             renpy.jump("ramencatch_won")         
