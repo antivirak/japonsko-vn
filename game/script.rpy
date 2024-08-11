@@ -9,6 +9,7 @@ label start:
     call akt3
     call akt4
     call hotel_fuji
+    call akt5
 
 
 label titulky:

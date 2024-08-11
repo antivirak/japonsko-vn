@@ -13,7 +13,7 @@ label akt5:
     "Snídaně je v komceptu 'Švédských stolů' v japonském stylu."
     "Takže si můžete vybírat z rýže, rybí polévky, řas, smažených chobotnic a mnoha dalšího. "
     "Ale na své si příjdou i zastánci evropské kuchyně. Jsou zde saláty, vajíčka, slanina, pečivo..."
-    if j.love_points.get(d , 0) > 5:
+    if j.love_points.get(d.name , 0) > 5:
         "Když se zastavíš u nápojů, přitočí se k tobě Adrian, který se rozhlídne, a když usoudí, že ho nikdo neslyší. Začne na tebe mluvit."
         show a fujihs
         a "Doufám, že jste spolu ještě nespali."
@@ -29,7 +29,7 @@ label akt5:
     "Po včerejšku jste všichni unavení, takže konverzace moc neplyne. Každý se věnujete své snídani."
     scene bg fuji pokoj
     "Po snídani se přesunete do pokojů, sraz u auta jste si dali na jedenáctou."
-    if j.love_points.get(d, 0) > 5:
+    if j.love_points.get(d.name, 0) > 5:
         "Chvíli po té co se dostaneš na pokoj slyšíš klepání."
         "Jdeš otevřít a za dveřmi stojí Dante. Usmívá se a v rukách drží složené tvé oblečení."
         show d fujihs
@@ -50,7 +50,7 @@ label akt5:
                 hide d fujihs
                 "Řekl a rozejde se ke svému pokoji."
                 "Jdeš tedy do pokoje a zbalíš se, pak se natáhneš na postel a ješzě chvíli odpočíváš."
-    elif j.love_points.get(a, 0) > 5:
+    elif j.love_points.get(a.name, 0) > 5:
         "Přijdeš do pokoje, natáhneš se na postel a slyšíš klepání."
         j "Jdu!"
         "Otevřeš dveře a za dveřmi nervózně přešlapuje Adrian."
@@ -69,7 +69,7 @@ label akt5:
         "Zůstala si stát zaraženě ve dveřích s taškou v ruce."
         "Adrian ti totiž nedal šanci na další rozhovor a odešel do pokoje."
         "Jdeš tedy do pokoje a zbalíš se, pak se natáhneš na postel a ješzě chvíli odpočíváš."
-    elif j.love_points.get(s, 0) > 5:
+    elif j.love_points.get(s.name, 0) > 5:
         "Než stihneš zabouchnout dveře, tak ti Sučan strčí do dveří nohu."
         show s fujihs
         s "Tak co ještě se zlobíš? Nezabouchávej, přinesu ti ty věci."
@@ -152,7 +152,7 @@ label akt5:
     "Dneska vás čeká jeden z delších přejezdů a rozhodli jste se jej absolvovat podél pobřeží."
     "A protože je vedro hledáte nějaké místo na koupání."
     "Po chvíli hledání, Adrian a Dante něco nalezli, zadali jste to do navigace a vyrazili."
-    scene cesta nagoja3
+    scene bg cesta nagoja3
     "Rozhodli jste se po cestování po dálnici jinak by přesun zabral 2x tolik času. Vjeli jste nejbližším nájezdem a dokonce jste i trefili správně mýtnou bránu."
     "Povolená rychlost je 80 km/h. V Čechách nepředstavitelné, že by se na dálnici jelo jen osmdesát."
     "Po chvíli, ale vypozurujete, že všichni Japonci jedou přesně o 20 km/h více."
@@ -170,11 +170,11 @@ label akt5:
     "A jídlo si můžete prohlednout vedle ve vytrýnce, kde jsou plastové atrapy."
     "Zjistíte, že tato 'restarace' se specializuje na karé."
     "Takže si každý objednáte karé a sednete si ke stolům, které lze rozdělit přepážkami."
-    if j.love_points.get(a, 0) > 5:
+    if j.love_points.get(a.name, 0) > 5:
         "Adrian si položil tác vedle tebe a došel vám pro pití."
-    elif j.love_points.get(d, 0) > 5:
+    elif j.love_points.get(d.name, 0) > 5:
         "Dante si položil tác vedle tebe a došel vám pro pití."
-    elif j.love_points.get(s, 0) > 5:
+    elif j.love_points.get(s.name, 0) > 5:
         "Sučan si položil tác vedle tebe a došel ti pro pití."
     else:
         "Položila jsis tác ke stolu a došla si pro pití."
@@ -192,12 +192,12 @@ label akt5:
     "Přejeli jste k benzínce, vystoupil Sučan s Adrianem."
     "Sučan tankuje, a Adrian s ním pak jde jako opora platit."
     "Když se vrátí do auta, vyrazíte dál s plnou nádrží."
-    scene bg nagoja3
+    scene bg cesta nagoja3
     "Asi po další půlhodině sjíždíte, z dálnice, i zde jste trefili mýtnou bránu s budkou ve které seděl Japonec."
     "Podali jste mu lísteček a bankovku a on vám vrací na tácu účtenku a drobné nazpátek."
     scene bg cesta nagoja
     "Sjeli jste na úzkou cestičku mezi rýžovými poli a za chvíli, jste zajeli někam do takového háje který je lemován travnatými pláněmi a minijezírky."
-    scene bg nagoja2
+    scene bg cesta nagoja2
     "Vypadá to trošku jako golfové hřiště."
     scene bg parkoviste ocean
     "Nakonec jste zastavili na parkovišti, které je tak pro 40 aut. Ale je v podstatě prázdné."
@@ -220,7 +220,7 @@ label akt5:
             "Když se vracíš, tak vlny jsou snad ještě větší, než byly když jsi lezla do vody."
             "Jedna taková větší tě spláchne, takže cítíš jak sis o písek odřela nohy a jak se ti dostal do plavek. Dokonce sis dala hlavou o zem."
             "Do toho sis lokla i slané vody, jak jsi nečekala, že tě vlna vezme zezadu."
-            if j.love_points.get(a, 0) > 5:
+            if j.love_points.get(a.name, 0) > 5:
                 "Cítíš jak tě někdo chytil za ruku. A vytáhl tě na nohy."
                 "Když si protřeš oči a rozkoukáš se vidíš, jak tě drží Adrian za zapěstí."
                 show a plavky worried
@@ -249,7 +249,7 @@ label akt5:
                 "Nastalo ticho, oba mlčíte."
                 "Obula ses a naštěstí už z vody leze Dante a Sučan."
                 "Otřou se a přesunete se k autu."
-            elif j.love_points.get(d,0) > 5:
+            elif j.love_points.get(d.name,0) > 5:
                 "Cítíš jak tě někdo chytil za ruku. A vytáhl tě za ní z vody."
                 "Následně tě chytí za pas a vyzvedl tě nahoru do náruče."
                 "Konečně máš možnost si protřít oči a otevřít je. V náruči tě svírá Dante."
@@ -313,7 +313,7 @@ label akt5:
                 d "Když tomu věříš. Ale myslím, že by si se mnou už nikdy nepromluvila, kdyby si znala pravdu. Jako všechny."
                 "Chceš na to reagovat, ale od vody přichází Adrian a Sučan."
                 "Usušila ses obula ses, kluci udělali to samé a přesunuli jste se k autu."
-            elif j.love_points.get(s,0) > 5:
+            elif j.love_points.get(s.name,0) > 5:
                 "Cítíš jak tě někdo chytil za ruku. A vytáhl tě na nohy."
                 "A pak si tě přitáhl k sobě a jednou rukou tě drží kolem pasu."
                 "Rukama si protřeš oči a koukáš na Sučana."
@@ -362,7 +362,7 @@ label akt5:
             "Chcete si sundat boty, ale zjistíte, že písek je strašně horký."
             "Takže dojdete v botech až skoro k oceánu, zde se kluci zujou a jdou si zaplavat."
             "Zůstala jsi na břehu tedy sama, uděláš pár fotek, pak si chvíli stavíš z větších kamínků a mušlí na písku."
-            if j.love_points.get(s, 0) > 5:
+            if j.love_points.get(s.name, 0) > 5:
                 "Po chvíli, se Sučan oddělí od ostatních a zamíří k tobě."
                 "Kousek od tebe křikne."
                 show s plavky
@@ -390,7 +390,7 @@ label akt5:
                     hide s plavky
                 "Po chvíli se na chodidla podívá, má je červená. Ale vypadá to, že jinak jsou v pohodě."
                 "To už se vracejí Dante a Adrian. Takže se společně přesunou ke věcem obují, usuší a vyrazíte k autu."
-            elif j.love_points.get(d, 0) > 5:
+            elif j.love_points.get(d.name, 0) > 5:
                 "Po chvíli se Dante oddělí od ostatních a zamíří k tobě." 
                 "Když se ve vodě postaví, všimneš si, že se koupal v triku."
                 "Proč? Vždyť všichni kluci jsou normálně v plavkách. A na pláži nikdo není v dálce je sem tam nějaký rybář."
@@ -423,7 +423,7 @@ label akt5:
                 d "Všiml jsem si že u toho parkovistě byl kohoutek, plánuju se opláchnout tam."
                 hide d plavky
                 "Jen co domluví připojí se k vám Adrian a Sučan, osušej se ručníkem, obují se a vyrazíte k autu."
-            elif j.love_points.get(a, 0) > 5:
+            elif j.love_points.get(a.name, 0) > 5:
                 "Po chvíli se oddělí Adrian od ostatních."
                 "A rozejde se k tobě. Když má vodu asi do pasu, přijde větší vlna a zezadu ho překlopí a smete."
                 "Trochu tě zamrazí, ale když se Adrian v pořádku vynoří, tak tě to rozesměje."
