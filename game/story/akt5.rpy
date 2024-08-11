@@ -354,11 +354,13 @@ label akt5:
                 "Všichni se mu začnete smát a po chvíli se začne smát i Adrian."
                 "Uděláš pár fotek a kluci se mezitím dostali ke břehu."
                 "Obuli jste se, osušili a vyrazili jste k autu."
+            scene bg parkoviste ocean
             "Mimoň spí v otevřeném autě. Ještěže se v Japonsku nekrade."    
             "U parkoviště je kohoutek se sladkou vodou, takže se u něj vystřídáte."
             "Každý se pak jdete oblíknout za auto, kde se kryjete ještě i ručníkem."
         "Ne, nechci pak jet slaná další 2 h v autě. Ale k vodě půjdu.":
             "Adrian, Dante a Sučan se převlíkli do plavek a vyrazili jste společně k vodě."
+            scene bg ocean2
             "Přelezli jste val, otevře se vám výhled na oceán s pěknou písečnou pláží."
             "Pláž je naprosto prázdná sem tam je vidět nějaký rybář. Ale rozhodně se nikdo nekoupe."
             "Chcete si sundat boty, ale zjistíte, že písek je strašně horký."
@@ -448,6 +450,7 @@ label akt5:
                 "Adrian si všimne, že se kluci už vracejí, a zmlkne."
                 "Ty také nevíš, jak na jeho odpověď reagovat, tak raději mlčíš."
                 "Kluci se usuší a obují a vyrazíte k autu."
+            scene bg parkoviste ocean
             "Mimoň spí v otevřeném autě, ještěže se v Japonsku nekrade."    
             "U parkoviště je kohoutek se sladkou vodou, takže se u něj kluci vystřídají."
             "Ty si sedneš na obrubník dál od auta a kohoutku a koukáš se do mobilu."
@@ -485,6 +488,7 @@ label akt5:
     hide d fujihs
     show a fujihs
     a "Je úterý, mají zavřeno."
+    hide a fujihs
     show d fujihs
     d "Ajo, ale ono je stejně docela pozdě."
     hide d fujihs
@@ -574,17 +578,21 @@ label akt5:
                 "Začne vylézat z pod auta a podává nářadí Adrianovi."
                 "Ten si jej převzal a rozejde se k Japoncům. Na nich je vidět, že jsou se rádi, že brzy vypadnete."
                 "Plasty jste dali na podlahu ke spolujezdci."
+                scene bg cesta nagoja3
                 "Sedla jsi zase za volant a vyrážíte směr hotel."
             "Pozadu.":
                 "Pomocí parkovacích kamer jsi 'na první dobrou' krásně zaparkovala."
                 "Za pár minut se kluci vracejí s dvěma tubami přípravku."
+                scene bg cesta nagoja3
                 "Naskládali se do auta. A vyrazíte směr hotel."
     else:
         "Sučan zaparkoval pozadu pomocí parkovacích asistentů. A jde s Adrianem a Dantem do obchoďáku."
         "Za pár minut se kluci vracejí s dvěma tubami přípravku."
+        scene bg cesta nagoja3
         "Naskládali se do auta. A vyrazíte směr hotel."
     scene bg mapanagoja
     "Kolem šesté přijíždíte do Nagoji."
+    scene bg nagoja vecer1
     "Najdete váš hotel, ale nevíte, jak je to s parkováním. Tak zastavíte na blikačky."
     show s fujihs
     s "Hotel má mít nějaké vlastní parkoviště, ale nevím kde."
@@ -597,11 +605,13 @@ label akt5:
     "Vyndáte kufry a vyrazíte zpátky k hotelu."
     "Máte tři pokoje: dva dvojlůžáky a jeden jednolůžák."
     # TODO if j.gender == 'f'?
+    scene bg nagoja hotel
     "Jednolůžák dostaneš ty, dokonce to tak očekávají na recepci. Dante si bere pokoj s Adrianem."
     "A Sučan tedy schytal Mimoně."
     "Dáte si sraz na společnou večeři za hodinku před pokoji."
     "Dala sis věci na pokoj a proběhneš sprchou."
     "Dáš vědět domů. Převlékneš se, přebalíš si věci s sebou a je akorát čas srazu."
+    scene bg chodba
     "Vylezeš před pokoj a tam už čekají Adrian, Dante a Sučan."
     show s nagoja
     s "Není tu Ichiran? Ten mi chutnal."
@@ -643,6 +653,7 @@ label akt5:
     hide m mask angry
     show s nagoja
     s "Takže ikimašó."
+    show nagoja vecer
     "Jdete tedy pár ulic a najdete pobočku Ichiranu."
     "Moc se neliší od Tokijské pobočky."
     "Zakroužkujete si, co si chcete dát, zaplatíte u automatu a během chvíle si už vychutnáváte každý svůj ramen."
@@ -657,8 +668,10 @@ label akt5:
     "Vlezli jste tedy dovnitř a jdete k jednomu z automatů."
     "Sučan se posadil k automatu a vy jste se rozestavili kolem něho."
     "Vytáhli jste překladač a snažíte se přijít na to, jak to funguje."
+    show japonecherna
     "Po chvíli přijde Japonec, který se vás japonsky zeptá, jestli chcete pomoct."
     "Adrian odpoví v japonštině, že ano. Japonec spustí v japonštině. Tak mu řeknete anglicky jestli by to nemohl říct anglicky."
+    hide japonecherna
     "Tak to se vyděsí a uteče."
     "Za chvíli přijde Japonka, která na vás začne mluvit anglicky."
     show japonkaherna
@@ -696,9 +709,11 @@ label akt5:
     "Každý jste si to vyzkoušeli."
     "Takže jste získali i nějaké kuličky zpět, ale po chvíli jste neměli žádné."
     "Odcházíte o 1000 yenů lehčí, ale plni nových zkušeností."
+    scene nagoja vecer
     "Ještě jste udělali malý okruh a vrátili jste se na hotel."
     "Druhý den se plánujete přesunout do Kjóta s tím, že část z vás pojede Šinkanzenem."
     "A protože zítřek je ve znamení přejezdu, rozhodnete se, že si ještě ráno Nagoju projdete za světla."
+    scene nagoja hotel
     "Rozejdete se do svých pokojů, proběhneš koupelnou, nařídíš budíka a do pár minut jsi tuhá."
 
     return
