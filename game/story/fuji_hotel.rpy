@@ -396,6 +396,7 @@ label sucan_fuji_nolove:
     "Odejde, nastavíš si budík na ráno a mobil si dáš nabíjet."
     "A během pár minut usneš."
     "Ráno tě vzbudí nařízený budík, oblečeš se a vyrazíš na domluvený sraz ohledně snídaně."
+    return
 
 label spanek_fuji:
     "Rozhodla ses, že na nikoho nemáš náladu a že budeš předstírat, že spíš."
