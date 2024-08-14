@@ -11,12 +11,13 @@ label start:
     call akt4
     call hotel_fuji
     call akt5
+    call akt6
 
 
 label titulky:
     image black = "#000"
     scene black
-    "Konec části co máme hotovou, nebo se něco pokazilo :D"
+    "Konec části, co máme hotovou, nebo se něco pokazilo :D"
     "Tvůrci hry Cerman Jaroslav, Lokajová Eliška a Sedláček Martin"
     "Na příběhu se taktéž podíleli Drahota Matěj a Suchan Tomáš"
     "Hlavní konzultantka příběhu Tereza Petrová."
