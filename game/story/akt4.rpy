@@ -151,6 +151,7 @@ label akt4:
         show a fuji
         a "Jo sem tam mi tam nějaký spadne, je tu strašná cesta."
         a "Počkej, co to máš na sobě? Sandály?"
+        hide a fuji
         show m fuji:
             xalign 0
             yalign -0.3
