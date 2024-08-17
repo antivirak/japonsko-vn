@@ -81,9 +81,10 @@ label nagora_rano:
                 "Sučan stojí na té z které jedeš, přibrzdíš tedy a dáš blikačky."
                 show s nagoja
                 s "Vyházíme tady kufry ať je nemusíme tahat a po cestě jsme viděli volné docela levné parkoviště. Na naviguju tě."
+                hide s nagoja
                 "Otevře dveře s Dantem vyndají kufry a Sučan si sedne k tobě do auta."
                 "A nanaviguje tě na parkoviště, na místo raději zajedeš po zádu."
-                "Vezmeš si tašku s osobními věcmi a vyrazíte se Sučanem směr ubytování."
+                "Zakousneš rychle sušenku, co sis sbalila na cestu. Vezmeš si tašku s osobními věcmi a vyrazíte se Sučanem směr ubytování."
             "Pojedu šinkanzenem.":
                 "Vyslovila jsi přání, zkusit si šinkanzen. A Sučan ti nebrání, souhlasí, že auto převeze."
                 call sinkanzen
@@ -93,156 +94,220 @@ label nagora_rano:
         "Protože jediný aktivní řidič z vaší skupiny je Sučan, tak on bude ten, co převeze auto."
         "A vy si můžete užít zážitek ze šinkanzenu."
         menu:
-            "Chceš jet šinkanzenem anebo budeš dělat podporu Sučanovi?"
+            "Chceš jet šinkanzenem, anebo budeš dělat podporu Sučanovi?"
             "Šinkanzem, přeci si nenechám ujít takovou možnost.":
                 call sinkanzen
             "Se Sučanem, ve dvou je ten přejezd lepší, vlak jako vlak.":
                 "Rozhodneš se, že v tom Sučana nenecháš samotného."
                 "Sučan se mezitím usadil na místo řidiče. A nastavuje si navigaci. Ale ještě si nechal otevřené dveře."
                 j "Tak já pojedu s tebou, kdyby něco tak se nám to ve dvou bude lépe řešit."
-                j "A myslím, že o tolik jiné než české vlaky to nebude."
+                j "A myslím, že o tolik jiné, než české vlaky to nebude."
                 show s nagoja
                 s "Jseš si jistá? V Čechách vlaky nejezdí třista. Abys toho nelitovala."
                 hide s nagoja
                 j "Jo jsem si jistá. Ty by si to pro mě také udělal."
-                j "Hele je dobrý jezdit ve dvou, co kdyby i spadla navigace, nebobudeš potřebovat rychle něco přeložit?"
-                "Nakloníš se k němu do dveří a tlumeným hlasem mu řekneš."
-                j "Navíc asi nechci jet s klukama. Když můžu strávit čas s tebou."
-                "Pak už nahlas aby tě ostatní slyšeli dodáš."
-                j "Tak já jdu s klukama zaplatit k parkomatu a nastoupím dole."
-                "Vyrazíte tedy napřed k parkomatu, po cestě k výtahu slyšíte jak Sučan zabouchl a nastartoval auto."
-                "Sjedete dolů, zaplatíte a s lístečkem o zaplacení čekáš na Sučana."
-                "Sučan během chvíle přijíždí. Rozloučíte se s ostatními, ty nasedneš a vyrazíte do Kjóta."
-                "Když se dostanete z parkoviště na hlavní ulici. Tak se na tebe Sučan otočí."
-                show s nagoja
-                s "Udělala jsi mi radost."
-                hide s nagoja
-                j "A čím prosimtě?"
-                show s nagoja
-                s "Že si mi dala přednost, před žážitkem z rychlovlaku, nebo možná před klukama?"
-                hide s nagoja
-                j "To je jasné, sice neřídím, ale je mi jasné jak musí být nepříjemné řídit v cizím státě cizí auto a ještě na druhé straně než si zvyklý."
-                j "To já bych sama auto odmítla řídit."
-                show s nagoja
-                s "Tak já takhle neřídím, poprvé vždyť to víš. Klidně si mohla jet."
-                s "Ale asi bych pak trošku žárlil."
-                hide s nagoja
-                j "Jo máš, pravdu je pěkně debilní, že z nás máš jediný řidičák. Takže přicházíš o šinkanzen"
-                show s nagoja
-                s "O ten vlak nejde, žárlil bych na kluky, že můžou strávit čas s tebou."
-                hide s nagoja
-                j "Netlač tolik na pilu. Nebo začnu litovat, že jsem nezvolila vlak."
-                j "Pustím nějaké písničky, co ty na to?"
-                show s nagoja
-                s "Jo pusť, co chceš, můj mobil ti je k dispozici. Jen mi nezruš propojení s navigací."
-                hide s nagoja
-                "Našla jsi u Sučana spotify a našla jsi tam nějaký použitelný playlist. Provoz není zas tak extrémní."
-                "Za chvíli najíždíte na městcký okruh Nagoji (most). A samozřejmě se zde vybírá mýto."
-                "Sučan zastaví u budky, kde sedí japonec."
-                "Na ceduli je asi pět cen v závislosti na velikosti auta a denní době."
-                "Japonec ti v japonštině sdělí částku."
-                "Samozřejmě mu nerozumíte, takže s peněženky vylovíš 5000 yenů a podáš je Sučanovi a Sučan Japonci, spolehlivě je to částka přesahující všechny možnosti."
-                "Japoncovi se pravděpodobně nelíbí, že mu podáváte tak velkou bankovku. Ceny na ceduli se pohybují mezi 700-1200 yenů."
-                "Takže vám zopakuje, co řekl před chvílí, samozřejmě mu nerozumíte."
-                "Sučan se ale usměje na Japince a řekne."
-                show s nagoja
-                s "Hai, arigató!"
-                hide s nagoja
-                "Což je japonsky Ano, a strčíš mu tu bankovku."
-                "Sice Japonec ještě něco v japonštine mrmlá, ale pochopil, že mu je to k ničemu a na podnose podává účet a peníze na zpátek."
-                "Sučan přijme tác oběma rukama a peníze ti nasype nastavených dlaní."
-                "Tác vrátí, a vyrážíte dál."
-                show s nagoja
-                s "Nějak si nemůžu navyknout, jak ti Japonci, mluví jen v japonštině, že nezkusí tu angličtinu, když vidí cizince?"
-                hide s nagoja
-                j "Tebe to překvapuje, vždyť Češi jsou to samé i když v posledních letech se to malinko zlepšuje."
-                "Po chvíli najíždíte na dálnici, správně svolíte nájezd pro auta bez ETC."
-                "Od Japonce dostanete lísteček s místem nájezdu a pokračujete."
-                "Cesta po dálnici docela rychle ubíhá, seš v kontaktu s druhou skupinou."
-                "Sice měli být podle plánu v Kjótu dříve než vy. Protože vlakem to trvá jen půl hodiny a šinkanzen jezdí každou půl hodinu."
-                "Ale podle informocí, jim cesta na nádraží trvala přes půl hodiny. Lístky si koupili až na ten pozdější, protože 15 minut na najití vlaku jim přišlo málo."
-                "Navíc si byli koupit jídlo na cestu. A v Kjótu máte ubytování také pěkný kus od nádraží."
-                "Takže podle všeho budete u ubytování se Sučanem první."
-                show s nagoja
-                s "Začínám mít hlad, myslíš, že by si mi z batohu mohla vyndat sendvič?"
-                hide s nagoja
-                j "Jo jasně."
-                "Odpovíš natáhneš se dozádu na sedačky a podáš si Sučanův batoh."
-                "Vyndáš sendvič, rozděláš ho a podáš ho Sučanovi."
-                show s nagoja
-                s "Díky, ten druhý si dej ty."
-                hide s nagoja
-                "Teprve teď ti dojde, že ses se Sučanem rozhodla jet na poslední chvíli a vlastně sis nekoupila, žádné jídlo na cestu."
-                "A že máš hlad jak vlk, jak se hezky česky říká."
-                j "Nebude ti chybět? Já kdyžtak vydržím do Kjóta."
-                show s nagoja
-                s "Nic sis s sebou nevzala, nepletu se? "
-                s "V kjótu budeme až za hodinu, než se ubytujeme sejdeme s klukama, tak bude odpoledne. Klidně si dej tu druhou půlku."
-                hide s nagoja
-                j "Tak děkuji Sučane."
-                "S chutí se zakousneš do plněného toastu. Když dojíte. Tak obal dáš do pytlíku do dveří, že to pak vezmeš vyhodit."
-                show s nagoja
-                s "Ještě mám v batohu kafe."
-                hide s nagoja
-                "Šáhneš tedy znovu pro batoh a vytáhneš asi sedmičku petlahev s kafem. Odšroubuješ uzávěr a podáš ji Sučanovi."
-                "Sučan se napije a podá ti jí zpátky, předjede jedno auto a zase si po flašce šáhne."
-                "Za chvíli ti jí vrací podruhé."
-                show s nagoja
-                s "Bych takový servis v autě potřeboval pořád. A klidně se taky napij, sedmička kafe je docela zabiják."
-                hide s nagoja
-                "Trošku na tebe doléhá unava, takže ani neprotestuješ a trochu kafe se napiješ."
-                "Minete nějaké větší křížení dálnic, ale kupodivu jste nemuseli při sjezdu platit a znovu si vyzvedávat lísteček, asi patři i druhá část dálnice stejné společnosti."
-                "Posloucháte písničky, koukáte z okna a povídáte si."
-                "Před Kjótem sjíždíte z dálnice, u mýtné brány vyberete správný pruh."
-                "Tentokrát u placení je automat. Sučan zastaví, u automatu, ale ty vylezeš ven a k automatu dojdeš."
-                "Načteš lísteček, zobrazí se ti cena, zasuneš bankovky do autamatu a mince nasypeš do 'nálevky'. Vyjede ti účet."
-                "Jdeš si sednou zpět do auta."
-                show s nagoja
-                s "Díky, připoutej se ať můžeme jet."
-                hide s nagoja
-                j "No jó mami!"
-                show s nagoja
-                s "Jak si mi to řekla?"
-                hide s nagoja
-                "Zeptá se tě zatímco se k tobě otočí a nakloní"
-                j "Mami!"
-                "Vybuchneš smíchy."
-                show s nagoja
-                s "Na to, že mě bereš jako bráchu na to už jsem si docela zvykl, ale máma? Tak to je jiný level."
-                hide s nagoja
-                "Zasměje se s tebou."
-                show s nagoja
-                s "Tak mě obejmi dcero."
-                hide s nagoja
-                "Nakloní se k tobě ještě blíže a rozpřáhne ruce. A obejme tě."
-                j "Asi bychom měli jet, ať to tu neblokujeme."
-                show s nagoja
-                s "Takhle zkazit rodinou chvilku."
-                hide s nagoja
-                "Pustí tě, odmáčkne ručku, vypne výstražné světla a rozjede se."
-                "Sjedete do Kjóta. A projíždíte centrem. Zde je doprava výrazně komplikovanější."
-                "Musíte kličkovat mezi auty, autobusy, taxíky a lidmi."
-                "Je to docela stresující, auta přejíždějí nahodně mezi pruhy. Míjíte se s nimi na centimetry."
-                "Docela tě to znérvózňuje, ale Sučan to zvládá s naprostým klidem."
-                "Spousta lidí by v jeho situaci nadávali a šíleli, jen on se na tebe stíhá v mezičase i usmívat."
-                show s nagoja
-                s "Neboj se tak, vím co dělám. Nic se nám nestane."
-                hide s nagoja
-                "Po pár minutách se konečně vymotáte, ze zasekaného centra a blížíte se k místu které udává navigace."
-                show s nagoja
-                s "Nevím, jak to bude s parkováním. Asi přibrzdím, vyndáme kufry, počkáš u nich a já sjedu zaparkovat."
-                hide s nagoja
-                j "Dobře, asi jiná možnost není."
-                "V ulici kde máte bydlení, dle očekávání žádné místo na zastavení uplně není, Sučan přibrzdí kousek od adresy na přechodě."
-                "Vyndáte kufry na ulici, teda spíše Šučan, moc tě totiž k práci nepustí."
-                show s nagoja
-                s "Tak já jedu zaparkovat, tak mi tu nezvlč."
-                hide s nagoja
-                "Rychle tě obejme, a než stihneš zareagovat už sedí v autě a odjíždí."
-                "Protože stojíš u hromady kufrů, nemáš moc možností co dělat."
-                "Položíš si tedy svůj kufr na zem a sedneš si na něj."
-                "Ale Sučan odjel s internetem a kluci asi nejsou poblíž."
-                "Takže si odsouzená následujících pár minut strávit, bez internetu čekáním na někoho kdo tě vysvobodí."
+                j "Hele je dobrý jezdit ve dvou, co kdyby i spadla navigace, nebo budeš potřebovat rychle něco přeložit?"
+                if j.love_points.get(s.name, 0) > 5:
+                    "Nakloníš se k němu do dveří a tlumeným hlasem mu řekneš."
+                    j "Navíc asi nechci jet s klukama. Když můžu strávit čas s tebou."
+                    "Pak už nahlas aby tě ostatní slyšeli dodáš."
+                    j "Tak já jdu s klukama zaplatit k parkomatu a nastoupím dole."
+                    "Vyrazíte tedy napřed k parkomatu, po cestě k výtahu slyšíte jak Sučan zabouchl a nastartoval auto."
+                    "Sjedete dolů, zaplatíte a s lístečkem o zaplacení čekáš na Sučana."
+                    "Sučan během chvíle přijíždí. Rozloučíte se s ostatními, ty nasedneš a vyrazíte do Kjóta."
+                    "Když se dostanete z parkoviště na hlavní ulici. Tak se na tebe Sučan otočí."
+                    show s nagoja
+                    s "Udělala jsi mi radost."
+                    hide s nagoja
+                    j "A čím prosimtě?"
+                    show s nagoja
+                    s "Že si mi dala přednost, před zážitkem z rychlovlaku, nebo možná před klukama?"
+                    hide s nagoja
+                    j "To je jasné, sice neřídím, ale umím si představit jak musí být nepříjemné řídit v cizím státě, cizí auto a ještě na druhé straně, než si zvyklý."
+                    j "To já bych sama auto odmítla řídit."
+                    show s nagoja
+                    s "Tak já takhle neřídím, poprvé vždyť to víš. Klidně si mohla jet."
+                    s "Ale asi bych pak trošku žárlil."
+                    hide s nagoja
+                    j "Jo máš pravdu, je pěkně debilní, že z nás máš jediný řidičák. Takže přicházíš o šinkanzen"
+                    show s nagoja
+                    s "O ten vlak nejde, žárlil bych na kluky, že můžou strávit čas s tebou."
+                    hide s nagoja
+                    j "Netlač tolik na pilu. Nebo začnu litovat, že jsem nezvolila vlak."
+                    j "Pustím nějaké písničky, co ty na to?"
+                    show s nagoja
+                    s "Jo pusť co chceš, můj mobil ti je k dispozici. Jen mi nezruš propojení s navigací."
+                    hide s nagoja
+                    "Našla jsi u Sučana spotify a našla jsi tam nějaký použitelný playlist. Provoz není zas tak extrémní."
+                    "Za chvíli najíždíte na městcký okruh Nagoji (most). A samozřejmě se zde vybírá mýto."
+                    "Sučan zastaví u budky, kde sedí japonec."
+                    "Na ceduli je asi pět cen v závislosti na velikosti auta a denní době."
+                    "Japonec ti v japonštině sdělí částku."
+                    "Samozřejmě mu nerozumíte, takže s peněženky vylovíš 5000 yenů a podáš je Sučanovi a Sučan Japonci, spolehlivě je to částka přesahující všechny možnosti."
+                    "Japoncovi se pravděpodobně nelíbí, že mu podáváte tak velkou bankovku. Ceny na ceduli se pohybují mezi 700-1200 yenů."
+                    "Takže vám zopakuje, co řekl před chvílí, samozřejmě mu nerozumíte."
+                    "Sučan se ale usměje na Japince a řekne."
+                    show s nagoja
+                    s "Hai, arigató!"
+                    hide s nagoja
+                    "Což je japonsky Ano, a strčíš mu tu bankovku."
+                    "Sice Japonec ještě něco v japonštine mrmlá, ale pochopil, že mu je to k ničemu a na podnose podává účet a peníze na zpátek."
+                    "Sučan přijme tác oběma rukama a peníze ti nasype nastavených dlaní."
+                    "Tác vrátí, a vyrážíte dál."
+                    show s nagoja
+                    s "Nějak si nemůžu navyknout, jak ti Japonci, mluví jen v japonštině, že nezkusí tu angličtinu, když vidí cizince?"
+                    hide s nagoja
+                    j "Tebe to překvapuje, vždyť Češi jsou to samé i když v posledních letech se to malinko zlepšuje."
+                    "Po chvíli najíždíte na dálnici, správně svolíte nájezd pro auta bez ETC."
+                    "Od Japonce dostanete lísteček s místem nájezdu a pokračujete."
+                    "Cesta po dálnici docela rychle ubíhá, seš v kontaktu s druhou skupinou."
+                    "Sice měli být podle plánu v Kjótu dříve než vy. Protože vlakem to trvá jen půl hodiny a šinkanzen jezdí každou půl hodinu."
+                    "Ale podle informocí, jim cesta na nádraží trvala přes půl hodiny. Lístky si koupili až na ten pozdější, protože 15 minut na najití vlaku jim přišlo málo."
+                    "Navíc si byli koupit jídlo na cestu. A v Kjótu máte ubytování také pěkný kus od nádraží."
+                    "Takže podle všeho budete u ubytování se Sučanem první."
+                    show s nagoja
+                    s "Začínám mít hlad, myslíš, že by si mi z batohu mohla vyndat sendvič?"
+                    hide s nagoja
+                    j "Jo jasně."
+                    "Odpovíš natáhneš se dozádu na sedačky a podáš si Sučanův batoh."
+                    "Vyndáš sendvič, rozděláš ho a podáš ho Sučanovi."
+                    show s nagoja
+                    s "Díky, ten druhý si dej ty."
+                    hide s nagoja
+                    "Teprve teď ti dojde, že ses se Sučanem rozhodla jet na poslední chvíli a vlastně sis nekoupila, žádné jídlo na cestu."
+                    "A že máš hlad jak vlk, jak se hezky česky říká."
+                    j "Nebude ti chybět? Já kdyžtak vydržím do Kjóta."
+                    show s nagoja
+                    s "Nic sis s sebou nevzala, nepletu se? "
+                    s "V kjótu budeme až za hodinu, než se ubytujeme sejdeme s klukama, tak bude odpoledne. Klidně si dej tu druhou půlku."
+                    hide s nagoja
+                    j "Tak děkuji Sučane."
+                    "S chutí se zakousneš do plněného toastu. Když dojíte. Tak obal dáš do pytlíku do dveří, že to pak vezmeš vyhodit."
+                    show s nagoja
+                    s "Ještě mám v batohu kafe."
+                    hide s nagoja
+                    "Šáhneš tedy znovu pro batoh a vytáhneš asi sedmičku petlahev s kafem. Odšroubuješ uzávěr a podáš ji Sučanovi."
+                    "Sučan se napije a podá ti jí zpátky, předjede jedno auto a zase si po flašce šáhne."
+                    "Za chvíli ti jí vrací podruhé."
+                    show s nagoja
+                    s "Bych takový servis v autě potřeboval pořád. A klidně se taky napij, sedmička kafe je docela zabiják."
+                    hide s nagoja
+                    "Trošku na tebe doléhá unava, takže ani neprotestuješ a trochu kafe se napiješ."
+                    "Minete nějaké větší křížení dálnic, ale kupodivu jste nemuseli při sjezdu platit a znovu si vyzvedávat lísteček, asi patři i druhá část dálnice stejné společnosti."
+                    "Posloucháte písničky, koukáte z okna a povídáte si."
+                    "Před Kjótem sjíždíte z dálnice, u mýtné brány vyberete správný pruh."
+                    "Tentokrát u placení je automat. Sučan zastaví, u automatu, ale ty vylezeš ven a k automatu dojdeš."
+                    "Načteš lísteček, zobrazí se ti cena, zasuneš bankovky do autamatu a mince nasypeš do 'nálevky'. Vyjede ti účet."
+                    "Jdeš si sednou zpět do auta."
+                    show s nagoja
+                    s "Díky, připoutej se ať můžeme jet."
+                    hide s nagoja
+                    j "No jó, mami!"
+                    show s nagoja
+                    s "Jak si mi to řekla?"
+                    hide s nagoja
+                    "Zeptá se tě zatímco se k tobě otočí a nakloní"
+                    j "Mami!"
+                    "Vybuchneš smíchy."
+                    show s nagoja
+                    s "Na to, že mě bereš jako bráchu na to už jsem si docela zvykl, ale máma? Tak to je jiný level."
+                    hide s nagoja
+                    "Zasměje se s tebou."
+                    show s nagoja
+                    s "Tak pojď na mou hruď dcero."
+                    hide s nagoja
+                    "Nakloní se k tobě ještě blíže a rozpřáhne ruce. A obejme tě."
+                    j "Asi bychom měli jet, ať to tu neblokujeme."
+                    show s nagoja
+                    s "Takhle zkazit rodinou chvilku."
+                    hide s nagoja
+                    "Pustí tě, odmáčkne ručku, vypne výstražné světla a rozjede se."
+                    "Sjedete do Kjóta. A projíždíte centrem. Zde je doprava výrazně komplikovanější."
+                    "Musíte kličkovat mezi auty, autobusy, taxíky a lidmi."
+                    "Je to docela stresující, auta přejíždějí nahodně mezi pruhy. Míjíte se s nimi na centimetry."
+                    "Docela tě to znérvózňuje, ale Sučan to zvládá s naprostým klidem."
+                    "Spousta lidí by v jeho situaci nadávali a šíleli, jen on se na tebe stíhá v mezičase i usmívat."
+                    show s nagoja
+                    s "Neboj se tak, vím co dělám. Nic se nám nestane."
+                    hide s nagoja
+                    "Po pár minutách se konečně vymotáte, ze zasekaného centra a blížíte se k místu které udává navigace."
+                    show s nagoja
+                    s "Nevím, jak to bude s parkováním. Asi přibrzdím, vyndáme kufry, počkáš u nich a já sjedu zaparkovat."
+                    hide s nagoja
+                    j "Dobře, asi jiná možnost není."
+                    "V ulici kde máte bydlení, dle očekávání žádné místo na zastavení uplně není, Sučan přibrzdí kousek od adresy na přechodě."
+                    "Vyndáte kufry na ulici, teda spíše Šučan, moc tě totiž k práci nepustí."
+                    show s nagoja
+                    s "Tak já jedu zaparkovat, tak mi tu nezvlč."
+                    hide s nagoja
+                    "Rychle tě obejme, a než stihneš zareagovat už sedí v autě a odjíždí."
+                    "Protože stojíš u hromady kufrů, nemáš moc možností co dělat."
+                    "Položíš si tedy svůj kufr na zem a sedneš si na něj."
+                    "Ale Sučan odjel s internetem a kluci asi nejsou poblíž."
+                    "Takže si odsouzená následujících pár minut strávit, bez internetu čekáním na někoho kdo tě vysvobodí."
+                else:
+                    j "Sejdeme se teda dole, dojdu s klukama zaplatit."
+                    "Sešli jste dolů, v parkomatu jste zaplatili. A Sučan mezitím uspěšně sjel dolů."
+                    "Se zaplaceným lístkem, si sedáš do auta."
+                    "Projete závorou, zamáváte zbytku skupiny."
+                    "Sučan zkušene a s ledovým klidem brázdí, ulice Nagoji."
+                    j "Pustím nějaké písničky, co ty na to?"
+                    show s nagoja
+                    s "Jo pusť co chceš, můj mobil ti je k dispozici. Jen mi nezruš propojení s navigací."
+                    hide s nagoja
+                    "Našla jsi u Sučana spotify a našla jsi tam nějaký použitelný playlist. Provoz není zas tak extrémní."
+                    "Za chvíli najíždíte na městcký okruh Nagoji (most). A samozřejmě se zde vybírá mýto."
+                    "Sučan zastaví u budky, kde sedí japonec."
+                    "Na ceduli je asi pět cen v závislosti na velikosti auta a denní době."
+                    "Japonec ti v japonštině sdělí částku."
+                    "Samozřejmě mu nerozumíte, takže s peněženky vylovíš 5000 yenů a podáš je Sučanovi a Sučan Japonci, spolehlivě je to částka přesahující všechny možnosti."
+                    "Japoncovi se pravděpodobně nelíbí, že mu podáváte tak velkou bankovku. Ceny na ceduli se pohybují mezi 700-1200 yenů."
+                    "Takže vám zopakuje, co řekl před chvílí, samozřejmě mu nerozumíte."
+                    "Sučan se ale usměje na Japince a řekne."
+                    show s nagoja
+                    s "Hai, arigató!"
+                    hide s nagoja
+                    "Což je japonsky Ano, a strčíš mu tu bankovku."
+                    "Sice Japonec ještě něco v japonštine mrmlá, ale pochopil, že mu je to k ničemu a na podnose podává účet a peníze na zpátek."
+                    "Sučan přijme tác oběma rukama a peníze ti nasype nastavených dlaní."
+                    "Tác vrátí, a vyrážíte dál."
+                    show s nagoja
+                    s "Nějak si nemůžu navyknout, jak ti Japonci, mluví jen v japonštině, že nezkusí tu angličtinu, když vidí cizince?"
+                    hide s nagoja
+                    j "Tebe to překvapuje, vždyť Češi jsou to samé i když v posledních letech se to malinko zlepšuje."
+                    "Z městckého okruhu, sjedete na dálnici, projedete správnou mýtnou bránou."
+                    "Posloucháte písničky a povídáte si."
+                    "Cesta po dálnici docela rychle ubíhá, seš v kontaktu s druhou skupinou."
+                    "Sice měli být podle plánu v Kjótu dříve než vy. Protože vlakem to trvá jen půl hodiny a šinkanzen jezdí každou půl hodinu."
+                    "Ale podle informocí, jim cesta na nádraží trvala přes půl hodiny. Lístky si koupili až na ten pozdější, protože 15 minut na najití vlaku jim přišlo málo."
+                    "Navíc si byli koupit jídlo na cestu. A v Kjótu máte ubytování také pěkný kus od nádraží."
+                    "Takže podle všeho budete u ubytování se Sučanem první."
+                    "Před Kjótem sjíždíte z dálnice, u mýtné brány vyberete správný pruh."
+                    "Tentokrát u placení je automat. Sučan zastaví, u automatu, ale ty vylezeš ven a k automatu dojdeš."
+                    "Načteš lísteček, zobrazí se ti cena, zasuneš bankovky do autamatu a mince nasypeš do 'nálevky'. Vyjede ti účet."
+                    "Jdeš si sednou zpět do auta."
+                    "V na okraji Kjóta vidíte 7eleven, tak u něj zastavíte a jdete si koupit něco k pití a k jídlu."
+                    "Jídlo do sebe nasypete v autě, dojdete vyhodit odpadky do krámu a vyrazíte."
+                    "V Kjótu je provoz o něco silnější, než byl dopoledne v Nagoje."
+                    "Musíte kličkovat mezi auty, autobusy, taxíky a lidmi."
+                    "Je to docela stresující, auta přejíždějí nahodně mezi pruhy. Míjíte se s nimi na centimetry."
+                    "Docela tě to znérvózňuje, ale Sučan to zvládá s naprostým klidem."
+                    "Po když se odpojíte z hlavní magistrály a blížíte se k ubytování."
+                    show s nagoja
+                    s "Nevím, jak to bude s parkováním. Asi přibrzdím, vyndáme kufry, počkáš u nich a já sjedu zaparkovat."
+                    hide s nagoja
+                    j "Dobře."
+                    "V ulici kde máte bydlení, dle očekávání žádné místo na zastavení uplně není, Sučan přibrzdí kousek od adresy na přechodě."
+                    "Vyndáte kufry na chodník. Ty se k nim postavíš a Sučan zaleze do auta a odjede."
+                    "Samozřejmě odjel i s internetem, takže čekáš sama na chodníku s kuframa, bez internetu."
+                    "Ale nečekáš ani čtvrthodiny a Sučan přichází i s ostaními."
+                    show s nagoja
+                    s "Zaparkoval, jsem a oni akorát přicházeli od zastávky."
+                    hide s nagoja
+                    "Rozebrali jste si každý svá zavazadla a vyrážíte na ubytko."
+                    "Má to bý nějaká luxusnější guesthouse, ve kterém máte strávit 2 noci."
+                    
+
 
     return
 label sinkanzen:
@@ -263,7 +328,7 @@ label sinkanzen:
     "Usednete na svá místa."
     if j.love_points.get(a.name,0) > 5:
         "Máš místo vedle Adriana, gentlemansky tě pustil k okýnku."
-        "Mimoň se dí před vámi, a usl v podstatě ve chvíli kdy dosedl. Dante si vytáhl mobil s GPS, aby mohl měřit kolik vlak pojede."
+        "Mimoň sedí před vámi, a usl v podstatě ve chvíli kdy dosedl. Dante si vytáhl mobil s GPS, aby mohl měřit kolik vlak pojede."
         "Otevřel si svůj bentobox a dal se do jídla."
         "Adrian si vybalil svůj bentobox a ty svůj."
         "Každý jste si koupil něco jiného."
@@ -273,7 +338,7 @@ label sinkanzen:
         "Svou nabídku, doprovází i vřelým gestem."
         j "Děkuji."
         "Usěješ se na něj. A spíš tak zdvořilostně od něj ochutnáš."
-        "Vybrala sis lepší bentobox."
+        "Zhodnotíš, že sis vybrala lepší bentobox."
         "Po chvíli se ti začne chtít na záchod a navíc jsi strašně zvědavá jak vypadají záchody v šinkanzenu."
         j "Dovolíš? Potřebuji si odskočit."
         show a nagoja
@@ -333,7 +398,7 @@ label sinkanzen:
                 "Vstane s tvým telefonem v ruce a pustí tě před sebe do uličky přesunute se do chodbičky k záchodům a dveřím."
                 "Je zde výrazně více místa než v českých vlacích. A nikdo nikde."
                 "Dante se zastaví na kraji. Kouká na tebe a mlčí."
-                "Sevře se ti žaludek a citíš jak se ti do zváří hrne krev. A seš dost nervózní."
+                "Sevře se ti žaludek a citíš jak se ti do tváří hrne krev. A seš dost nervózní."
                 "Chvíli naproti němu jen stojíš a skoro nedýcháš. Nejradši by si utekla někam hodně daleko, ale zároveň tě strašně zajímá jak tohle bude pokračovat."
                 "Danteho přítomnost ti vůbec není nepříjemná, a ten jeho osobitý styl a tajemno kolem něj. Z něho dělají adepta na tvého přítele."
                 "Zvedne tvůj mobil nad svojí hlavu a protože je vyšší než ty nezbývá ti, než se k němu přiblížit a pro mobil se natáhnout na špičkách."
@@ -347,9 +412,9 @@ label sinkanzen:
                 "Rukama se taktéž dotkneš zdi za sebou. Začínáš přemítat co dělat."
                 "Když začneš křičet, tak zburcuješ celý vlak, o to asi nemáš zájem."
                 "Když se pokusíš vyvléknout tak, že se snížíš pod jeho ruce a pak se pokusíš ze strany utéct, pravděpodobně nebudeš dost rychlá."
-                "A vlastně docela pochybuješ, že by ti něco ve vlaku udělal. A poku si tě dostal do téhle pozice aby tě políbil."
+                "A vlastně docela pochybuješ, že by ti něco ve vlaku udělal. A pokud si tě dostal do téhle pozice aby tě políbil."
                 "Tak ti to vlastně asi nevadí. Zavřeš tedy oči a necháš rty mírně pootevřené."
-                "Cítíš a slyšíš jak položil ruku svou pravou ruku těsně nad tvé levé ramono kousek od tvého ucha."
+                "Cítíš a slyšíš jak položil svou pravou ruku těsně nad tvé levé rameno kousek od tvého ucha."
                 "Skoro nedýcháš slyšíš jak se jeho dech k tobě přibližuje."
                 "Ale místo polibku ti jen do pravého ucha zašeptá:"
                 show d nagoja
@@ -358,7 +423,7 @@ label sinkanzen:
                 "Vytřeštíš oči, tohle jsi nečekala, ale to už ti Dante strká tvůj mobil do ruky a během okamžiku jseš v místnosti sama."
                 "Snažíš se nějak vstřebat co se stalo, když tu z druhé strany přichází nějaký Japonec."
                 "Asi si myslí, že čekáš frontu na záchod."
-                "A protože svítí, že záchod je volný začne na tebe mluvit japonsky a gestem ti dává přednost směr záchod."
+                "A protože svítí, že záchod je volný, začne na tebe mluvit japonsky a gestem ti dává přednost směr záchod."
                 j "Ie, arigató"
                 "Špitneš a vyrazíš směr tvé místo."
                 "Japonec ještě něco mrmlá v japonštině, ale nejsi schopná ho vnímat."
@@ -389,7 +454,12 @@ label sinkanzen:
                 d "Kdo ví. Myslím, že solidně podceňuješ moje schopnosti. A za chvíli vystupujeme, měli bychom vzbudit kluky a sbalit se."
                 hide d nagoja
                 "Vstane a šťouchne do Adriana, aby ho probudil. Sbalí si věci a notebook do batohu, společně popženete Mimoně a jdete se připravit k výstupu."
-
+                "Vystoupili jste hladce, i cestu z nastupiště jste našli na první dobrou."
+                "Zjistili jste, že to na ubytování jsou ještě asi 3 km a protože Sučan už je prý na místě a Adrian vypadá strhaně."
+                "Rozhodnete se, že použijete hromadnou dopravu, podle všeho Kjóto má metro."
+                "Adrian tedy dojde koupit 4 lístky a vyrazíte do metra."
+                "Za necelou půl hodinku jste u ubytování, kde na vás čeká Sučan."
+                "Jdete vyzvednout kufry do auta a ubytovat se."
             "Ne":
                 j "Hele za to mi to nestojí, hoď ho klidně na zem."
                 show d nagoja
@@ -420,11 +490,25 @@ label sinkanzen:
                 "[j.show_all_points()]"
                 "Mobil si raději uložíš do síťky na sedle, sedneš si sklopíš stoleček a položíš si na něj zpátky svůj bentobox."
                 "Dante si sedne zpět. Když dojíš, je pomalu čas se balit a připravovat na výstup."
+                "Dante vstane a šťouchne do Adriana, aby ho probudil."
+                "Vystoupili jste hladce, i cestu z nastupiště jste našli na první dobrou."
+                "Zjistili jste, že to na ubytování jsou ještě asi 3 km a protože Sučan už je prý na místě a Adrian vypadá strhaně."
+                "Rozhodnete se, že použijete hromadnou dopravu, podle všeho Kjóto má metro."
+                "Adrian tedy dojde koupit 4 lístky a vyrazíte do metra."
+                "Za necelou půl hodinku jste u ubytování, kde na vás čeká Sučan."
+                "Jdete vyzvednout kufry do auta a ubytovat se."
     else:
         "Mimoň a Adrian jen co dosednou tak usnou. Dante si vytáhl mobil s GPS, aby viděl kolik ten vlak jede."
         "Otevřela jsis svůj bentobox a dala si se do jídlo, u toho koukáš z okénka."
         "Po asi deseti minutách se vydáš na záchod, aby sis udělala obrázek jak vypadají záchody v šinkanzenu."
-        "Když se vrátíš na místo rychle dojíš a je čas začít ce balit za chvíli vystupujete."
+        "Když se vrátíš na místo rychle dojíš a je čas začít se balit za chvíli vystupujete."
+        "Dante vstane a šťouchne do Adriana, aby ho probudil. Sbalí si věci a knížku do batohu, společně popženete Mimoně a jdete se připravit k výstupu."
+        "Vystoupili jste hladce, i cestu z nastupiště jste našli na první dobrou."
+        "Zjistili jste, že to na ubytování jsou ještě asi 3 km a protože Sučan už je prý na místě a Adrian vypadá strhaně."
+        "Rozhodnete se, že použijete hromadnou dopravu, podle všeho Kjóto má metro."
+        "Adrian tedy dojde koupit 4 lístky a vyrazíte do metra."
+        "Za necelou půl hodinku jste u ubytování, kde na vás čeká Sučan."
+        "Jdete vyzvednout kufry do auta a ubytovat se."
                 
     return
 
