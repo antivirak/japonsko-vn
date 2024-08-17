@@ -245,6 +245,13 @@ label akt6:
                     "Položíš si tedy svůj kufr na zem a sedneš si na něj."
                     "Ale Sučan odjel s internetem a kluci asi nejsou poblíž."
                     "Takže si odsouzená následujících pár minut strávit bez internetu čekáním na někoho, kdo tě vysvobodí."
+                    "Ale nečekáš ani čtvrthodinu a Sučan přichází i s ostaními."
+                    show s nagoja
+                    s "Zaparkoval jsem a oni akorát přicházeli od zastávky."
+                    hide s nagoja
+                    "Rozebrali jste si každý svá zavazadla a vyrážíte na ubytko."
+                    "Má to být nějaký luxusnější guesthouse, ve kterém máte strávit 2 noci."
+
                 else:
                     j "Sejdeme se teda dole, dojdu s klukama zaplatit."
                     "Sešli jste dolů, v parkomatu jste zaplatili. A Sučan mezitím úspěšně sjel dolů."
@@ -507,6 +514,54 @@ label sinkanzen:
         "Adrian tedy dojde koupit 4 lístky a vyrazíte do metra."
         "Za necelou půl hodinku jste u ubytování, kde na vás čeká Sučan."
         "Jdete vyzvednout kufry do auta a ubytovat se."
+
+label kjoto_guest_house:
+    "Na recepci pracuje, podle vzhledu cizinka, takže tentokrát si s angličtinou vystačíte."
+    "Poté co si z vašich pasů opsala všechny informace. Dostáváte klíče od pokoje."
+    "Jste až v sedmém patře podle všeho musíte výtahem, schodiště nikde nevidíte."
+    "Ale tak s kufry lepší varianta, než kdyby to bylo naopak."
+    "Když odemknete, otevře se před vámi docela velký prostor. Jsou zde 2 postele a tři futonové postele."
+    "Adrian zamířil rovnou do koupelny."
+    show d nagoja
+    d "Navrhuji, aby si postele vzali [j.name] a Adrian a my si vezmeme ty futonové."
+    hide d nagoja
+    "Ale než to stiihnete s Dantem prodiskutovat, tak Mimoň se už válí v jedné z normálních postelí."
+    show d nagoja
+    d "Aha... [j.name_5p], vadilo by ti spát na té madraci na zemi? Adrian vypadá, že mu není dobře."
+    hide d nagoja
+    menu:
+        "Kde budeš spát?"
+        "Ne, nevadí mi spát na té matraci na zemi.":
+            "Položíš si tedy kufr ke krajnímu futonu."
+            if j.love_points(d.name,0) > 5:
+                "Dante si dá věci na futon vedle tebe a Sučan k balkónu."
+            else:
+                "Sučan si položil věci na futon vedle tebe."
+            "Po chvíli vychází úplně sinalý Adrian, který bezeslova zamíří, k volné posteli. Kde doslova odpadne."
+            "Jseš ráda, že jsi mu přenechala postel, navíc futony vypadájí také dost pohodlně."
+            show d nagoja
+            d "Navrhuju trochu vydechnout a jít se projít."
+            hide d nagoja
+            "Hlavou pohodí směrem k Adrianovi a pochopíte, že mu chce nechat klid."
+            "Se Sučanem oba přikývnete."
+            show d nagoja
+            "Mimoň našel ovládání od televize a samozřejmě jí musel hned pustit a protože si vybral postel, která je nejdál od televize, pustil si jí fakt nahlas."
+            "Chvíli se ho snažíte přesvědčovat ať to vypne a nebo ztlumí, nebo ať jde s vámi, ale všechno marno."
+            "Naneštěstí nebo možná naštěstí, Adrian i přes všechen ten hluk spí."
+            "Sbalili jste si věci a tak za 20 minut jste připraveni k odchodu."
+            "Klíče máte dvoje, takže vyrážíte na odpolední procházku po Kjótu."
+            "Ty, Sučan a Dante. Zamíříte do zahrad Nijo-jo hradu."
+            "Jako vše v Japonsku, zahrady ale zavírají brzo v šest hodin."
+            "Takže na prohlídku máte necelou hodinku."
+            
+
+        "No, radši bych spala na normální posteli.":
+            show d nagoja
+            d "Jo jasné, on to Adrian na zemi zvládne. Je tvoje."
+            hide d nagoja
+
+
+
                 
     return
 
