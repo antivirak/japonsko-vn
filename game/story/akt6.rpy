@@ -533,7 +533,7 @@ label kjoto_guest_house:
         "Kde budeš spát?"
         "Ne, nevadí mi spát na té matraci na zemi.":
             "Položíš si tedy kufr ke krajnímu futonu."
-            if j.love_points(d.name,0) > 5:
+            if j.love_points.get(d.name,0) > 5:
                 "Dante si dá věci na futon vedle tebe a Sučan k balkónu."
             else:
                 "Sučan si položil věci na futon vedle tebe."
@@ -544,25 +544,59 @@ label kjoto_guest_house:
             hide d nagoja
             "Hlavou pohodí směrem k Adrianovi a pochopíte, že mu chce nechat klid."
             "Se Sučanem oba přikývnete."
-            show d nagoja
             "Mimoň našel ovládání od televize a samozřejmě jí musel hned pustit a protože si vybral postel, která je nejdál od televize, pustil si jí fakt nahlas."
             "Chvíli se ho snažíte přesvědčovat ať to vypne a nebo ztlumí, nebo ať jde s vámi, ale všechno marno."
             "Naneštěstí nebo možná naštěstí, Adrian i přes všechen ten hluk spí."
-            "Sbalili jste si věci a tak za 20 minut jste připraveni k odchodu."
-            "Klíče máte dvoje, takže vyrážíte na odpolední procházku po Kjótu."
-            "Ty, Sučan a Dante. Zamíříte do zahrad Nijo-jo hradu."
-            "Jako vše v Japonsku, zahrady ale zavírají brzo v šest hodin."
-            "Takže na prohlídku máte necelou hodinku."
-            
-
+            "Vystřídali jste se v koupelně, ty sis dala i rychlou sprchu, protože po celém dni si byla strašně ulepená."
+            "Sbalili jste si věci a do hodinky jste připraveni k odchodu."
+            jump vecer_nagoja 
         "No, radši bych spala na normální posteli.":
             show d nagoja
             d "Jo jasné, on to Adrian na zemi zvládne. Je tvoje."
             hide d nagoja
-
-
-
-                
+            "Dáš si věci k posteli a rozhodneš se, že proběhneš sprchou než budete řešit co dál."
+            "Po chvíli vychází úplně sinalý Adrian, který bezeslova zamíří, k volnému futonu. Kde doslova odpadne."
+            show d nagoja
+            d "Navrhuju trochu vydechnout a jít se projít."
+            hide d nagoja
+            "Hlavou pohodí směrem k Adrianovi a pochopíte, že mu chce nechat klid."
+            "Se Sučanem oba přikývnete. Ty si sbalíš věci na převlečení a zamíříš do koupelny."
+            "Opravdu rychle se osprchuješ a převlíkneš. Když se vrátíš do pokoje, tak tam nehorázně řve televize."
+            "S nějakou japonskou soutěží."
+            j "Nechcete to vypnout? Adrian spí."
+            "Jen co položíš otázku zahlídneš naštvaný výraz u Danteho i Sučana. Když svůj pohled stočíš k Mimoňovi, tak pochopíš."
+            "Ovládání má on."
+            j "Aha. Tak já si sbalím věci a tak za čtvrhodinky můžeme vyrazit."
+            "Jdeš si přebalit věci a kluci se mezitím vyytřídají v koupelně."
+label vecer_nagoja:
+    "Klíče máte dvoje, takže jedny přenecháte Adrianovi s Mimoněm a vyrážíte na odpolední procházku po Kjótu."
+    "Ty, Sučan a Dante. Zamíříte do zahrad Nijo-jo hradu. Cesta vám zabere něco okolo půl hodniky."
+    "Jako vše v Japonsku, zahrady ale zavírají brzo - v šest hodin."
+    "Takže na prohlídku máte necelou hodinku."
+    "Zahrady jsou krásné. Dokonce obsahují něco na styl vyhlídky."
+    "Takže si je můžete prohlodnout i z vyvýšeného místa."
+    "Ze zahrad vás vyžene rozhlas upozorňující na zavíračku."
+    "Chvíli jste se ještě rozhlíželi v okolí zahrad a pak jstte se domluvili, že se přiblížíte k ubytování a dáte si někde večeři."
+    "Asi 4 ulice od ubytování, najdete podnik, který vás zaujme."
+    "Napíšete Adrianovi a Mimoňovi, zda se nechtějí připojit."
+    "Ozve se Mimoň, že přijde a že Adrian spí."
+    "Asi po deseti minutách čekání, Mimoň dorazil."
+    "Takže jste zalezli do podniku. Číšník si vás změřil pohledem a hlavně přepočítal. A nechal vás posadil v chodbičce, v takové čekárně na jídlo."
+    "Za chvíli se vrátil a bere vás někam dolů do suterénu."
+    "Usadí vás v rohu místnosti ke stolu pro 4."
+    "A dá vám jídelní lístky, saozřejmě jsou jen v japonštině. Nevadí, překladač to jistí."
+    "Navíc je to tempurárna, takže zde mají obalované vše od masa až po zeleninu. A před vstupem jste si prohlídli, plastové maketky."
+    "Tohle je asi poprvé od toho, co jste přijeli do Japonska, co si musíte objednat bez Adrianovi japonštiny."
+    "Ale nakonec to úspěšně zvládnete."
+    "A po chvíli se vám nese pití co jste si objednali, čaj který je k jídlu zdarma a set omáček."
+    "A po asi 10 minutách dostáváte objednané jídlo."
+    "Poděkujete a pustíte se do jídla."
+    "Tentokrát platíš ty, aby se dluhy mezi vámi trošku vyrovnali."
+    "S plnými žaludky vyrazíte na ubytko."
+    "Po cestě se stavíte ještě v 7eleven, a po domluvě s Dantem koupíte kolu a nějaké pečivo pro Adriana."
+    "Venku už je tma, takže se více nezdržujete a jdete na pokoj."
+    "Vystřídáte se v koupelně, Adrian si vezme kolu napije se a vypadá o něco lépe."
+   
     return
 
 
