@@ -551,6 +551,7 @@ label akt5:
                 hide d fujihs
                 show a fujihs
                 a "A co byste chtěli za nářadí? Zkusím se zeptat těch Japonců."
+                hide a fuji
                 show s fujihs
                 s "Hele asi osmičku klíč a kleště."
                 hide s fujihs
@@ -576,7 +577,7 @@ label akt5:
                 s "Hele, není to ideální, ale asi s tím můžeme jet."
                 hide s fujihs
                 "Začne vylézat z pod auta a podává nářadí Adrianovi."
-                "Ten si jej převzal a rozejde se k Japoncům. Na nich je vidět, že jsou se rádi, že brzy vypadnete."
+                "Ten si jej převzal a rozejde se k Japoncům. Na nich je vidět, že jsou rádi, že brzy vypadnete."
                 "Plasty jste dali na podlahu ke spolujezdci."
                 scene bg cesta nagoja3
                 "Sedla jsi zase za volant a vyrážíte směr hotel."
@@ -653,7 +654,7 @@ label akt5:
     hide m mask angry
     show s nagoja
     s "Takže ikimašó."
-    show nagoja vecer
+    scene bg nagoja vecer
     "Jdete tedy pár ulic a najdete pobočku Ichiranu."
     "Moc se neliší od Tokijské pobočky."
     "Zakroužkujete si, co si chcete dát, zaplatíte u automatu a během chvíle si už vychutnáváte každý svůj ramen."
@@ -709,11 +710,11 @@ label akt5:
     "Každý jste si to vyzkoušeli."
     "Takže jste získali i nějaké kuličky zpět, ale po chvíli jste neměli žádné."
     "Odcházíte o 1000 yenů lehčí, ale plni nových zkušeností."
-    scene nagoja vecer
+    scene bg nagoja vecer
     "Ještě jste udělali malý okruh a vrátili jste se na hotel."
     "Druhý den se plánujete přesunout do Kjóta s tím, že část z vás pojede Šinkanzenem."
     "A protože zítřek je ve znamení přejezdu, rozhodnete se, že si ještě ráno Nagoju projdete za světla."
-    scene nagoja hotel
+    scene bg nagoja hotel
     "Rozejdete se do svých pokojů, proběhneš koupelnou, nařídíš budíka a do pár minut jsi tuhá."
 
     return

@@ -7,9 +7,9 @@ label akt3:
     scene bg 7eleven
     "Po cestě jste si koupili pití a svačinku."
     scene bg metro
-    "Adrian došel koupit 5 celodenních lístků. A vyrazili jste ke svatyni Senso-ji."
+    "Adrian došel koupit 5 celodenních lístků. A vyrazili jste ke svatyni Sensódži."
     scene bg senso_ji0
-    "Senso-ji je starodávný budhistický chrám v Asakuse."
+    "Sensódži je starodávný budhistický chrám v Asakuse."
     "Jde o jednu z ikonických památek Tokia, kterou ročně navštíví přes 30 miliónů lidí."
     scene bg senso_ji1
     "Svatyně byla zničena během druhé světové války při bombovém útoku na Tokio."
