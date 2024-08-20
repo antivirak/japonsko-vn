@@ -529,7 +529,7 @@ label akt5:
                 "Zastavíš u prvního vjezdu do baráku, kde se zastavit dá."
                 "Vylezete ven a zjistíte,"
                 "že vám z auta vepředu visí plasty."
-                "Jak jsi vyjížděl['a' if j.gender == 'f' else ''] ven z místa na parkovišti, zachytil['a' if j.gender == 'f' else ''] jsi o betonovou zarážkou kryt motoru a část podběhů."
+                "Jak jsi vyjížděl['a' if j.gender == 'f' else ''] ven z místa na parkovišti, zachytil['a' if j.gender == 'f' else ''] jsi o betonovou zarážku kryt motoru a část podběhů."
                 "Sučan – milovník aut jako první leze pod auto."
                 show s fujihs
                 s "Hmmm... Urval['a' if j.gender == 'f' else ''] jsi takové ty plastové nýty. Teda ne všechny, ale nedrží tam, takže se nám to chytá do kol."
