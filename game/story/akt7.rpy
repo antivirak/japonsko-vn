@@ -249,9 +249,95 @@ label osetrovani_Adriana:
     j "No když myšlíš."
     "Adrian si vezme věci a zamíří do koupelny, ty mezitím vykomunikuješ místo setkání."
     "Adrianovi to naštěstí dlouho netrvá a za chvíli už vycházíte na metro."
-
     return
 label Kjoto:
     "Pochopila jsi, že odpovědi se nedočkáš, pobalíš si věci a mezitím Mimoň vyjde z koupelny."
     "Z ledničky si vyndáš věci na snídani a rychle je sníš. Mimoň se mezití také sbalil, takže můžete vyrazit."
-    "Dole se potkáte se Sučanem."
+    "Dole se potkáte se Sučanem. Ozve se jeho oblíbené Ikimašó a vyrazíte."
+    if j.love_points.get(s.name,0)>5:
+        "Připojíš se k Sučanovi a po cestě na metro si povídáte."
+        "Protože, Dantemu s Mimoněm malinko utečete, usoudíš, že vás nemůžou slyšet a položiš Sučanovi otázku, která ti už nějakou dobou vrtá v hlavě."
+        j "Hele, Sučane můžu se tě na něco zeptat?"
+        show s kjoto
+        s "Samozřejmě, [j.name5p], ty můžeš vždycky."
+        hide s kjoto
+        "Co tak najednou? Vždyť se známe od mala, to sis uvědomil, že ke mě něco citíš až teď?"
+        show s kjoto
+        s "Ne já to vím dlouho, párkrát sem se ti to snažil naznačit."
+        s "Jen ty si to asi nevnímala, protože mě prostě bereš jen jako pozorného bratra. No a pak si byla ve vztahu."
+        s "Rozhodně sem nechtěl být ten, co ti bude kazit vztah. Na to nemám právo."
+        s "Ale strašně mě ničilo, jak byl tvůj ex strašnej, zasloužíš si někoho lepšího."
+        hide s kjoto
+        j "Nikdy jsem si toho nevšimla, promiň. Chovala jsem se trošku jako kráva, co?"
+        show s kjoto
+        s "Takhle o sobě nemluv. A nekaž mi ten krásný pocit, že jsem teď s tebou."
+        hide s kjoto
+        j "No o tom se sní každýmu jít se mmnou v Kjótu na autobus"
+        "Mezitím jste došli k zastávce autobusu, zastavili jste a Dante s Mimoněm vás došli."
+
+
+    elif j.love_points.get(d.name,0)>5:
+        "Připojíš se do dvojice s Dantem, Sučan jde tedy napřed s Mimoněm."
+        "Kráčíte mlčky vedle sebe."
+        j "Myslíš, že Adrian bude v pohodě? Nevypadal moc dobře."
+        show d kjoto
+        d "Jo vyspí se a bude mu dobře, asi jsme to s tou Fuji přehnali."
+        hide d kjoto
+        j "Hmm... Taky nejsem úplně v pohodě. "
+        show d kjoto
+        d "Bylo to náročné pro všechny a díky některým i psychicky."
+        hide d kjoto
+        "Přikývneš a nastane zase ticho. Sbíráš odvahu ke své nasledující otázce."
+        j "Hele, Dante, nechceš si přestat se mnou hrát?"
+        show d kjoto
+        d "Co? Asi nerozumím tvé otázce."
+        hide d kjoto
+        j "Ubijíjí mě to, že nevím na čem jsem. Takže by si mi možná mohl říct jak to se mnou máš."
+        j "Takže holka na jednu noc, vztah, nebo si to všechno blbě vykládám?"
+        show d kjoto
+        d "A co by si chtěla odemne slyšet?"
+        hide d kjoto
+        menu:
+            "Že si tuhle dovolenou užiju se vším všudy.":
+                show d kjoto
+                d "Tak to nemůžu sloužit. Holky na jednu noc sice sbírám, ale vždy se ujistím, že si nebudou kromě luxusního sexu nic pamatovat." #TODO co si myslíte? nebo mám nechat možnost sexu na jednu noc?
+                d "Rozhodně ne jméno a obličej, uspokojila má odpověď tvoji dušičku?"
+                d "Ale kdo ví? Třeba se ti podaří, přesvědčit mě, abych udělal vyjímmku."
+                hide d kjoto
+                $ j.add_love_points_for_person(d.name,1)
+            "Že máš nějaké morální standardy.":
+                show d kjoto
+                d "Dost vysoké. Ale taky dost nebezpečné povolání."
+                $ j.add_love_points_for_person(d.name,2)
+                d "Takže pokud se mnou někdy nějaká holka bude chtít být, tak si mě musí vzít. A počítat s tím, že rozvod nepřipadá v úvahu."
+                d "Pouze její smrt, ale ta jí může potkat i bez rozvodu."
+                hide d kjoto
+                j "Jojo to už jsem slyšela, opakovaný vtip není vtipem."
+                show d kjoto
+                d "Myslíš, že žertuju? Veř tomu, že bych rád našel holku, která by byla ochotná akceptovat můj divoký, smrtí nasáklý život."
+                hide d kjoto
+                j "Tohle mě vážně nebaví, asi mi budeš muset říct o sobě víc, tohle mě unavuje."
+                j "Pořád jen mluvíš o svatbě, nebezpečí a smrti. Buď to vůbec nevytahuj a nebo mluv na rovinu."
+                show d kjoto
+                d "Jsem vládní agent, nejsem tady na dovolené,což si asi pochopila, ale mám se zúčastnit jedné předávky drog."
+                d "Aby to nebylo jednoduché, tak jsem nastrčená krysa v evropské odnoži yakuzi (yakuza - je japonská mafie)"
+                d "Vztahům se raději vyhybám, protože mě můžou oslabit a navíc všichni v mé blízkosti jsou automaticky ve smrtelném nebezpečí."
+                d "Do teď můj jedniný přítel byl a je Adrian, který si kvůli mně už pár únosy prošel. Byl jsem rozhodlý, že holku si nikdy nenajdu."
+                d "Ale tebe nějak nemůžu dostat z hlavy."
+                hide d kjoto
+                "Tak to je šílené to si musel všechno vymyslet, tak yakuza v Japonsku samozřejmě stále úřaduje."
+                "Ale její evropská větev? Blbost. Vladní agent? Nejsme v Americe."
+                j "Ještě mi řekni, že máš s sebou zbraň. Ať je to kompletní."
+                show d kjoto
+                d "Teď ne, ale na apartmánu, mám dvě automatické pistole."
+                hide d kjoto
+                j "Není možné, neprošel by si přes letiště."
+            "Že si to blbě vykládám.":
+                show d kjoto
+                d "Pravděpodobně ano, jen se snažím být milý, když spolu máme strávit tolik času."
+                hide d kjoto
+                $ j.add_love_points_for_person(d.name,-2)
+    elif j.hate_points.get(m.name,0)>5:
+        "Z nějakého důvodu se na tebe nalepil Mimoň, a aktivně s tebou drží krok."
+    else:
+        "Všichni společně vyrazíte na metro"
