@@ -491,7 +491,7 @@ label sinkanzen:
                 "Vstane do uličky a ty se můžeš natáhnout pod sedačky pro mobil."
                 "Mobil si vylovila, ale získáváš dva GP za nevhodné chování ve vlaku."
                 $ j.increment_gaijin_points(2)
-                "[j.show_all_points()]"
+                show screen stats_overview
                 "Mobil si raději uložíš do síťky na sedadle, sedneš si, sklopíš stoleček a položíš si na něj zpátky svůj bento box."
                 "Dante si sedne zpět. Když dojíš, je pomalu čas se balit a připravovat na výstup."
                 "Dante vstane a šťouchne do Adriana, aby ho probudil."

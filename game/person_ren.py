@@ -37,30 +37,11 @@ class Person(ADVCharacter):
         if not renpy.in_rollback():
             self.hate_points[person.name] += value
 
-    def get_hate_points_table(self) -> str:
-        if not self.hate_points:
-            return "Nemáš žádné hate points.."
-        table_lines = [f"{name}: {points}" for name, points in self.hate_points.items()]
-        return "\n".join(table_lines)
-
-    def get_love_points_table(self) -> str:
-        if not self.love_points:
-            return "Nemáš žádné love points.."
-        table_lines = [f"{name}: {points}" for name, points in self.love_points.items()]
-        return "\n".join(table_lines)
-
     def increment_gaijin_points(self, value: int) -> None:
         if not renpy.in_rollback():
             self.gaijin_points += value
 
-    def show_all_points(self) -> str:
-        return (
-            f"aktuální LP: {self.get_love_points_table()}"
-            f"\naktuální HP: {self.get_hate_points_table()}"
-            f"\naktuální GP: {self.gaijin_points if self.gaijin_points else 'Nemáš žádné gaijin points..'}"
-        )
-
-
-def show_all_points():
-    """Alias to make the story more error-prone"""
-    j.show_all_points()
+    def get_love_points_for_person(self, person_name: str) -> int:
+        return self.love_points.get(person_name, 0)
+    def get_hate_points_for_person(self, person_name: str) -> int:
+        return self.hate_points.get(person_name, 0)
