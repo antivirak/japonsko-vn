@@ -15,7 +15,7 @@ label akt7:
     d "Adrianovi není stále dobře, takže zůstává na ubytování. Ale Mimoň s námi prý půjde."
     hide d kjoto
     "To vážně ignoruje, co mu říkáš?"
-    if j.love_points.get(a.name,0)>5
+    if j.love_points.get(a.name,0)>5:
         "Počkat, Adrianovi ještě nění dobře?"
         menu:
             "Chceš zůstat s Adrianem na ubytování, když mu není dobře?"
@@ -50,7 +50,7 @@ label osetrovani_Adriana:
     "Užíváš si chvilku, kterou sis vytvořila a od začátku pobytu si snad poprvé můžeš užívat atmosféry japonska."
     "Bez pocitu naprosté vyčerpanosti, nebo s klukama za prdelí."
     "Z rozmínání, tě vytrhne Adrianův hlas, teda spíše zasténání."
-    if j.love_points.get(a.name, 0) > 5
+    if j.love_points.get(a.name, 0) > 5:
         menu:
             "Poběžíš k Adrianovi, nebo si přivřeš dveře a užiješ si chvilku pro sebe?"
             "Pomoc Adrianovi":
@@ -171,7 +171,7 @@ label osetrovani_Adriana:
                 a "Dobře. Asi děkuji?"
                 hide a kjoto openeyes
                 "Úplně nervozní a rudý zaleze do koupelny, dveře sice zabouchne ale zámek neslyšíš klapnout."
-                "Převlíkneš se tedy do věcí na ven, sbalíš si věci a napíšeš klukům kde jsou a kde budou tak za hodinu."¨
+                "Převlíkneš se tedy do věcí na ven, sbalíš si věci a napíšeš klukům kde jsou a kde budou tak za hodinu."
                 "Adrian vyleze asi za půl hodiny a vypadá tak o 100% lépe."
                 j "Tak jak ti je?"
                 show a kjoto openeyes
@@ -191,18 +191,65 @@ label osetrovani_Adriana:
                         show a kjoto openeyes
                         a "Ano."
                         hide a kjoto openeyes
+                        $ j.add_love_points_for_person(a.name, 2)
                         "Wow, tak tady to začíná být zajímavé. Adrian tě právě pozval na rande."
                         "Tak nějaké náznaky tu byly i dříve, ale tady jde do tuhého. Ale asi by bylo lepší, kdyby to nebylo tak okaté."
                         "Přeci jen nechceš dělat dusno v partě, navíc Sučan tě možná až přehnaně brání, takže by bylo lepší, být opatrní."
                         j "Dobře beru tě za slovo, jen bych byla opatrnější před ostaníma, nebo bych to odložila až po návratu z Japonska."
                         "Tvá odpověď se evidentně Adrianovi moc nelíbí. Protože si povzdechne a jde si balit věci."
                     "To jsem jen tak plácla, není třeba.":
-                show a kjoto openeyes
-                a "Tak se asi se pobalíme a vyrazíme."
-                hide a kjoto openeyes
+                        show a kjoto openeyes
+                        a "Tak se asi se pobalíme a vyrazíme."
+                        hide a kjoto openeyes
+                        $ j.add_love_points_for_person(a.name, 0.5)
             "Užít si výhled":
                 "Další zasténání se neozve, takže si užíváš výhled a jemný vítr který si pohrává s tvými vlasy."
-    "c"
+                "V pokoji je ticho, tak se ti možná něco jen zdálo."
+                "Po chvíli zaslouženého oddechu se vrátíš do pokoje."
+                "Adrian spí, když ho dojdeš zkontrolovat, zjistíš že má horečku."
+                "Uvaříš čaj, z cestovní lékarničky vytáhneš paralen. Adriana vzbudíš a donutíš ho sníst prášek."
+                "Adrian zase usne a ty se věnuješ také svým věcem, kolem polednícho se rozhodneš vyrazit koupit něco k obědu."
+                "Před odchodem ještě vzbudíš Adriana aby se napil a aby věděl, že jdeš pryč."
+                "V nejbližším kombiny, koupíš dva rámeny a něco k pití."
+                "Vrátíš se na ubytko a oba rámeny zaleješ horkou vodou. Když trošku schladnou vzbudíš Adriana."
+                "Ten se vysouká z podpeřiny dojde si do koupelny a po chvíli se k tobě připojí u nízkého stolu na zemi."
+                "U kterého musíte sedět na takových 'podesedácívh' taktéž na zemi."
+                "Jídlo po chvíli sníte, Adrian ti poděkuje a jde si zase lehnout."
+                "Uklidíš odpadky, a natáhneš se. Napíšeš klukům jak jsou na tom."
+                "Podle všeho akorát jsou z nějakého parku s opicemi taktéž na oběd. Pak plánují nějakou sojovkárnu."
+                "Domluvíte se, že by ses večer připojila. Po té také usneš."
+                "Vzbudíš se asi ve tři, dojdeš tedy do koupelny. Po rychlé sprše se sbalíš."
+                "Vzbudíš Adriana a řekneš mu že se plánuješ připojit ke klukům."
+                show a kjoto openeyes
+                a "Už mi je lépe, počkej, vysprchuju se a půjdu také."
+                hide a kjoto openeyes
+                j "No když myšlíš."
+                "Adrian si vezme věci a zamíří do koupelny, ty mezitím vykomunikuješ místo setkání."
+                "Adrianovi to naštěstí dlouho netrvá a za chvíli už vycházíte na metro."
+    "Další zasténání se neozve, takže si užíváš výhled a jemný vítr který si pohrává s tvými vlasy."
+    "V pokoji je ticho, tak se ti možná něco jen zdálo."
+    "Po chvíli zaslouženého oddechu se vrátíš do pokoje."
+    "Adrian spí, když ho dojdeš zkontrolovat, zjistíš že má horečku."
+    "Uvaříš čaj, z cestovní lékarničky vytáhneš paralen. Adriana vzbudíš a donutíš ho sníst prášek."
+    "Adrian zase usne a ty se věnuješ také svým věcem, kolem polednícho se rozhodneš vyrazit koupit něco k obědu."
+    "Před odchodem ještě vzbudíš Adriana aby se napil a aby věděl, že jdeš pryč."
+    "V nejbližším kombiny, koupíš dva rámeny a něco k pití."
+    "Vrátíš se na ubytko a oba rámeny zaleješ horkou vodou. Když trošku schladnou vzbudíš Adriana."
+    "Ten se vysouká z podpeřiny dojde si do koupelny a po chvíli se k tobě připojí u nízkého stolu na zemi."
+    "U kterého musíte sedět na takových 'podesedácívh' taktéž na zemi."
+    "Jídlo po chvíli sníte, Adrian ti poděkuje a jde si zase lehnout."
+    "Uklidíš odpadky, a natáhneš se. Napíšeš klukům jak jsou na tom."
+    "Podle všeho akorát jsou z nějakého parku s opicemi taktéž na oběd. Pak plánují nějakou sojovkárnu."
+    "Domluvíte se, že by ses večer připojila. Po té také usneš."
+    "Vzbudíš se asi ve tři, dojdeš tedy do koupelny. Po rychlé sprše se sbalíš."
+    "Vzbudíš Adriana a řekneš mu že se plánuješ připojit ke klukům."
+    show a kjoto openeyes
+    a "Už mi je lépe, počkej, vysprchuju se a půjdu také."
+    hide a kjoto openeyes
+    j "No když myšlíš."
+    "Adrian si vezme věci a zamíří do koupelny, ty mezitím vykomunikuješ místo setkání."
+    "Adrianovi to naštěstí dlouho netrvá a za chvíli už vycházíte na metro."
+
     return
 label Kjoto:
     "Pochopila jsi, že odpovědi se nedočkáš, pobalíš si věci a mezitím Mimoň vyjde z koupelny."
