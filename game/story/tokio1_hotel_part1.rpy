@@ -14,7 +14,7 @@ label bathroom_common(your_mates, clothes=True):
         "A najednou začne cákat voda ze záchodu ven!"
         $ j.increment_gaijin_points(1)
         "Získáváš jeden GP!"
-        "[j.show_all_points()]"
+        show screen stats_overview
         "Ještě něco pomačkáš, a ono to přestane."
         if len_mates == 1 and your_mates[0] == m:
             "Pohledem zhodnotíš počet ručníků a všimneš si, že na zemi je jeden původně bílý ručník..."
@@ -87,7 +87,8 @@ label problemubytovani:
         xalign 0.6
         yalign 1.0
     show d neutral at right
-    "Pro lepší rozhodování tvé získané bodíky: [j.show_all_points()]"
+    "Pro lepší rozhodování tvé získané bodíky:"
+    show screen stats_overview
     "Vyber rozložení cestujících do pokojů."
 
     image black = "#000"
@@ -215,7 +216,7 @@ label sucanvoutu:
             "Sučan přimáčkne bačkorou prkénko a něco navolí na displeji, vyjede bidetová tryska a vystříkne tvým směrem, jen tak tak uhneš!"
             $ j.increment_gaijin_points(1)
             "Získáváš jeden GP!"
-            "[j.show_all_points()]"
+            show screen stats_overview
             j "Ty seš debil!"
             hide s smiling
             "Nadáváš mu, zatímco to na panelu vypíná. Pohledem přepočítáš ručníky a usoudíš, že se jeden dá použít jako hadr na podlahu."
@@ -324,7 +325,7 @@ label ignorpanel:
     "Zazubíš se na něj. A pak tě napadne, jak z této situace vybruslit."
     j "Šup, oblíkej se, ať na nás kluci nečekají. Já mám už taky docela hlad!"
     $ j.add_love_points_for_person(s, 2)
-    "[j.show_all_points()]"
+    show screen stats_overview
     "Hodíš po něm polštářem zpět."
     "Oba se smějete, Sučan se oblékne. A vyrazíte dolů na recepci."
     call recepce
@@ -385,7 +386,7 @@ label ignorpanel2:
     "Čapneš tašku, mobil a běžíš na recepci."
     "Získáváš 3 HP u Mimoňě!"
     $ j.add_hate_points_for_person(m, 3)
-    "[j.show_all_points()]"
+    show screen stats_overview
     call recepce
     return
 
@@ -692,7 +693,7 @@ label ignorpanel5:
     hide d black
     "Chceš mu odpovědět, ale akorát se otevřou dveře od výtahu a jste na doslech ostatním."
     $ j.add_love_points_for_person(d, 2)
-    "[j.show_all_points()]"
+    show screen stats_overview
     call recepce
     call dvojluzak_hracka_Dante2
     return
@@ -797,7 +798,7 @@ label hrac_ka_Mimon3p(partners):
     "Položíš významně kartu na stoleček a s [partner_not_mimon.name_7p] vyrazíte směr recepce."
     $ j.add_hate_points_for_person(m, 2)
     "Získáváš 2 HP pro Mimoně"
-    "[j.show_all_points()]"
+    show screen stats_overview
     return
 
 label hracka_Adri_Dante:
@@ -899,7 +900,7 @@ label hracka_Adri_Dante:
         "Získáváš u každého jeden LP."
         $ j.add_love_points_for_person(a, 1)
         $ j.add_love_points_for_person(d, 1)
-        "[j.show_all_points()]"
+        show screen stats_overview
         call recepce
         # TODO new label for the trojluzak, where something happened
     else:
@@ -1023,7 +1024,7 @@ label hracka_Sucan_Dante:
         "Kluci tě po chvíli následují. A vyrazíte směr recepce."
         $ j.add_love_points_for_person(s, 1)
         $ j.add_love_points_for_person(d, 1)
-        "[j.show_all_points()]"
+        show screen stats_overview
         call recepce
         # TODO
     else:
@@ -1154,7 +1155,7 @@ label Hracka_Sucan_Adrian:
         hide s neutral
         "Získáváš jeden LP u Sučana"
         $ j.add_love_points_for_person(s, 1)
-        "[j.show_all_points()]"
+        show screen stats_overview
         call recepce
         # TODO
 
@@ -1242,7 +1243,7 @@ label Hracka_Sucan_Adrian:
         "U každého s kluků získáváš jeden LP."
         $ j.add_love_points_for_person(a, 1)
         $ j.add_love_points_for_person(s, 1)
-        "[j.show_all_points()]"
+        show screen stats_overview
         call recepce
         # TODO
     else:

@@ -33,6 +33,7 @@ label akt1:
         j.name_5p = vokativ(j.name, woman=j.gender == "f", last_name=False).capitalize()
         print(j.name_5p)
 
+    show screen stats_button_overlay
     scene bg letistenara
     if j.gender == 'f':
         "Na podzim jsi ukončila velmi toxický vztah a hledala jsi nějakou cestu, jak co nejrychleji zapomenout."
@@ -129,7 +130,7 @@ label ridicka:
             "Vyjedete a samozřejmě, hned při prvním odbočovaní, pouštíš místo blinkrů stěrače."
             $ j.increment_gaijin_points(1)
             "Získáváš 1 GP"
-            "[j.show_all_points()]"
+            show screen stats_overview
             s "V klidu to se mi ze začátku také stávalo."
             "Usměje se na tebe a položí ti ruku na stehno."
             s "Buď v klidu, je to automat a umí to pak spoustu věcí, to tě naučím, teď se soustřeď na rychlost..."
@@ -137,7 +138,7 @@ label ridicka:
             "Ještě párkrát se ti místo blinkrů podaří pustit stěrače, a někdy nebezpečně blízko vezmeš kraj cesty,"
             "ale úspešně jste dorazili do Tokia."
             $ j.add_love_points_for_person(s, 1)
-            "[j.show_all_points()]"
+            show screen stats_overview
             hide s neutral
             jump tokio1
 
@@ -192,7 +193,7 @@ label vprostred:
             # 1 LP Adrian, 1 HP Mimoň
             $ j.add_love_points_for_person(a, 1)
             $ j.add_hate_points_for_person(m, 1)
-            "[j.show_all_points()]"
+            show screen stats_overview
             "Přesunuli jste se do Tokia."
             jump tokio1
 
@@ -207,7 +208,7 @@ label zaridicem:
     "Když už podle navigace vjíždíte do Tokia, velmi si oddychneš."
     "Získáváš dva HP pro Mimoně."
     $ j.add_hate_points_for_person(m, 2)
-    "[j.show_all_points()]"
+    show screen stats_overview
     jump tokio1
 
 label Adrianvaute:
@@ -229,7 +230,7 @@ label Adrianvaute:
             "Získáváš dva LP u Adriana. Cesta najednou rychle uteče."
             # 2 LP Adrian
             $ j.add_love_points_for_person(a, 2)
-            "[j.show_all_points()]"
+            show screen stats_overview
             jump tokio1
 
 label Adrivauteodmitnuti:
@@ -266,7 +267,7 @@ label tokio1:
             hide m neutral
             "Získáváš jeden HP u Mimoně"
             $ j.add_hate_points_for_person(m, 1)
-            "[j.show_all_points()]"
+            show screen stats_overview
             "Zbytek čekání, strávíš opřená o přední kapotu auta."
             "Naštěstí, nečekáš dlouho a vidíš, jak se vrací Sučan a Adrian."
             return
@@ -286,7 +287,7 @@ label tokio1:
             "Ale než stihneš odpovědět, vidíš, jak se vrací Sučan a Adrian."
             "Získáváš jeden LP u Danteho"
             $ j.add_love_points_for_person(d, 1)
-            "[j.show_all_points()]"
+            show screen stats_overview
             hide d neutral smile
             return
 

@@ -48,7 +48,7 @@ label recepce:
             "Vstoupila jsi v botách na tatami – bambusové rohože."
             "Získáváš dva GP"
             $ j.increment_gaijin_points(2)
-            "[j.show_all_points()]"
+            show screen stats_overview
 
         "Pořádně se rozhlédnete.":
             "Všimnete si, že jsou vedle stolů úhledně seskládané boty."
@@ -56,7 +56,7 @@ label recepce:
             "Jen tak tak stihnete Mimoně zastavit, aby v botách nešlápl na rohože – tatami."
             "Získáváš HP pro Mimoně."
             $ j.add_hate_points_for_person(m, 1)
-            "[j.show_all_points()]"
+            show screen stats_overview
 
 label vecere:
     "Zujete se, boty vyskládáte na stranu a sednete si."

@@ -105,7 +105,7 @@ label dvojluzak_hracka_Sucan2:
             "A máš to jen tak tak, aby ses sbalila a přesunula se na recepci."
             "Získáváš jeden LP u Sučana."
             $ j.add_love_points_for_person(s, 1)
-            "[j.show_all_points()]"
+            show screen stats_overview
     return
 
 label sucan_taekwondo:
@@ -264,7 +264,7 @@ label dvojluzak_hracka_Dante2:
             j "Jo."
             "Oba si vezmete baťůžky a vyrazíte na recepci."
             $ j.add_love_points_for_person(d, 1)
-            "[j.show_all_points()]"
+            show screen stats_overview
     return
 
 label dvojluzak_hracka_Adrian2:
@@ -357,7 +357,7 @@ label dvojluzak_hracka_Adrian2:
     j "Děkuji."
     "Oba se narovnáte a mlčíte až do chvíle, kdy se dostanete na recepci."
     $ j.add_love_points_for_person(a, 1)
-    "[j.show_all_points()]"
+    show screen stats_overview
     return
 
 label dante_onsen:
@@ -383,7 +383,7 @@ label dante_onsen:
             "Úchyláku!"
             "Hra zde končí. Příště to zkus jinak."
             $ j.increment_gaijin_points(1000)
-            "[j.show_all_points()]"
+            show screen stats_overview
             jump titulky
     return
 
@@ -462,7 +462,7 @@ label dante_onsen_doleva:
     j "Jo."
     "Oba si vezmete baťůžky a vyrazíte na recepci."
     $ j.add_love_points_for_person(d, 1)
-    "[j.show_all_points()]"
+    show screen stats_overview
     return
 
 label adrian_onsen:
@@ -485,7 +485,7 @@ label adrian_onsen:
             hide a neutral
             $ j.increment_gaijin_points(1)
             "Získáváš 1 GP"
-            "[j.show_all_points()]"
+            show screen stats_overview
             j "Jé, děkuji, to by byl trapas."
             show a neutral
             a "Ještě ti dám kartičku od pokoje, ať na mě nemusíš čekat."
@@ -562,7 +562,7 @@ label sucan_onsen:
             "Úchyláku!"
             "Hra zde končí. Příště to zkus jinak."
             $ j.increment_gaijin_points(1000)
-            "[j.show_all_points()]"
+            show screen stats_overview
             jump titulky
     return
 
@@ -653,7 +653,7 @@ label sucan_onsen_doleva:
     "A máš to jen tak tak, aby ses sbalila a přesunula se na recepci."
     "Získáváš jeden LP u Sučana."
     $ j.add_love_points_for_person(s, 1)
-    "[j.show_all_points()]"
+    show screen stats_overview
     return
 
 label hracka_nolove:

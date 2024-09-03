@@ -205,7 +205,7 @@ label akt4:
             "Kdyby si udělal['a' if j.gender == 'f' else ''] ještě půlkrok dopředu, šlápl['a' if j.gender == 'f' else ''] bys na tatami, které tam jsou připravené pro nocležníky."
             $ j.increment_gaijin_points(1)
             "Získáváš jeden GP za nerozměněné mince a boty na tatami"
-            "[j.show_all_points()]"
+            show screen stats_overview
             "Japonec se vrátí s rozměněným obnosem. Poděkuješ a vycouváš ven."
             "Konečně si můžeš odskočit."
         "Ne, vydržím to.":
