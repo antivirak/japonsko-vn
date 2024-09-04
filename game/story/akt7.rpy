@@ -261,7 +261,7 @@ label Kjoto:
         show s kjoto
         s "Samozřejmě, [j.name5p], ty můžeš vždycky."
         hide s kjoto
-        "Co tak najednou? Vždyť se známe od mala, to sis uvědomil, že ke mě něco citíš až teď?"
+        j "Co tak najednou? Vždyť se známe od mala, to sis uvědomil, že ke mě něco citíš až teď?"
         show s kjoto
         s "Ne já to vím dlouho, párkrát sem se ti to snažil naznačit."
         s "Jen ty si to asi nevnímala, protože mě prostě bereš jen jako pozorného bratra. No a pak si byla ve vztahu."
@@ -272,8 +272,9 @@ label Kjoto:
         show s kjoto
         s "Takhle o sobě nemluv. A nekaž mi ten krásný pocit, že jsem teď s tebou."
         hide s kjoto
-        j "No o tom se sní každýmu jít se mmnou v Kjótu na autobus"
+        j "No o tom se sní každýmu, jít se mmnou v Kjótu na autobus"
         "Mezitím jste došli k zastávce autobusu, zastavili jste a Dante s Mimoněm vás došli."
+        "Takže Sučan ti neodpověděl."
 
 
     elif j.love_points.get(d.name,0)>5:
@@ -292,17 +293,18 @@ label Kjoto:
         show d kjoto
         d "Co? Asi nerozumím tvé otázce."
         hide d kjoto
-        j "Ubijíjí mě to, že nevím na čem jsem. Takže by si mi možná mohl říct jak to se mnou máš."
+        j "Ubijíjí mě to, že nevím na čem jsem. Takže by si mi možná mohl říct, jak to se mnou máš."
         j "Takže holka na jednu noc, vztah, nebo si to všechno blbě vykládám?"
         show d kjoto
         d "A co by si chtěla odemne slyšet?"
         hide d kjoto
         menu:
             "Že si tuhle dovolenou užiju se vším všudy.":
+                "Mrkneš na něj."
                 show d kjoto
                 d "Tak to nemůžu sloužit. Holky na jednu noc sice sbírám, ale vždy se ujistím, že si nebudou kromě luxusního sexu nic pamatovat." #TODO co si myslíte? nebo mám nechat možnost sexu na jednu noc?
                 d "Rozhodně ne jméno a obličej, uspokojila má odpověď tvoji dušičku?"
-                d "Ale kdo ví? Třeba se ti podaří, přesvědčit mě, abych udělal vyjímmku."
+                d "Ale kdo ví? Třeba se ti podaří, přesvědčit mě, abych udělal vyjímku."
                 hide d kjoto
                 $ j.add_love_points_for_person(d.name,1)
             "Že máš nějaké morální standardy.":
@@ -310,7 +312,7 @@ label Kjoto:
                 d "Dost vysoké. Ale taky dost nebezpečné povolání."
                 $ j.add_love_points_for_person(d.name,2)
                 d "Takže pokud se mnou někdy nějaká holka bude chtít být, tak si mě musí vzít. A počítat s tím, že rozvod nepřipadá v úvahu."
-                d "Pouze její smrt, ale ta jí může potkat i bez rozvodu."
+                d "Jediný akceptovatelný rovod je smrt jednoho z nás."
                 hide d kjoto
                 j "Jojo to už jsem slyšela, opakovaný vtip není vtipem."
                 show d kjoto
@@ -319,25 +321,77 @@ label Kjoto:
                 j "Tohle mě vážně nebaví, asi mi budeš muset říct o sobě víc, tohle mě unavuje."
                 j "Pořád jen mluvíš o svatbě, nebezpečí a smrti. Buď to vůbec nevytahuj a nebo mluv na rovinu."
                 show d kjoto
-                d "Jsem vládní agent, nejsem tady na dovolené,což si asi pochopila, ale mám se zúčastnit jedné předávky drog."
+                d "Jsem vládní agent, nejsem tady na dovolené, což si asi pochopila, ale mám se zúčastnit jedné předávky drog."
                 d "Aby to nebylo jednoduché, tak jsem nastrčená krysa v evropské odnoži yakuzi (yakuza - je japonská mafie)"
                 d "Vztahům se raději vyhybám, protože mě můžou oslabit a navíc všichni v mé blízkosti jsou automaticky ve smrtelném nebezpečí."
                 d "Do teď můj jedniný přítel byl a je Adrian, který si kvůli mně už pár únosy prošel. Byl jsem rozhodlý, že holku si nikdy nenajdu."
-                d "Ale tebe nějak nemůžu dostat z hlavy."
+                d "Ale tebe nějak nemůžu dostat z hlavy. To je tak ve skratce vše."
                 hide d kjoto
                 "Tak to je šílené to si musel všechno vymyslet, tak yakuza v Japonsku samozřejmě stále úřaduje."
-                "Ale její evropská větev? Blbost. Vladní agent? Nejsme v Americe."
+                "Ale její evropská větev? Blbost. Vladní agent? Nejsme v Americe. Únosy v dnešní době a bez medializace?"
+                "Plky, plky, plky. Jestli je tohle pravda, tak ty jsi panenka Mariánská"
                 j "Ještě mi řekni, že máš s sebou zbraň. Ať je to kompletní."
                 show d kjoto
                 d "Teď ne, ale na apartmánu, mám dvě automatické pistole."
                 hide d kjoto
                 j "Není možné, neprošel by si přes letiště."
+                show d kjoto
+                d "Ti říkám, že jsem vládní agent a člen mafie, opravdu si myslíš, že je takový problém zařídit si tu zbraně?"
+                hide d kjoto
+                menu:
+                    "Budeš této funfikci věřit?"
+                    "Ano":
+                        $ d.duvera = True
+                    "Ne":
+                        $ d.duvera = False
+                "Dante zmlkne protože přicházíte na doslech Sučana s Mimoněm, zastavili se totiž u autobusové zastávky."
             "Že si to blbě vykládám.":
                 show d kjoto
                 d "Pravděpodobně ano, jen se snažím být milý, když spolu máme strávit tolik času."
                 hide d kjoto
-                $ j.add_love_points_for_person(d.name,-2)
+                $ j.add_hate_points_for_person(d.name,2)
+                j "Tak to jsem chtěla slyšet, jsem ráda, že jsme si to vyjasnili."
+                "Přidáš trošku do kroku a dojdeš Sučana s Mimoněm a během chvíle jste na autobusové zastávce."
     elif j.hate_points.get(m.name,0)>5:
         "Z nějakého důvodu se na tebe nalepil Mimoň, a aktivně s tebou drží krok."
+        "Když zrychlíš, zrychlí, když zpomalíš vzpomalý."
+        show m mask angry
+        m "Tak já nevím, co chci vidět."
+        hide m mask angry
+        j "Tak plán má Dante a na preference jsme se tě ptali před odjezdem a naposledy včera."
+        show m mask angry
+        m "No ty kokote, tak to je hustý, to si musím vyfotit."
+        hide m mask angry
+        j "Nemáš ten plakát vyfocený už z Tokia?"
+        show m mask angry
+        m "Ne takhle!"
+        hide m mask angry
+        j "Jo jasně, vyfoť si ho ještě z více úhlů."
+        show m mask angry
+        m "V pondělí budu vstávat ve tři ráno, je premiéra poníků."
+        hide m mask angry
+        j "Co prosím?"
+        show m mask angry
+        m "No v pondělí je release nového dílu My little pony a my to na discordu sledujeme společně."
+        m "A je posun času budu muset kvůli tomu vstát v noci."
+        hide m mask angry
+        j "Jo jasně, poníci, no tak to určitě vstaň. To si nemůžeš nechat ujít."
+        "Z této šílené situace, tě vysvobodí to, že Dante se Sučanem zastavili u autobusové zastávky."
+        "Takže jste k nim došli a tento divný hovor se přirozeně ukončil."
     else:
-        "Všichni společně vyrazíte na metro"
+        "Všichni společně vyrazíte na autobus. A během pár minut stojíte na zastávce."
+    "Podle jízdních řádů a hlavně aplikací v mobilu vyčtete jakým autobusem chcete jet."
+    "Máte štěstí má jet za pět minut, takže jste přišli tak akorát."
+    "Čekáte 5 minut, 10 minut. Začíná to být divné, trošku znervózníte zda nestojíte na špatné zastávce."
+    "Ale po chvíli, naštěstí přijíždí autobus s vaším číslem. Pochopili jste, že sice vlaky jezdí na vteřinu přesně."
+    "Autobusy mají běžně zpoždění, nějaké náznaky jste pochytili už v Tokiu, ale teď jste si to potvrdili."
+    "Výstupní stanici jste si z japonských znaků přečetli jako skříňka pod sprchou, domeček, lampička a další znaky."
+    "Lístek na autobusy a metro koupili kluci včera po příjezdu do Kjota na nadraží. Celodenní na metro i na autobusy najednou."
+    "Řidič celou cestu nezavřel pusu, po chvíli jste pochopili, že hlásí 'Budeme zastavoavt''Rozjíždíme se''Zatáčíme doprva''Zatáčíme doleva'."
+    "Mimoň se Sučanem v autobuse usli, Dante si čte a ty se kocháš výhledem z okna."
+    "První zastávka byli zahrady ___Terjúdži___, zde jste se pokochaly nádhernou přirodou, taková malá botanická."
+    "Japonským chrámem a zenovou zahradou."
+    "Z teto zahrady jste se volně přesunuli do bambusového háje."
+    "Tím jste prošli takovým větším okruhem zpátky na hlavní silnici a zjistili jste, že kousek od vás je zahrada s vyhlídkou a opicemi."
+
+
