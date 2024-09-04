@@ -80,16 +80,16 @@ label osetrovani_Adriana:
                 "Podaří se ti ho zase uložit a pořádně přikrýt."
                 "Chytíš ho pod dekami za ruku, která hřeje víc jak ohříváček rukou v zimě."
                 j "Adri, snaž se usnout. Za chvíli ti bude teplo."
-                "Ještě chvíli vybruje, ale asi za pět minut usne a svaly trochu poleví."
-                "Pustíš mu ruku a dojdeš do koupelny pro ručník, ten nemočíš ve vlažné vodě a dojdeš ho dát Adrianovi na čelo."
+                "Ještě chvíli vibruje, ale asi za pět minut usne a svaly trochu poleví."
+                "Pustíš mu ruku a dojdeš do koupelny pro ručník, ten namočíš ve vlažné vodě a dojdeš ho dát Adrianovi na čelo."
                 "Pak si vzpomeneš, že máš v kufru asi 15 balíčků kapesníčků, protože Mimoňovi balila maminka a asi trochu neodhadla počet balení."
-                "A Mimoň když to zjistil, chtěl je vyhodit. Vyndáš jeden balíček namočíš je taktéž ve vlažné vodě a přiložíš je Adrianovi na zápěstí a kotníky."
+                "A Mimoň když to zjistil,tak je chtěl vyhodit. Vyndáš jeden balíček namočíš je taktéž ve vlažné vodě a přiložíš je Adrianovi na zápěstí a kotníky."
                 "Všineš si, že má Adrian na pravé noze jizvu."
                 "Dojdeš ještě asi dvakrát zchladit ručník, co si dala Adrianovi na čelo."
                 "Mezitím asi začne působit prášek, který si do něj dostala, takže horečka evidentně klesla."
                 "Odneseš a vyházíš mokré kapesníčky a ručník, sundáš z něho svojí peřinu a natáneš se u sebe."
                 "Adrian vypadá, že konečně vklidu spí. Po chvíli začneš mít hlad a dojde ti, že Adrian také nic nesnědl."
-                "Vezmmeš si tedy, věci a vyrazíš do obchodu koupit vám něco k jídlu."
+                "Vezmmeš si tedy věci a vyrazíš do obchodu koupit vám něco k jídlu."
                 "Než odejdeš tak ještě jemně probudíš Adriana a donutíš ho dopít, ten čaj."
                 "V krámě chvíli rozmýšlíš, co vlastně vzít, v čechách by si zašla do restaurace koupit vývar, nebo by si ho sama uvařila, ale tady?"
                 "Nakonec se rozhodneš pro dva instantní rámeny, kolu, čaj, kafe, čokoládu. Zaplatíš a vracíš se zpět."
@@ -100,7 +100,7 @@ label osetrovani_Adriana:
                 "Když rámen trošku vychladne, vezmeš si ho i s lžící k Adrianovi."
                 "Sedneš si k němu na kraj a pokusíš se ho probudit."
                 j "Adriane musíš, něco sníst."
-                "Otevře oči a trošku zděšeně a zahambeně se na tebe podívá"
+                "Otevře oči a trošku zděšeně a zahanbeně se na tebe podívá"
                 show a kjoto openeyes
                 a "[j.name5p]?"
                 hide a kjoto openeyes
@@ -108,7 +108,7 @@ label osetrovani_Adriana:
                 show a kjoro openeyes
                 a "To nebude nutné, nic mi není, děkuji za jídlo."
                 hide a kjoto openeyes
-                "Velmi obtížně, se posadí na posteli i když se snaží hrát na hrdinu jak mu nic není."
+                "Velmi obtížně, se posadí na posteli i když se před tebou snaží hrát na hrdinu, jak mu nic není."
                 j "Adriane, já tady jsem s tebou celý dopoledne, nehraj tu na mě, že ti nic není!"
                 j "Měl si tak vysokou horečku, že si snad i blouznil, tohle není prdel, podle mě máš svalovou horečku, protože jsi přepískl tu Fuji."
                 "Řekneš možná trošku až moc ostře."
@@ -126,9 +126,9 @@ label osetrovani_Adriana:
                 a "Ne to ne, já to ale vážně zvládnu sám. A jakto, že tu jsme jen samy?"
                 hide a kjoto openeyes
                 j "Jeli si udělat okruh po Kjotu. Dante tu chtěl s tebou zůstat, ale vypakovala jsem ho."
-                j "Stačí ti to jako odpověď? Koukej teda jíst když to zvládneš sám. Dantemu o tomhle nic neřeknu."
+                j "Stačí ti to jako odpověď? Koukej teda jíst, když to zvládneš sám. Dantemu o tomhle nic neřeknu."
                 show a kjoto openeyes
-                a "Děkuji, vážím si toho, všeho co pro mě děláš."
+                a "Děkuji, vážím si toho všeho, co pro mě děláš."
                 hide a kjoto openeyes
                 "Vezme si od tebe lžíci a začne opravdu pomalu jíst."
                 "Když vidíš, že to ale teda zvládne, položíš mu ramen do klína a jdeš si udělat svůj."
@@ -136,7 +136,7 @@ label osetrovani_Adriana:
                 show a kjoto openeyes
                 a "Jo chybí, byla to skvělá ženská. Proč?"
                 hide a kjoto openeyes
-                j "Když s měl horečku, tak jsi mumlal moje jméno, ale když jsem na tebe promluvila, řekl jsi mi mami."
+                j "Když si měl horečku, tak jsi mumlal moje jméno, ale když jsem na tebe promluvila, řekl jsi mi mami."
                 show a kjoto openeyes
                 a "Promiň, to mě mrzí. A strašně mě štve, že zase zachraňuješ ty mě."
                 hide a kjoto openeyes
@@ -149,13 +149,13 @@ label osetrovani_Adriana:
                 "Sníš si svůj oběd, doneseš Adrianovi ještě tu čokoládu a kolu, dopočítáš kolik hodin uběhlo od toho co si do něj dostala paralen a rozhodneš, že je čas na další."
                 "Adrian sní asi půlku té čokolády, vezme si od tebe paralen zapije ho kolou. A přes to, že v kole je kofein, během pár minut zase usne."
                 "Uklidíš tedy po obědě a jdeš se také natáhnout, dopadla na tebe také únava z Fuji a během pár minut spíš."
-                "Vzbudíš se asi ve tři odpoledne, dojdeš di do koupelny, daš si i rychlou sprchu na probuzení."
-                "A dojde vzbudit Adriana aby se napil."
+                "Vzbudíš se asi ve tři odpoledne, dojdeš di do koupelny, dáš si i rychlou sprchu na probuzení."
+                "A dojdeš vzbudit Adriana aby se napil."
                 j "Adriane, měl by ses napít."
                 show a kjoto openeyes
                 a "Jo, jasně."
                 hide a kjoto openeyes
-                "Řekne ještě malinko rozespale. Napije se koli, kterou si mu přinesla z ledničky."
+                "Řekne ještě malinko rozespale. Napije se koly, kterou si mu přinesla z ledničky."
                 show a kjoto openeyes
                 a "Děkuji, už mi je vážně lépe. Šel bych se vykoupat a pak bychom se mohli připojit ke klukům."
                 hide a kjoto openeyes
@@ -165,7 +165,7 @@ label osetrovani_Adriana:
                 show a kjoto openeyes
                 a "Cože?"
                 hide a kjoto openeyes
-                j "Nech si pootevřené dveře prosím, mám o tebe strach, kdyby se ti udělalo hůř, tak ať se k tobě dostanu."
+                j "Nech si pootevřené dveře, prosím, mám o tebe strach, kdyby se ti udělalo hůř, tak ať se k tobě dostanu."
                 j "Nepolezu ti tam, věř, že kdybych tě chtěla očumovat, měla jsem k tomu dneska celé dopoledne a ani by si to nevěděl."
                 show a kjoto openeyes
                 a "Dobře. Asi děkuji?"
@@ -178,13 +178,13 @@ label osetrovani_Adriana:
                 a "Myslím, že se citím na drobnou procházku."
                 hide a kjoto openeyes
                 j "No moc se mi to nelíbí, ale když myslíš. Kluci jsou teď v nějaké sojovkárně, máme se s nimi sejít v nějaké tržnici."
-                j "Jseš si jistý, že to zvládneš? ještě před pár hodinami jsi vypadal, že na svalovou horečku v nejlepším jen zemřeš."
+                j "Jseš si jistý, že to zvládneš? Ještě před pár hodinami jsi vypadal, že na svalovou horečku v nejlepším jen zemřeš."
                 show a kjoto openeyes
                 a "Vážně mi je dobře, asi ta tvá péče."
                 hide a kjoto openeyes
                 j "Ale jestli mi po cestě někde zkolabuješ, tak všechno Dantemu řeknu. A po tom co tě vlastnoručně zabiju. Tak mi budeš dlužit minimálně jedno pozvání na večeři."
                 show a kjoto openeyes
-                a "Nezkolabuju a na tu večeři tě pozvu i bez toho abys mě musela zabít co ty na to?"
+                a "Nezkolabuju a na tu večeři tě pozvu i bez toho abys mě musela zabít, co ty na to?"
                 hide a kjoto openeyes
                 menu:
                     "Mám to brát jako pozvání na rande?":
