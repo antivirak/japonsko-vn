@@ -393,5 +393,104 @@ label Kjoto:
     "Japonským chrámem a zenovou zahradou."
     "Z teto zahrady jste se volně přesunuli do bambusového háje."
     "Tím jste prošli takovým větším okruhem zpátky na hlavní silnici a zjistili jste, že kousek od vás je zahrada s vyhlídkou a opicemi."
+    "Rozejdete se tedy po hlavní cestě, směr vyhlídka, přejdete most a za chvíli už platíte vstupné do areálu."
+    "Je těsně před polednem, takže začíná být nesnesitelné vedro. A to jste ve stínu stromů."
+    "Cesta je udržovaná, takže výstup nahoru vám nečinní zas takové obtíže."
+    "Vlastně po Fuji je to procházka růžovou zahradou. I když samozžejmě sem tam ještě citíš, že tě bolí svaly."
+    "Po cestě je spousta, poučních tabulí, samozřejmmě jen v japonštině."
+    "A pár váýstražých, ty jsou i s nedokonalým anglickým překladem."
+    "Závěr? Máte se chovat ohledlplně, opice nekrmit mimo krmící budku. Včechny drobné věci máte mít uklizené ve vnitřních kapsách tašek."
+    "Opice nerozčilovat, raději si udržovat odstup, podle všeho hodně koušou."
+    "Už začínáš pochybovat, ževubec nějaké opice uvidíte, ale když už je vyhlídka na dohled, začnou se po cestě opice oběvovat."
+    "Jsou normálně volně, takže opičí samec leží jen 2 m od cesty po které přecházíte."
+    "A o pár metrů dále si hrají dvě mláďata."
+    "Je to opravdu jiný pocit, jít takto v přírodě a koukat na volně pobíhající zvířata."
+    "Po chvíli dorážíte na otevřené prostranství - vyhlídka na Kjoto."
+    "A u vyhlídky stojí budova s klecovým přístavkem."
+    "Nejdříve se pokocháte výhledem na Kjoto, taková Praha."
+    "A následně zamíříte do budovy. Zjistíte, že se jedná o zmíněné krmící místo."
+    "U obsluhy asi ta 50 yenů, koupíte balíček s jablky a jiným ovocem."
+    "A přijdete k mříži, za ní už čeká asi 10 opic, které se těší na dobrůdky."
+    "Podáš jednomu opičákovi jablko a on si ho vezme do tlapek."
+    "Je to vážné kouzelný systém, že v kleci jsou lidé a opice volně."
+    "Schodnete se na tom, že už máte hlad a vyrazíte tedy zpět."
+    "Cesta dolů vám uteče velmi rychle, přejdete most přes řeku zpět a ocitnete se na hlavní ulici, která je lemovaná různými restauracemi."
+    "Všechny jsou dost plné a stojí se na ně fronta, nebo nemají menu v angličtině."
+    "Nakonec se zastavíte u nějaké restaurace se soba nudlemi."
+    "Inzerovali venku, že mají anglické menu, ale dostali jste normálně japonské."
+    "Číšník, evidentně neumí ani slovo anglicky, protože vedle u stolu se posadila rodina pravděpodobně američanů."
+    "A ty se na něj snaží mluvit anglicky, ale on si říká svou v japonštině."
+    "Vy si ale zvládnete objednat, sice se číšník na něco v japonštině doptával, ale nevíte na co."
+    "Ale s objednávkou odkráčel a za chvíli vám přinesl 4 skleničky a konvici se soba čajem."
+    "Pohankový čaj a la výplach popelníku. Je jeden z nejoblíbenějších nápojů k jídlu. No aspoň je zdarma."
+    "Jídlo vám donesli a Mimoň dostal malou mističku a pidi talířek."
+    "V mističče je rozkleplé syrové vajíčko a na talířku jsu tři masové kuličky o velikosti hopíku."
+    "Podíváte se tedy znovu do jídelního lístku a zjistíte, že si Matěj objednal jídlo ze sekce předkrmy."
+    "Cena bohužel odpovídala, ceně hlavního jídla. Mimoň si, ale stejně nic jiného nevybral."
+    "Sníte tedy svá jídla, Mimoň svůj drahý předkrm, zaplatíte a vyrazíte dále."
+    "V této části Kjota, jste se ale hodně zdrželi, takže se musí malinko upravit plán."
+    "Proto stříbrný a zlatý chrám zkouknete jen při projíždění okolo atobusem. Vystoupíte někde v centru města."
+    "A Dante vás proplete uličkami až k nějaké zapadlé rodinné sojovkárně, na kterou dostal tip od kolegy v práci."
+    "V krámě je mlaďoulinká Japonka, která je z vaší početné návštěvy dost nervózní."
+    "Ale pomocí překladače jí na mobilu ukážete."
+    "Že byste chtěli od ní doporučení na nějakou sojovku."
+    "Za chvíli se k ní přidá nějaký starší Japonec a doporučení dostanete."
+    "Na sojovku kterou vyrábějí u nich, v součtu si koupíte asi 5 litrů."
+    "Takže Japonec je spokojený, dokonce vás nechá nakouknout do vedlejší místnosti, kde má sudy se zrající sojovkou."
+    "Ze sojovkárny jste zamířili někan na tržiště, kde jste si dali sraz s Adrianem."
+    "Na tržišti někteří z vás ochutnali _____ - chobotnicové koule či smažené chobotničky na špejli."
+    "Takto odvážný byl i Adrian a vypadá, že už mu je dobře, sláva."
+    "Z tržiště jste zamířili do _____ - ulice Geiš."
+    "Bohužel jste jsem dorazili až po šesté hodině, takže v ulici již není ani jedna Geiša, Japonci opravdu končí den brzy."
+    "Ale i tak jste si uličku prošli. Následoval další přesun a to do _____ k chrámu, kde je celý vástu lemovaný _____ červenými posvátnými branami."
+    "K upatí kopce, kde se svatině nachází jste ale dorazili až po sedmé hodině, tutíž se začalo rychle stmívat."
+    "Ale dole byl krásný červeno zlatý chrám, který nasvícený byl opravdu kouzelný."
+    "Dokonce ____ brány po nasvícení vypadají skvostně."
+    "Prošli jste jimi první část, ale po zkontrolování času a jízdních řádů, jste usoudili, že až nahoru nepůjdete, neboť byste se nedostali na hotel."
+    "Takže při první odbočce z trasy se odpojíte a zamíříte směr zastávka."
+    show m mask angry
+    m "To si děláte prdel, no ty vole. Tady je socha lišky."
+    hide m mask angry
+    "??? Cože? To nemůže myslet vážně."
+    show s kjoto
+    s "Nekřič tady a klidni výrazy."
+    hide s kjoto
+    show m mask angry
+    m "Ale to jste mi neřekli, že tu jsou sochy lišek."
+    hide m mask angry
+    show d kjoto
+    d "Protože, jsme to nevěděli?"
+    show m mask angry
+    m "Jste mi to udělali schválně, šli jsme sem až nakonec, abych si nemohl vyfotit lišky."
+    hide m mask angry
+    show d kjoto
+    d "Říkám ti, že jsem potrobně nezkoumal, co je kde k vidění, udělal jsem plán na základě turistických míst v Kjotu."
+    hide d kjoto
+    show a kjoto
+    a "Tak si měl říct včera, když to Dante plánoval, že sem chceš s za světla."
+    hide a kjoto
+    hide m mask angry
+    m "Ale to jste mi neřekli, že tu budou lišky."
+    hide m mask angry
+    "Usoudíte, že to asi nemá smysl řešit, prostě jste to špatně naplánovali."
+    "Ty si zvolila blbou cestu na Fuji a nechala ho odejít v sandálích a s šesti litry vody."
+    "Sučan zarezervoval blbý auto. Dante špatně plánuje 'tour de city'."
+    "Adrian odletěl jako člověk navíc. Původní plán byl odletět jen ve čtyřech,"
+    "Prostě, všichni tu dovolenou kazíte, ale on je brouček."
+    j "Tak si to vyfoť a měli bychom jít, jinak nám odjede poslední bus a budeme muset jít asi pět kilometrů pěšky."
+    show m mask angry
+    m "Tak to teda nejdu!"
+    hide m mask angry
+    show s kjoto
+    s "Tak pohni kostrou. Je to ještě kus na tu zastávku."
+    hide s kjoto
+    "Za pár minut už stojíte na zastávce, jste tu o chvíli dříve. Překvapivě je tu prostor k sezení."
+    show m mask angry
+    m "Jsem si tu lišku mohl vyfotit ještě líp, kdybychom tak nepospíchali. Teď tu čekáme!"
+    hide m mask angry
+    "Autobus přijel na čas a úspěšně jste se přesunuli do blízkosti apartmánu."
+    "Zatavili jste se jako vždy v 7eleven pro hotovku k večeři a pro snídani."
+    "A s nákupem jste se přesunuli do apartmánu."
+
 
 
