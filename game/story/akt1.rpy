@@ -4,12 +4,36 @@ label akt1:
 
     "Vítej ve hře {i}Cesta po Japonsku{/i}!"
     "Následující příběh je smyšlený a jakákoli podobnost se skutečnými osobami, živými či mrtvými, je čistě náhodná."
-    "Tvým cílem hry je užít si dovolenou a procestovat velkou část Japonska, nezabít Mimoně – získat málo hate pointů (HP),"
-    "užít si i nějakou romanci – získat nějaké love pointy (LP) a nasbírat co nejméně gaijin pointů (GP)."
-    "Pokud hru chceš hrát pouze jako cestování po Japonsku, nezapomeň všechny romantické nabídky ignorovat."
-    "Jste parta, která se po internetu domluvila, že vyrazíte na 3 týdny na dovolenou do Japonska."
-    "Mezi sebou se moc neznáte. Kromě online nákupu letenek jsi se s některými účastníky nikdy neviděl/a."
-    "S tebou do toho šel tvůj kámoš z dětství. A další 3 naprosto cizí lidé."
+    menu:
+        "Potřebuješ vysvětlit o jaký druh hry se jedná?"
+        "Ano, VN neznám, nebo si nejsem jistý/á":
+            "VN – neboli visual novela – je, jak už plný anglický název naznačuje, graficky znázorněný román."
+            "Tento žánr, je v Japonsku velmi populární a většinou se jedná spíše o 'randící' hry."
+            "Nejčastější motiv je, že hráč je středoškolský student, který se nedopatřením dostal do nějakého pochybného školního klubu plného holek,"
+            "se kterými může konverzovat. V závislosti na správnosti svých odpovědí je pak zvát na rande."
+            "V naší VN samozřejmě tyto prvky nemohou chybět, ale zároveň přinášíme i verzi pro lidi, kteří by si chtěli udělat výlet po Japonsku."
+            "Takže kromě romantických linek si můžete užít fotky a nějaké zážitky z Japonska, bez nutnosti strávit 18 h v letadle :)"
+            "V průběhu hry, budete moct udělat desítky rozhodnutí a každé rozhodnutí ovlivní váš postup hrou."
+            "Při opakovaném hraní tedy můžete objevit situace, o kterých jste při prvním dohrání neměli ani ponětí, že hra nabízí."
+            "Aby to nebylo jen 'nudné' čtení a sem tam nějaká volba, je hra 'nadupaná' i různými minihrami."
+            "V průběhu hry se sbírají herní body, které si kdykoliv budete moci prohlédnout v pravém horním rohu obrazovky – teda po zadefinování své postavy."
+            "Tvým cílem hry je užít si dovolenou a procestovat velkou část Japonska, nezabít Mimoně – získat málo hate pointů (HP),"
+            "užít si i nějakou romanci – získat nějaké love pointy (LP) a nasbírat co nejméně gaijin pointů (GP)."
+            "Kde love pointy (LP) jsou bodíky lásky u jednotlivých postav, hate pointy (HP) pak nenávistné body a gaijin pointy (GP) jsou tzv. cizinecké body, ty získáš za nevhodné chování v Japonsku."
+            "Jste parta, která se po internetu domluvila, že vyrazíte na 3 týdny na dovolenou do Japonska."
+            "Mezi sebou se moc neznáte. Kromě online nákupu letenek jsi se s některými účastníky nikdy neviděl/a."
+            "S tebou do toho šel tvůj kámoš z dětství. A další 3 naprosto cizí lidé."
+
+        "Ne, VN hraju na denní bázi.":
+            "Tak ti přejeme, aby se ti hra líbila."
+            "Tvým cílem hry je užít si dovolenou a procestovat velkou část Japonska, nezabít Mimoně – získat málo hate pointů (HP),"
+            "užít si i nějakou romanci – získat nějaké love pointy (LP) a nasbírat co nejméně gaijin pointů (GP)."
+            "Kde love pointy (LP) jsou bodíky lásky u jednotlivých postav, hate pointy (HP) pak nenávistné body a gaijin pointy (GP) jsou tzv. cizinecké body, ty získáš za nevhodné chování v Japonsku."
+            "Všechny body si můžeš prohlédnout v pravém horním rohu obrazovky – po zadefinování své postavy."
+            "Pokud hru chceš hrát pouze jako cestování po Japonsku, nezapomeň všechny romantické nabídky ignorovat."
+            "Jste parta, která se po internetu domluvila, že vyrazíte na 3 týdny na dovolenou do Japonska."
+            "Mezi sebou se moc neznáte. Kromě online nákupu letenek jsi se s některými účastníky nikdy neviděl/a."
+            "S tebou do toho šel tvůj kámoš z dětství. A další 3 naprosto cizí lidé."
 
     menu:
         "Vyber si, zda budeš hrát za holku nebo kluka. Svým výběrem rozhodneš, který z účastníků bude tvůj kamarád z dětství."
