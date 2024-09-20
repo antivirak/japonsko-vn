@@ -49,7 +49,7 @@ label osetrovani_Adriana:
     "Dojdeš si do ledničky pro snídani, sníš si ji u stolečku, který je tak nízký, že u něho sedíš na zemi."
     "Po snídani po sobě uklidíš, přerovnáš si věci v kufru a rozhodneš se, že se podíváš na balkón."
     "Po chvíli přemýšlení, jak to funguje, se ti podaří šoupačky otevřít"
-    scene bg kjoto vyhled
+    scene bg kjoto vyhled hotel
     "Otevře se ti výhled na Kjóto. Sálající vedro ti ihned vykouzlí krůpěje potu na čele."
     "Vykloníš se přes zábradlí, aby sis užila výhled."
     "Užíváš si chvilku, kterou sis vytvořila a od začátku pobytu si snad poprvé můžeš užívat atmosféry Japonska."
