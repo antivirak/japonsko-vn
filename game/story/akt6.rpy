@@ -106,7 +106,7 @@ label akt6:
                 hide s nagoja
                 j "Jo, jsem si jistá. Ty by si to pro mě také udělal."
                 j "Hele, je dobrý jezdit ve dvou, co kdyby ti spadla navigace, nebo budeš potřebovat rychle něco přeložit?"
-                if j.love_points.get(s.name, 0) > 5:
+                if j.love_points.get(s.name, 0) > 4:
                     "Nakloníš se k němu do dveří a tlumeným hlasem mu řekneš:"
                     j "Navíc asi nechci jet s klukama. Když můžu strávit čas s tebou."
                     "Pak už nahlas aby tě ostatní slyšeli dodáš:"
@@ -329,7 +329,7 @@ label sinkanzen:
     "Zatímco čekáte na váš vlak, kocháte se výhledem na nádraží a vlaky."
     "Váš vlak samozřejmě přijede na čas. Cestující vystoupí a vy nastoupíte."
     "Usednete na svá místa."
-    if j.love_points.get(a.name, 0) > 5:
+    if j.love_points.get(a.name, 0) > 4:
         "Máš místo vedle Adriana, gentlemansky tě pustil k okýnku."
         "Mimoň sedí před vámi, a usnul v podstatě ve chvíli, kdy dosedl. Dante si vytáhl mobil s GPS, aby mohl měřit, jak rychle vlak pojede."
         "Otevřel si svůj bento box a dal se do jídla."
@@ -367,7 +367,7 @@ label sinkanzen:
         "Vrátíte se tedy zpátky na svá místa."
         "Když míjíte Danteho, zvedne oči od knížky a změří si vás pohledem."
         "Usadila ses, dojedla bento box a je čas se sbalit a připravit se k výstupu."
-    elif j.love_points.get(d.name, 0) > 5:
+    elif j.love_points.get(d.name, 0) > 4:
         "Máš místo vedle Danteho, gentlemansky tě pustil k okýnku."
         "Adrian s Mimoněm sedí před vámi, ale oba usli – snad ještě, než dosedli."
         "Vybalili jste si oba své bento boxy a pustili se do jídla."

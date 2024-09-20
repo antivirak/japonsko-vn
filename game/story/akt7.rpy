@@ -55,7 +55,7 @@ label osetrovani_Adriana:
     "Užíváš si chvilku, kterou sis vytvořila a od začátku pobytu si snad poprvé můžeš užívat atmosféry Japonska."
     "Bez pocitu naprosté vyčerpanosti, nebo s klukama za prdelí."
     "Z rozjímání tě vytrhne Adrianův hlas, tedy spíše zasténání."
-    if j.love_points.get(a.name, 0) > 5:
+    if j.love_points.get(a.name, 0) > 4:
         menu:
             "Poběžíš k Adrianovi, nebo si přivřeš dveře a užiješ si chvilku pro sebe?"
             "Pomoc Adrianovi":
@@ -248,7 +248,7 @@ label Kjoto:
     "Z ledničky si vyndáš věci na snídani a rychle je sníš. Mimoň se mezitím také sbalil, takže můžete vyrazit."
     "Dole se potkáte se Sučanem. Ozve se jeho oblíbené Ikimašó a vyrazíte."
     scene bg kjoto ulice
-    if j.love_points.get(s.name, 0) > 5:
+    if j.love_points.get(s.name, 0) > 4:
         "Připojíš se k Sučanovi a po cestě na metro si povídáte."
         "Protože Dantemu s Mimoněm malinko utečete, usoudíš, že vás nemůžou slyšet, a položíš Sučanovi otázku, která ti už nějakou dobou vrtá v hlavě."
         j "Hele, Sučane, můžu se tě na něco zeptat?"
@@ -271,7 +271,7 @@ label Kjoto:
         "Mezitím jste došli k zastávce autobusu, zastavili jste a Dante s Mimoněm vás došli."
         "Takže Sučan ti neodpověděl."
 
-    elif j.love_points.get(d.name, 0) > 5:
+    elif j.love_points.get(d.name, 0) > 4:
         "Připojíš se do dvojice s Dantem, Sučan jde tedy napřed s Mimoněm."
         "Kráčíte mlčky vedle sebe."
         j "Myslíš, že Adrian bude v pohodě? Nevypadal moc dobře."

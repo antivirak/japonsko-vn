@@ -172,11 +172,11 @@ label akt5:
     "Zjistíte, že tato 'restaurace' se specializuje na karé."
     "Takže si každý objednáte karé a sednete si ke stolům, které lze rozdělit přepážkami."
     # TODO minigame?
-    if j.love_points.get(a.name, 0) > 5:
+    if j.love_points.get(a.name, 0) > 4:
         "Adrian si položil tác vedle tebe a došel vám pro pití."
-    elif j.love_points.get(d.name, 0) > 5:
+    elif j.love_points.get(d.name, 0) > 4:
         "Dante si položil tác vedle tebe a došel vám pro pití."
-    elif j.love_points.get(s.name, 0) > 5:
+    elif j.love_points.get(s.name, 0) > 4:
         "Sučan si položil tác vedle tebe a došel ti pro pití."
     else:
         "Položila sis tác ke stolu a došla si pro pití."
