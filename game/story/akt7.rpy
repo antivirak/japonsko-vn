@@ -1,6 +1,9 @@
 label akt7:
+    scene bg hotel kjoto
     "Když se ráno probudíš asi 10 minut před budíkem, zjistíš, že Dante je oblečený a leží na svém futonu s knížkou."
+    scene bg kjoto koupelna
     "Sučan je také připravený s batohem, takže vystřelíš z postele, vypneš nadcházející budík, aby neřval na celou místnost a zamíříš do koupelny."
+    scene bg hotel kjoto
     "Když vylezeš, Sučan už čeká u dveří a Dante se také zvedá. A k tvému zděšení zjistíš, že frontu na koupelnu stojí Mimoň a také vypadá sbaleně."
     j "Stalo se tu něco?"
     show s kjoto
@@ -23,7 +26,7 @@ label akt7:
                 call osetrovani_Adriana
             "Ne, chci vidět Kjóto, snad by si řekl o pomoc, kdyby bylo třeba.":
                 call Kjoto
-    return
+    jump Kjoto
 
 label osetrovani_Adriana:
     j "Zůstanu s Adrianem."
@@ -46,6 +49,7 @@ label osetrovani_Adriana:
     "Dojdeš si do ledničky pro snídani, sníš si ji u stolečku, který je tak nízký, že u něho sedíš na zemi."
     "Po snídani po sobě uklidíš, přerovnáš si věci v kufru a rozhodneš se, že se podíváš na balkón."
     "Po chvíli přemýšlení, jak to funguje, se ti podaří šoupačky otevřít"
+    scene bg kjoto vyhled
     "Otevře se ti výhled na Kjóto. Sálající vedro ti ihned vykouzlí krůpěje potu na čele."
     "Vykloníš se přes zábradlí, aby sis užila výhled."
     "Užíváš si chvilku, kterou sis vytvořila a od začátku pobytu si snad poprvé můžeš užívat atmosféry Japonska."
@@ -55,6 +59,7 @@ label osetrovani_Adriana:
         menu:
             "Poběžíš k Adrianovi, nebo si přivřeš dveře a užiješ si chvilku pro sebe?"
             "Pomoc Adrianovi":
+                scene bg hotel kjoto
                 "Ihned se rozeběhneš do pokoje."
                 show a kjoto sleeping
                 "Adrian leží na posteli a vypadá to, že je v bolestech. Když k němu přijdeš, zjistíš, že má horečku."
@@ -92,8 +97,10 @@ label osetrovani_Adriana:
                 "Vypadá to, že konečně v klidu spí. Po chvíli začneš mít hlad a dojde ti, že Adrian také nic nesnědl."
                 "Vezmeš si tedy věci a vyrazíš do obchodu koupit něco k jídlu."
                 "Než odejdeš, tak ještě jemně probudíš Adriana a donutíš ho dopít čaj."
+                scene bg kjoto ulice
                 "V krámě chvíli rozmýšlíš, co vlastně vzít. V Čechách bys zašla do restaurace koupit vývar, nebo by jsi ho sama uvařila, ale tady?"
                 "Nakonec se rozhodneš pro dva instantní rameny, kolu, čaj, kafe, čokoládu. Zaplatíš a vracíš se zpět."
+                scene bg hotel kjoto
                 "Adrian spí. Když mu šáhneš na čelo, už tolik nesálá, takže horečka klesla. To je dobré znamení."
                 "Dáš vařit vodu, nudle rozlámeš na kousíčky a zaliješ jeden z ramenů. Sice jsi v krámě dostala celou výbavu, ale hůlky ti ve vašem stavu přijdou nepoužitelné."
                 "Naštěstí si vezeš cestovní lžíci. Necháš ramen chvíli stát a mezitím napíšeš klukům, jak jsou na tom."
@@ -101,7 +108,7 @@ label osetrovani_Adriana:
                 "Když ramen trošku vychladne, vezmeš si ho i se lžící k Adrianovi."
                 "Sedneš si k němu na kraj a pokusíš se ho probudit."
                 j "Adriane, musíš něco sníst."
-                "Otevře oči a trošku zděšeně a zahanbeně se na tebe podívá"
+                "Otevře oči a trošku zděšeně a zahanbeně se na tebe podívá."
                 show a kjoto openeyes
                 a "[j.name5p]?"
                 hide a kjoto openeyes
@@ -207,10 +214,12 @@ label osetrovani_Adriana:
                 "Další zasténání se neozve, takže si užíváš výhled a jemný vítr, který si pohrává s tvými vlasy."
                 "V pokoji je ticho, tak se ti možná něco jen zdálo."
                 "Po chvíli zaslouženého oddechu se vrátíš do pokoje."
+                scene bg hotel kjoto
                 "Adrian spí. Když ho dojdeš zkontrolovat, zjistíš, že má horečku."
                 "Uvaříš čaj, z cestovní lékárničky vytáhneš paralen. Adriana vzbudíš a donutíš ho sníst prášek."
                 "Adrian zase usne a ty se věnuješ také svým věcem. Kolem poledne se rozhodneš vyrazit koupit něco k obědu."
                 "Před odchodem ještě vzbudíš Adriana, aby se napil a aby věděl, že jdeš pryč."
+                scene bg kjoto ulice
                 "V nejbližším kombini koupíš dva rameny a něco k pití."
                 "Vrátíš se na apartmán a oba rameny zaleješ horkou vodou. Když trošku zchladnou, vzbudíš Adriana."
                 "Ten se vysouká zpod peřiny, dojde si do koupelny a po chvíli se k tobě připojí u nízkého stolu na zemi."
@@ -219,13 +228,16 @@ label osetrovani_Adriana:
                 "Uklidíš odpadky a natáhneš se. Napíšeš klukům, jak jsou na tom."
                 "Podle všeho akorát jdou z nějakého parku s opicemi taktéž na oběd. Pak plánují místní sójovkárnu."
                 "Domluvíte se, že by ses večer připojila. Poté také usneš."
+                scene bg kjoto koupelna
                 "Vzbudíš se asi ve tři, dojdeš tedy do koupelny. Po rychlé sprše se sbalíš."
+                scene bg hotel kjoto
                 "Vzbudíš Adriana a řekneš mu, že se plánuješ připojit ke klukům."
                 show a kjoto openeyes
                 a "Už mi je lépe, počkej, vysprchuju se a půjdu také."
                 hide a kjoto openeyes
                 j "No když myslíš."
                 "Adrian si vezme věci a zamíří do koupelny, ty mezitím vykomunikuješ místo setkání."
+                scene bg kjoto ulice
                 "Adrianovi to naštěstí dlouho netrvá a za chvíli už vycházíte na metro."
 
     return
@@ -235,6 +247,7 @@ label Kjoto:
     "Pochopila jsi, že odpovědi se nedočkáš. Pobalíš si věci a mezitím Mimoň vyjde z koupelny."
     "Z ledničky si vyndáš věci na snídani a rychle je sníš. Mimoň se mezitím také sbalil, takže můžete vyrazit."
     "Dole se potkáte se Sučanem. Ozve se jeho oblíbené Ikimašó a vyrazíte."
+    scene bg kjoto ulice
     if j.love_points.get(s.name, 0) > 5:
         "Připojíš se k Sučanovi a po cestě na metro si povídáte."
         "Protože Dantemu s Mimoněm malinko utečete, usoudíš, že vás nemůžou slyšet, a položíš Sučanovi otázku, která ti už nějakou dobou vrtá v hlavě."
@@ -254,6 +267,7 @@ label Kjoto:
         s "Takhle o sobě nemluv. A nekaž mi ten krásný pocit, že jsem teď s tebou."
         hide s kjoto
         j "No o tom se sní každýmu, jít se mnou v Kjótu na autobus"
+        scene bg kjoto bus
         "Mezitím jste došli k zastávce autobusu, zastavili jste a Dante s Mimoněm vás došli."
         "Takže Sučan ti neodpověděl."
 
@@ -282,8 +296,8 @@ label Kjoto:
             "Že si tuhle dovolenou užiju se vším všudy.":
                 "Mrkneš na něj."
                 show d kjoto
-                d "Tak to nemůžu sloužit. Holky na jednu noc sice sbírám, ale vždy se ujistím, že si nebudou kromě luxusního sexu nic pamatovat."  # TODO co si myslíte? nebo mám nechat možnost sexu na jednu noc?
-                # se zeptej betatesterů
+                d "Tak to nemůžu sloužit. Holky na jednu noc sice sbírám, ale vždy se ujistím, že si nebudou kromě luxusního sexu nic pamatovat." 
+                "Co Betatesteři měla by být možnost sexu na jednu noc?"
                 d "Rozhodně ne jméno a obličej. Uspokojila má odpověď tvoji dušičku?"
                 d "Ale kdo ví? Třeba se ti podaří přesvědčit mě, abych udělal výjimku."
                 hide d kjoto
@@ -361,43 +375,53 @@ label Kjoto:
         "Takže jste k nim došli a tento divný hovor se přirozeně ukončil."
     else:
         "Všichni společně vyrazíte na autobus. A během pár minut stojíte na zastávce."
-
+    scene bg kjoto bus
     "Podle jízdních řádů, a hlavně aplikací v mobilu vyčtete, jakým autobusem chcete jet."
     "Máte štěstí, má jet za pět minut, takže jste přišli tak akorát."
     "Čekáte 5 minut, 10 minut. Začíná to být divné. Trošku znervózníte, zda nestojíte na špatné zastávce."
     "Ale po chvíli naštěstí přijíždí autobus s vaším číslem. Pochopili jste, že vlaky sice jezdí na vteřinu přesně,"
     "ale autobusy mají běžně zpoždění, Nějaké náznaky jste pochytili už v Tokiu, ale teď jste si to potvrdili."
+    scene bg kjoto autobus
     "Výstupní stanici jste si z Japonských znaků přečetli jako 'skříňka pod sprchou, domeček, lampička' a další znaky."
     "Lístek na autobusy a metro koupili kluci včera po příjezdu do Kjóta na nádraží. Celodenní na metro i na autobusy najednou."
     "Řidič celou cestu nezavřel pusu; po chvíli jste pochopili, že hlásí 'Budeme zastavovat', 'Rozjíždíme se', 'Zatáčíme doprava', 'Zatáčíme doleva'."
     "Mimoň se Sučanem v autobuse usli, Dante si čte a ty se kocháš výhledem z okna."
+    scene bg kjoto zahrady
     "První zastávka byli zahrady Tenrjúdži, zde jste se pokochali nádhernou přírodou, Japonským chrámem a zenovou zahradou."
     "Taková malá botanická."
+    scene bg kjoto bambushaj
     "Z této zahrady jste se volně přesunuli do bambusového háje."
     "Tím jste prošli takovým větším okruhem zpátky na hlavní silnici a zjistili jste, že kousek od vás je zahrada s vyhlídkou a opicemi."
+    scene bg kjoto reka
     "Rozejdete se tedy po hlavní cestě, směr vyhlídka. Přejdete most a za chvíli už platíte vstupné do areálu."
     "Je těsně před polednem, takže začíná být nesnesitelné vedro. A to jste ve stínu stromů."
+    scene bg kjoto cesta bez opic
     "Cesta je udržovaná, takže výstup nahoru vám nečiní zas takové obtíže."
     "Vlastně po Fuji je to procházka růžovou zahradou. I když samozřejmě sem tam ještě cítíš, že tě bolí svaly."
     "Po cestě je spousta, poučných tabulí, samozřejmě jen v japonštině."
     "A pár výstražných, ty jsou i s nedokonalým anglickým překladem."
     "Závěr? Máte se chovat ohleduplně, opice nekrmit mimo krmící budku. Všechny drobné věci máte mít uklizené ve vnitřních kapsách tašek."
     "Opice nerozčilovat, raději si udržovat odstup, podle všeho hodně koušou."
+    scene bg kjoto cesta opice
     "Už začínáš pochybovat, že vůbec nějaké opice uvidíte, ale když už je vyhlídka na dohled, začnou se po cestě objevovat."
     "Jsou normálně volně, takže opičí samec leží jen 2 m od cesty, po které přecházíte."
     "A o pár metrů dále si hrají dvě mláďata."
     "Je to opravdu jiný pocit, jít takto v přírodě a koukat na volně pobíhající zvířata."
+    scene bg kjoto vyhled na kjoto
     "Po chvíli dorážíte na otevřené prostranství – vyhlídka na Kjoto."
     "A u vyhlídky stojí budova s klecovým přístavkem."
     "Nejdříve se pokocháte výhledem na Kjóto, taková Praha."
+    scene bg kjoto krmeni opic
     "A následně zamíříte do budovy. Zjistíte, že jde o zmíněné krmící místo."
     "U obsluhy asi za 50 yenů koupíte balíček s ořechy, jablky a jiným ovocem a přijdete k mříži. "
     "Za ní už čeká asi 10 opic, které se těší na dobrůtky."
     "Podáš jednomu opičákovi jablko a on si ho vezme do tlapek."
     "Je to vážné kouzelný systém, že v kleci jsou lidé a opice volně."
     "Shodnete se na tom, že už máte hlad, a vyrazíte tedy zpět."
+    scene bg kjoto reka
     "Cesta dolů vám uteče velmi rychle, přejdete most přes řeku zpět a ocitnete se na hlavní ulici, která je lemovaná různými restauracemi."
     "Všechny jsou dost plné a stojí se na ně fronta, nebo nemají menu v angličtině."  # TODO menu v japonštině ale může být levnější
+    scene bg kjoto nudle
     "Nakonec se zastavíte u nějaké restaurace se soba nudlemi."
     "Inzerovali venku, že mají anglické menu, ale dostali jste normálně japonské."
     "Číšník evidentně neumí ani slovo anglicky, protože vedle u stolu se posadila rodina pravděpodobně Američanů,"
@@ -410,8 +434,10 @@ label Kjoto:
     "Podíváte se tedy znovu do jídelního lístku a zjistíte, že si Matěj objednal jídlo ze sekce předkrmy."
     "Cena bohužel odpovídala ceně hlavního jídla. Mimoň by si ale stejně nic jiného nevybral."
     "Sníte tedy své bukkake soba, Mimoň svůj drahý předkrm, zaplatíte a vyrazíte dále."
+    scene bg kjoto centrum
     "V této části Kjóta, jste se ale hodně zdrželi, takže se musí malinko upravit plán."
     "Proto stříbrný a zlatý chrám zkouknete jen při projíždění okolo autobusem. Vystoupíte někde v centru města."
+    scene bg kjoto sojovkarna
     "A Dante vás proplete uličkami až k nějaké zapadlé rodinné sójovkárně, na kterou dostal tip od kolegy v práci."
     "V krámě je mlaďoulinká Japonka, která je z vaší početné návštěvy dost nervózní."
     "Ale pomocí překladače jí na mobilu ukážete,"
@@ -419,17 +445,23 @@ label Kjoto:
     "Za chvíli se k ní přidá nějaký starší Japonec a dostanete doporučení na sójovku, kterou vyrábějí přímo u nich."
     "v součtu si koupíte asi 5 litrů."
     "Takže Japonec je spokojený, dokonce vás nechá nakouknout do vedlejší místnosti, kde má sudy se zrající černou kapalinou."
+    scene bg kjoto trh
     "Ze sójovkárny jste zamířili někam na tržiště, kde jste si dali sraz s Adrianem."
+    scene bg kjoto chobotnicky
     "Na tržišti někteří z vás ochutnali takojaki – chobotnicové koule či smažené chobotničky na špejli."
     "Takto odvážný byl i Adrian a vypadá, že už mu je dobře, sláva."
+    scene bg kjoto gejsi
     "Z tržiště jste zamířili do Červené čtvrti – ulice Gejš."
     "Bohužel jste jsem dorazili až po šesté hodině, takže v ulici již není ani jedna Gejša. Japonci opravdu končí den brzy."
     "Ale i tak jste si uličku prošli. Následoval další přesun, a to do Fušimi Inari-taiša k chrámu, kde je celý vstup lemovaný tori, rumělkovými posvátnými branami."
+    scene bg kjoto
     "K úpatí kopce, kde se svatyně nachází, jste ale dorazili až po sedmé hodině. Tudíž se začalo rychle stmívat."
     "Ale dole byl krásný červeno zlatý chrám, který nasvícený vypadal opravdu kouzelně."
+    scene kjoto brany
     "Dokonce tori brány se po nasvícení skvostně vyjímají."
     "Prošli jste jimi první část, ale po zkontrolování času a jízdních řádů jste usoudili, že až nahoru nepůjdete, neboť byste se nedostali na hotel."
     "Takže při první odbočce z trasy se odpojíte a zamíříte směr zastávka."
+    scene bg kjoto liska
     show m mask angry
     m "To si děláte prdel, no ty vole. Tady je socha lišky."
     hide m mask angry
@@ -472,4 +504,5 @@ label Kjoto:
     hide m mask angry
     "Autobus přijel na čas a úspěšně jste se přesunuli do blízkosti apartmánu."
     "Zatavili jste se jako vždy v 7eleven pro hotovku k večeři a pro snídani."
+    scene bg hotel kjoto
     "A s nákupem jste se přesunuli do apartmánu."
