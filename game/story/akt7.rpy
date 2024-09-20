@@ -113,7 +113,7 @@ label osetrovani_Adriana:
                 a "[j.name5p]?"
                 hide a kjoto openeyes
                 j "Sedni si, musíš něco sníst. Jestli se to nezlepší, měli bychom tě vzít do nemocnice."
-                show a kjoro openeyes
+                show a kjoto openeyes
                 a "To nebude nutné, nic mi není, děkuji za jídlo (itadakimas)."
                 hide a kjoto openeyes
                 "Velmi obtížně se posadí na posteli, i když se před tebou snaží hrát na hrdinu, jak mu nic není."
@@ -457,7 +457,7 @@ label Kjoto:
     scene bg kjoto
     "K úpatí kopce, kde se svatyně nachází, jste ale dorazili až po sedmé hodině. Tudíž se začalo rychle stmívat."
     "Ale dole byl krásný červeno zlatý chrám, který nasvícený vypadal opravdu kouzelně."
-    scene kjoto brany
+    scene bg kjoto brany
     "Dokonce tori brány se po nasvícení skvostně vyjímají."
     "Prošli jste jimi první část, ale po zkontrolování času a jízdních řádů jste usoudili, že až nahoru nepůjdete, neboť byste se nedostali na hotel."
     "Takže při první odbočce z trasy se odpojíte a zamíříte směr zastávka."
