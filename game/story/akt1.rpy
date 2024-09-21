@@ -254,7 +254,6 @@ label Adrianvaute:
             "Získáváš dva LP u Adriana. Cesta najednou rychle uteče."
             # 2 LP Adrian
             $ j.add_love_points_for_person(a, 2)
-            show screen stats_overview
             jump tokio1
 
 label Adrivauteodmitnuti:
@@ -291,7 +290,6 @@ label tokio1:
             hide m neutral
             "Získáváš jeden HP u Mimoně"
             $ j.add_hate_points_for_person(m, 1)
-            show screen stats_overview
             "Zbytek čekání, strávíš opřená o přední kapotu auta."
             "Naštěstí, nečekáš dlouho a vidíš, jak se vrací Sučan a Adrian."
             return
@@ -311,7 +309,6 @@ label tokio1:
             "Ale než stihneš odpovědět, vidíš, jak se vrací Sučan a Adrian."
             "Získáváš jeden LP u Danteho"
             $ j.add_love_points_for_person(d, 1)
-            show screen stats_overview
             hide d neutral smile
             return
 

@@ -87,8 +87,8 @@ label problemubytovani:
         xalign 0.6
         yalign 1.0
     show d neutral at right
-    "Pro lepší rozhodování tvé získané bodíky:"
     show screen stats_overview
+    "Pro lepší rozhodování tvé získané bodíky:"
     "Vyber rozložení cestujících do pokojů."
 
     image black = "#000"
