@@ -334,13 +334,14 @@ label akt6:
                     "Rozebrali jste si každý svá zavazadla a vyrážíte na ubytko."
                     scene bg hotel kjoto
                     "Má to být nějaký luxusnější guesthouse, ve kterém máte strávit 2 noci."
+    return
 
 label sinkanzen:
     "Takže jdete napřed zaplatit parkovné do parkomatu a Sučan mezitím sjede garážemi k výjezdu."
     "Protože je vaše auto na japonské poměry docela široké, místy to má opravdu tip ťop."
     scene bg nagoja nadrazi
     "Zaplacený lístek jste načetli u výjezdu a Sučana to pustilo, popřáli jste mu šťastnou cestu a vyrážíte na nádraží."
-    show listek_sinkanzen
+    show listek_sinkanzen at truecenter
     "Na nádraží u okénka Adrian objednal čtyři lístky na šinkanzen z Nagoji do Kjóta"
     hide listek_sinkanzen
     "s odjezdem za třičtvrtě hodiny, protože měl strach, že byste za 15 minut nestihli najít místo odjezdu. Navíc si plánujete na cestu koupit bento box."
@@ -367,7 +368,7 @@ label sinkanzen:
         hide a nagoja
         "Svou nabídku, doprovází i vřelým gestem."
         j "Děkuji."
-        "Umsěješ se na něj. A spíše tak zdvořilostně od něj ochutnáš."
+        "Usměješ se na něj. A spíše tak zdvořilostně od něj ochutnáš."
         "Zhodnotíš, že sis vybrala lepší bento box."
         "Po chvíli se ti začne chtít na záchod, a navíc jsi strašně zvědavá, jak vypadají záchody v šinkanzenu."
         scene bg sinkanzen
@@ -397,6 +398,14 @@ label sinkanzen:
         "Vrátíte se tedy zpátky na svá místa."
         "Když míjíte Danteho, zvedne oči od knížky a změří si vás pohledem."
         "Usadila ses, dojedla bento box a je čas se sbalit a připravit se k výstupu."
+        scene bg kjoto prejezd
+        "Vystoupili jste hladce, i cestu z nástupiště jste našli na první dobrou."
+        "Zjistili jste, že to na ubytování jsou ještě asi 3 km. A protože Sučan už je prý na místě a Adrian vypadá strhaně."
+        "Rozhodnete se, že použijete hromadnou dopravu, podle všeho Kjóto má metro."
+        "Adrian tedy dojde koupit 4 lístky a vyrazíte do metra."
+        scene bg kjoto ulice
+        "Za necelou půlhodinku jste u ubytování, kde na vás čeká Sučan."
+        "Jdete vyzvednout kufry do auta a ubytovat se."
     elif j.love_points.get(d.name, 0) > 4:
         "Máš místo vedle Danteho, gentlemansky tě pustil k okýnku."
         "Adrian s Mimoněm sedí před vámi, ale oba usli – snad ještě, než dosedli."
@@ -572,7 +581,7 @@ label kjoto_guest_house:
     show d nagoja
     d "Navrhuji, aby si postele vzali [j.name] a Adrian a my si vezmeme ty futonové."
     hide d nagoja
-    "Ale než to stihnete s Dantem prodiskutovat, tak se Mimoň už válí v jedné z normálních postelí."
+    "Ale než to stihnete s Dantem prodiskutovat, tak se Mimoň už válí k jedné z normálních postelí."
     show d nagoja
     d "Aha... [j.name_5p], vadilo by ti spát na té matraci na zemi? Adrian vypadá, že mu není dobře."
     hide d nagoja
@@ -596,7 +605,7 @@ label kjoto_guest_house:
             "Naneštěstí nebo možná naštěstí, Adrian i přes všechen ten hluk spí."
             "Vystřídali jste se v koupelně, ty sis dala i rychlou sprchu, protože po celém dni jsi byla strašně ulepená."
             "Sbalili jste si věci a do hodinky jste připraveni k odchodu."
-            jump vecer_nagoja 
+            jump vecer_kjoto
         "No, radši bych spala na normální posteli.":
             show d nagoja
             d "Jo jasně, on to Adrian na zemi zvládne. Je tvoje."

@@ -18,7 +18,7 @@ label akt7:
     d "Adrianovi není stále dobře, takže zůstává na ubytování. Ale Mimoň s námi prý půjde."
     hide d kjoto
     "To vážně ignoruje, na co se ho ptáš?"
-    if j.love_points.get(a.name, 0) > 5:
+    if j.love_points.get(a.name, 0) > 4:
         "Počkat, Adrianovi ještě není dobře?"
         menu:
             "Chceš zůstat s Adrianem na ubytování, když mu není dobře?"
@@ -67,7 +67,7 @@ label osetrovani_Adriana:
                 "Celé tělo se mu klepe. Super, takže to vypadá na svalovou horečku."
                 j "Adriane, Adriane, slyšíš mě?"
                 show a kjoto sleeping
-                a "Mm, [j.name5p]"
+                a "Mm, [j.name_5p]"
                 hide a kjoto sleeping
                 "Zamumlá, zatímco mu drkotají zuby o sebe."
                 "Pochopíš, že má momentálně zimnici, rozhodneš se tedy nejdříve ho zahřát a až zimnice poleví, tak stáhnout horečku."
@@ -110,7 +110,7 @@ label osetrovani_Adriana:
                 j "Adriane, musíš něco sníst."
                 "Otevře oči a trošku zděšeně a zahanbeně se na tebe podívá."
                 show a kjoto openeyes
-                a "[j.name5p]?"
+                a "[j.name_5p]?"
                 hide a kjoto openeyes
                 j "Sedni si, musíš něco sníst. Jestli se to nezlepší, měli bychom tě vzít do nemocnice."
                 show a kjoto openeyes
@@ -180,7 +180,7 @@ label osetrovani_Adriana:
                 hide a kjoto openeyes
                 "Úplně nervózní a rudý zaleze do koupelny. Dveře sice zabouchne ale zámek neslyšíš klapnout."
                 "Převlékneš se tedy do oblečení na ven, sbalíš si věci a napíšeš klukům, kde jsou, a kde budou tak za hodinu."
-                "Adrian vyleze asi za půl hodiny a vypadá o 100 % lépe."
+                "Adrian vyleze asi za půl hodiny a vypadá o 100 \% lépe."
                 j "Tak jak ti je?"
                 show a kjoto openeyes
                 a "Myslím, že se cítím na drobnou procházku."
@@ -199,17 +199,20 @@ label osetrovani_Adriana:
                         show a kjoto openeyes
                         a "Ano."
                         hide a kjoto openeyes
-                        $ j.add_love_points_for_person(a.name, 2)
+                        $ j.add_love_points_for_person(a, 2)
                         "Wow, tak tady to začíná být zajímavé. Adrian tě právě pozval na rande."
                         "Tak nějaké náznaky tu byly i dříve, ale tady jde do tuhého. Ale asi by bylo lepší, kdyby to nebylo tak okaté."
                         "Přeci jen nechceš dělat dusno v partě, navíc Sučan tě možná až přehnaně brání, takže by bylo lepší být opatrná."
                         j "Dobře, beru tě za slovo. Jen bych byla opatrnější před ostaníma, nebo bych to odložila až po návratu z Japonska."
                         "Tvá odpověď se evidentně Adrianovi moc nelíbí. Protože si povzdechne a jde si balit věci."
+                        scene bg kjoto ulice
+                        "Adrianovi to naštěstí dlouho netrvá a za chvíli už vycházíte na metro."
+                        return
                     "To jsem jen tak plácla, není třeba.":
                         show a kjoto openeyes
                         a "Tak se asi pobalíme a vyrazíme."
                         hide a kjoto openeyes
-                        $ j.add_love_points_for_person(a.name, 0.5)
+                        $ j.add_love_points_for_person(a, 0.5)
             "Užít si výhled":
                 "Další zasténání se neozve, takže si užíváš výhled a jemný vítr, který si pohrává s tvými vlasy."
                 "V pokoji je ticho, tak se ti možná něco jen zdálo."
@@ -407,7 +410,7 @@ label Kjoto:
     "Jsou normálně volně, takže opičí samec leží jen 2 m od cesty, po které přecházíte."
     "A o pár metrů dále si hrají dvě mláďata."
     "Je to opravdu jiný pocit, jít takto v přírodě a koukat na volně pobíhající zvířata."
-    scene bg kjoto vyhled na kjoto
+    scene bg vyhled na kjoto
     "Po chvíli dorážíte na otevřené prostranství – vyhlídka na Kjoto."
     "A u vyhlídky stojí budova s klecovým přístavkem."
     "Nejdříve se pokocháte výhledem na Kjóto, taková Praha."
@@ -462,28 +465,28 @@ label Kjoto:
     "Prošli jste jimi první část, ale po zkontrolování času a jízdních řádů jste usoudili, že až nahoru nepůjdete, neboť byste se nedostali na hotel."
     "Takže při první odbočce z trasy se odpojíte a zamíříte směr zastávka."
     scene bg kjoto liska
-    show m mask angry
+    show m mask angry at right
     m "To si děláte prdel, no ty vole. Tady je socha lišky."
     hide m mask angry
     "??? Cože? To nemůže myslet vážně."
-    show s kjoto
+    show s kjoto at left
     s "Nekřič tady a klidni výrazy."
     hide s kjoto
-    show m mask angry
+    show m mask angry at right
     m "Ale to jste mi neřekli, že tu jsou sochy lišek."
     hide m mask angry
-    show d kjoto
+    show d kjoto at left
     d "Protože, jsme to nevěděli?"
-    show m mask angry
+    show m mask angry at right
     m "Jste mi to udělali schválně, šli jsme sem až nakonec, abych si nemohl vyfotit lišky."
     hide m mask angry
     show d kjoto
     d "Říkám ti, že jsem podrobně nezkoumal, co je kde k vidění. Udělal jsem plán na základě turistických míst v Kjótu a GPT."
     hide d kjoto
-    show a kjoto
+    show a kjoto at left
     a "Tak si měl říct včera, když to Dante plánoval, že sem chceš za světla."
-    hide a kjoto
-    hide m mask angry
+    hide a kjoto 
+    show m mask angry at right
     m "Ale to jste mi neřekli, že tu budou lišky."
     hide m mask angry
     "Usoudíte, že to asi nemá smysl řešit, prostě jste to špatně naplánovali."
