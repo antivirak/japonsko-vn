@@ -26,7 +26,9 @@ label akt7:
                 call osetrovani_Adriana
             "Ne, chci vidět Kjóto, snad by si řekl o pomoc, kdyby bylo třeba.":
                 call Kjoto
-    jump Kjoto
+    else:
+        call Kjoto
+    return
 
 label osetrovani_Adriana:
     j "Zůstanu s Adrianem."
@@ -207,12 +209,15 @@ label osetrovani_Adriana:
                         "Tvá odpověď se evidentně Adrianovi moc nelíbí. Protože si povzdechne a jde si balit věci."
                         scene bg kjoto ulice
                         "Adrianovi to naštěstí dlouho netrvá a za chvíli už vycházíte na metro."
-                        return
+                        scene bg kjoto trh
+                        "Asi za 20 minut se připojujete na trhu k ostatním."
                     "To jsem jen tak plácla, není třeba.":
                         show a kjoto openeyes
                         a "Tak se asi pobalíme a vyrazíme."
                         hide a kjoto openeyes
                         $ j.add_love_points_for_person(a, 0.5)
+                        scene bg kjoto trh
+                        "Asi za 20 minut se připojujete na trhu k ostatním."
             "Užít si výhled":
                 "Další zasténání se neozve, takže si užíváš výhled a jemný vítr, který si pohrává s tvými vlasy."
                 "V pokoji je ticho, tak se ti možná něco jen zdálo."
@@ -242,8 +247,9 @@ label osetrovani_Adriana:
                 "Adrian si vezme věci a zamíří do koupelny, ty mezitím vykomunikuješ místo setkání."
                 scene bg kjoto ulice
                 "Adrianovi to naštěstí dlouho netrvá a za chvíli už vycházíte na metro."
-
-    return
+                scene bg kjoto trh
+                "Asi za 20 minut se připojujete na trhu k ostatním."
+        jump kjoto_brany
 
 
 label Kjoto:
@@ -450,6 +456,8 @@ label Kjoto:
     "Takže Japonec je spokojený, dokonce vás nechá nakouknout do vedlejší místnosti, kde má sudy se zrající černou kapalinou."
     scene bg kjoto trh
     "Ze sójovkárny jste zamířili někam na tržiště, kde jste si dali sraz s Adrianem."
+
+label kjoto_brany:
     scene bg kjoto chobotnicky
     "Na tržišti někteří z vás ochutnali takojaki – chobotnicové koule či smažené chobotničky na špejli."
     "Takto odvážný byl i Adrian a vypadá, že už mu je dobře, sláva."
@@ -501,6 +509,7 @@ label Kjoto:
     show s kjoto
     s "Tak pohni kostrou. Je to ještě kus na tu zastávku."
     hide s kjoto
+    scene bg kjoto vecerbusS
     "Za pár minut už stojíte na zastávce, jste tu o chvíli dříve. Překvapivě je tu prostor k sezení."
     show m mask angry
     m "Jsem si tu lišku mohl vyfotit ještě líp, kdybychom tak nepospíchali. Teď tu čekáme!"
@@ -509,3 +518,4 @@ label Kjoto:
     "Zatavili jste se jako vždy v 7eleven pro hotovku k večeři a pro snídani."
     scene bg hotel kjoto
     "A s nákupem jste se přesunuli do apartmánu."
+    return
