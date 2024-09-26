@@ -6,12 +6,17 @@ label akt6:
     scene bg chodba
     "Před pokoji už čeká Adrian a Dante se snaží doklepat na Mimoně."
     "Kupodivu, Mimoň po chvíli otvírá a vypadá připraveně."
+    scene bg nagoja rano
     "Vyrážíte tedy pěšky k nagojskému hradu."
+    scene bg nagoja napis
     "Po cestě potkáváte nápis Nagoja, tak se u něj na střídačku vyfotíte."
+    scene bg nagoja hrad
     "U vstupu do hradních zahrad zjistíte, že jsou otevřeny až od devíti, a vy potřebujete do desíti vyklidit pokoje."
     "Proto se rozhodnete, že čekat u vstupu půl hodiny kvůli půlhodinové procházce po zahradách asi nemá smysl."
     "Navíc byste museli zaplatit celodenní vstupné."
+    scene bg nagoja hrad2
     "Takže obejdete část zahrad, která je zdarma, a setkáte se se Sučanem."
+    scene bg nagoja parkoviste
     "Poté se vrátíte na hotel a vyzvednete si kufry, odhlásíte se a vyrazíte do garáží k autu."
     "Naskládáte věci do auta. Dnes je v plánu přejezd do Kjóta šinkanzenem (japonským rychlovlakem)"
     if j.driver:
@@ -25,6 +30,7 @@ label akt6:
                 "nastavila navigaci a vyjíždíš."
                 "Kluci mezitím šli dolů k parkomatu zaplatit, takže když sjedeš k výjezdu, dostáváš zaplacený lísteček a vydáváš se na cestu."
                 "Všichni ti popřejí šťastnou cestu a ty vyrážíš."
+                scene bg nagoja prejezd2
                 "Provoz není zas tak extrémní a už ti ani nedělají problémy blinkry/stěrače."
                 "Ale za chvíli najíždíš na městský okruh Nagoji (most). A samozřejmě se zde vybírá mýto."
                 "Zastavíš u budky, kde sedí Japonec."
@@ -41,6 +47,7 @@ label akt6:
                 "Ale máš lísteček, takže můžeš pokračovat."
                 "Během chvíle se dostaneš nakonec městského okruhu, a musíš projet mýtnou bránou, abys najela na placenou dálnici."
                 "Vjezd pro 'cash' poznáš na první dobrou a od jiného Japonce dostaneš kartičku na průjezd."
+                scene bg nagoja prejezd3
                 "Následuje asi dvou hodinová jízda po dálnici, která jde hladce a bez větších potíží."
                 "Po cestě bylo jedno křížení, takže jsi musela u automatu zaplatit lístek, který jsi měla u sebe."
                 "To znamená vložit lístek do automatu a nasypat peníze do příslušných přihrádek, automat si to sám spočítal a vrátil ti."
@@ -50,15 +57,18 @@ label akt6:
                 "Za cestu tam i zpět. Nakonec se ti jednou rukou podaří navigaci zprovoznit. Zatímco se snažíš udržet na silnici a nikoho neohrozit,"
                 "navigace ti naznačuje otočení o 180°. Zkontroluješ situaci, silnice v tomto místě není úplně široká, trošku připomíná české okresky."
                 "Ale pro japonská úzká auta jsou to regulérní dva pruhy."
+                scene bg nagoja prejezd
                 "Vypadá to, že široko daleko nikdo nejede, tak to riskneš a otočíš to do protisměru; teda musíš si při otáčení i trošku couvnout, protože na otočení najednou na silnici není místo."
                 "V průběhu tvého manévru se kupodivu žádné auto neobjevilo."
                 "Až když se rozjíždíš, tak tě jedno auto dohání a předjíždí."
                 "Navigace je také spokojená a stáhla tě do Kjóta."
+                scene bg mapakjoto
                 "Voláš tedy Sučanovi, kde jsou."
                 "Podle plánu mají být v Kjótu dříve než ty. Protože šinkanzen jezdí asi tak 3x rychleji než auta."
                 "Na nádraží v Nagoje to také měli jen půl hodiny a šinkanzen jezdí každou půlhodinu."
                 "Strašně dlouho ti to nezvedá."
                 "Tak zkoušíš volat Dantemu. Ten to zvedl."
+                scene bg kjoto prejezd
                 d "No?"
                 j "Jsem v Kjótu, za 15 minut budu na místě."
                 d "No my jsme teď koupili lístky na metro a budeme se k ubytování teprve přesouvat."
@@ -68,6 +78,7 @@ label akt6:
                 "Navíc doprava se začíná hodně zhušťovat, takže musíš být pořád ve střehu."
                 "Doufala jsi, že si tě u ubytování kluci odchytí a navedou tě, kam zaparkovat."
                 "Míjíš nádraží, kde je to opravdu překážková jízda. Auta, taxíky, autobusy a lidé."
+                scene bg kjoto ulice
                 "Po chvíli se konečně dostaneš na místo určení, takže projíždíš ulicí, kde máte mít ubytování."
                 "Ale vlastně nevíš, jak přesně má vypadat. Kluky také nevidíš."
                 "'Váš cíl je vpravo,' zahlásí navigace a vypne se."
@@ -114,6 +125,7 @@ label akt6:
                     "Vyrazíte tedy napřed k parkomatu, po cestě k výtahu slyšíte, jak Sučan zabouchl a nastartoval auto."
                     "Sjedete dolů, zaplatíte a s lístečkem o zaplacení čekáš na Sučana."
                     "Sučan během chvíle přijíždí. Rozloučíte se s ostatními, ty nasedneš a vyrazíte do Kjóta."
+                    scene bg nagoja prejezd2
                     "Když se dostanete z parkoviště na hlavní ulici, Sučan se na tebe otočí."
                     show s nagoja
                     s "Udělala jsi mi radost."
@@ -153,6 +165,7 @@ label akt6:
                     "Sice Japonec ještě něco mrmlá, ale pochopil, že mu je to k ničemu a na podnose podává účet a peníze nazpátek."
                     "Sučan přijme tác oběma rukama a peníze ti nasype nastavených dlaní."
                     "Tác vrátí a vyrážíte dál."
+                    scene bg nagoja prejezd3
                     show s nagoja
                     s "Nějak si nemůžu navyknout, jak ti Japonci mluví jen japonsky. Že nezkusí tu angličtinu, když vidí cizince?"
                     hide s nagoja
@@ -222,8 +235,10 @@ label akt6:
                     s "Takhle zkazit rodinou chvilku."
                     hide s nagoja
                     "Pustí tě, odmáčkne ručku, vypne výstražná světla a rozjede se."
+                    scene bg kjoto centrum
                     "Sjedete do Kjóta. A projíždíte centrem. Zde je doprava výrazně komplikovanější."
                     "Musíte kličkovat mezi auty, autobusy, taxíky a lidmi."
+                    scene bg kjoto prejezd
                     "Je to docela stresující, auta přejíždějí náhodně mezi pruhy. Míjíte se s nimi na centimetry."
                     "Docela tě to znervózňuje, ale Sučan to zvládá s naprostým klidem."
                     "Spousta lidí by v jeho situaci nadávala a šílela, jen on se na tebe stíhá v mezičase i usmívat."
@@ -235,6 +250,7 @@ label akt6:
                     s "Nevím, jak to bude s parkováním. Asi přibrzdím, vyndáme kufry, počkáš u nich a já sjedu zaparkovat."
                     hide s nagoja
                     j "Dobře, asi jiná možnost není."
+                    scene bg kjoto ulice
                     "V ulici, kde máte bydlení, dle očekávání žádné dobré místo na zastavení není. Sučan přibrzdí kousek od adresy na přechodě."
                     "Vyndáte kufry na ulici, teda spíše Šučan, moc tě totiž k práci nepustí."
                     show s nagoja
@@ -250,13 +266,14 @@ label akt6:
                     s "Zaparkoval jsem a oni akorát přicházeli od zastávky."
                     hide s nagoja
                     "Rozebrali jste si každý svá zavazadla a vyrážíte na ubytko."
-                    "Má to být nějaký luxusnější guesthouse, ve kterém máte strávit 2 noci."
+                    "Má to být nějaký luxusnější guesthouse, ve kterém máte strávit 2 noci."
 
                 else:
                     j "Sejdeme se teda dole, dojdu s klukama zaplatit."
                     "Sešli jste dolů, v parkomatu jste zaplatili. A Sučan mezitím úspěšně sjel dolů."
                     "Se zaplaceným lístkem si sedáš do auta."
                     "Projedete závorou, zamáváte zbytku skupiny."
+                    scene bg nagoja prejezd2
                     "Sučan zkušeně a s ledovým klidem brázdí ulice Nagoji."
                     j "Pustím nějaké písničky, co ty na to?"
                     show s nagoja
@@ -278,6 +295,7 @@ label akt6:
                     "Sice Japonec ještě něco japonsky mrmlá, ale pochopil, že mu je to k ničemu a na podnose podává účet a peníze nazpátek."
                     "Sučan přijme tác oběma rukama a peníze ti nasype nastavených dlaní."
                     "Tác vrátí, a vyrážíte dál."
+                    scene bg nagoja prejezd3
                     show s nagoja
                     s "Nějak si nemůžu navyknout, jak ti Japonci mluví jen v japonštině. Že nezkusí tu angličtinu, když vidí cizince?"
                     hide s nagoja
@@ -295,11 +313,13 @@ label akt6:
                     "Jdeš si sednou zpět do auta."
                     "Na okraji Kjóta vidíte 7eleven, tak u něj zastavíte a jdete si koupit něco k pití a k jídlu."
                     "Jídlo do sebe nasypete v autě, dojdete vyhodit odpadky do krámu a vyrazíte."
+                    scene bg kjoto prejezd
                     "V Kjótu je provoz o něco silnější, než byl dopoledne v Nagoje."
                     "Musíte kličkovat mezi auty, autobusy, taxíky a lidmi."
                     "Je to docela stresující, auta přejíždějí náhodně mezi pruhy. Míjíte se s nimi na centimetry."
                     "Docela tě to znervózňuje, ale Sučan to zvládá s naprostým klidem."
                     "Po chvíli se odpojíte z hlavní magistrály a blížíte se k ubytování."
+                    scene bg kjoto ulice
                     show s nagoja
                     s "Nevím, jak to bude s parkováním. Asi přibrzdím, vyndáme kufry, počkáš u nich a já sjedu zaparkovat."
                     hide s nagoja
@@ -312,27 +332,35 @@ label akt6:
                     s "Zaparkoval jsem a oni akorát přicházeli od zastávky."
                     hide s nagoja
                     "Rozebrali jste si každý svá zavazadla a vyrážíte na ubytko."
+                    scene bg hotel kjoto
                     "Má to být nějaký luxusnější guesthouse, ve kterém máte strávit 2 noci."
+    return
 
 label sinkanzen:
     "Takže jdete napřed zaplatit parkovné do parkomatu a Sučan mezitím sjede garážemi k výjezdu."
     "Protože je vaše auto na japonské poměry docela široké, místy to má opravdu tip ťop."
+    scene bg nagoja nadrazi
     "Zaplacený lístek jste načetli u výjezdu a Sučana to pustilo, popřáli jste mu šťastnou cestu a vyrážíte na nádraží."
+    show listek_sinkanzen at truecenter
     "Na nádraží u okénka Adrian objednal čtyři lístky na šinkanzen z Nagoji do Kjóta"
+    hide listek_sinkanzen
     "s odjezdem za třičtvrtě hodiny, protože měl strach, že byste za 15 minut nestihli najít místo odjezdu. Navíc si plánujete na cestu koupit bento box."
     "Typickou japonskou obědovou krabičku na cesty."
     "Do části nádraží, odkud jezdí šinkanzeny, vás to pustí pouze s jízdenkou."
     "Tu ale máte, takže projdete turniketem a zaplujete do obchodu s bento boxy."
     "Každý si koupíte svůj bento box na cestu a vyrazíte hledat nástupiště, odkud vám jede vlak."
+    scene bg nagoja nastupiste
     "Podle šipek a barviček nástupiště najdete docela snadno."
     "Na peróně si najdete, kde má zastavit váš vůz, abyste nemuseli přebíhat vnitřkem, a postavíte se do fronty."
     "Zatímco čekáte na váš vlak, kocháte se výhledem na nádraží a vlaky."
     "Váš vlak samozřejmě přijede na čas. Cestující vystoupí a vy nastoupíte."
+    scene bg sinkanzen
     "Usednete na svá místa."
     if j.love_points.get(a.name, 0) > 4:
         "Máš místo vedle Adriana, gentlemansky tě pustil k okýnku."
-        "Mimoň sedí před vámi, a usnul v podstatě ve chvíli, kdy dosedl. Dante si vytáhl mobil s GPS, aby mohl měřit, jak rychle vlak pojede."
+        "Mimoň sedí před vámi, a usnul v podstatě ve chvíli, kdy dosedl. Dante si sedl otráveně vedle něho, vytáhl mobil s GPS, aby mohl měřit, jak rychle vlak pojede."
         "Otevřel si svůj bento box a dal se do jídla."
+        scene bg sinkanzen bentobox
         "Adrian si vybalil svůj bento box a ty svůj."
         "Každý jste si koupil něco jiného."
         show a nagoja
@@ -340,13 +368,15 @@ label sinkanzen:
         hide a nagoja
         "Svou nabídku, doprovází i vřelým gestem."
         j "Děkuji."
-        "Umsěješ se na něj. A spíše tak zdvořilostně od něj ochutnáš."
+        "Usměješ se na něj. A spíše tak zdvořilostně od něj ochutnáš."
         "Zhodnotíš, že sis vybrala lepší bento box."
         "Po chvíli se ti začne chtít na záchod, a navíc jsi strašně zvědavá, jak vypadají záchody v šinkanzenu."
+        scene bg sinkanzen
         j "Dovolíš? Potřebuji si odskočit."
         show a nagoja
         a "Tak já půjdu raději s tebou."
         hide a nagoja
+        scene bg sinkanzen zachod
         "Zvedne se, pustí tě před sebe a vyrazíte k nebližším záchodům."
         "Projdete uličkou mimo dohled ostatních."
         show a nagoja
@@ -364,12 +394,22 @@ label sinkanzen:
         a "Já jsem tě šel jen doprovodit."
         hide a nagoja
         j "Díky."
+        scene bg sinkanzen
         "Vrátíte se tedy zpátky na svá místa."
         "Když míjíte Danteho, zvedne oči od knížky a změří si vás pohledem."
         "Usadila ses, dojedla bento box a je čas se sbalit a připravit se k výstupu."
+        scene bg kjoto prejezd
+        "Vystoupili jste hladce, i cestu z nástupiště jste našli na první dobrou."
+        "Zjistili jste, že to na ubytování jsou ještě asi 3 km. A protože Sučan už je prý na místě a Adrian vypadá strhaně."
+        "Rozhodnete se, že použijete hromadnou dopravu, podle všeho Kjóto má metro."
+        "Adrian tedy dojde koupit 4 lístky a vyrazíte do metra."
+        scene bg kjoto ulice
+        "Za necelou půlhodinku jste u ubytování, kde na vás čeká Sučan."
+        "Jdete vyzvednout kufry do auta a ubytovat se."
     elif j.love_points.get(d.name, 0) > 4:
         "Máš místo vedle Danteho, gentlemansky tě pustil k okýnku."
         "Adrian s Mimoněm sedí před vámi, ale oba usli – snad ještě, než dosedli."
+        scene bg sinkanzen bentobox
         "Vybalili jste si oba své bento boxy a pustili se do jídla."
         "Na stoleček před sebe sis kromě bento boxu postavila i mobil."
         "Užíváš si jídla a sem tam se díváš z okýnka na měnící se krajinu, i když převažuje oplocený koridor."
@@ -398,7 +438,9 @@ label sinkanzen:
                 d "Tak já ho můžu klidně upustit."
                 hide d nagoja
                 j "No dobře, už jdu."
+                scene bg sinkanzen
                 "Vstane s tvým telefonem v ruce a pustí tě před sebe do uličky. Přesunete se do chodbičky k záchodům a dveřím."
+                scene bg sinaknzen zatisi
                 "Je zde výrazně více místa než v českých vlacích. A nikde nikdo."
                 "Dante se zastaví na kraji. Kouká na tebe a mlčí."
                 "Sevře se ti žaludek a cítíš jak se ti do tváří hrne krev. A jsi dost nervózní."
@@ -425,9 +467,11 @@ label sinkanzen:
                 hide d nagoja
                 "Vytřeštíš oči. Tohle jsi nečekala, ale to už ti Dante strká tvůj mobil do ruky a během okamžiku jsi v místnosti sama."
                 "Snažíš se nějak vstřebat, co se stalo, když tu z druhé strany přichází nějaký Japonec."
+                scene bg sinkanzen zachod
                 "Asi si myslí, že čekáš frontu na záchod."
                 "A protože svítí, že záchod je volný, začne na tebe mluvit japonsky a gestem ti dává přednost směr záchod."
                 j "ie, arigató,"
+                scene bg sinkanzen
                 "špitneš a vyrazíš směr tvé místo."
                 "Japonec ještě něco mrmlá v japonštině, ale nejsi schopná ho vnímat."
                 "Že by Dante věděl, že se ten Japonec blíží? Blbost. Nebo se mu nelíbíš? Nebo si s tebou jenom tak hraje?"
@@ -438,6 +482,7 @@ label sinkanzen:
                 "Dojíš si svůj bento box a když se otočíš Danteho směrem, tak Dante klávesovou zkratkou přepne obrazovky,"
                 "takže vidíš jen neutrální pozadí. A Dante přestane psát."
                 j "Promiň, neměla jsem v úmyslu koukat ti pod ruce, jen mě zaujalo, jak si rychle psal."
+                scene bg sinkanzen okenko
                 "Otočíš se a upřeně koukáš z okýnka ven."
                 show d nagoja
                 d "Já se nezlobím, ale jsou věci, které by si neměla vidět ve svém zájmu."
@@ -456,11 +501,14 @@ label sinkanzen:
                 show d nagoja
                 d "Kdo ví. Myslím, že solidně podceňuješ moje schopnosti. A za chvíli vystupujeme, měli bychom vzbudit kluky a sbalit se."
                 hide d nagoja
+                scene bg sinkanzen
                 "Vstane a šťouchne do Adriana, aby ho probudil. Sbalí si věci a notebook do batohu, společně popoženete Mimoně a jdete se připravit k výstupu."
+                scene bg kjoto prejezd
                 "Vystoupili jste hladce, i cestu z nástupiště jste našli na první dobrou."
                 "Zjistili jste, že to na ubytování jsou ještě asi 3 km. A protože Sučan už je prý na místě a Adrian vypadá strhaně."
                 "Rozhodnete se, že použijete hromadnou dopravu, podle všeho Kjóto má metro."
                 "Adrian tedy dojde koupit 4 lístky a vyrazíte do metra."
+                scene bg kjoto ulice
                 "Za necelou půlhodinku jste u ubytování, kde na vás čeká Sučan."
                 "Jdete vyzvednout kufry do auta a ubytovat se."
                 # TODO mimoň mekáč
@@ -494,23 +542,31 @@ label sinkanzen:
                 show screen stats_overview
                 "Mobil si raději uložíš do síťky na sedadle, sedneš si, sklopíš stoleček a položíš si na něj zpátky svůj bento box."
                 "Dante si sedne zpět. Když dojíš, je pomalu čas se balit a připravovat na výstup."
+                scene bg sinkanzen
                 "Dante vstane a šťouchne do Adriana, aby ho probudil."
+                scene bg kjoto prejezd
                 "Vystoupili jste hladce, i cestu z nástupiště jste našli na první dobrou."
                 "Zjistili jste, že to na ubytování jsou ještě asi 3 km. A protože Sučan už je prý na místě a Adrian vypadá strhaně,"
                 "rozhodnete se, že použijete hromadnou dopravu. Podle všeho má Kjóto metro."
                 "Adrian tedy dojde koupit 4 lístky a vyrazíte do metra."
+                scene bg kjoto ulice
                 "Za necelou půlhodinku jste u ubytování, kde na vás čeká Sučan."
                 "Jdete vyzvednout kufry do auta a ubytovat se."
     else:
         "Mimoň a Adrian jen co dosednou, tak usnou. Dante si vytáhl mobil s GPS, aby viděl, kolik ten vlak jede."
+        scene bg sinkanzen bentobox
         "Otevřela sis svůj bento box a dala ses do jídla. U toho koukáš z okénka."
+        scene bg sinkanzen zachod
         "Po asi deseti minutách se vydáš na záchod, aby sis udělala obrázek, jak vypadají záchody v šinkanzenu."
+        scene bg sinkanzen
         "Když se vrátíš na místo, rychle dojíš a je čas začít se balit. Za chvíli vystupujete."
         "Dante vstane a šťouchne do Adriana, aby ho probudil. Sbalí si věci a knížku do batohu, společně popoženete Mimoně a jdete se připravit k výstupu."
         "Vystoupili jste hladce, i cestu z nástupiště jste našli na první dobrou."
+        scene bg kjoto prejezd
         "Zjistili jste, že to na ubytování jsou ještě asi 3 km. A protože Sučan už je prý na místě a Adrian vypadá strhaně,"
         "rozhodnete se, že použijete hromadnou dopravu. Podle všeho má Kjóto metro."
         "Adrian tedy dojde koupit 4 lístky a vyrazíte do metra."
+        scene bg kjoto ulice
         "Za necelou půlhodinku jste u ubytování, kde na vás čeká Sučan."
         "Jdete vyzvednout kufry do auta a ubytovat se."
 
@@ -519,6 +575,7 @@ label kjoto_guest_house:
     "Poté, co si z vašich pasů opsala všechny informace, dostáváte klíče od pokoje."
     "Jste až v sedmém patře. Podle všeho musíte výtahem, schodiště nikde nevidíte."
     "Ale tak s kufry lepší varianta, než kdyby to bylo naopak."
+    scene bg hotel kjoto
     "Když odemknete, otevře se před vámi docela velký prostor. Jsou zde 2 postele a tři futonové postele."
     "Adrian zamířil rovnou do koupelny."
     show d nagoja
@@ -548,7 +605,7 @@ label kjoto_guest_house:
             "Naneštěstí nebo možná naštěstí, Adrian i přes všechen ten hluk spí."
             "Vystřídali jste se v koupelně, ty sis dala i rychlou sprchu, protože po celém dni jsi byla strašně ulepená."
             "Sbalili jste si věci a do hodinky jste připraveni k odchodu."
-            jump vecer_nagoja 
+            jump vecer_kjoto
         "No, radši bych spala na normální posteli.":
             show d nagoja
             d "Jo jasně, on to Adrian na zemi zvládne. Je tvoje."
@@ -568,7 +625,7 @@ label kjoto_guest_house:
             j "Aha. Tak já si sbalím věci a tak za čtvrthodinky můžeme vyrazit."
             "Jdeš si přebalit věci a kluci se mezitím vystřídají v koupelně."
 
-label vecer_nagoja:
+label vecer_kjoto:
     "Klíče máte dvoje, takže jedny přenecháte Adrianovi s Mimoněm a vyrážíte na odpolední procházku po Kjótu."
     "Ty, Sučan a Dante. Zamíříte do zahrad Nidžó hradu. Cesta vám zabere něco okolo půl hodinky."
     "Jako vše v Japonsku zahrady ale zavírají brzo – v šest hodin."
@@ -592,8 +649,10 @@ label vecer_nagoja:
     "A po asi 10 minutách dostáváte objednané jídlo."
     "Poděkujete a pustíte se do jídla."
     "Tentokrát platíš ty, aby se dluhy mezi vámi trošku vyrovnaly."
+    scene bg kjoto ulice at nighttime1, nighttime2
     "S plnými žaludky vyrazíte na ubytko."
     "Po cestě se stavíte ještě v 7eleven, a po domluvě s Dantem koupíte kolu a nějaké pečivo pro Adriana."
+    scene bg hotel kjoto
     "Venku už je tma, takže se více nezdržujete a jdete na pokoj."
     "Vystřídáte se v koupelně, Adrian si vezme kolu, napije se a vypadá o něco lépe."
    

@@ -1,3 +1,10 @@
+transform nighttime1:
+    matrixcolor BrightnessMatrix(-.55)
+transform nighttime2:
+    matrixcolor TintMatrix("#7FA5F2")
+    # usage: show <background> at nighttime1, nighttime2
+
+
 label akt4:
     $ j.hoodie = ""  # Whose hoodie does Hracka end up with
     "Ráno jste se sešli všichni na recepci, zase bylo nutné počkat na Mimoně, který s vámi nakonec jede."
@@ -723,8 +730,7 @@ label top_but_slower:
                 hide d fuji
                 "Při nastupování do taxíku ses pokusil['a' if j.gender == 'f' else ''] sednout za volant – mířila jsi na místo spolujezdce, ale v Japonsku je volant vpravo. Spolu s taxikářem jste se tomu zasmáli."
                 "Taxík vás odveze na parkoviště."
-                show bg fuji parkoviste
-                # TODO noc pomocí renpykodu
+                show bg fuji parkoviste at nighttime1, nighttime2
                 "Cena překvapivě není tak vysoká."
                 "Dante zaplatí, poděkujete a vyrazíte k autu."
                 "Kluci spí."

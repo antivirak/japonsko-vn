@@ -222,7 +222,7 @@ label akt5:
             "Při návratu na břeh dosahují vlny snad ještě větší amplitudy, než jaké byly, když jsi lezla do vody."
             "Jedna taková větší tě spláchne, takže cítíš, jak sis o písek odřela nohy a jak se ti dostal do plavek. Dokonce sis dala hlavou o zem."
             "Do toho sis lokla i slané vody, jak jsi nečekala, že tě vlna vezme zezadu."
-            if j.love_points.get(a.name, 0) > 5:
+            if j.love_points.get(a.name, 0) > 4:
                 "Cítíš, jak tě někdo chytil za ruku. A vytáhl tě na nohy."
                 "Když si protřeš oči a rozkoukáš se, vidíš, jak tě drží Adrian za zapěstí."
                 show a plavky worried
@@ -251,7 +251,7 @@ label akt5:
                 "Nastalo ticho, oba mlčíte."
                 "Obula ses a naštěstí už z vody leze Dante a Sučan."
                 "Otřou se a přesunete se k autu."
-            elif j.love_points.get(d.name, 0) > 5:
+            elif j.love_points.get(d.name, 0) > 4:
                 "Cítíš, jak tě někdo chytil za ruku. A vytáhl tě za ni z vody."
                 "Následně tě chytí za pas a vyzvedne nahoru do náruče."
                 "Konečně máš možnost si protřít oči a otevřít je. V náruči tě svírá Dante."
@@ -315,7 +315,7 @@ label akt5:
                 d "Když tomu věříš. Ale myslím, že bys se mnou už nikdy nepromluvila, kdybys znala pravdu. Jako všechny."
                 "Chceš na to reagovat, ale od vody přichází Adrian a Sučan."
                 "Usušila ses a obula. Kluci udělali to samé a přesunuli jste se k autu."
-            elif j.love_points.get(s.name, 0) > 5:
+            elif j.love_points.get(s.name, 0) > 4:
                 "Cítíš, jak tě někdo chytil za ruku a vytáhl tě na nohy."
                 "Pak si tě přitáhl k sobě a jednou rukou tě drží kolem pasu."
                 "Rukama si protřeš oči a koukáš na Sučana."
