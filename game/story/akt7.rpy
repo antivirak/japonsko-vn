@@ -305,7 +305,7 @@ label Kjoto:
             "Že si tuhle dovolenou užiju se vším všudy.":
                 "Mrkneš na něj."
                 show d kjoto
-                d "Tak to nemůžu sloužit. Holky na jednu noc sice sbírám, ale vždy se ujistím, že si nebudou kromě luxusního sexu nic pamatovat." 
+                d "Tak to nemůžu sloužit. Holky na jednu noc sice sbírám, ale vždy se ujistím, že si nebudou kromě luxusního sexu nic pamatovat."
                 "Co Betatesteři měla by být možnost sexu na jednu noc?"
                 d "Rozhodně ne jméno a obličej. Uspokojila má odpověď tvoji dušičku?"
                 d "Ale kdo ví? Třeba se ti podaří přesvědčit mě, abych udělal výjimku."
@@ -493,7 +493,7 @@ label kjoto_brany:
     hide d kjoto
     show a kjoto at left
     a "Tak si měl říct včera, když to Dante plánoval, že sem chceš za světla."
-    hide a kjoto 
+    hide a kjoto
     show m mask angry at right
     m "Ale to jste mi neřekli, že tu budou lišky."
     hide m mask angry
@@ -509,7 +509,7 @@ label kjoto_brany:
     show s kjoto
     s "Tak pohni kostrou. Je to ještě kus na tu zastávku."
     hide s kjoto
-    scene bg kjoto vecerbusS
+    scene bg kjoto vecerbus
     "Za pár minut už stojíte na zastávce, jste tu o chvíli dříve. Překvapivě je tu prostor k sezení."
     show m mask angry
     m "Jsem si tu lišku mohl vyfotit ještě líp, kdybychom tak nepospíchali. Teď tu čekáme!"

@@ -266,7 +266,7 @@ label akt6:
                     s "Zaparkoval jsem a oni akorát přicházeli od zastávky."
                     hide s nagoja
                     "Rozebrali jste si každý svá zavazadla a vyrážíte na ubytko."
-                    "Má to být nějaký luxusnější guesthouse, ve kterém máte strávit 2 noci."
+                    "Má to být nějaký luxusnější guesthouse, ve kterém máte strávit 2 noci."
 
                 else:
                     j "Sejdeme se teda dole, dojdu s klukama zaplatit."
@@ -581,7 +581,7 @@ label kjoto_guest_house:
     show d nagoja
     d "Navrhuji, aby si postele vzali [j.name] a Adrian a my si vezmeme ty futonové."
     hide d nagoja
-    "Ale než to stihnete s Dantem prodiskutovat, tak se Mimoň už válí k jedné z normálních postelí."
+    "Ale než to stihnete s Dantem prodiskutovat, tak se Mimoň už válí v jedné z normálních postelí."
     show d nagoja
     d "Aha... [j.name_5p], vadilo by ti spát na té matraci na zemi? Adrian vypadá, že mu není dobře."
     hide d nagoja
@@ -649,7 +649,7 @@ label vecer_kjoto:
     "A po asi 10 minutách dostáváte objednané jídlo."
     "Poděkujete a pustíte se do jídla."
     "Tentokrát platíš ty, aby se dluhy mezi vámi trošku vyrovnaly."
-    scene bg kjoto ulice #TODO noc
+    scene bg kjoto ulice at nighttime1, nighttime2
     "S plnými žaludky vyrazíte na ubytko."
     "Po cestě se stavíte ještě v 7eleven, a po domluvě s Dantem koupíte kolu a nějaké pečivo pro Adriana."
     scene bg hotel kjoto
