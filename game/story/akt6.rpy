@@ -440,7 +440,7 @@ label sinkanzen:
                 j "No dobře, už jdu."
                 scene bg sinkanzen
                 "Vstane s tvým telefonem v ruce a pustí tě před sebe do uličky. Přesunete se do chodbičky k záchodům a dveřím."
-                scene bg sinaknzen zatisi
+                scene bg sinkanzen zatisi
                 "Je zde výrazně více místa než v českých vlacích. A nikde nikdo."
                 "Dante se zastaví na kraji. Kouká na tebe a mlčí."
                 "Sevře se ti žaludek a cítíš jak se ti do tváří hrne krev. A jsi dost nervózní."
