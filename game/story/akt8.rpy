@@ -103,12 +103,17 @@ label akt8:
                 show m mask angry
                 m "Tak až potkáme poštu..."
                 hide m mask angry
+                "Tímto Mimoň ukončil hovor, nasdil si sluchátka a do pár sekund usnul a chrápe na celé auto."
+                "Naštěstí cesta do Nary, je relativně krátká, takže po dvou hodninkách jízdy zastavujete na parkovišti."
             else: 
                 "Sedla sis za spolujezdce, prostřední místo schytal Adrian a za řidiče si sedl Mimoň."
                 "Který narval dřevěnou tyč s Fuji mezi sebe a Adriana. Takže Adrian je zase schoulený v prostřed."
                 "Dante si sedl k Sučanovi dopředu. A nastavuje navigaci a pustí playlist, který jste si připravili před odjezdem."
                 "A Mimoň to zalomil, takže celou cestu spí."
                 "Naštěstí cesta do Nary, je relativně krátká, takže po dvou hodninkách jízdy zastavujete na parkovišti."
+    "Po zaporkování, jste všichni vystoupili z auta, park je jen přes silnici."
+    "Jen jste přešli na území parku už se k vám, žene stádo jelínků."
+
 
 
 
