@@ -1,11 +1,3 @@
-screen stats_button_overlay:
-    hbox:
-        xalign 1.0 yalign 0.1
-        imagebutton:
-            idle im.Scale("images/stats_icon_idle.png", 100, 50)
-            hover im.Scale("images/stats_icon_hover.png", 100, 50)
-            action Show("stats_overview")
-            keyboard_focus False
 screen stats_overview:
     modal True
     frame:
