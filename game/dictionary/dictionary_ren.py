@@ -12,7 +12,7 @@ class Dictionary:
             "konbini": "japonská sámoška/večerka",
             "gaijin point": "cizinecký bod",
             "love point": "milostný bod",
-            "hate poin": "nenávistný bod",
+            "hate point": "nenávistný bod",
             "VN": "visual novela",
             "dózo": "prosím (někomu něco nabízím)",
             "Ičiran": "řetězec rámenáren",
