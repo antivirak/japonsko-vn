@@ -30,7 +30,7 @@ class DynamicLogicSimple:
         value = min(value, 1)
         value = max(value, -1)
 
-        self.set_pointer_pos(self.mouse_pointer_position + value * .02)
+        self.pointer_position = self.mouse_pointer_position + value * .02
 
     def update_logic(self, pointer_in_hotspot: bool, time_delta: float) -> bool:
         return self.process_logic(pointer_in_hotspot, time_delta)
@@ -39,7 +39,12 @@ class DynamicLogicSimple:
     def bar_width_scale(self) -> float:
         return max(1 - self.tired_factor, .3)
 
-    def set_pointer_pos(self, pos: float) -> None:
+    @property
+    def pointer_position(self) -> float:
+        return self.mouse_pointer_position
+
+    @pointer_position.setter
+    def pointer_position(self, pos: float) -> None:
         pos = min(pos, 1)
         pos = max(pos, -1)
         self.mouse_pointer_position = pos
@@ -81,10 +86,10 @@ class DynamicLogicSimpleCont(DynamicLogicSimple):
         value = max(value, -1)
 
         self.bar_shift = value * .03
-        self.set_pointer_pos(self.mouse_pointer_position + value * .02)
+        self.pointer_position = self.mouse_pointer_position + value * .02
 
     def update_logic(self, pointer_in_hotspot: bool, time_delta: float) -> bool:
-        self.set_pointer_pos(self.mouse_pointer_position + self.bar_shift)
+        self.pointer_position = self.mouse_pointer_position + self.bar_shift
         return self.process_logic(pointer_in_hotspot, time_delta)
 
 
@@ -121,7 +126,7 @@ class DynamicLogicNewton(DynamicLogicSimple):
         self.bar_velocity = min(self.bar_velocity, 1)
         self.bar_velocity = max(self.bar_velocity, -1)
 
-        self.set_pointer_pos(self.mouse_pointer_position + (self.bar_velocity * time_delta))
+        self.pointer_position = self.mouse_pointer_position + self.bar_velocity * time_delta
         return self.process_logic(pointer_in_hotspot, time_delta)
 
 
@@ -156,7 +161,7 @@ class DynamicLogicMash(DynamicLogicSimple):
         self.bar_velocity = min(self.bar_velocity, .2)
         self.bar_velocity = max(self.bar_velocity, -.3)
 
-        self.set_pointer_pos(self.mouse_pointer_position + (self.bar_velocity * time_delta))
+        self.pointer_position = self.mouse_pointer_position + self.bar_velocity * time_delta
         return self.process_logic(pointer_in_hotspot, time_delta)
 
 
@@ -259,19 +264,19 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
             end = self.logic.update_logic(inside_hotspot, seconds)
             if end:
                 self.has_ended = True
-        self.set_pointer_pos()
+        self.move_mouse()
 
         renpy.redraw(self, 0)
         return render
 
-    def set_pointer_pos(self) -> None:
+    def move_mouse(self) -> None:
         pos_x = self.logic.mouse_pointer_position  # -1 to 1
         # scale to (-250 to 250) + pos_min
         screen_width_half = config.screen_width // 2 if game.preferences.fullscreen else self.screen_width_half
         self.pos_x = int((pos_x + 1) * screen_width_half / 3 + self.pos_min)
         pygame.mouse.set_pos([self.pos_x, self.cur_y])
 
-    def event(self, ev: pygame.event, x: float, _: float, st: float) -> Optional[bool]:
+    def event(self, ev: pygame.event, x: float, *_: float) -> Optional[bool]:
         """
         Called to report than an event has occured. Ev is the raw
         pygame event object representing that event. If the event
@@ -292,7 +297,7 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
         self.x = x
 
         self.logic.update_input(ev.rel[0])
-        self.set_pointer_pos()
+        self.move_mouse()
 
         renpy.restart_interaction()
         return None

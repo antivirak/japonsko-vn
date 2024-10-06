@@ -1,6 +1,6 @@
 ﻿init python:
-    from typing import Callable, Optional
-    from collections.abc import Hashable
+    from typing import Optional
+    from collections.abc import Callable, Hashable
 
 
     class DropdownItem:
