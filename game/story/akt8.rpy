@@ -2,7 +2,7 @@ label akt8:
     scene bg hotel kjoto
     "Dneska vás čeká přejezd do Kóbe, ale po cestě jste se rozhodli, že si zajedete do Nary"
     "Park v Naře je vyhlášený volně pobíhajícími jelínky, branami a svatyněmi."
-    "Ráno jste společně vstáli, pobalili jste se. Mimoň jako vždy vstal prdelí napřed - jak se někdy říká."
+    "Ráno jste společně vstali, pobalili jste se. Mimoň jako vždy vstal prdelí napřed - jak se někdy říká."
     show m mask angry
     m "Já nikam jet nechci, já chci zpátky do Tokia do gamecenter!"
     hide m mask angry
@@ -16,8 +16,8 @@ label akt8:
     show s kjoto
     s "Tak asi budeš muset s námi absolvoval zbytek plánu."
     s "Jo to mi připomíná, že jsem se snažil zarezervovat to driftaxi, rozmyslete se kdo se přidáte."
-    s "Já určitě chci a můžou jet až 3. Ten systém je teda uplně blbý, tak uvidíme zda mi odepíšou."
-    s "Asi bychom se měli nasnídat a vyrazit, máme dneska dlouhý přejezd a večer chceme ten wague steak - luxusní hovezí maso, které je charakteristické svým tukovým mramorováním. Tito býčci jsou pravidelně masýrování a je jim dopřávána jen ta nejkvalitnější péče."
+    s "Já určitě chci a můžou jet až 3. Ten systém je teda úplně blbý, tak uvidíme zda mi odepíšou."
+    s "Asi bychom se měli nasnídat a vyrazit, máme dneska dlouhý přejezd a večer chceme ten wague steak."
     hide s kjoto
     show m mask angry
     m "Mám poslední tričko."
@@ -43,7 +43,7 @@ label akt8:
             if j.love_points.get(s.name, 0) > 4:
                 "Sučan ti otevře dveře a pustí tě sednout. Mrkne na tebe a mile se usměje."
                 "Teprve poté přejde na stranu řidiče."
-                "V zádu se rojela hádka, kvůli tyči z Fuji."
+                "V zádu se rozjela hádka, kvůli tyči z Fuji."
                 show a kjoto
                 a "Musí ta tyč vážně jet s námi? Tady se nedá sedět."
                 hide a kjoto
@@ -73,7 +73,7 @@ label akt8:
                 show s kjoto
                 s "No co? Měl jsem žízeň."
                 hide s kjoto
-                "Rozhodneš to více neropitvávat, protože i situace vzádu se uklidnila."
+                "Rozhodneš to více nerozpitvávat, protože i situace vzadu se uklidnila."
 
             else:
                 "Sedneš si na místo spolujezdce."
@@ -86,15 +86,14 @@ label akt8:
                 show d kjoto
                 d "Už, aby to bylo!"
                 hide d kjoto
-                "Rozhovor vzádu utichne a vy vyjedete."
+                "Rozhovor vzadu utichne a vy vyjedete."
             "Podle vašich zvyklostí, má spolujezdec na starosti navigaci a hudbu."
             "Připojíš tedy mobil k autu, spustíš tedy playlist který jste si připravili před odjezdem."
-            "Cesta do Nary, je relativně krátká, takže po dvou hodninkách jízdy zastavujete na parkovišti."
         "Do zádu":
             if j.hate_points.get(n.name, 0) > 3 and j.love_points.get(a.name, 0) < 4:
-                "Adrian si sedl za řidiče Mimoň dostředu a na tebe zbylo místo za spolujezdcem."
+                "Adrian si sedl za řidiče Mimoň do středu a na tebe zbylo místo za spolujezdcem."
                 "Dante si sedl k Sučanovi dopředu. A nastavuje navigaci a pustí playlist, který jste si připravili před odjezdem."
-                "Mimoň napresoval tyč z Fuji mezi vás, takže musíš sedět zkrčená."
+                "Mimoň napresoval tyč z Fuji mezi vás, takže musíš sedět skrčená."
                 j "Nechceš tu tyč opravdu vyhodit? Dost tu překáží."
                 show m mask angry
                 m "Nikdy, tu si pošlu poštou."
@@ -103,16 +102,116 @@ label akt8:
                 show m mask angry
                 m "Tak až potkáme poštu..."
                 hide m mask angry
-                "Tímto Mimoň ukončil hovor, nasdil si sluchátka a do pár sekund usnul a chrápe na celé auto."
-                "Naštěstí cesta do Nary, je relativně krátká, takže po dvou hodninkách jízdy zastavujete na parkovišti."
+                "Tímto Mimoň ukončil hovor, nasadil si sluchátka a do pár sekund usnul a chrápe na celé auto."
             else: 
                 "Sedla sis za spolujezdce, prostřední místo schytal Adrian a za řidiče si sedl Mimoň."
-                "Který narval dřevěnou tyč s Fuji mezi sebe a Adriana. Takže Adrian je zase schoulený v prostřed."
+                "Který narval dřevěnou tyč s Fuji mezi sebe a Adriana. Takže Adrian je zase schoulený uprostřed."
                 "Dante si sedl k Sučanovi dopředu. A nastavuje navigaci a pustí playlist, který jste si připravili před odjezdem."
                 "A Mimoň to zalomil, takže celou cestu spí."
-                "Naštěstí cesta do Nary, je relativně krátká, takže po dvou hodninkách jízdy zastavujete na parkovišti."
-    "Po zaporkování, jste všichni vystoupili z auta, park je jen přes silnici."
+    scene bg mapanara
+    "Cesta do Nary, je relativně krátká, takže po dvou hodinkách jízdy zastavujete na parkovišti."
+    scene bg nara jelinci1
+    "Po zaparkování, jste všichni vystoupili z auta, park je jen přes silnici."
     "Jen jste přešli na území parku už se k vám, žene stádo jelínků."
+    "V parku se nachází několik stanovišť, kde se dají koupit takové speciální oplatky, kterými je povoleno jelínky krmit."
+    "Adrian neodolá a hned si balíček asi za 100 yenů koupí."
+    "Ve chvíli kdy zaplatí a udělá od stánku asi 10 kroků rozeběhne se k němu. Asi deset jelínků."
+    "Jeden jelínek je dokonce tak netrpělivý, že než Adrian rozdělá balíček oplatek, tak Adriana začne okusovat."
+    "Adrian začne instinktivně couvat, takže jde Adrian a s ním tlupa jelínků."
+    "Když rozdá poslední oplatku, tak Adriana přestanou pronásledovat, rozhlídnou se a běží za dalším potenciálním krmičem."
+    "Uprostřed jedné části parčíku jsou stromy, které vrhají stín. A ve stínu spí asi 20 jelínků."
+    "Přesunete se tedy tam, a využijete toho, že všichni odpočívají, takže se nechají pohladit a dá se s nimi vyfotit."
+    "Focením fotek a selfií strávíte dobrou hodinu a až poté si jdete projít zbytek parku."
+    "Do chrámu, se ale stojí fronta a rozhodnete se, že jste už chrámy viděli a před vámi je dlouhá cesta, takže jste chrám zkoukli z venčí."
+    "A po chvíli se již vracíte zpět. Kolem stánků se suvenýry."
+    "Když přijdete do auta sníte svačiny, které jste si s sebou nakoupili - toasty a káva."
+    "Zjistíte, že už je pokročilý čas po poledni, takže už nezbývá čas na Osaku, kterou jste chtěli, taktéž dnes absolvovat."
+    "Ale protože, se nechcete svých plánů vzdát úplně, rozhodnete se, že alespoň projedete centrem města."
+    "Do auta jste se naskládali ve stejném rozložení jako ráno a Sučan, po zaplacení parkovného s vámi vyjíždí."
+    "Adrian i Mimoň během pár minut usnou a i tebe jízda ukolíbá."
+    "Vzbudí tě až to, že v Osace popojíždíte v koloně, navigace stále hlásí ať odbočíte vpravo, ačkoliv na všech křižovatkách je zákaz odbočení v pravo."
+    "Po chvíli pochopíte, že si navigace myslí, že se nacházíte na jiné silnici, protože silnice v Osace je tříúrovňová."
+    "Vy jste na pozemní komunikaci, je nad vámi vede okruh osakou a nad ním ještě dálnice."
+    "Popojíždíte kolonou, Sučan musí být stále ve střehu, protože auta přejíždějí z pruhu do pruhu, sem tam někdo na poslední chvíli zastaví."
+    "Do toho navigace hlásí kraviny, takže si nejste jistí, že jedete správně."
+    "Asi po hodině a půl jste konečně projeli, centrem a situace se se malinko uklidnila."
+    if j.driver:
+        "Sučan po chvíli, odbočí z hlavní a zastaví na takovém vyasfaltovaném plácku."
+        show s kjoto
+        s "Potřebuju vystřídat, bylo to náročnější než jsem čekal."
+        hide s kjoto
+        j "Jo jasně, já to dořídím."
+        "Sučan zatím vylezl z auta a jde si protáhnout nohy. Ty si zatím přendáš svoje věci na místo řidiče."
+        "I zbytek posádky, si jde trošku protáhnout nohy."
+        show d kjoto
+        d "Hmm... tak jsme toho moc neviděli, jsme asi klidně mohli po té dálnici horem."
+        hide d kjoto
+        show a kjoto
+        a "Ale tak zase jsme ušetřili, za poplatky za dálnici."
+        hide a kjoto
+        show d kjoto
+        d "No, zase jsme spálili víc nafty a podívej se na Sučana, jak ho to vyšťavilo."
+        hide d kjoto
+        "Sučan se za chvíli vrací, vy se naskládáte do auta a vyrážíte směr Kóbe."
+    else:
+        show s kjoto
+        "Kdyby mě měl kdo vystřídat, nebránil bych se. Naštěstí je to do Kóbe už jen kousek."
+    scene bg mapakobe
+    "Ani ne za hodinku už jste v Kóbe. Do Kobe jste si naplánovali 4* hotel. Protože večer plánujete wague-steak."
+    "Takže i podle toho jste si zvolili hotel."
+    "Hotel jste trefili na první dobrou a autem jste zajeli přímo ke vchodu."
+    "Vysypali jste se z auta a už vás u dveří odchytil Japonec s vozíčkem, kam jste naskládali kufry."
+    "Sučan dostal lísteček s tím kam má zaparkovat auto, takže s Dantem odjeli auto zaparkovat."
+    "Ty, Adrian a Mimoň jste zatím šli čekat do hotelu."
+    "Rozhodně, ale do interiéru a dresscodu nezapadáte, hotel je plný businessmanů a dam v kostýmcích."
+    "A vy na sobě máte normální oblečení, jste splavený z cesty a Mimoň má dokonce svou liščí masku."
+    "Naštěstí za chvíli přichází Sučan s Dante, Sučanovi jste dali své pasy a on zamířil s Adrianem na recepci."
+    "Za chvíli mají vyřešeno a vás se ujme Japonka, která naznačuje že vás odvede na pokoj a začala tlačit vozejček k výtahům."
+    "Vyjeli jste do šestého patra, zde jste vystoupili a následovali japonku do chodby."
+    "U jednoho pokoje se zastavila odemkla kartou, naznačila že tam máte jít, japonsky pak něco řekla, pravděpodobně k vybavení pokoje."
+    "Pak otevřela další dva pokoje vedle a sundala zavazadla z vozíčku."
+    "Poděkovali jste jí 'arigató', ona se usmala uklonila se a s vozíčkem zamířila zpět k výtahům."
+    "Vzala sis tedy svá zavazadla a zamířila do pokoje, který podle papírů má být tvůj."
+    "Adrian s Dantem, pak zabrali další a Sučan si vytáhl kratkou sirku a dostal k sobě Mimoně."
+    "Ještě než jste se v pokojích zabouchli, tak jste se domluvili, že se sejdete tak za cca hodinku a půl v 18:30 a vyrazíte do města na večeři."
+    "A že se oblíknete slušně, když jste v takovém honosném hotelu a jdete na tak drahé jídlo."
+    "Zalezeš tedy do pokoje, odložíš si vstupní kartu na vstupní pultík, dáš si kufr do pokoje a vyndáš si věci na převlečení."
+    "A přesuneš se do koupelny, je krásná prostorná, laděná do mramoru a zlata."
+    "Užiješ si koupel ve vaně a umyješ si vlasy. Jako všechny hotely v japonsku koupelna obsahuje mýdla, šampón, kondicioner, koupací čepici, gumičky, hřeben, holítko, fén a mnoho dalšího."
+    "Vlasy si vyfénuješ, učešeš se, nalíčíš a vezmeš si na sebe společenskejší oblečení."
+    "Zkontroluješ zprávy a zjistíš, že kluci dohadují místo pro večeři. Podle všech recenzí na internetu, je ale do všech restaurací nutná rezervace, minimálně den předem."
+    "To tě trošku znervózní, ale tak při nejhorším se jen projdete a koupíte večeři v kombini."
+    "Napíšeš domů, že jsi v pořádku a jak se máte."
+    "A mezitím ti přijde soukromá zpráva od Sučana"
+    s "Neuvěříš! Mimoň si chce tady nechat vyprat. Cena podle ceníku je 600 yenů za kus. :D"
+    "Za tu cenu se dá vyprat v japonsku celá pračka prádla..."
+    j "Rozmluv mu to, je to blbost."
+    s "Pracuju na tom."
+    "Zkoukneš ještě sociální sítě. A už je pomalu čas vyrazit."
+    "Sbalíš si věci doladíš, účes a jdeš čekat na chodbu."
+    "Všichni kluci tam už čekají a všichni jsou učesaní, navonění a velmi vkusně oblečení."
+    "Jen teda Mimoň vypadá pořád stejně. Vyrazíte tedy směr výtah."
+    if j.love_points.get(a.name, 0) > 4:
+        "Po cestě se k tobě přimotá Adrian."
+        show a kobe
+        a "Moc ti to sluší, [j.name_5p]!"
+        hide a kobe
+    elif j.love_points.get(d.name, 0) > 4:
+        "Po cestě se k tobě přimotá Dante."
+        show d kobe
+        d "Moc ti to sluší, [j.name_5p]!"
+        hide d kobe
+    elif j.love_points.get(s.name, 0) > 4:
+        "Po cestě se k tobě přimotá Sučan."
+        show s kobe
+        s "Moc ti to sluší, [j.name_5p]!"
+        hide s kobe
+    else:
+    "Výtahem sjedete tedy dolů, vyrazíte směr metro. Protože do centra to jsou asi 4 km."
+    
+
+
+
 
 
 
