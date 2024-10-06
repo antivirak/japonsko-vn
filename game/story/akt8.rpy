@@ -57,7 +57,7 @@ label akt8:
                 show s kjoto
                 s "Promiň, nechal jsem si ve dveřích vodu."
                 hide s kjoto
-                "Říká zatímco tě v podstatě uzamkl vlastním tělem k sedačce a rukou šátrá ve dveřích."
+                "Říká zatímco tě v podstatě uzamkl vlastním tělem k sedačce a pravou rukou šátrá ve dveřích."
                 "Srdce ti snad přestalo na chvíli bít a i dech si zadržela, tak nějak intuitivně. Úzkost ti sevřela hrdlo a žaludek."
                 show s kjoto
                 s "Tady je mrška!"
@@ -71,7 +71,7 @@ label akt8:
                 "Sučan je evidentně pobavený, protože se ti směje zatímco se rovná na sedadle a páše se."
                 "Střelíš po něm pohledem a hodíš po něm balíčkem kapesníčků."
                 show s kjoto
-                s "No co měl jsem žízeň."
+                s "No co? Měl jsem žízeň."
                 hide s kjoto
                 "Rozhodneš to více neropitvávat, protože i situace vzádu se uklidnila."
 
