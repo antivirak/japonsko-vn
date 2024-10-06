@@ -1,4 +1,4 @@
-screen right_side_menu_overlay:
+screen right_side_menu_overlay():
     vbox:
         xalign 1.0 yalign 0.1
         spacing 10

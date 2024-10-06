@@ -1,4 +1,4 @@
-screen dictionary:
+screen dictionary():
     modal True
     frame:
         xalign 0.5 yalign 0.5

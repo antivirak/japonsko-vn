@@ -1,4 +1,4 @@
-screen stats_overview:
+screen stats_overview():
     modal True
     frame:
         xalign 0.5 yalign 0.5
