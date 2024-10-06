@@ -11,3 +11,5 @@ default persons = [a, d, h, m, s]
 default j = Person(name='[name]', color="#f4f803", gender=None)
 default fujiguards = Person(name="Fuji Guards", color="#fe03c8", gender="m")
 default Japonka = Person(name="Japonka", color="#fe03c8", gender="f")
+
+default dictionary = Dictionary()

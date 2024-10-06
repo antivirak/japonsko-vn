@@ -57,7 +57,8 @@ label akt1:
         j.name_5p = vokativ(j.name, woman=j.gender == "f", last_name=False).capitalize()
         print(j.name_5p)
 
-    show screen stats_button_overlay
+    show screen right_side_menu_overlay
+
     scene bg letistenara
     if j.gender == 'f':
         "Na podzim jsi ukončila velmi toxický vztah a hledala jsi nějakou cestu, jak co nejrychleji zapomenout."
