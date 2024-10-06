@@ -110,7 +110,7 @@ label akt8:
                 "A Mimoň to zalomil, takže celou cestu spí."
     scene bg mapanara
     "Cesta do Nary, je relativně krátká, takže po dvou hodinkách jízdy zastavujete na parkovišti."
-    scene bg nara jelinci1
+    scene bg nara_jelinci1
     "Po zaparkování, jste všichni vystoupili z auta, park je jen přes silnici."
     "Jen jste přešli na území parku už se k vám, žene stádo jelínků."
     "V parku se nachází několik stanovišť, kde se dají koupit takové speciální oplatky, kterými je povoleno jelínky krmit."
@@ -121,7 +121,7 @@ label akt8:
     "Když rozdá poslední oplatku, tak Adriana přestanou pronásledovat, rozhlídnou se a běží za dalším potenciálním krmičem."
     "Uprostřed jedné části parčíku jsou stromy, které vrhají stín. A ve stínu spí asi 20 jelínků."
     "Přesunete se tedy tam, a využijete toho, že všichni odpočívají, takže se nechají pohladit a dá se s nimi vyfotit."
-    "Focením fotek a selfií strávíte dobrou hodinu a až poté si jdete projít zbytek parku."
+    "Focením fotek a selfie strávíte dobrou hodinu a až poté si jdete projít zbytek parku."
     "Do chrámu, se ale stojí fronta a rozhodnete se, že jste už chrámy viděli a před vámi je dlouhá cesta, takže jste chrám zkoukli z venčí."
     "A po chvíli se již vracíte zpět. Kolem stánků se suvenýry."
     "Když přijdete do auta sníte svačiny, které jste si s sebou nakoupili - toasty a káva."
@@ -173,7 +173,7 @@ label akt8:
     "Poděkovali jste jí 'arigató', ona se usmala uklonila se a s vozíčkem zamířila zpět k výtahům."
     "Vzala sis tedy svá zavazadla a zamířila do pokoje, který podle papírů má být tvůj."
     "Adrian s Dantem, pak zabrali další a Sučan si vytáhl kratkou sirku a dostal k sobě Mimoně."
-    "Ještě než jste se v pokojích zabouchli, tak jste se domluvili, že se sejdete tak za cca hodinku a půl v 18:30 a vyrazíte do města na večeři."
+    "Ještě než jste se v pokojích zabouchli, tak jste se domluvili, že se sejdete tak za cca hodinku v 17:00 a vyrazíte do města na večeři."
     "A že se oblíknete slušně, když jste v takovém honosném hotelu a jdete na tak drahé jídlo."
     "Zalezeš tedy do pokoje, odložíš si vstupní kartu na vstupní pultík, dáš si kufr do pokoje a vyndáš si věci na převlečení."
     "A přesuneš se do koupelny, je krásná prostorná, laděná do mramoru a zlata."
@@ -207,11 +207,237 @@ label akt8:
         s "Moc ti to sluší, [j.name_5p]!"
         hide s kobe
     else:
+        "Nikdo s kluků si tě nějak extra nevšímá."
     "Výtahem sjedete tedy dolů, vyrazíte směr metro. Protože do centra to jsou asi 4 km."
+    "K metru to naštěstí je jen kousek, takže do čtvrt hodinky, už kupujete lístek v automatu."
+    "Podle mapy na zdi jste odvodili, za kolik lístek potřebujete. Do automatu jste nasypali drobné odmáčkli příslušnou cenu, a z automatu vypadl malý papírek."
+    "Ten jsi pak vložila do příslušné díry v turniketu a na druhé straně ti lístek vyjel a turniket tě pustil."
+    "Lístek sis tedy vzala a křečovitě jsi ho dalších šest stanic svírala. Aby jsi ho neztratila."
+    "V cílové stanici jste všichni vystoupili \ rovnou jste zamířili k východu."
+    "Vložila jsi lístek zase do turniketu, ten se otevřel, prošla jsi ale lístek ti to už nevydalo."
+    "Přidala ses k čekajícímu Dantemu, turniketem prošli i Adrian a Sučan."
+    "Mimoň, tam ale začne, tak divně pochodovat a nakonec se rozběhl a snaží se turniketem proběhnout."
+    "Samozřejmě se před ním dost razantně zavře."
+    show d kobe
+    d "Co dělá?"
+    hide d kobe
+    show a kobe
+    a "Nevím, asi ztratil lístek?"
+    hide a kobe
+    show s kobe
+    s "Tak proč si nekoupí nový, nebo si neřekne v té budce?"
+    hide s kobe
+    show d kobe
+    d "Protože, takhle na sebe upoutá pozornost všech a dělá blbce i z nás, Adriane zařídíš to?"
+    hide d kobe
+    show s kobe
+    s "Co to děláš, Mimoni?!"
+    hide s kobe
+    "Křikne Sučan na Mimoně."
+    show m mask angry
+    m "Nemůžu, najít lístek!"
+    hide m mask angry
+    show s kobe
+    s "Tak jdi k té budce a nesnaž se probíhat! Adrian ti to vykomunikuje."
+    hide s kobe
+    "Adrian, ačkoliv evidentně nerad, došel k hlídací buňce a japonci za přepážkou vysvětlil, že Mimoň ztratil lístek a že my jsme všichni v pořádku prošli."
+    "Na japonci bylo znát pohoršení z toho jak gaijini neumí jezdit metrem, ale Mimoně pustil."
+    $ j.add_hate_points_for_person(m, 2)
+    "Sice se tato situace dala řešit daleko lépe a s menší ostudou, nakonec jste v centru Kóbe."
+    show a kobe
+    a "Hele našel jsem jeden podnik s fakt vysokým hodnocením, ale místo se tam má rezervovat asi týden dopředu."
+    hide a kobe
+    show s kobe
+    s "Já bych to stejně zkusil."
+    hide s kobe
+    show d kobe
+    d "Já jsem také za to, to zkusit. Jo Mimoňi, nechceš jít někam jinam? Říkal jsi, že na účtě už nemáš peníze a zatím kromě šinkanzenu jsme za tebe včechno platili."
+    d "Takže nám už teď dohromady dlužíš tak deset tisíc a ten steak vyjde minimálně na pět tisíc na osobu."
+    hide d kobe
+    show m mask angry
+    m "Ne na steak rozhodně půjdu, nevidím důvod abych někam chodil sám."
+    hide m mask angry
+    show d kobe
+    d "No možná by tě teda, měli založit rodiče, aby si tu nežil na naše náklady."
+    hide d kobe
+    show m mask angry
+    m "Vždyť já vám to všechno dám!"
+    hide m mask angry
+    show a kobe
+    a "Tady to má být po pravé straně."
+    hide a kobe
+    "Vstoupí do rozhovoru Adrian."
+    "Chvíli se rozhlížíte a nikde nevidíte restauraci s příslušným názvem."
+    "Nakonec se Adrian, zeptá japonky, která dělá reklamu na nějakou jinou restauraci."
+    "A ta mu ukáže na výtah za ní. Teprve teď si všimnete, že u patra číslo 4 je napsaný název té restaurace."
+    "Vlezete do výtahu a vyjedete nahoru, objevíte se v místnosti, kde jsou dva půltíky a pár barových stoliček a jeden japonec."
+    show Chef
+    Chef "Kombamwa!"
+    hide Chef
+    show a kobe
+    a "Kombamwa. Do you have a place for diner?"
+    hide a kobe
+    show Chef
+    Chef "Do you have reservation?"
+    hide Chef
+    show d kobe
+    d "No we don't."
+    hide d kobe
+    show Chef
+    Chef "How many people?"
+    hide Chef
+    show d kobe
+    d "Five."
+    show Chef
+    Chef "Hmm, okej come in. And sit here."
+    hide Chef
+    show d kobe
+    d "To bylo nějaké snadné."
+    hide d kobe
+    "Posadili jste se tedy k pultíku, kam vám kuchař naznačil."
+    "Dostali jste meníčko z kterého si máte vybrat."
+    show Chef
+    Chef "Do you want testing menu? Soup, rice and the meat of your chose?"
+    hide Chef
+    show d kobe
+    d "That sound great, and what meat, are you recomend?"
+    hide d kobe
+    show Chef
+    Chef "Haha, it's obvious that this one, which is serve only in restaurant with Kobe gold plaket."
+    Chef "But you can try this one, which is cheaper and make desigion which one is better."
+    Chef "Ofcorse I can split up the meat to you."
+    hide Chef
+    show d kobe
+    d "Oh, that sound good, give us some minutes."
+    d "Fajn pojďme se domluvit, kolik si objednáme kterého masa, dal bych to s tím ochutnávkovým menu."
+    "Chvíli jste se dohadovali a nakonec rozhodnete, že 600 g toho dražšího a 300 g toho levnějšího. Plus, že si k tomu dáte ten set."
+    "Nadiktujete to kuchaři a on na chvíli odběhne pryč. Vrátí se zpět s mokrými ručníky."
+    show Chef
+    Chef "What you want drink?"
+    hide Chef
+    show d kobe
+    d "Sake? It could be fine with meat, isn't it?"
+    hide d kobe
+    show Chef
+    Chef "Good taste young man, all bottle?"
+    hide Chef
+    show d kobe
+    d "Ofcorse, and the glass for every one, thanks."
+    hide d kobe
+    show m mask angry
+    m "Já chci džus!"
+    hide m mask angry
+    show d kobe
+    d "A jaký?"
+    hide d kobe
+    show m mask angry
+    m "Třeba pomerančový."
+    hide m mask angry
+    show d kobe
+    d "Sumimasen, Sorry, can we get one orage juice, please?"
+    hide d kobe
+    show Chef
+    Chef "No problem, here it is."
+    hide Chef
+    "Šéfkuchař vám tedy rozdal pohárky, rozlil saké, Mimoňovi dal džus, všem vám přinesl malou mističku se salátem ze skleněných nudlí,"
+    "a poté nanosil, objednané maso a pochutiny na pult, nechal vás udělat si fotografii a mezitím odnesl, mističky od salátku a přinesl mističky s misopolívkou."
+    "Zatím co jste jedli polívku, z výtahu vystoupilo asi šest lidí. Japonec se jim omluvil, že dneska mají už plno a odeslal je do jiné restaurace."
+    show Chef
+    Chef "You are lucky, we don´t have any reservation today, because my colleague's wife is give birth to child today. So I am here alone and I will close early."
+    hide Chef
+    show s kobe
+    s "Really? So Kanpai for the child!"
+    hide s kobe
+    $ renpy.movie_cutscene("images/bg_kobe.mp4")
+    "Kuchař zase odběhl s nadobím a vrací se zpět s rýží. A začne si připravovat grill."
+    "Varnou kovovou desku, zapuštěnou do pultu."
+    "Začne připravovat zeleninku a masíčko."
+    "Můžeš se následujících pár minut kochat a nebo pokračovat v příběhu."
+    "Po té co jste všechno snědli a dopili saké, jste se rozloučili poděkovali popřáli hezký večer a vyrazili do víru velkoměsta."
+    "Venku to mezitím ožilo, nějaká klučičí kapela tu měla konzert, a o kus dál hrála nějaká pouliční zpěvačka."
+    "Prošli jste se nočním Kóbe a vyrazili na metro."
+    "Tentokrát, jste si ohlídali, že Mimoň má lístek, a vystoupili jste společně na nejbližší zastávce k hotelu."
+    "U zastávky byl Lawsone, takže jste si v něm mohli koupit věci na snídani."
+    "Se snídaňkou v tažkách jste vyrazili na váš super-ultra přepichivý hotel. Na chodbě jste se rozloučili, sraz jste si dali ráno na osmou a zamířili jste každý do svého pokoje."
+    "Odlíčila ses, převlíkla do věcí na spaní. A asi v devět večer někdo klepe na dveře."
+    menu:
+        "Kdo to asi je?"
+        "Adrian":
+            if j.love_points.get(a.name, 0) > 4: 
+                "Je to Adrian."
+                show a kobe
+                a "Promiň, chtěl jsem se ujistit, že je vše v pořádku a poděkovat ti za včerejšek."
+                hide a kobe
+            else:
+                "Je to Sučan."
+                show s kobe
+                s "Přišel jsem se jen zeptat zda je všechno v pohodě."
+        "Dante":
+            if j.love_points.get(d.name, 0) > 4:
+                "Je to Dante."
+            elif j.love_points.get(d.name, 0) > 4 and d.onenight == True:
+                "Je to Dante, nenechá tě nic říct, protože se prosmíkne dveřmi, přitlačí tě ke zdi a začne tě líbat."
+            else:
+                "Je to Sučan."
+        "Sučan":
+            if j.love_points.get(s.name, 0) > 4:
+                "Je to Sučan."
+            else:
+                "Je to Mimoň."
+        "Mimoň":
+            if j.hate_points.get(m.name, 0) > 4:
+                "Je to Mimoň."
+            else:
+                "Naštěstí, je to Sučan."
+        "Je to jedno, stejně neotevřu.":
+            if j.love_points.get(d.name, 0) > 4 and d.onenight == True:
+                "Za chvíli slyšíš otevírání dvěří. Zaklaply a zaklapl zámek."
+                "Krve by se tě teď nedořezal pokud je to sériový vrah."
+
+            else:
+                "Za chvíli se ozve ještě jedno zaklepání a pak už je klid, takže můžeš jít spát."
+
     
+    return
+
+label kobe_dante_onenight:
+    "Zatímco tě dichtivě líbe, tak nahmatal konec tvého trička na spaní. A začíná ti ho vyhrnovat nahoru."
+    menu:
+        "Zachytit mu ruce":
+            show d kobe
+            d "To nezkoušej, byla si to ty, kdo mi dal tuhle nabídku."
+            hide d kobe
+            "Sykne jedovatě, zatímco ti zvládl evidentně nějakým chmatem obě ruce chytit, dát nad hlavu uzamknout v jendné ruce."
+            "Druhou rukou pokračuje ve vyhrnování trička. Zatímco od polibků normálních přechází do pusinkování tvého krku a šíje."
+            menu:
+                "Oddat se.":
+                    "Pevný stisk tvých rukou mírně povolí. Když se mu podaří tričko vyhrnout na úroveň tvých ramen."
+                "Začít křičet o pomoc.":
+                    j "Dante nech toho! Pomoc! Nech mě!"
+                    "Dante ti urychleně, zacpe rukou pusu, aby si nemohla křičet."
+                    show d kobe
+                    d "Co blbneš? Já myslel cituji: že si chceš tuhle dovolenou užít se vším všudy."
+                    hide d kobe
+                    "Pustí ti ruce a sundá ruku z tvých úst a vypadá velmi zmateně."
+                    j "Tak to jsme si nerozumněli, byla bych ráda kdyby si teď odešel."
+                    show d kobe
+                    d "Jo jasně, jak si přeješ. Promiň."
+                    hide d kobe
+                    $ j.add_hate_points_for_person(d.name, 5)
+                    "Sebere se, odemkne dveře a vypadne na chodbu. Zůstaneš na pokoji sama."
 
 
+        "Nechat ho":
+            "Během chvilky ti tričko vyhrnul k hlavě na chvilku tě přestal líbat a tričko mohl přetáhnout a zahodit."
+            "Pravou rukou ti šáhl za záda a podprsenka se bez odmlouvaní rozepla snad ještě dříve než se jí Dante stihl dotknout."
+            "Mezitím se stále líbáte a ty se mu snažíš rozepnout košili. Když se ti to podaří, zadeješ rukama, po jeho holé kůži a vypracovaných svalech až na záda."
+            "A i přes všechno to vzrušení jasně cítíš, že na zádech má velké množství jizev."
+            "Mezitím tě Dante začal líbat na šíjí, chytil tě rukama za boky a jednoduchým bohybem jako kdyby si byla pírko, si tě nadhodil do vyšky."
+            "Necháš se jím vést, takže si tě nasměroval, tak že máš nohy okolo jeho pasu, drží tě za zadek a rozešel se s tebou směr postel."
+            "Kam tě hodí,"
 
+
+    return
 
 
 

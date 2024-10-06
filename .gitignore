@@ -180,3 +180,5 @@ lint.txt
 saves/
 tmp/
 cache/
+
+*.mp4
