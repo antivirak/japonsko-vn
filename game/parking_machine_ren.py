@@ -6,7 +6,7 @@ from enum import Enum
 from typing import Optional
 
 import pygame
-from renpy import config
+from renpy import config, game
 from renpy.display.imagelike import Solid
 
 
@@ -176,13 +176,23 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
             '#ff8000', xsize=self.bar_width, ysize=50,
         )
         y_scale = .63
-        self.cur_y = renpy.game.preferences.physical_size[1] * y_scale - 20
-        self.bar_y = config.screen_height * y_scale - 43
+        self.bulgar_const = game.preferences.physical_size[0] / config.screen_width
+        print(self.bulgar_const)
+        self.screen_width_half = game.preferences.physical_size[0] // 2
+        if game.preferences.fullscreen:
+            self.cur_y = config.screen_height ** 2 / 1080 * y_scale - 20 * config.screen_height / 1080
+            self.bar_y = config.screen_height * y_scale - 43 * config.screen_height / 1080
+            init_pos = config.screen_width // 2
+            self.pos_min = int((init_pos - init_pos / 3) / 3 * 2)
+        else:
+            self.cur_y = game.preferences.physical_size[1] ** 2 / 807 * y_scale - 20 * game.preferences.physical_size[1] / 807
+            # config.screen_height * y_scale - 43
+            self.bar_y = game.preferences.physical_size[1] / 807 * 1080 * y_scale - 43 * game.preferences.physical_size[1] / 807
+            init_pos = game.preferences.physical_size[0] // 2
+            self.pos_min = self.screen_width_half - self.screen_width_half // 3
 
-        self.screen_width_half = renpy.game.preferences.physical_size[0] // 2
-        self.bulgar_const = renpy.game.preferences.physical_size[0] / config.screen_width
-        self.pos_min = self.screen_width_half - self.screen_width_half // 3
-        self.pos_x = self.screen_width_half
+        self.pos_x = init_pos
+        self.x = self.pos_x
         pygame.mouse.set_pos([self.pos_x, self.cur_y])
         # record all the drawables for self.visit
         self.drawables = [
@@ -240,7 +250,7 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
         # this could probably be managable by the pygame's collisions
         inside_hotspot = (
             self.bar_drawable.x_place
-            <= self.pos_x / self.bulgar_const
+            <= self.x
             <= self.bar_drawable.x_place + self.bar_drawable.xsize
         )
         seconds = st - self.start_time
@@ -257,10 +267,11 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
     def set_pointer_pos(self) -> None:
         pos_x = self.logic.mouse_pointer_position  # -1 to 1
         # scale to (-250 to 250) + pos_min
-        self.pos_x = int((pos_x + 1) * self.screen_width_half / 3) + self.pos_min
+        screen_width_half = config.screen_width // 2 if game.preferences.fullscreen else self.screen_width_half
+        self.pos_x = int((pos_x + 1) * screen_width_half / 3 + self.pos_min)
         pygame.mouse.set_pos([self.pos_x, self.cur_y])
 
-    def event(self, ev: pygame.event, _: float, __: float, st: float) -> Optional[bool]:
+    def event(self, ev: pygame.event, x: float, _: float, st: float) -> Optional[bool]:
         """
         Called to report than an event has occured. Ev is the raw
         pygame event object representing that event. If the event
@@ -278,6 +289,7 @@ class ParkingDisplayable(renpy.display.displayable.Displayable):
 
         if ev.type != pygame.MOUSEMOTION:
             return None
+        self.x = x
 
         self.logic.update_input(ev.rel[0])
         self.set_pointer_pos()
