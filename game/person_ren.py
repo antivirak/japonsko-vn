@@ -21,9 +21,7 @@ class Person(ADVCharacter):
         self.color = kwargs.get("color")
 
     def __eq__(self, other: object) -> bool:
-        if isinstance(other, Person):
-            return (self.__dict__ == other.__dict__)
-        return False
+        return (self.__dict__ == other.__dict__) if isinstance(other, Person) else False
 
     def add_love_points_for_person(self, person: Person, value: int | float) -> None:
         if person.name not in self.love_points:

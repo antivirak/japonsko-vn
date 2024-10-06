@@ -61,9 +61,7 @@ class RadioButtonGroupSpicy(RadioButtonGroup):
         spiciness = self.selected[0]
         if spiciness == 0:
             return .0
-        if spiciness == 1:
-            return .5
-        return float(spiciness - 1)
+        return .5 if spiciness == 1 else float(spiciness - 1)
 
     def set_hovered(self, option_id: int, val: bool) -> None:
         self.hovered[option_id] = val
