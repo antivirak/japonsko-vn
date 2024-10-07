@@ -372,8 +372,10 @@ label akt8:
                 call kobe_sucan_nolove
                 return
         "Dante":
-            if j.love_points.get(d.name, 0) > 4:
+            if j.love_points.get(d.name, 0) > 4 and d.duvera == True:
                 "Je to Dante."
+                call kobe_Dante_love
+                return
             elif j.love_points.get(d.name, 0) > 4 and d.onenight == True:
                 "Je to Dante, nenechá tě nic říct, protože se prosmíkne dveřmi, přitlačí tě ke zdi a začne tě líbat."
                 call kobe_dante_onenight
@@ -385,6 +387,8 @@ label akt8:
         "Sučan":
             if j.love_points.get(s.name, 0) > 4:
                 "Je to Sučan."
+                call kobe_sucan_love
+                return
             else:
                 "Je to Mimoň."
                 call kobe_mimon
@@ -402,6 +406,8 @@ label akt8:
             if j.love_points.get(d.name, 0) > 4 and d.onenight == True:
                 "Za chvíli slyšíš otevírání dvěří. Zaklaply a zaklapl zámek."
                 "Krve by se tě teď nedořezal pokud je to sériový vrah."
+                call kobe_dante_onenight
+                return
 
             else:
                 "Za chvíli se ozve ještě jedno zaklepání a pak už je klid, takže můžeš jít spát."
@@ -421,6 +427,14 @@ label kobe_dante_onenight:
             menu:
                 "Oddat se.":
                     "Pevný stisk tvých rukou mírně povolí. Když se mu podaří tričko vyhrnout na úroveň tvých ramen."
+                    "Poté ti tričko přetáhl přes hlavu a zahodil."
+                    "Pravou rukou ti šáhl za záda a podprsenka se bez odmlouvaní rozepla snad ještě dříve než se jí Dante stihl dotknout."
+                    "Mezitím se stále líbáte a ty se mu snažíš rozepnout košili. Když se ti to podaří, zadeješ rukama, po jeho holé kůži a vypracovaných svalech až na záda."
+                    "A i přes všechno to vzrušení jasně cítíš, že na zádech má velké množství jizev."
+                    "Mezitím tě Dante začal líbat na šíjí, chytil tě rukama za boky a jednoduchým bohybem jako kdyby si byla pírko, si tě nadhodil do vyšky."
+                    "Necháš se jím vést, takže si tě nasměroval, tak že máš nohy okolo jeho pasu, drží tě za zadek a rozešel se s tebou směr postel."
+                    "Kam tě hodí, ale na chvíli nemáš obavu, že by se ti s ním mohlo něco stát."
+                    "18+"
                 "Začít křičet o pomoc.":
                     j "Dante nech toho! Pomoc! Nech mě!"
                     "Dante ti urychleně, zacpe rukou pusu, aby si nemohla křičet."
@@ -443,7 +457,8 @@ label kobe_dante_onenight:
             "A i přes všechno to vzrušení jasně cítíš, že na zádech má velké množství jizev."
             "Mezitím tě Dante začal líbat na šíjí, chytil tě rukama za boky a jednoduchým bohybem jako kdyby si byla pírko, si tě nadhodil do vyšky."
             "Necháš se jím vést, takže si tě nasměroval, tak že máš nohy okolo jeho pasu, drží tě za zadek a rozešel se s tebou směr postel."
-            "Kam tě hodí,"
+            "Kam tě hodí, ale na chvíli nemáš obavu, že by se ti s ním mohlo něco stát."
+            "18+"
 
 
     return
@@ -572,12 +587,97 @@ label kobe_sucan_love:
     hide s kobe
     menu:
         "Necháš Sučana u sebe přespat?"
-        "Ano."
-        "Ne."
+        "Ano.":
+            j "Jo jasně, je tu manželská postel, to se v pohodě vyspíme oba."
+            show s kobe
+            s "Díky, ani nevíš jak jsem ti vděčný, jen těch pár hodin s ním na pokoji jsou hotový očistec."
+            s "Dojdu si tedy pro nějaké věci a vyčistit zuby a za chvíli jsem tady."
+            hide s kobe
+            j "Jasný."
+            "Ty si se po té co Sučan odešel také finálně připravíš do postele a za chvilinku se ozve klepání."
+            "Jdeš otevřít a ve dveřích stojí Sučan, tak ho pustíš dovnitř zavřeš dveře a zamkneš."
+            "Sučan s taškou zamíří do pokoje dá si mobil na nabíječku a oba si zalezete do postele."
+            "Je mezi vámi zakové zvlášní napětí a ani jeden nemluvíte."
+            "Po té co oba ležíte v posteli tak zhasneš."
+            s "To je ale klid. Jak ti chutnal wague steak"
+            j "Jo chutnal. Je to velký rozdíl od normálního hovězího."
+            s "Jo to souhlasím."
+            menu:
+                s "Hele, [j.name_5p], rozmyslela ses co ke mě vlastně cítíš?"
+                "Ráda jako bratra.":
+                    j "Stále jsi pro mě, jako brácha."
+                    s "Chápu, tak dobrou [j.name_5p]."
+                    "Pochopila jsi, že tímto váš rozhovor ukončil a jdete spát."
+                "Dát mu šanci.":
+                    j "Stále jsem trošku zmatená, ale myslím, že tě začínám vidět jako Sučana a ne brášku co mě vždycky zachrání."
+                    "S touhle větou se z boku přetočíš na záda, aby k němu obsah věty došel."
+                    "Obsah tvých slov k němu bezpochyby doputoval protože během chvílky nad tobou klečí, tak že kolena má v urovni tvých boků."
+                    "Instinktivně zvedneš obě ruce aby si ho mohla odstčit jako v době dětských válek."
+                    "Tvé ruce tak spočinou na Sučanově vypracované hrudi, a tvá snaha ho odstrčit, se zdá být lichou."
+                    "Po chvíli ti dá ruce na stranu skloní se k tobě a dlouze tě políbí."
+                    "Přestaneš se bránit a polibek mu opětuješ. Využiješ toho, že během polibku je svolnější."
+                    "Podaří se ti ho ze sebe shodit a prohodit si pozici. A políbíš ty jeho."
+                    "Po chvíli tě, ale Sučan chytne za rameno a jemně ale razantně tě odstrčí."
+                    j "Co se děje? Tobě se to nelíbí?"
+                    s "Líbí a moc, ale takhle to nechci. Chci mít jistotu, že se mnou chceš být, a ne že jsem pobláznění na jednu noc, nebo nějaký převozník po tvém ex."
+                    "Tohle se tě dotkne uraženě z něho sležeš, lehneš si na bok zády k němu a rozhodneš se usnout."
+        "Ne.":
+            j "Promiň to mi nepřijde jako vhodné."
+            show s kobe
+            s "Jo jasný, sem to jen zkoušel. Půjdu k sobě, dobrou noc [j.name_5p]."
+            hide s kobe
+            "Sučan se s tebou rozloučil a vyrazil do svého pokoje. Ty se také připravíš do postele a za pár minut spíš."
+    return
 
+label kobe_Dante_love:
+    show d kobe
+    d "Přišel jsem dokončit náš rozhovor, ohledně toho kdo jsem."
+    hide d kobe
+    j "Tak asi pojď dál?"
+    "Dante vstoupí do pokoje s černým kufříkem v ruce. Zavře za sebou dveře a zamkne."
+    "Zamíří do pokoje a na postel položí kufřík na číselném kódu navolí kombinaci a otevře zámek."
+    show d kobe
+    d "Přišlo mi, že mi věříš, tak ten kufřík otevři."
+    hide d kobe
+    "Dojdeš k posteli kde leží onen odemčený kufřík, otevřeš ho a ve vnitř je automatická pistole, se zásobníkem a tlumičem."
+    "Instinktivně, odskočíš."
+    j "To je jen atrapa, že?"
+    show d kobe
+    d "Jestli atrapou lze zastřelit několik desítek lidí, tak je to atrapa."
+    hide d kobe
+    j "Pár desítek...?"
+    "Opakuješ nevěřícně, možná z nadějí, že odpoví, že si špatně slyšela."
+    show d kobe
+    d "Fajn, takže teď už mi opravdu věříš. Rozhodni se jak s tím naložíš."
+    hide d kobe
+    "Dante zaklapne kufřík, zavře zatočí číselným zámkem a vyrazí směr dveře."
+    menu:
+        "Chceš ho zastavit?"
+        "Ano, takhle odejít nemůže.":
+            j "Dante, počkej, takhle odejít nemůžeš!"
+            "Dante se zastavil a smutně se na tebe otočí."
+            j "Já vím, že ses mi to snažil naznačit už několikrát, ale pochop, že je to pro mě stašně těžké."
+            show d kobe
+            d "No hlavně jsem vůl, teď riskuju tvůj život a ty se mě určitě ještě bojíš."
+            d "Tak teď aspoň rozumíš, proč pracuju sám a nenavazuju vztahy."
+            d "Další zklamání, dobrou noc [j.name_5p]!"
+            hide d kobe
+            "Otočí se na 'podpadku' a rozejde se rychle ke dveřím."
+            "Je ti jasné, že pokud něco neuděláš, tak tímto váš vztah/přátelství definitivně skončí."
+            j "Dante! Počkej!"
+            "Voláš zatímco se za ním rozeběhneš."
+            "Naštěstí odemykání zámku dveří ho zdrželo, takže ho doběhneš a zezadu obejmeš."
+            "Dante úplně ztuhne. když se k tobě otočí máš pocit, že se mu v očích zaleskly slzy."
+            j "Možná, to budu chvíli zpracovávat, ale vím, že pro mě si důležitý, tak nedělej blbosti."
+            j "A doufám, že i já jsem pro tebe důležitá, když si mi řekl pravdu."
+            show d kobe
+            d "Jsi pro mě důležítá, víc než bych si přál."
+            hide d kobe
+            "Během své věty se vymaní z tvého obětí a vyklouzne z pokoje."
+            "Když v zápětí otevřeš dveře na chodbu, tak tam Dante už není."
+            "Rozhodneš se, že si půjdeš lehnout."
+        "Ne, ať si jde vrah.":
+            "Odemkl dveře, ještě se na tebe smutně ohlídl a za sebou zabouchl."
+            "Sice trošku otřesená, dojdeš zamknout a jdeš spát."
 
-
-
-
-
-
+    return
