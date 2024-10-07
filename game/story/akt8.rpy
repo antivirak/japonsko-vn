@@ -363,32 +363,41 @@ label akt8:
     menu:
         "Kdo to asi je?"
         "Adrian":
-            if j.love_points.get(a.name, 0) > 4: 
+            if j.love_points.get(a.name, 0) > 6: 
                 "Je to Adrian."
-                show a kobe
-                a "Promiň, chtěl jsem se ujistit, že je vše v pořádku a poděkovat ti za včerejšek."
-                hide a kobe
+                call kobe_adrian_love
+                return
             else:
                 "Je to Sučan."
-                show s kobe
-                s "Přišel jsem se jen zeptat zda je všechno v pohodě."
+                call kobe_sucan_nolove
+                return
         "Dante":
             if j.love_points.get(d.name, 0) > 4:
                 "Je to Dante."
             elif j.love_points.get(d.name, 0) > 4 and d.onenight == True:
                 "Je to Dante, nenechá tě nic říct, protože se prosmíkne dveřmi, přitlačí tě ke zdi a začne tě líbat."
+                call kobe_dante_onenight
+                return
             else:
                 "Je to Sučan."
+                call kobe_sucan_nolove
+                return
         "Sučan":
             if j.love_points.get(s.name, 0) > 4:
                 "Je to Sučan."
             else:
                 "Je to Mimoň."
+                call kobe_mimon
+                return
         "Mimoň":
             if j.hate_points.get(m.name, 0) > 4:
                 "Je to Mimoň."
+                call kobe_mimon
+                return
             else:
                 "Naštěstí, je to Sučan."
+                call kobe_sucan_nolove
+                return
         "Je to jedno, stejně neotevřu.":
             if j.love_points.get(d.name, 0) > 4 and d.onenight == True:
                 "Za chvíli slyšíš otevírání dvěří. Zaklaply a zaklapl zámek."
@@ -438,7 +447,133 @@ label kobe_dante_onenight:
 
 
     return
+label kobe_sucan_nolove:
+    show s kobe
+    s "Jdu se jen zeptat, jestli je všechno v pořádku."
+    s "A domluvit se s tebou na to drift-taxi, už mi odepsali a budeme muset trošku překopat plány."
+    s "Mají volný termín jen o den dříve."
+    hide s kobe
+    j "Jo jasně, plán upravíme, nějakou vůli jsme si nechali, ne?"
+    show s kobe
+    s "Jo, nechali, jen se jdu s tebou poradit, než to půjdu probrat s ostatními."
+    s "Přeci jen mi na tvém názoru záleží."
+    s "Takže mám s tebou počítat na driftaxi?"
+    menu:
+        "Jo jasně, jsem pro každou špatnost.":
+            $ j.driftaxi == True
+            s "Super, bude to bomba!"
+        "Ne, tohle není pro mě.":
+            $ j.driftaxi == False
+            s "Jo jsný, nenutím tě. Nabídnu to klukům."
+    s "Takže domluveno, jdu to ještě prodiskutovat s klukama, ale uděláme delší přejezdy a vyjde nám o den více do Tokia."
+    hide s kobe
+    j "Jo den na víc v Tokiu na suvenýry asi všichni oceníme."
+    show s kobe
+    s "Jojo také jsem si říkal, že to bude lepší a na tom severu jsme stejně neměli moc míst, co chceme vidět."
+    s "Tak to je všechno, co jsem chtěl dobrou [j.name_5p]."
+    hide s kobe
+    "Rozloučí se Sučan a jde klepat na vedlejší dveře."
+    "Zavřeš za ním a připravíš se na spaní. Během pár minut spíš."
+    return
 
+label kobe_mimon:
+    show m mask angry
+    m "Přišel jsem ti jen oznámit, že nemám nic na sebe."
+    hide m mask angry
+    j "No dobře a čekáš, že udělám co?"
+    show m mask angry
+    m "Že mi vypereš."
+    hide m mask angry
+    j "Tady asi těžko a hotelová služba takhle v noci už také nebude přijímat objednavky."
+    j "Můžeš si to přeprat ručně a vyfénovat a nebo holt budeš mít nějaké tričko podruhé."
+    show m mask angry
+    m "No to je skvělý."
+    hide m mask angry
+    "Ještě něco mrmlá a odešel od tvých dveří směr svůj pokoj."
+    "S velkou úlevou zavíráš dveře. A jdeš si lehnout. Příšte snad budeš radši klepání ignorovat."
+    return
+label kobe_adrian_love:
+    show a kobe
+    a "Promiň, chtěl jsem se ujistit, že je vše v pořádku a poděkovat ti za včerejšek."
+    hide a kobe
+    j "Jo všechno je v pořádku, pojď dál dáš si čaj?"
+    show a kobe
+    a "Jo rád."
+    hide a kobe
+    "Dáš vařit vodu a zaliješ dva čaje."
+    menu:
+        "Cheš nabídnout Adrianovi přespání?"
+        "Ano.":
+            j "Nechceš přespat dneska tady? Je tu manželská postel a byla bych klidnější mít tě pod dohledem."
+            show a kobe
+            a "Ale mně je vážně dobře... počkej... cože? Jo vlastně mi není úplně nejlépe."
+            a "Ale je ti jasné jak si to vyloží Dante?"
+            hide a kobe
+            j "Já jsem si vědoma následků svých činů."
+            show a kobe
+            a "Myslíš to vážně?"
+            hide a kobe
+            j "Nejptej se pořád tak hloupě na všechno. Pozval si mě na rande ne?"
+            j "A nejsme malý, abychom chodili kolem horké kaše. Jestli o mě máš vážně zájem tak u sebe přespávat asi budeme."
+            show a kobe
+            a "Aha, tak to si musíme ujasnit jednu podstatnou věc."
+            menu:
+                a "Chceš se mnou chodit?"
+                "Ano.":
+                    a "Tak teď si přijdu jako kdyby si přijala žádost o ruku."
+                    a "Dobře dojdu si pro nějaké věci k Dantemu a vrátím se."
+                    hide a kobe
+                    "Za chvíli někdo zase klepe."
+                    "Otevřeš a ve dveřích stojí Adrian. Usmívá se od ucha k uchu."
+                    show a kobe
+                    a "Tak mě tu máš, [j.name_5p]"
+                    hide a kobe
+                    j "Tak pojď dál, co Dante?"
+                    show a kobe
+                    a "K tomu bych se nevyjadřoval. Nechci si kazit večer s tebou."
+                    hide a kobe
+                    "Pustíš ho dovnitř, zavře za sebou a zamkne zevnitř."
+                    "Položí tašku co si přinesl na pult u dveří, obmotá levou ruku kolem tvých zad. A dlouze tě políbí."
+                    "Ještě, že tě drží, protože ačkoliv příměrám z románů určitě nevěříš, přirovnání že se ti z polibku podlomili kolena není daleko od pravdy."
+                    "Byl to opravdu krásný, jemný, romatický a dlouhý polibek."
+                    "Poté se na tebe moc mile usměje vezme si věci z poličky a zamíří do pokoje."
+                    "Vybere si tu část postele kde nemáš věci."
+                    show a kobe
+                    a "Přijdu si dneska jak ve snu. Mám fotky s jelínky, ochutnal jsem wague-steak a holka mých snů souhlasila, že se mnou bude chodit."
+                    hide a kobe
+                    "Mluví o tobě tak hezky. Adrian je tak hodný kluk, udělala jsi dobře, že si se vztahem souhlasila."
+                    j "Tak se hlavně neštípej ať se neprobudíme."
+                    "Dojdeš si umýt hrnečky od čaje a vyčistit si zuby."
+                    "Adrian leží v posteli a čeká na tebe."
+                    "Zalezeš si teda na svou polovinu a lehneš si na bok."
+                    "Adrian se k tobě zezadu přitulí a odhrne ti vlasy z krku a políbí tě na šíjí."
+                    show a kobe
+                    a "Dobrou, [j.name_5p]."
+                    hide a kobe
+                    "Zhasne lampičku a do pár minut spíte."
+                "Ne.":
+                    a "Pak asi přespání není vhodné"
+                    hide a kobe
+                    "Adrian urychlině dopil čaj, umyl hrnek a bezeslova vypadl."
+                    "Takže jsi také dopila, umyla hrnek, vyčistila si zuby a hurá spát."
+        "Ne.":
+            "Chvíli jste si s Adrianem u čaje povídali."
+            "Když dopil umyl po sobě hrnek, popřál ti dobrou noc a šel spát a ty za chvíli také."
+    return
+label kobe_sucan_love:
+    show s kobe
+    s "Přišel jsem se zeptat, zda je všechno v pořádku."
+    s "Přišla jsi mi při večeři taková smutná, btw strašně ti to slušelo."
+    hide s kobe
+    j "Děkuji, ale přemýšlela jsem nad tím Mimoněm, že jsem si toho že ztratil ten lístek měla všimnout."
+    show s kobe
+    s "To si tak neber. Já tu po pravdě nejsem kvůli tomu, že by mě zajímalo jak se máš."
+    s "I když to mě samozřejmě také zajímá, ale že Mimoň pouští televizi na plný pecky a do toho si chrápe, tak mě napadlo zda bych nemohl najít azyl u tebe."
+    hide s kobe
+    menu:
+        "Necháš Sučana u sebe přespat?"
+        "Ano."
+        "Ne."
 
 
 
