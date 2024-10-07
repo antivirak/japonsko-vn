@@ -16,8 +16,8 @@ screen dictionary:
                     for key, value in dictionary.content.items():
                         hbox:
                             spacing 10
-                            label str(key) + ' - '
-                            label str(value)
+                            label str(key) xysize (200, None)
+                            label f'– {value}'
 
 
             textbutton "Close" action Hide("dictionary")
