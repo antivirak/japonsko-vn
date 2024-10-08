@@ -9,6 +9,42 @@ import pygame
 from renpy import config, game
 from renpy.display.imagelike import Solid
 
+"""
++-----------------------------+
+|  DynamicLogicSimple         |
++-----------------------------+
+| - bar_position: float       |
+| - pointer_position: float   |
+| - bar_interia_timer: float  |
+| - was_in_hotspot: bool      |
+| - tired_factor: float       |
+| - bar_speed: float          |
+| - winner: bool              |
++-----------------------------+
+| + update_input() -> None    |
+| + update_logic() -> bool    |
++-----------------------------+
+| + bar_width_scale() -> float|
+| + process_logic() -> bool   |
++-----------------------------+
+            |
+            +-----------------------------------------+---------------------------------+
+            |                                         |                                 |
++----------------------------+    +---------------------------------+    +-----------------------------+
+| DynamicLogicSimpleCont     |    | DynamicLogicNewton              |    | DynamicLogicMash            |
++----------------------------+    +---------------------------------+    +-----------------------------+
+| - bar_shift: float         |    | - bar_velocity: float           |    | - bar_velocity: float       |
++----------------------------+    | - bar_acceleration: float       |    | - bar_acceleration: float   |
+| + update_input() -> None   |    | - bar_mass: float               |    | - bar_mass: float           |
+| + update_logic() -> bool   |    | - distracting_force_curr: float |    +-----------------------------+
++----------------------------+    | - distracting_force_timer: float|    | + update_input() -> None    |
+                                  | - distracting_force: float      |    | + update_logic() -> bool    |
+                                  +---------------------------------+    +-----------------------------+
+                                  | + update_input() -> None        |
+                                  | + update_logic() -> bool        |
+                                  +---------------------------------+
+"""
+
 
 class GameDifficulty(Enum):
     EASY = .2
