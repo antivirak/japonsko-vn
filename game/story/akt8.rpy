@@ -350,11 +350,12 @@ label akt8:
     show s kobe
     s "Really? So Kanpai for the child!"  # TODO učili jsme ho děkuji a vyslovovat ř. Taky jsme se bavili o další cestě a doporučil nám loď-muzeum v Hirošimě
     hide s kobe
-    $ renpy.movie_cutscene("images/bg_kobe.mp4")
+    show kobe_movie
     "Kuchař zase odběhl s nádobím a vrací se zpět s rýží. A začne si připravovat grill."
     "Varnou kovovou desku, zapuštěnou do pultu s plynovým hořákem."
     "Začne připravovat zeleninku a masíčko."
-    "Můžeš se následujících pár minut kochat anebo pokračovat v příběhu."  # TODO not sure if it is possible
+    "Můžeš se následujících pár minut kochat anebo pokračovat v příběhu."
+    hide kobe_movie
     "Poté co jste všechno snědli a dopili saké, jste se rozloučili poděkovali popřáli hezký večer a vyrazili do víru velkoměsta."
     "Venku to mezitím ožilo, nějaká klučičí kapela tu měla koncert, a o kus dál hrála nějaká pouliční zpěvačka."
     "Prošli jste se nočním Kóbe a vyrazili na metro."

@@ -14,3 +14,5 @@ default Japonka = Person(name="Japonka", color="#fe03c8", gender="f")
 default Chef = Person(name="Šéfkuchař Kóbe", color="#fe03c8", gender="m")
 
 default dictionary = Dictionary()
+
+image kobe_movie = Movie(play="images/bg_kobe.webm", size=(1920, 1080), loop=False, xalign=.0, yalign=.0)
