@@ -66,6 +66,7 @@ label akt1:
         "V únoru už byla vaše parta domluvená po internetu a koupili jste si letenky s odletem v červenci."
     if j.gender == 'm':
         "Po Vánocích ti napsal tvůj kamarád z dětství, že shání někoho do party na cestu do Japonska."
+        "Jako správný otaku, by si Japonsko měl navštívit."
         "Ani nevíš, jak se to stalo, ale v únoru už jsi měl letenku s červencovým odletem."
     image black = "#000"
     scene black
@@ -93,7 +94,7 @@ label akt1:
         show h neutral at left
         "Tohle je Hana, zná se se Sučanem."
         "Je to studentka chemické školy, se zájmem o anime a Japonsko"
-        "Větší část cesty byla potichu."
+        "Během vašich schůzek byla většinou potichu."
         hide h neutral
     show m neutral at right
     "Tak tohle je Mimoň, vůbec netušíte, jak se stalo, že s vámi odletěl."
@@ -218,7 +219,6 @@ label vprostred:
             # 1 LP Adrian, 1 HP Mimoň
             $ j.add_love_points_for_person(a, 1)
             $ j.add_hate_points_for_person(m, 1)
-            show screen stats_overview
             "Přesunuli jste se do Tokia."
             jump tokio1
 

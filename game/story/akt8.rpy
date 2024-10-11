@@ -218,7 +218,7 @@ label akt8:
     "Vložila jsi lístek zase do turniketu, ten se otevřel, prošla jsi, ale lístek ti to už nevydalo."
     "Kluci poznamenali, že je to jako s lístkem na šinkanzen. Také si ho nemohli nechat."
     "Přidala ses k čekajícímu Dantemu, turniketem prošli i Adrian a Sučan."
-    "Mimoň, tam ale začne tak divně pochodovat a nakonec se rozběhl a snaží se turniketem proběhnout."
+    "Mimoň, tam ale začne tak divně pochodovat a nakonec se rozběhne a snaží se turniketem proběhnout."
     "Samozřejmě se před ním dost razantně zavře."
     show d kobe
     d "Co dělá?"
@@ -260,7 +260,7 @@ label akt8:
     m "Ne, na steak rozhodně půjdu. Nevidím důvod abych někam chodil sám."
     hide m mask angry
     show d kobe
-    d "No, možná by ti teda měli založit rodiče, aby si tu nežil na naše náklady."
+    d "No, možná by tě teda měli založit rodiče, aby si tu nežil na naše náklady."
     hide d kobe
     show m mask angry
     m "Vždyť já vám to všechno dám!"
@@ -273,56 +273,56 @@ label akt8:
     "Nakonec se Adrian, zeptá Japonky, která dělá reklamu na nějakou jinou restauraci."
     "A ta mu ukáže na výtah za ní. Teprve teď si všimnete, že u patra číslo 4 je napsaný název té restaurace."
     "Vlezete do výtahu a vyjedete nahoru. Objevíte se v místnosti, kde jsou dva pultíky, pár barových stoliček a jeden Japonec."
-    show Chef
+    show chef
     Chef "Konbanwa!"
-    hide Chef
+    hide chef
     show a kobe
     a "Konbanwa. Do you have a place for diner?"
     hide a kobe
-    show Chef
+    show chef
     Chef "Do you have reservation?"
-    hide Chef
+    hide chef
     show d kobe
     d "No we don't."
     hide d kobe
-    show Chef
+    show chef
     Chef "How many people?"
-    hide Chef
+    hide chef
     show d kobe
     d "Five."
-    show Chef
+    show chef
     Chef "Hmm, okay come in. And sit here."
-    hide Chef
+    hide chef
     show d kobe
     d "To bylo nějaké snadné."
     hide d kobe
     "Posadili jste se tedy k pultíku, kam vám kuchař naznačil."
     "Dostali jste meníčko z kterého si máte vybrat."
-    show Chef
+    show chef
     Chef "Do you want testing menu? Soup, rice and the meat of your choice?"
-    hide Chef
+    hide chef
     show d kobe
     d "That sounds great, and which meat do you recommend?"
     hide d kobe
-    show Chef
+    show chef
     Chef "Haha, it's obvious that this one, which is served only in restaurant with Kobe gold placket."
     Chef "But you can try this one, which is cheaper and make desicion which one is better."
     Chef "Of course I can distribute the meat euqally between you."
-    hide Chef
+    hide chef
     show d kobe
     d "Oh, that sounds good, give us a minute."
     d "Fajn, pojďme se domluvit, kolik si objednáme kterého masa. Dal bych to s tím ochutnávkovým menu."
     "Chvíli jste se dohadovali a nakonec rozhodnete, že 600 g dražšího a 300 g levnějšího. Plus si k tomu dáte ten set."
     "Nadiktujete to kuchaři a on na chvíli odběhne pryč. Vrátí se zpět s mokrými nahřátými ručníky."
-    show Chef
+    show chef
     Chef "Anything for drink?"
-    hide Chef
+    hide chef
     show d kobe
     d "Sake? It could be fine with meat, isn't it?"
     hide d kobe
-    show Chef
+    show chef
     Chef "Good taste, young man, whole bottle?"
-    hide Chef
+    hide chef
     show d kobe
     d "Of course, and a glass for everyone. Thanks."
     hide d kobe
@@ -338,15 +338,15 @@ label akt8:
     show d kobe
     d "Sumimasen, Sorry, can we get one orange juice, please?"
     hide d kobe
-    show Chef
+    show chef
     Chef "No problem, here it is."
-    hide Chef
+    hide chef
     "Šéfkuchař vám tedy rozdal pohárky a rozlil saké. Mimoňovi dal džus, všem vám přinesl malou mističku se salátem ze skleněných nudlí"
     "a poté nanosil objednané maso a pochutiny na pult. Nechal vás udělat si fotografii a mezitím odnesl mističky od salátku a přinesl mističky s miso polévkou."
     "Zatímco jste jedli polívku, z výtahu vystoupilo asi šest lidí. Japonec se jim omluvil, že dneska mají už plno a poslal je do jiné restaurace."
-    show Chef
+    show chef
     Chef "You are lucky, we don't have any reservation today, because my colleague's wife has given birth to a child today. So I am here alone and I will close early."
-    hide Chef
+    hide chef
     show s kobe
     s "Really? So Kanpai for the child!"  # TODO učili jsme ho děkuji a vyslovovat ř. Taky jsme se bavili o další cestě a doporučil nám loď-muzeum v Hirošimě
     hide s kobe
