@@ -66,7 +66,7 @@ label akt1:
         "V únoru už byla vaše parta domluvená po internetu a koupili jste si letenky s odletem v červenci."
     if j.gender == 'm':
         "Po Vánocích ti napsal tvůj kamarád z dětství, že shání někoho do party na cestu do Japonska."
-        "Jako správný otaku, by si Japonsko měl navštívit."
+        "Jako správný otaku bys Japonsko měl navštívit."
         "Ani nevíš, jak se to stalo, ale v únoru už jsi měl letenku s červencovým odletem."
     image black = "#000"
     scene black

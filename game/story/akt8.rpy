@@ -90,7 +90,7 @@ label akt8:
             "Podle vašich zvyklostí, má spolujezdec na starosti navigaci a hudbu."
             "Připojíš tedy mobil k autu a spustíš playlist, který jste si připravili před odjezdem."
         "Dozadu":
-            if j.hate_points.get(n.name, 0) > 3 and j.love_points.get(a.name, 0) < 4:
+            if j.hate_points.get(m.name, 0) > 3 and j.love_points.get(a.name, 0) < 4:
                 "Adrian si sedl za řidiče Mimoň do středu a na tebe zbylo místo za spolujezdcem."
                 "Dante si sedl k Sučanovi dopředu. Nastavuje navigaci a pustí playlist, který jste si připravili před odjezdem."
                 "Mimoň napresoval tyč z Fuji mezi vás, takže musíš sedět skrčená."
@@ -273,24 +273,25 @@ label akt8:
     "Nakonec se Adrian, zeptá Japonky, která dělá reklamu na nějakou jinou restauraci."
     "A ta mu ukáže na výtah za ní. Teprve teď si všimnete, že u patra číslo 4 je napsaný název té restaurace."
     "Vlezete do výtahu a vyjedete nahoru. Objevíte se v místnosti, kde jsou dva pultíky, pár barových stoliček a jeden Japonec."
-    show chef
+    show chef at right
     Chef "Konbanwa!"
     hide chef
     show a kobe
     a "Konbanwa. Do you have a place for diner?"
     hide a kobe
-    show chef
+    show chef at right
     Chef "Do you have reservation?"
     hide chef
     show d kobe
     d "No we don't."
     hide d kobe
-    show chef
+    show chef at right
     Chef "How many people?"
     hide chef
     show d kobe
     d "Five."
-    show chef
+    hide d kobe
+    show chef at right
     Chef "Hmm, okay come in. And sit here."
     hide chef
     show d kobe
@@ -298,13 +299,13 @@ label akt8:
     hide d kobe
     "Posadili jste se tedy k pultíku, kam vám kuchař naznačil."
     "Dostali jste meníčko z kterého si máte vybrat."
-    show chef
+    show chef at right
     Chef "Do you want testing menu? Soup, rice and the meat of your choice?"
     hide chef
     show d kobe
     d "That sounds great, and which meat do you recommend?"
     hide d kobe
-    show chef
+    show chef at right
     Chef "Haha, it's obvious that this one, which is served only in restaurant with Kobe gold placket."
     Chef "But you can try this one, which is cheaper and make desicion which one is better."
     Chef "Of course I can distribute the meat euqally between you."
@@ -314,13 +315,14 @@ label akt8:
     d "Fajn, pojďme se domluvit, kolik si objednáme kterého masa. Dal bych to s tím ochutnávkovým menu."
     "Chvíli jste se dohadovali a nakonec rozhodnete, že 600 g dražšího a 300 g levnějšího. Plus si k tomu dáte ten set."
     "Nadiktujete to kuchaři a on na chvíli odběhne pryč. Vrátí se zpět s mokrými nahřátými ručníky."
-    show chef
+    hide d kobe
+    show chef at right
     Chef "Anything for drink?"
     hide chef
     show d kobe
     d "Sake? It could be fine with meat, isn't it?"
     hide d kobe
-    show chef
+    show chef at right
     Chef "Good taste, young man, whole bottle?"
     hide chef
     show d kobe
@@ -338,13 +340,13 @@ label akt8:
     show d kobe
     d "Sumimasen, Sorry, can we get one orange juice, please?"
     hide d kobe
-    show chef
+    show chef at right
     Chef "No problem, here it is."
     hide chef
     "Šéfkuchař vám tedy rozdal pohárky a rozlil saké. Mimoňovi dal džus, všem vám přinesl malou mističku se salátem ze skleněných nudlí"
     "a poté nanosil objednané maso a pochutiny na pult. Nechal vás udělat si fotografii a mezitím odnesl mističky od salátku a přinesl mističky s miso polévkou."
     "Zatímco jste jedli polívku, z výtahu vystoupilo asi šest lidí. Japonec se jim omluvil, že dneska mají už plno a poslal je do jiné restaurace."
-    show chef
+    show chef at right
     Chef "You are lucky, we don't have any reservation today, because my colleague's wife has given birth to a child today. So I am here alone and I will close early."
     hide chef
     show s kobe
