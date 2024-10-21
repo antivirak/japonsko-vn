@@ -180,3 +180,7 @@ lint.txt
 saves/
 tmp/
 cache/
+
+*.mp4
+*.webm
+*.bak

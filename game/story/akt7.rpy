@@ -310,6 +310,7 @@ label Kjoto:
                 d "Rozhodně ne jméno a obličej. Uspokojila má odpověď tvoji dušičku?"
                 d "Ale kdo ví? Třeba se ti podaří přesvědčit mě, abych udělal výjimku."
                 hide d kjoto
+                $ d.onenight = True
                 $ j.add_love_points_for_person(d.name, 1)
             "Že máš nějaké morální standardy.":
                 show d kjoto

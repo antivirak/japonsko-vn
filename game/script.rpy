@@ -13,7 +13,7 @@ label start:
     call akt5
     call akt6
     call akt7
-
+    call akt8
 
 label titulky:
     image black = "#000"
@@ -21,8 +21,8 @@ label titulky:
     "Konec části, co máme hotovou, nebo se něco pokazilo :D"
     "Tvůrci hry Cerman Jaroslav, Lokajová Eliška a Sedláček Martin"
     "Na příběhu se taktéž podíleli Drahota Matěj a Suchan Tomáš"
-    "Hlavní konzultantka příběhu Tereza Petrová."
-    "Betatesteři Tomáš Suchan, Tereza Petrová a další."
+    "Hlavní konzultantka příběhu Tereza Koubová."
+    "Betatesteři Tomáš Suchan, Tereza Koubová a další."
     "Obrázky jsou originální fotografie z Japonska"
     "Postavy byly vygenerovány pomocí AI a následně upraveny"
     $ MainMenu(confirm=False)()

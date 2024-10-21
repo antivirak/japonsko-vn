@@ -653,7 +653,6 @@ label sucan_onsen_doleva:
     "A máš to jen tak tak, aby ses sbalila a přesunula se na recepci."
     "Získáváš jeden LP u Sučana."
     $ j.add_love_points_for_person(s, 1)
-    show screen stats_overview
     return
 
 label hracka_nolove:
@@ -673,7 +672,7 @@ label hracka_nolove:
                 "Vpravo":
                     "Vlezla si do pánské sekce!"
                     "Úchyláku!"
-                    "Hra zde končí."
+                    "Hra zde končí. Začni od začátku."
                     jump titulky
         "Ne":
             "Dojdeš si vyčistit zuby, převlíkneš se do pyžama a jdeš spát."

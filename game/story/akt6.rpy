@@ -440,7 +440,7 @@ label sinkanzen:
                 j "No dobře, už jdu."
                 scene bg sinkanzen
                 "Vstane s tvým telefonem v ruce a pustí tě před sebe do uličky. Přesunete se do chodbičky k záchodům a dveřím."
-                scene bg sinaknzen zatisi
+                scene bg sinkanzen zatisi
                 "Je zde výrazně více místa než v českých vlacích. A nikde nikdo."
                 "Dante se zastaví na kraji. Kouká na tebe a mlčí."
                 "Sevře se ti žaludek a cítíš jak se ti do tváří hrne krev. A jsi dost nervózní."
@@ -627,16 +627,23 @@ label kjoto_guest_house:
 
 label vecer_kjoto:
     "Klíče máte dvoje, takže jedny přenecháte Adrianovi s Mimoněm a vyrážíte na odpolední procházku po Kjótu."
+    show bg kjoto ulice
     "Ty, Sučan a Dante. Zamíříte do zahrad Nidžó hradu. Cesta vám zabere něco okolo půl hodinky."
+    show bg kjoto nidzho brana
     "Jako vše v Japonsku zahrady ale zavírají brzo – v šest hodin."
+    show bg kjoto nidzho park
     "Takže na prohlídku máte necelou hodinku."
     "Zahrady jsou krásné. Dokonce obsahují něco na styl vyhlídky."
+    show bg kjoto nidzho vyhlidka
     "Takže si je můžete prohlédnout i z vyvýšeného místa."
     "Ze zahrad vás vyžene rozhlas upozorňující na zavíračku."
+    show bg kjoto nidzho park2
     "Chvíli jste se ještě rozhlíželi v okolí zahrad, a pak jste se domluvili, že se přiblížíte k ubytování a dáte si někde večeři."
+    show bg kjoto ulice2
     "Asi 4 ulice od ubytování najdete podnik, který vás zaujme."
     "Napíšete Adrianovi a Mimoňovi, zda se nechtějí připojit."
     "Ozve se Mimoň, že přijde, a že Adrian spí."
+    show bg kjoto vecere
     "Asi po deseti minutách čekání Mimoň dorazil,"
     "takže jste zalezli do podniku. Číšník si vás změřil pohledem a hlavně přepočítal. A nechal vás posadit v chodbičce, v takové čekárně na jídlo."
     "Za chvíli se vrátil a bere vás někam dolů do suterénu."
