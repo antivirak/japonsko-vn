@@ -33,6 +33,7 @@ label akt8:
     show d kjoto
     d "A proč by to dělala? Pojďme snídat."
     hide d kjoto
+    scene bg kjoto hotel stul
     "Vyndali jste si tedy jídlo z ledničky a sedli jste si společně ke stolečku, který je typicky nízký musíte si sednout na takové minifutony."
     "Po snídani jste se pobalili, kufry jste naskládali ke dveřím a trošku po sobě poklidili. A vyrazili jste k autu."
     scene bg kjoto ulice
@@ -110,32 +111,41 @@ label akt8:
                 "Mimoň to zalomil, takže celou cestu spí."
     scene bg mapanara
     "Cesta do Nary je relativně krátká, takže po dvou hodinkách jízdy zastavujete na parkovišti."
-    scene bg nara_jelinci1
+    scene bg nara jelinci1
     "Po zaparkování jste všichni vystoupili z auta, park je jen přes silnici."
     "Jen jste přešli na území parku, už se k vám žene stádo jelínků."
     "V parku se nachází několik stanovišť, kde se dají koupit takové speciální oplatky, kterými je povoleno jelínky krmit."
+    scene bg nara jelinci2
     "Adrian neodolá a hned si balíček asi za 100 yenů koupí."
     "Ve chvíli, kdy zaplatí a udělá od stánku asi 10 kroků, rozeběhne se k němu asi deset jelínků."
     "Jeden jelínek je dokonce tak netrpělivý, že než Adrian rozdělá balíček oplatek, tak Adriana začne okusovat."
     "Adrian začne instinktivně couvat, takže jde Adrian a s ním tlupa jelínků."
     "Když rozdá poslední oplatku, tak Adriana přestanou pronásledovat, rozhlídnou se a běží za dalším potenciálním krmičem."
+    scene bg nara jelinci3
     "Uprostřed jedné části parčíku jsou stromy, které vrhají stín. A ve stínu spí asi 20 jelínků."
+    scene bg nara jelinci4
     "Přesunete se tedy tam a využijete toho, že všichni odpočívají, takže se nechají pohladit a dá se s nimi vyfotit."
     "Všude kolem jsou bobky, takže je nutné dávat pozor, kam šlápnete."
+    scene bg nara hrad
     "Focením fotek a selfie strávíte dobrou hodinu a až poté si jdete projít zbytek parku."
+    scene bg nara hrad2
     "Do chrámu se ale stojí fronta a rozhodnete se, že jste už chrámy viděli a před vámi je dlouhá cesta, takže jste chrám zkoukli jen zvenčí."
+    scene bg nara suvenyry
     "A po chvíli se již vracíte zpět. Kolem stánků se suvenýry."
+    scene bg nara parkoviste
     "Když přijdete do auta, sníte svačiny, které jste si s sebou nakoupili – toasty a káva."
     "Zjistíte, že už je po poledni, takže už nezbývá čas na Osaku, kterou jste chtěli taktéž dnes absolvovat."
     "Ale protože se nechcete svých plánů vzdát úplně, rozhodnete se, že alespoň projedete centrem města."
     "Do auta jste se naskládali ve stejném rozložení jako ráno a po zaplacení parkovného Sučan vyjíždí."
     "Adrian i Mimoň během pár minut usnou a i tebe jízda ukolíbá."
+    scene bg osaka trafic
     "Vzbudí tě až to, že v Osace popojíždíte v koloně, navigace stále hlásí ať odbočíte vpravo, ačkoliv na všech křižovatkách je zákaz odbočení vpravo."
     "Po chvíli pochopíte, že si navigace myslí, že se nacházíte na jiné silnici, protože silnice v Osace je tříúrovňová."
     "Vy jste na pozemní komunikaci, je nad vámi vede okruh Osakou a nad ním ještě dálnice."
     "Popojíždíte kolonou, Sučan musí být stále ve střehu, protože auta přejíždějí z pruhu do pruhu, sem tam někdo na poslední chvíli zastaví."
     "Do toho navigace hlásí kraviny, takže si nejste jistí, že jedete správně."
     "Asi po hodině a půl jste konečně projeli centrem a situace se se malinko uklidnila."
+    scene bg osaka parkoviste
     if j.driver:
         "Sučan po chvíli odbočí z hlavní a zastaví na takovém vyasfaltovaném plácku."
         show s kjoto
@@ -159,16 +169,20 @@ label akt8:
         "Kdyby mě měl kdo vystřídat, nebránil bych se. Naštěstí je to do Kóbe už jen kousek."
     scene bg mapakobe
     "Ani ne za hodinku už jste v Kóbe. Do Kóbe jste si naplánovali 4* hotel. Protože večer plánujete wagyu-steak."
+    scene bg kobe hotel venek
     "Takže i podle toho jste si zvolili hotel."
     "Hotel jste trefili na první dobrou a autem jste zajeli přímo ke vchodu."
     "Vysypali jste se z auta a už vás u dveří odchytil Japonec s vozíčkem, kam jste naskládali kufry."
     "Sučan dostal lísteček s tím kam má zaparkovat auto, takže s Dantem odjeli auto zaparkovat."
+    scene bg kobe hotel recepce
     "Ty, Adrian a Mimoň jste zatím šli čekat do hotelu."
     "Rozhodně ale do interiéru s nedostatečným dresscodem nezapadáte, hotel je plný businessmanů a dam v kostýmcích."
     "A vy na sobě máte normální oblečení, jste splavení z cesty a Mimoň má dokonce svou liščí masku."
     "Naštěstí za chvíli přichází Sučan s Dantem. Sučanovi jste dali své pasy a on zamířil s Adrianem na recepci."
     "Za chvíli mají vyřešeno a vás se ujme Japonka, která naznačuje, že vás odvede na pokoj a začala tlačit vozíček k výtahům."
+    scene bg kobe hotel chodba
     "Vyjeli jste do šestého patra, zde jste vystoupili a následovali japonku do chodby."
+    scene bg kobe hotel pokoj
     "U jednoho pokoje se zastavila, odemkla kartou a naznačila, že tam máte jít. Japonsky pak něco řekla, pravděpodobně k vybavení pokoje."
     "Pak otevřela další dva pokoje vedle a sundala zavazadla z vozíčku."
     "Poděkovali jste jí 'arigató', ona se usmála, uklonila se a s vozíčkem zamířila zpět k výtahům."
@@ -176,10 +190,12 @@ label akt8:
     "Adrian s Dantem pak zabrali další a Sučan si vytáhl krátkou sirku a dostal k sobě Mimoně."
     "Ještě, než jste se v pokojích zabouchli, tak jste se domluvili, že se sejdete za cca hodinku v 17:00 a vyrazíte do města na večeři."
     "A že se obléknete slušně, když jste v takovém honosném hotelu a jdete na tak drahé jídlo."
+    scene bg kobe hotel koupelna
     "Zalezeš tedy do pokoje, odložíš si pokojovou kartu na vstupní pultík, dáš si kufr do pokoje a vyndáš si věci na převlečení."
     "A přesuneš se do koupelny, je krásně prostorná, laděná do mramoru a zlata."
     "Užiješ si koupel ve vaně a umyješ si vlasy. Jako v ostatních hotelech v Japonsku koupelna obsahuje mýdla, šampón, kondicionér, koupací čepici, gumičky, hřeben, holítko, fén a mnoho dalšího."
     "Vlasy si vyfénuješ, učešeš se, nalíčíš a vezmeš si na sebe společenštější oblečení."
+    scene bg kobe hotel pokoj
     "Zkontroluješ zprávy a zjistíš, že kluci dohadují místo pro večeři. Podle všech recenzí na internetu je ale do všech restaurací nutná rezervace, minimálně den předem."
     "To tě trošku znervózní, ale tak při nejhorším se jen projdete a koupíte večeři v kombini."
     "Napíšeš domů, že jsi v pořádku a jak se máte."
@@ -189,6 +205,7 @@ label akt8:
     j "Rozmluv mu to, je to blbost."
     s "Pracuju na tom."
     "Zkoukneš ještě sociální sítě. A už je pomalu čas vyrazit."
+    scene bg kobe hotel chodba
     "Sbalíš si věci, doladíš účes a jdeš čekat na chodbu."
     "Všichni kluci tam už čekají a všichni jsou učesaní, navonění a velmi vkusně oblečení."
     "Jen teda Mimoň vypadá pořád stejně. Vyrazíte tedy směr výtah."
@@ -210,11 +227,14 @@ label akt8:
     else:
         "Nikdo z kluků si tě nějak extra nevšímá."
     "Výtahem sjedete dolů a vyrazíte směr metro, protože do centra to jsou asi 4 km."
+    scene bg kobe metro
     "Ke stanici to naštěstí je jen kousek, takže do čtvrt hodinky už kupujete lístek v automatu."
     "Podle mapy na zdi jste odvodili, za kolik lístek potřebujete. Do automatu jste nasypali drobné, odmáčkli příslušnou cenu, a z automatu vypadl malý papírek."
+    scene bg kobe metro2
     "Ten jsi pak vložila do příslušné díry v turniketu, na druhé straně ti lístek vyjel a turniket tě pustil."
     "Lístek sis tedy vzala a křečovitě jsi ho dalších šest stanic svírala, abys ho neztratila."
     "V cílové stanici jste všichni vystoupili a rovnou jste zamířili k východu."
+    scene bg kobe turnikety
     "Vložila jsi lístek zase do turniketu, ten se otevřel, prošla jsi, ale lístek ti to už nevydalo."
     "Kluci poznamenali, že je to jako s lístkem na šinkanzen. Také si ho nemohli nechat."
     "Přidala ses k čekajícímu Dantemu, turniketem prošli i Adrian a Sučan."
@@ -244,6 +264,7 @@ label akt8:
     hide s kobe
     "Adrian, ačkoliv evidentně nerad, došel k hlídací buňce a Japonci za přepážkou vysvětlil, že Mimoň ztratil lístek a že my jsme všichni v pořádku prošli."
     "Na Japonci bylo znát pohoršení z toho jak gaijini neumí jezdit metrem, ale Mimoně pustil."
+    scene bg kobe pred veceri
     $ j.add_hate_points_for_person(m, 2)
     "Sice se tato situace dala řešit daleko lépe a s menší ostudou, nakonec jste v centru Kóbe."
     show a kobe
@@ -272,6 +293,7 @@ label akt8:
     "Chvíli se rozhlížíte a nikde nevidíte restauraci s příslušným názvem."
     "Nakonec se Adrian, zeptá Japonky, která dělá reklamu na nějakou jinou restauraci."
     "A ta mu ukáže na výtah za ní. Teprve teď si všimnete, že u patra číslo 4 je napsaný název té restaurace."
+    scene bg kobe restaurace
     "Vlezete do výtahu a vyjedete nahoru. Objevíte se v místnosti, kde jsou dva pultíky, pár barových stoliček a jeden Japonec."
     show chef at right
     Chef "Konbanwa!"
@@ -359,11 +381,15 @@ label akt8:
     "Můžeš se následujících pár minut kochat anebo pokračovat v příběhu."
     hide kobe_movie
     "Poté co jste všechno snědli a dopili saké, jste se rozloučili poděkovali popřáli hezký večer a vyrazili do víru velkoměsta."
+    scene bg kobe vecer
     "Venku to mezitím ožilo, nějaká klučičí kapela tu měla koncert, a o kus dál hrála nějaká pouliční zpěvačka."
     "Prošli jste se nočním Kóbe a vyrazili na metro."
+    scene bg kobe metro2 at nighttime1, nighttime2
     "Tentokrát, jste si ohlídali, že Mimoň má lístek, a vystoupili jste společně na zastávce poblíž hotelu."
     "U zastávky byl Lawson, takže jste si v něm mohli koupit věci na snídani."
+    scene bg kobe hotel chodba
     "Se snídaňkou v taškách jste vyrazili na váš super-ultra přepychivý hotel. Na chodbě jste se rozloučili, sraz jste si dali ráno na osmou a zamířili jste každý do svého pokoje."
+    scene bg kobe hotel pokoj
     "Odlíčila ses a převlékla do věcí na spaní. Asi v devět večer někdo klepe na dveře."
     menu:
         "Kdo to asi je?"
