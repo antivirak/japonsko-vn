@@ -262,7 +262,7 @@ label Kjoto:
         "Protože Dantemu s Mimoněm malinko utečete, usoudíš, že vás nemůžou slyšet, a položíš Sučanovi otázku, která ti už nějakou dobou vrtá v hlavě."
         j "Hele, Sučane, můžu se tě na něco zeptat?"
         show s kjoto
-        s "Samozřejmě, [j.name5p], ty můžeš vždycky."
+        s "Samozřejmě, [j.name_5p], ty můžeš vždycky."
         hide s kjoto
         j "Co tak najednou? Vždyť se známe od mala, to sis uvědomil, že ke mně něco cítíš až teď?"
         show s kjoto
