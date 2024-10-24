@@ -61,6 +61,7 @@ label akt9:
     $ dictionary.add_item("samuraj", "Japonský rytíř. Cvičený v boji, ale i ve vystupování.")
     "nějaké povídání o pokladech, kimonech atd."
     $ dictionary.add_item("kimono", "Typické japonské oblečení, připomínající evropský župan.")
-    "Poté jste se zahradou přesunuli ještě k hradbám hradu, na rozdíl od evropských je to taková dřevěná řadovka."
+    "Poté jste se zahradou přesunuli ještě k hradbám hradu, na rozdíl od evropských je to takový dřevěný tunel."
+    "Okny do zahrad a malými kukátky z hradu."
 
     return
