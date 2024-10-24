@@ -7,6 +7,7 @@ label dvojluzak_hracka_Sucan2:
     menu:
         "Chceš jít do hotelového onsenu se Sučanem?"
         "Ano":
+            $ j.add_love_points_for_person(s, 1)
             call sucan_onsen
         "Ne":
             "Dojdeš si vyčistit zuby, převlékneš se do pyžama – trička a kraťásek."
@@ -264,7 +265,7 @@ label dvojluzak_hracka_Dante2:
             j "Jo."
             "Oba si vezmete baťůžky a vyrazíte na recepci."
             $ j.add_love_points_for_person(d, 1)
-            show screen stats_overview
+            
     return
 
 label dvojluzak_hracka_Adrian2:
@@ -462,7 +463,6 @@ label dante_onsen_doleva:
     j "Jo."
     "Oba si vezmete baťůžky a vyrazíte na recepci."
     $ j.add_love_points_for_person(d, 1)
-    show screen stats_overview
     return
 
 label adrian_onsen:

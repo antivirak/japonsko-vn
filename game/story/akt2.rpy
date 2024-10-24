@@ -53,6 +53,12 @@ label akt2:
     "Sice se mu tato informace nezamlouvá, ale po chvíli se mu podaří vás všechny usadit do kóje."
     "Obsluha za stěnou vytáhne roletku u vašich míst. Ty jí předáš svoje vyplněné meníčko a lísteček o zaplacení. Poděkují a zase stáhnou roletku."
     "A aby sis ukrátil['a' if j.gender == 'f' else ''] čekání na svůj rámen, tak si ho v minihře vytvoř."
+    image black = "#000"
+    scene black
+    "Na základě tvých voleb v meníčku se nakonfiguroval tvůj rámen."
+    "Tvým úkolem je si takový rámen vytvořit pomocí, chytání surovin do misky. Suroviny a jejich počet uvidíš vpravo."
+    "Pohybovat miskou můžeš pomocí šipek na klávesnici. Hru vyhraješ ve chvíli, kdy nasbíráš všechny potřebné suroviny."
+    "Ale pozor, pokud chytíš, něco co do tvého rámenu nepatří, hra končí. Japonci by nikdy zákazníkovi nedali něco co není 100\% ;)."
     # Minihra ramencatch
     $ ramencatch_target_amounts = IngredientsMapper.map_ingredients(ichiran_selection_result)
     call ramencatch_start

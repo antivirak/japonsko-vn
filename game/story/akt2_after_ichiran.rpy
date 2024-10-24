@@ -1,4 +1,5 @@
 label akt2_after_ichiran:
+    scene bg ichiran2
     "Poté, co jsi získal['a' if j.gender == 'f' else ''] svůj rámen, tak si jej rychle snědl['a' if j.gender == 'f' else ''],"
     "aby na tebe ostatní dlouho nečekali."
     "Vylezeš před Ichiran, kde už čekají Adrian, ['Dante' if j.gender == 'f' else 'Hana'] a Sučan. Mimoň je stále uvnitř."

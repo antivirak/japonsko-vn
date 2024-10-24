@@ -41,7 +41,7 @@ label akt1:
             $ j.gender = 'f'
         "Kluk":
             $ j.gender = 'm'
-    $ j.name = renpy.input("Jak se jmenuješ?").strip()
+    $ j.name = renpy.input("Jak se jmenuješ? (Napiš své jméno a stiskni enter)").strip()
     while (
         j.name.lower() in ["mimon", "sučan", "adrian", "dante", "hana", ""]
         or len(j.name.split(" ")) > 1  # noqa W503
@@ -156,9 +156,13 @@ label ridicka:
             "Vyjedete a samozřejmě, hned při prvním odbočovaní, pouštíš místo blinkrů stěrače."
             $ j.increment_gaijin_points(1)
             "Získáváš 1 GP"
-            show screen stats_overview
-            s "V klidu to se mi ze začátku také stávalo."
-            "Usměje se na tebe a položí ti ruku na stehno."
+            menu:
+                "Jak zareaguješ?"
+                "Nervózně se usměješ na Sučana.":
+                    s "V klidu to se mi ze začátku také stávalo."
+                    "Usměje se na tebe a položí ti ruku na stehno."
+                "Budeš se více věnovat řízení.":
+                    s "V klidu to se mi ze začátku také stávalo."
             s "Buď v klidu, je to automat a umí to pak spoustu věcí, to tě naučím, teď se soustřeď na rychlost..."
             s "...je tu nižší, než v Evropě."
             "Ještě párkrát se ti místo blinkrů podaří pustit stěrače, a někdy nebezpečně blízko vezmeš kraj cesty,"
@@ -216,7 +220,6 @@ label vprostred:
             "Sklopíš zrak a vytáhneš sluchátka a mobil."
             "Zbytek cesty se nic neděje a rychle uteče."
             "Získáváš LP u Adriana a jeden HP za Mimoně."
-            # 1 LP Adrian, 1 HP Mimoň
             $ j.add_love_points_for_person(a, 1)
             $ j.add_hate_points_for_person(m, 1)
             "Přesunuli jste se do Tokia."
@@ -253,7 +256,6 @@ label Adrianvaute:
             "Chytí tě jemně za rameno a stáhne tě na sebe. Ucítíš jemné mravenčení v břiše. Usměje se na tebe"
             a "Děkuji."
             "Získáváš dva LP u Adriana. Cesta najednou rychle uteče."
-            # 2 LP Adrian
             $ j.add_love_points_for_person(a, 2)
             jump tokio1
 
